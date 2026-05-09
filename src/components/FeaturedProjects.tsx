@@ -22,11 +22,11 @@ const featuredProjects = [
 
 export function FeaturedProjects() {
   return (
-    <section id="lab" className="py-20 px-6">
-      <div className="container mx-auto max-w-7xl">
-        <div className="text-center mb-16">
-          <span className="text-purple-400 text-lg font-medium">Featured Project</span>
-          <h2 className="text-4xl lg:text-5xl font-bold text-white mt-2">
+    <section id="lab" className="py-12 px-6">
+      <div className="container mx-auto max-w-5xl">
+        <div className="text-center mb-10">
+          <span className="text-primary text-sm font-medium uppercase tracking-wider">Featured Project</span>
+          <h2 className="text-3xl lg:text-4xl font-bold text-foreground mt-2">
             Project <span className="gradient-text">Pilihan</span>
           </h2>
         </div>
@@ -35,55 +35,54 @@ export function FeaturedProjects() {
           const isEven = index % 2 === 1;
 
           return (
-            <div key={project.id} className="mb-20 last:mb-0">
-              <div className={`relative grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-12 items-center ${
+            <div key={project.id} className="mb-12 last:mb-0">
+              <div className={`featured-item grid grid-cols-1 lg:grid-cols-2 gap-6 lg:gap-8 items-start ${
                 isEven ? "lg:grid-flow-dense" : ""
               }`}>
+                {/* Image Content */}
+                <div className={`order-1 ${isEven ? "lg:col-start-2" : ""}`}>
+                  <div className="featured-project-image rounded-2xl overflow-hidden">
+                    <div className="featured-project-placeholder">{project.title.charAt(0)}</div>
+                    <div className="absolute top-3 right-3 flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-gradient-to-r from-primary to-indigo-500 text-white text-xs font-semibold shadow-lg">
+                      <Star className="w-3 h-3" />
+                      Featured
+                    </div>
+                  </div>
+                </div>
+
                 {/* Text Content */}
-                <div className={`${isEven ? "lg:col-start-2" : ""}`}>
-                  <span className="text-purple-400 text-lg font-medium">Featured Project</span>
-                  <h3 className="text-3xl lg:text-4xl font-bold text-white mt-2 mb-6">
+                <div className={`order-2 ${isEven ? "lg:col-start-1 lg:row-start-1" : ""}`}>
+                  <span className="text-primary text-xs font-medium uppercase tracking-wider">Featured Project</span>
+                  <h3 className="text-xl lg:text-2xl font-bold text-foreground mt-1">
                     {project.title}
                   </h3>
 
-                  {/* Description Card */}
-                  <div className={`featured-description-card ${isEven ? "lg:mr-[-15%]" : "lg:ml-[-15%]"}`}>
-                    <p className="text-white/90 text-base lg:text-lg leading-relaxed">
-                      {project.description}
-                    </p>
-                  </div>
+                  {/* Description */}
+                  <p className="mt-4 text-sm text-foreground/70 leading-relaxed">
+                    {project.description}
+                  </p>
 
                   {/* Tech Tags */}
-                  <div className="flex flex-wrap gap-2 mt-8">
-                    {project.tech.map((t) => (
+                  <div className="flex flex-wrap gap-2 mt-4">
+                    {project.tech.slice(0, 4).map((t) => (
                       <span key={t} className="tech-tag">{t}</span>
                     ))}
+                    {project.tech.length > 4 && (
+                      <span className="tech-tag text-foreground/50">+{project.tech.length - 4}</span>
+                    )}
                   </div>
 
                   {/* CTA */}
-                  <div className="flex flex-wrap gap-4 mt-8">
+                  <div className="mt-5">
                     <Link
                       href={`https://wa.me/6282375227802?text=${encodeURIComponent(project.contactMessage)}`}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="btn-primary"
+                      className="btn-primary text-sm"
                     >
                       Hubungi via WhatsApp
                       <ArrowRight className="w-4 h-4" />
                     </Link>
-                  </div>
-                </div>
-
-                {/* Image Content */}
-                <div className={`${isEven ? "lg:col-start-1 lg:row-start-1" : ""}`}>
-                  <div className="relative aspect-[4/3] rounded-2xl overflow-hidden">
-                    <div className="featured-project-image">
-                      <div className="featured-project-placeholder">{project.title.charAt(0)}</div>
-                      <div className="absolute top-4 right-4 flex items-center gap-2 px-4 py-2 rounded-full bg-gradient-to-r from-purple-500 to-indigo-500 text-white text-sm font-semibold shadow-lg">
-                        <Star className="w-4 h-4" />
-                        Featured
-                      </div>
-                    </div>
                   </div>
                 </div>
               </div>

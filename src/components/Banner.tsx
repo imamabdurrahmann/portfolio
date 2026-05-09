@@ -44,52 +44,52 @@ export function Banner() {
       <div className="hero-glow" />
       <div className="hero-glow-2" />
 
-      <div className="container mx-auto max-w-6xl relative z-10">
+      <div className="container mx-auto max-w-5xl relative z-10">
         <div className="text-center">
           {/* Badge */}
-          <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full glass mb-8">
+          <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full glass mb-6">
             <span className="w-2 h-2 bg-green-400 rounded-full animate-pulse" />
-            <span className="text-sm font-medium text-white/80">Available for Projects</span>
+            <span className="text-sm font-medium text-foreground/80">Available for Projects</span>
           </div>
 
           {/* Heading */}
-          <h1 className="text-4xl md:text-5xl lg:text-7xl font-bold leading-tight text-white">
+          <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold leading-tight text-foreground">
             Flutter Developer<br />
             yang Menghadirkan<br />
             <span className="gradient-text">Solusi Digital</span>
           </h1>
 
           {/* Typing Role */}
-          <div className="mt-8 text-2xl md:text-3xl font-semibold text-white">
+          <div className="mt-6 text-xl md:text-2xl font-semibold text-foreground/90">
             I&apos;m a {displayedText}
-            <span className="typing-cursor text-purple-400">|</span>
+            <span className="typing-cursor text-primary">|</span>
           </div>
 
           {/* Description */}
-          <p className="mt-6 text-lg text-white/70 max-w-2xl mx-auto leading-relaxed">
+          <p className="mt-4 text-base text-foreground/70 max-w-xl mx-auto leading-relaxed">
             Membangun aplikasi mobile yang tidak hanya berfungsi dengan baik,
             tapi juga memberikan pengalaman yang berkesan bagi setiap pengguna.
           </p>
 
           {/* Stats */}
-          <div className="flex flex-wrap justify-center gap-8 md:gap-16 mt-12">
+          <div className="flex flex-wrap justify-center gap-6 md:gap-12 mt-8">
             {[
               { num: "3+", label: "Project", icon: <Star className="w-4 h-4" /> },
               { num: "100%", label: "Dedikasi", icon: <Heart className="w-4 h-4" /> },
               { num: "5+", label: "Tech Stack", icon: <TrendingUp className="w-4 h-4" /> },
             ].map((stat) => (
               <div key={stat.label} className="flex flex-col items-center">
-                <div className="flex items-center gap-1 text-4xl md:text-5xl font-bold gradient-text">
+                <div className="flex items-center gap-1 text-3xl md:text-4xl font-bold gradient-text">
                   {stat.num}
                   {stat.icon}
                 </div>
-                <span className="text-sm text-white/60 mt-1">{stat.label}</span>
+                <span className="text-xs text-foreground/60 mt-1">{stat.label}</span>
               </div>
             ))}
           </div>
 
           {/* CTA */}
-          <div className="flex flex-wrap justify-center gap-4 mt-12">
+          <div className="flex flex-wrap justify-center gap-3 mt-8">
             <Link href="/projects" className="btn-primary">
               Lihat Project
               <ArrowRight className="w-4 h-4" />

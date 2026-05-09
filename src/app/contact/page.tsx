@@ -46,34 +46,34 @@ export default function ContactPage() {
   return (
     <div className="min-h-screen pt-20">
       {/* Hero */}
-      <section className="py-20 px-6">
-        <div className="container mx-auto max-w-6xl">
-          <div className="text-center mb-16">
-            <span className="text-purple-400 text-sm font-medium uppercase tracking-wider">Get In Touch</span>
-            <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-white mt-4">
+      <section className="py-12 px-6">
+        <div className="container mx-auto max-w-5xl">
+          <div className="text-center mb-10">
+            <span className="text-primary text-xs font-medium uppercase tracking-wider">Get In Touch</span>
+            <h1 className="text-3xl md:text-4xl font-bold text-foreground mt-3">
               Hubungi <span className="gradient-text">Saya</span>
             </h1>
-            <p className="mt-4 text-lg text-white/60 max-w-2xl mx-auto leading-relaxed">
+            <p className="mt-3 text-sm text-foreground/60 max-w-xl mx-auto leading-relaxed">
               Punya project menarik atau ingin berdiskusi? Jangan ragu untuk menghubungi saya.
               Saya biasanya merespons dalam 1x24 jam.
             </p>
           </div>
 
-          <div className="grid lg:grid-cols-2 gap-12">
+          <div className="grid lg:grid-cols-2 gap-6">
             {/* Left - Contact Info */}
-            <div className="space-y-6">
-              <div className="glass-card p-6">
-                <div className="space-y-5">
+            <div className="space-y-4">
+              <div className="glass-card p-5">
+                <div className="space-y-4">
                   {contactItems.map((item) => (
                     <div key={item.title} className="flex items-center gap-4">
-                      <div className="w-12 h-12 rounded-xl bg-purple-500/10 flex items-center justify-center text-purple-400">
+                      <div className="w-11 h-11 rounded-xl bg-primary/10 flex items-center justify-center text-primary">
                         {item.icon}
                       </div>
                       <div className="flex-1">
                         <div className="flex items-center gap-2">
-                          <h3 className="font-medium text-white">{item.title}</h3>
+                          <h3 className="font-medium text-foreground text-sm">{item.title}</h3>
                           {item.badge && (
-                            <span className="text-xs px-2 py-0.5 rounded-full bg-green-500/20 text-green-400 font-medium">
+                            <span className="text-xs px-2 py-0.5 rounded-full bg-green-500/20 text-green-600 font-medium">
                               {item.badge}
                             </span>
                           )}
@@ -83,12 +83,12 @@ export default function ContactPage() {
                             href={item.href}
                             target={item.href.startsWith("http") ? "_blank" : undefined}
                             rel={item.href.startsWith("http") ? "noopener noreferrer" : undefined}
-                            className="text-white/60 text-sm hover:text-purple-400 transition-colors"
+                            className="text-foreground/60 text-xs hover:text-primary transition-colors"
                           >
                             {item.value}
                           </a>
                         ) : (
-                          <p className="text-white/60 text-sm">{item.value}</p>
+                          <p className="text-foreground/60 text-xs">{item.value}</p>
                         )}
                       </div>
                     </div>
@@ -97,15 +97,15 @@ export default function ContactPage() {
               </div>
 
               {/* Services */}
-              <div className="glass-card p-6">
-                <div className="flex items-center gap-2 mb-4">
-                  <Send className="h-5 w-5 text-purple-400" />
-                  <h3 className="font-semibold text-white">Layanan yang Ditawarkan</h3>
+              <div className="glass-card p-5">
+                <div className="flex items-center gap-2 mb-3">
+                  <Send className="h-4 w-4 text-primary" />
+                  <h3 className="font-semibold text-foreground text-sm">Layanan yang Ditawarkan</h3>
                 </div>
-                <ul className="space-y-3">
+                <ul className="space-y-2">
                   {services.map((service) => (
-                    <li key={service} className="flex items-center text-white/70 text-sm">
-                      <span className="w-1.5 h-1.5 bg-purple-500 rounded-full mr-3" />
+                    <li key={service} className="flex items-center text-foreground/60 text-xs">
+                      <span className="w-1.5 h-1.5 bg-primary rounded-full mr-2" />
                       {service}
                     </li>
                   ))}
@@ -113,41 +113,40 @@ export default function ContactPage() {
               </div>
 
               {/* Quick Response Note */}
-              <div className="p-5 rounded-xl bg-gradient-to-br from-purple-500/10 to-indigo-500/5 border border-purple-500/20">
-                <h3 className="font-semibold text-white mb-2">Respons Cepat</h3>
-                <p className="text-sm text-white/70 leading-relaxed">
-                  Saya biasanya merespons dalam waktu 1x24 jam. Untuk pertanyaan urgent,
-                  silakan hubungi via WhatsApp untuk respons yang lebih cepat.
+              <div className="p-4 rounded-xl bg-gradient-to-br from-primary/10 to-primary/5 border border-primary/20">
+                <h3 className="font-semibold text-foreground text-sm mb-1">Respons Cepat</h3>
+                <p className="text-xs text-foreground/60 leading-relaxed">
+                  Biasanya merespons 1x24 jam. Untuk urgent, hubungi via WhatsApp.
                 </p>
               </div>
             </div>
 
             {/* Right - Contact Form */}
-            <div className="glass-card p-8">
-              <h3 className="text-xl font-semibold text-white mb-6">Kirim Pesan</h3>
-              <form className="space-y-5">
+            <div className="glass-card p-6">
+              <h3 className="text-lg font-semibold text-foreground mb-5">Kirim Pesan</h3>
+              <form className="space-y-4">
                 <div>
-                  <label className="block text-sm font-medium text-white/80 mb-2">Nama</label>
+                  <label className="block text-xs font-medium text-foreground/80 mb-1.5">Nama</label>
                   <input
                     type="text"
                     placeholder="Nama lengkap Anda"
-                    className="w-full px-4 py-3 rounded-xl bg-white/5 border border-white/10 text-white placeholder-white/40 focus:outline-none focus:border-purple-500 transition-colors"
+                    className="w-full px-4 py-3 rounded-xl bg-background border border-border text-foreground text-sm placeholder-foreground/40 focus:outline-none focus:border-primary transition-colors"
                   />
                 </div>
                 <div>
-                  <label className="block text-sm font-medium text-white/80 mb-2">Email</label>
+                  <label className="block text-xs font-medium text-foreground/80 mb-1.5">Email</label>
                   <input
                     type="email"
                     placeholder="email@example.com"
-                    className="w-full px-4 py-3 rounded-xl bg-white/5 border border-white/10 text-white placeholder-white/40 focus:outline-none focus:border-purple-500 transition-colors"
+                    className="w-full px-4 py-3 rounded-xl bg-background border border-border text-foreground text-sm placeholder-foreground/40 focus:outline-none focus:border-primary transition-colors"
                   />
                 </div>
                 <div>
-                  <label className="block text-sm font-medium text-white/80 mb-2">Pesan</label>
+                  <label className="block text-xs font-medium text-foreground/80 mb-1.5">Pesan</label>
                   <textarea
-                    rows={5}
+                    rows={4}
                     placeholder="Tulis pesan Anda di sini..."
-                    className="w-full px-4 py-3 rounded-xl bg-white/5 border border-white/10 text-white placeholder-white/40 focus:outline-none focus:border-purple-500 transition-colors resize-none"
+                    className="w-full px-4 py-3 rounded-xl bg-background border border-border text-foreground text-sm placeholder-foreground/40 focus:outline-none focus:border-primary transition-colors resize-none"
                   />
                 </div>
                 <button
