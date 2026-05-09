@@ -5,23 +5,26 @@ const projects = [
   {
     id: "1",
     title: "Catatan Keuangan (DompetKu)",
-    description: "Aplikasi pencatatan keuangan personal dengan fitur lengkap: track income, expense, savings, debts, charts interaktif, PDF export, biometric auth, dan home screen widget. Dibangun dengan Clean Architecture untuk kode yang maintainable.",
-    tech: ["Flutter", "Riverpod", "SQLite", "fl_chart", "PDF", "Biometric Auth", "GoRouter"],
+    description: "Aplikasi pencatatan keuangan personal dengan fitur lengkap: track income, expense, savings, debts, charts interaktif, PDF export, biometric auth, dan home screen widget.",
+    tech: ["Flutter", "Riverpod", "SQLite", "fl_chart", "PDF", "Biometric Auth"],
     featured: true,
+    contactMessage: "Halo Imam, saya tertarik dengan project DompetKu - Catatan Keuangan",
   },
   {
     id: "2",
     title: "Grammar Master",
-    description: "Offline English Grammar Learning App dengan fitur: interactive lessons, quizzes interaktif, text-to-speech untuk pronunciation, dan progress tracking. Cocok untuk belajar grammar bahasa Inggris secara mandiri.",
-    tech: ["Flutter", "Provider", "TTS", "Shared Preferences", "Google Fonts"],
+    description: "Offline English Grammar Learning App dengan fitur: interactive lessons, quizzes interaktif, dan text-to-speech untuk pronunciation.",
+    tech: ["Flutter", "Provider", "TTS", "Shared Preferences"],
     featured: true,
+    contactMessage: "Halo Imam, saya tertarik dengan project Grammar Master",
   },
   {
     id: "3",
     title: "Try Outcpns",
-    description: "Aplikasi Try Outcpns dengan Clean Architecture. Fitur lengkap untuk latihan soal cpns dengan progress tracking, timer, dan analytics. Desain modern dan mudah digunakan.",
-    tech: ["Flutter", "Riverpod", "Hive", "Clean Architecture", "GoRouter", "Dio"],
+    description: "Aplikasi Try Outcpns dengan Clean Architecture. Fitur lengkap untuk latihan soal cpns dengan progress tracking dan analytics.",
+    tech: ["Flutter", "Riverpod", "Hive", "Clean Architecture", "GoRouter"],
     featured: false,
+    contactMessage: "Halo Imam, saya tertarik dengan project Try Outcpns",
   },
 ];
 
@@ -50,8 +53,8 @@ export default function ProjectsPage() {
         <div className="container mx-auto px-4">
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
             {projects.map((project) => (
-              <div key={project.id} className="project-card-new group">
-                <div className="project-image-new">
+              <div key={project.id} className="project-card-new group flex flex-col">
+                <div className="project-image-new cursor-pointer">
                   <div className="project-gradient" />
                   <span className="project-initial-new">{project.title.charAt(0)}</span>
                   {project.featured && (
@@ -61,11 +64,11 @@ export default function ProjectsPage() {
                     </div>
                   )}
                 </div>
-                <div className="project-content-new">
+                <div className="project-content-new flex-1 flex flex-col">
                   <h3 className="text-xl font-bold group-hover:text-primary transition-colors">
                     {project.title}
                   </h3>
-                  <p className="mt-3 text-sm text-muted-foreground leading-relaxed">
+                  <p className="mt-3 text-sm text-muted-foreground leading-relaxed flex-1">
                     {project.description}
                   </p>
                   <div className="flex flex-wrap gap-2 mt-4">
@@ -79,10 +82,19 @@ export default function ProjectsPage() {
                     )}
                   </div>
                   <div className="flex items-center gap-3 mt-5 pt-4 border-t border-border">
-                    <button className="btn-outline-sm">
+                    <Link
+                      href={`https://wa.me/6282375227802?text=${encodeURIComponent(project.contactMessage)}`}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="btn-outline-sm"
+                    >
                       <ExternalLink className="w-4 h-4" />
-                      Detail
-                    </button>
+                      Hubungi
+                    </Link>
+                    <Link href="/contact" className="btn-primary-sm">
+                      Tanya Detail
+                      <ArrowRight className="w-4 h-4" />
+                    </Link>
                   </div>
                 </div>
               </div>
