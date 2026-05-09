@@ -11,12 +11,12 @@ const featuredProjects = [
     contactMessage: "Halo Imam, saya tertarik dengan project DompetKu - Catatan Keuangan",
   },
   {
-    id: "2",
-    title: "Grammar Master",
-    description: "Offline English Grammar Learning App dengan fitur: interactive lessons, quizzes interaktif, dan text-to-speech untuk pronunciation.",
-    tech: ["Flutter", "Provider", "TTS", "Shared Preferences"],
-    featured: true,
-    contactMessage: "Halo Imam, saya tertarik dengan project Grammar Master",
+    id: "3",
+    title: "Try Outcpns",
+    description: "Aplikasi Try Outcpns dengan Clean Architecture. Fitur lengkap untuk latihan soal cpns dengan progress tracking dan analytics.",
+    tech: ["Flutter", "Riverpod", "Hive", "Clean Architecture", "GoRouter"],
+    featured: false,
+    contactMessage: "Halo Imam, saya tertarik dengan project Try Outcpns",
   },
 ];
 
