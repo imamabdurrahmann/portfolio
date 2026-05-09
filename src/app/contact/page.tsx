@@ -1,5 +1,5 @@
 import { Metadata } from "next";
-import { Mail, MapPin, Clock } from "lucide-react";
+import { Mail, MapPin, Clock, Phone } from "lucide-react";
 import { ContactForm } from "@/components/ContactForm";
 import { Card, CardContent } from "@/components/ui/card";
 
@@ -7,6 +7,9 @@ export const metadata: Metadata = {
   title: "Contact | Flutter Developer Portfolio",
   description: "Hubungi saya untuk project freelance atau kolaborasi",
 };
+
+const whatsappNumber = "6282375227802";
+const email = "muhammadimamabdurrahman93@gmail.com";
 
 export default function ContactPage() {
   return (
@@ -32,7 +35,32 @@ export default function ContactPage() {
                     </div>
                     <div>
                       <h3 className="font-medium">Email</h3>
-                      <p className="text-muted-foreground">email@example.com</p>
+                      <a
+                        href={`mailto:${email}`}
+                        className="text-muted-foreground hover:text-primary transition-colors"
+                      >
+                        {email}
+                      </a>
+                    </div>
+                  </div>
+
+                  <div className="flex items-start gap-4">
+                    <div className="p-2 bg-green-100 rounded-lg">
+                      <Phone className="h-5 w-5 text-green-600" />
+                    </div>
+                    <div>
+                      <h3 className="font-medium">WhatsApp</h3>
+                      <a
+                        href={`https://wa.me/${whatsappNumber}?text=Halo%20Imam,%20saya%20tertarik%20dengan%20jasa%20pengembangan%20aplikasi%20Flutter`}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="text-muted-foreground hover:text-green-600 transition-colors"
+                      >
+                        082375227802
+                      </a>
+                      <p className="text-xs text-muted-foreground mt-1">
+                        Klik untuk chat langsung via WhatsApp
+                      </p>
                     </div>
                   </div>
 
@@ -42,7 +70,7 @@ export default function ContactPage() {
                     </div>
                     <div>
                       <h3 className="font-medium">Lokasi</h3>
-                      <p className="text-muted-foreground">Jakarta, Indonesia</p>
+                      <p className="text-muted-foreground">Bengkulu, Indonesia</p>
                     </div>
                   </div>
 
