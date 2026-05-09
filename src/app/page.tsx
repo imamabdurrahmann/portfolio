@@ -377,7 +377,7 @@ export default function Home() {
 
               <motion.div whileHover={{ scale: 1.02 }} whileTap={{ scale: 0.98 }}>
                 <a
-                  href="https://github.com/username"
+                  href="https://github.com/imamabdurrahmann"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="group inline-flex h-12 items-center justify-center gap-2 rounded-full border-2 border-border px-8 text-sm font-medium transition-all hover:bg-muted/50"
