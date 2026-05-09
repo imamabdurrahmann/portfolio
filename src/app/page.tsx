@@ -7,25 +7,6 @@ import { Badge } from "@/components/ui/badge";
 import { ProjectCard } from "@/components/ProjectCard";
 import { getFeaturedProjects } from "@/lib/projects";
 
-// Minimal animation variants - CSS handles most animations
-const fadeInUp = {
-  hidden: { opacity: 0, y: 20 },
-  visible: { opacity: 1, y: 0, transition: { duration: 0.4 } }
-};
-
-const staggerContainer = {
-  hidden: { opacity: 0 },
-  visible: {
-    opacity: 1,
-    transition: { staggerChildren: 0.08 }
-  }
-};
-
-const scaleIn = {
-  hidden: { opacity: 0, scale: 0.9 },
-  visible: { opacity: 1, scale: 1, transition: { duration: 0.3 } }
-};
-
 // Tech stack data
 const techStack = [
   { name: "Flutter", color: "bg-blue-500/10 text-blue-600 border-blue-200" },
@@ -55,51 +36,26 @@ const features = [
   {
     icon: <Zap className="h-5 w-5" />,
     title: "Modern UI/UX",
-    description: "Antarmuka intuitif dan menarik dengan Material Design 3."
+    description: "Antarmuka yang intuitif dan menarik dengan Material Design 3."
   },
 ];
 
-function AnimatedSection({ children, className = "" }: { children: React.ReactNode; className?: string }) {
-  const shouldReduceMotion = useReducedMotion();
-
-  if (shouldReduceMotion) {
-    return <div className={className}>{children}</div>;
-  }
-
-  return (
-    <motion.div
-      initial="hidden"
-      whileInView="visible"
-      viewport={{ once: true, margin: "-30px" }}
-      variants={staggerContainer}
-      className={className}
-    >
-      {children}
-    </motion.div>
-  );
-}
-
 export default function Home() {
+  const shouldReduceMotion = useReducedMotion();
   const featuredProjects = getFeaturedProjects();
 
   return (
     <div className="flex flex-col">
       {/* Hero Section */}
       <section className="relative w-full py-20 md:py-32 overflow-hidden">
-        {/* Background decorations - pure CSS, no JS */}
-        <div className="absolute inset-0 -z-10" aria-hidden="true">
-          <div className="hero-blob-1" />
-          <div className="hero-blob-2" />
-          <div className="hero-float-1" />
-          <div className="hero-float-2" />
-          <div className="hero-float-3" />
-        </div>
+        {/* Background decorations - pure CSS */}
+        <div className="absolute inset-0 -z-10 hero-bg" aria-hidden="true" />
 
         <div className="container mx-auto px-4 text-center">
           {/* Badge */}
           <motion.div
-            initial={{ opacity: 0, y: 10 }}
-            animate={{ opacity: 1, y: 0 }}
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
             transition={{ duration: 0.3 }}
             className="mb-6"
           >
@@ -111,50 +67,38 @@ export default function Home() {
 
           {/* Heading */}
           <motion.h1
-            initial={{ opacity: 0, y: 20 }}
+            initial={{ opacity: 0, y: 10 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.4, delay: 0.05 }}
+            transition={{ duration: 0.4 }}
             className="text-4xl md:text-6xl lg:text-7xl font-bold tracking-tight"
           >
-            Membangun Aplikasi <br className="hidden md:block" />
-            <span className="text-transparent bg-clip-text bg-gradient-to-r from-foreground to-foreground/60">
-              Mobile Premium
-            </span>
+            Membangun Aplikasi<br className="hidden md:block" />
+            <span className="hero-gradient-text">Mobile Premium</span>
           </motion.h1>
 
-          {/* Description */}
+          {/* Description - FIXED SPACING */}
           <motion.p
-            initial={{ opacity: 0, y: 15 }}
-            animate={{ opacity: 1, y: 0 }}
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
             transition={{ duration: 0.4, delay: 0.1 }}
-            className="mt-6 text-lg md:text-xl text-muted-foreground max-w-2xl mx-auto"
+            className="mt-6 text-lg md:text-xl text-muted-foreground max-w-2xl mx-auto leading-relaxed"
           >
             Flutter Developer yang passionate dalam menciptakan aplikasi mobile
-            yang <span className="text-foreground font-medium">intuitif</span>,{" "}
-            <span className="text-foreground font-medium">performant</span>, dan memberikan
-            <span className="text-foreground font-medium">pengalaman terbaik</span> untuk pengguna.
+            yang intuitif, performant, dan memberikan pengalaman terbaik untuk pengguna.
           </motion.p>
 
           {/* CTA Buttons */}
           <motion.div
-            initial={{ opacity: 0, y: 15 }}
+            initial={{ opacity: 0, y: 10 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.4, delay: 0.15 }}
             className="mt-8 flex flex-wrap justify-center gap-3"
           >
-            <Link
-              href="/projects"
-              className="cta-button-primary"
-            >
+            <Link href="/projects" className="cta-button-primary">
               Lihat Project
-              <span className="arrow-icon">
-                <ArrowRight className="h-4 w-4" />
-              </span>
+              <span className="arrow-icon"><ArrowRight className="h-4 w-4" /></span>
             </Link>
-            <Link
-              href="/contact"
-              className="cta-button-secondary"
-            >
+            <Link href="/contact" className="cta-button-secondary">
               <Mail className="h-4 w-4" />
               Hubungi Saya
             </Link>
@@ -162,8 +106,8 @@ export default function Home() {
 
           {/* Stats */}
           <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
             transition={{ duration: 0.4, delay: 0.2 }}
             className="mt-14 flex flex-wrap justify-center gap-8 md:gap-16"
           >
@@ -182,123 +126,154 @@ export default function Home() {
       </section>
 
       {/* Features Section */}
-      <AnimatedSection className="py-12 md:py-16 bg-muted/30">
-        <div className="container mx-auto px-4">
-          <div className="grid md:grid-cols-3 gap-4 md:gap-6">
-            {features.map((feature) => (
-              <motion.div
-                key={feature.title}
-                variants={fadeInUp}
-                className="feature-card"
-              >
-                <div className="feature-icon">
-                  {feature.icon}
-                </div>
-                <h3 className="font-semibold text-base md:text-lg">{feature.title}</h3>
-                <p className="text-sm text-muted-foreground mt-1.5">{feature.description}</p>
-              </motion.div>
-            ))}
+      {!shouldReduceMotion && (
+        <section className="py-12 md:py-16 bg-muted/30">
+          <div className="container mx-auto px-4">
+            <div className="grid md:grid-cols-3 gap-4 md:gap-6">
+              {features.map((feature, i) => (
+                <motion.div
+                  key={feature.title}
+                  initial={{ opacity: 0, y: 20 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true }}
+                  transition={{ duration: 0.4, delay: i * 0.1 }}
+                  className="feature-card"
+                >
+                  <div className="feature-icon">{feature.icon}</div>
+                  <h3 className="font-semibold text-base md:text-lg">{feature.title}</h3>
+                  <p className="text-sm text-muted-foreground mt-1.5 leading-relaxed">{feature.description}</p>
+                </motion.div>
+              ))}
+            </div>
           </div>
-        </div>
-      </AnimatedSection>
+        </section>
+      )}
+
+      {/* Features Section - No Animation */}
+      {shouldReduceMotion && (
+        <section className="py-12 md:py-16 bg-muted/30">
+          <div className="container mx-auto px-4">
+            <div className="grid md:grid-cols-3 gap-4 md:gap-6">
+              {features.map((feature) => (
+                <div key={feature.title} className="feature-card">
+                  <div className="feature-icon">{feature.icon}</div>
+                  <h3 className="font-semibold text-base md:text-lg">{feature.title}</h3>
+                  <p className="text-sm text-muted-foreground mt-1.5 leading-relaxed">{feature.description}</p>
+                </div>
+              ))}
+            </div>
+          </div>
+        </section>
+      )}
 
       {/* Featured Projects */}
-      <AnimatedSection className="py-12 md:py-20">
+      <section className="py-12 md:py-20">
         <div className="container mx-auto px-4">
-          <motion.div variants={scaleIn} className="text-center mb-10">
+          <div className="text-center mb-10">
             <h2 className="text-2xl md:text-4xl font-bold">Project Pilihan</h2>
-            <p className="text-muted-foreground mt-2 max-w-2xl mx-auto">
-              Aplikasi Flutter yang telah saya kembangkan dengan perhatian pada kualitas dan detail
+            <p className="text-muted-foreground mt-2 max-w-2xl mx-auto leading-relaxed">
+              Aplikasi Flutter yang telah saya kembangkan dengan perhatian pada kualitas dan detail.
             </p>
-          </motion.div>
+          </div>
 
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6 md:gap-8">
             {featuredProjects.map((project) => (
-              <motion.div key={project.id} variants={fadeInUp}>
-                <ProjectCard project={project} />
-              </motion.div>
+              <ProjectCard key={project.id} project={project} />
             ))}
           </div>
 
-          <motion.div variants={scaleIn} className="text-center mt-8">
-            <Link
-              href="/projects"
-              className="view-all-link"
-            >
+          <div className="text-center mt-8">
+            <Link href="/projects" className="view-all-link">
               Lihat Semua Project
-              <span className="arrow-icon">
-                <ArrowRight className="h-4 w-4" />
-              </span>
+              <span className="arrow-icon"><ArrowRight className="h-4 w-4" /></span>
             </Link>
-          </motion.div>
+          </div>
         </div>
-      </AnimatedSection>
+      </section>
 
       {/* Tech Stack */}
-      <AnimatedSection className="py-12 md:py-20 bg-gradient-to-b from-background to-muted/30">
-        <div className="container mx-auto px-4">
-          <motion.div variants={fadeInUp} className="text-center mb-10">
-            <h2 className="text-2xl md:text-4xl font-bold">Tech Stack</h2>
-            <p className="text-muted-foreground mt-2">
-              Teknologi yang saya kuasai untuk membangun aplikasi mobile
-            </p>
-          </motion.div>
+      {!shouldReduceMotion && (
+        <section className="py-12 md:py-20 bg-gradient-to-b from-background to-muted/30">
+          <div className="container mx-auto px-4">
+            <div className="text-center mb-10">
+              <h2 className="text-2xl md:text-4xl font-bold">Tech Stack</h2>
+              <p className="text-muted-foreground mt-2 leading-relaxed">
+                Teknologi yang saya kuasai untuk membangun aplikasi mobile.
+              </p>
+            </div>
 
-          <div className="flex flex-wrap justify-center gap-2 md:gap-3">
-            {techStack.map((tech) => (
-              <Badge
-                key={tech.name}
-                variant="outline"
-                className={`text-xs md:text-sm px-3 py-1.5 md:px-4 md:py-2 border tech-badge ${tech.color}`}
-              >
-                {tech.name}
-              </Badge>
-            ))}
+            <div className="flex flex-wrap justify-center gap-2 md:gap-3">
+              {techStack.map((tech) => (
+                <Badge
+                  key={tech.name}
+                  variant="outline"
+                  className={`text-xs md:text-sm px-3 py-1.5 md:px-4 md:py-2 border tech-badge ${tech.color}`}
+                >
+                  {tech.name}
+                </Badge>
+              ))}
+            </div>
           </div>
-        </div>
-      </AnimatedSection>
+        </section>
+      )}
+
+      {/* Tech Stack - No Animation */}
+      {shouldReduceMotion && (
+        <section className="py-12 md:py-20 bg-gradient-to-b from-background to-muted/30">
+          <div className="container mx-auto px-4">
+            <div className="text-center mb-10">
+              <h2 className="text-2xl md:text-4xl font-bold">Tech Stack</h2>
+              <p className="text-muted-foreground mt-2 leading-relaxed">
+                Teknologi yang saya kuasai untuk membangun aplikasi mobile.
+              </p>
+            </div>
+
+            <div className="flex flex-wrap justify-center gap-2 md:gap-3">
+              {techStack.map((tech) => (
+                <Badge
+                  key={tech.name}
+                  variant="outline"
+                  className={`text-xs md:text-sm px-3 py-1.5 md:px-4 md:py-2 border ${tech.color}`}
+                >
+                  {tech.name}
+                </Badge>
+              ))}
+            </div>
+          </div>
+        </section>
+      )}
 
       {/* CTA Section */}
       <section className="relative py-16 md:py-24 overflow-hidden">
-        <div className="absolute inset-0 -z-10" aria-hidden="true">
-          <div className="absolute inset-0 bg-gradient-to-b from-muted/30 to-background" />
-          <div className="cta-glow" />
-        </div>
+        <div className="absolute inset-0 -z-10 cta-section-bg" aria-hidden="true" />
 
         <div className="container mx-auto px-4 text-center">
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.4 }}
-          >
-            <Badge variant="secondary" className="mb-4 px-4 text-sm">
-              Let's Work Together
-            </Badge>
-            <h2 className="text-2xl md:text-4xl lg:text-5xl font-bold">
-              Tertarik untuk <span className="text-primary">Berkolaborasi?</span>
-            </h2>
-            <p className="text-muted-foreground mt-4 max-w-lg mx-auto">
-              Saya terbuka untuk project freelance atau kesempatan kerja sama.
-              Mari wujudkan ide aplikasi mobile kamu bersama.
-            </p>
+          <Badge variant="secondary" className="mb-4 px-4 text-sm">
+            Let's Work Together
+          </Badge>
+          <h2 className="text-2xl md:text-4xl lg:text-5xl font-bold">
+            Tertarik untuk <span className="text-primary">Berkolaborasi?</span>
+          </h2>
+          <p className="text-muted-foreground mt-4 max-w-lg mx-auto leading-relaxed">
+            Saya terbuka untuk project freelance atau kesempatan kerja sama.
+            Mari wujudkan ide aplikasi mobile kamu bersama.
+          </p>
 
-            <div className="mt-8 flex flex-wrap justify-center gap-3">
-              <Link href="/contact" className="cta-button-primary">
-                <Mail className="h-4 w-4" />
-                Mulai Percakapan
-              </Link>
-              <a
-                href="https://github.com/imamabdurrahmann"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="cta-button-secondary"
-              >
-                <Link2 className="h-4 w-4" />
-                GitHub Profile
-              </a>
-            </div>
-          </motion.div>
+          <div className="mt-8 flex flex-wrap justify-center gap-3">
+            <Link href="/contact" className="cta-button-primary">
+              <Mail className="h-4 w-4" />
+              Mulai Percakapan
+            </Link>
+            <a
+              href="https://github.com/imamabdurrahmann"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="cta-button-secondary"
+            >
+              <Link2 className="h-4 w-4" />
+              GitHub Profile
+            </a>
+          </div>
         </div>
       </section>
     </div>
