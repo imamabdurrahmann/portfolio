@@ -55,8 +55,8 @@
   --card-foreground: oklch(0.145 0 0);
   --popover: oklch(1 0 0);
   --popover-foreground: oklch(0.145 0 0);
-  --primary: oklch(0.205 0 0);
-  --primary-foreground: oklch(0.985 0 0);
+  --primary: oklch(0.475 0.19 277.35);
+  --primary-foreground: oklch(1 0 0);
   --secondary: oklch(0.97 0 0);
   --secondary-foreground: oklch(0.205 0 0);
   --muted: oklch(0.97 0 0);
@@ -66,21 +66,21 @@
   --destructive: oklch(0.577 0.245 27.325);
   --border: oklch(0.922 0 0);
   --input: oklch(0.922 0 0);
-  --ring: oklch(0.708 0 0);
-  --chart-1: oklch(0.87 0 0);
-  --chart-2: oklch(0.556 0 0);
-  --chart-3: oklch(0.439 0 0);
-  --chart-4: oklch(0.371 0 0);
-  --chart-5: oklch(0.269 0 0);
-  --radius: 0.5rem;
+  --ring: oklch(0.475 0.19 277.35);
+  --chart-1: oklch(0.475 0.19 277.35);
+  --chart-2: oklch(0.55 0.22 290);
+  --chart-3: oklch(0.45 0.18 260);
+  --chart-4: oklch(0.52 0.2 280);
+  --chart-5: oklch(0.6 0.2 270);
+  --radius: 0.75rem;
   --sidebar: oklch(0.985 0 0);
   --sidebar-foreground: oklch(0.145 0 0);
-  --sidebar-primary: oklch(0.205 0 0);
-  --sidebar-primary-foreground: oklch(0.985 0 0);
+  --sidebar-primary: oklch(0.475 0.19 277.35);
+  --sidebar-primary-foreground: oklch(1 0 0);
   --sidebar-accent: oklch(0.97 0 0);
   --sidebar-accent-foreground: oklch(0.205 0 0);
   --sidebar-border: oklch(0.922 0 0);
-  --sidebar-ring: oklch(0.708 0 0);
+  --sidebar-ring: oklch(0.475 0.19 277.35);
 }
 
 .dark {
@@ -90,8 +90,8 @@
   --card-foreground: oklch(0.985 0 0);
   --popover: oklch(0.205 0 0);
   --popover-foreground: oklch(0.985 0 0);
-  --primary: oklch(0.922 0 0);
-  --primary-foreground: oklch(0.205 0 0);
+  --primary: oklch(0.7 0.15 280);
+  --primary-foreground: oklch(0.985 0 0);
   --secondary: oklch(0.269 0 0);
   --secondary-foreground: oklch(0.985 0 0);
   --muted: oklch(0.269 0 0);
@@ -101,20 +101,20 @@
   --destructive: oklch(0.704 0.191 22.216);
   --border: oklch(1 0 0 / 10%);
   --input: oklch(1 0 0 / 15%);
-  --ring: oklch(0.556 0 0);
-  --chart-1: oklch(0.87 0 0);
-  --chart-2: oklch(0.556 0 0);
-  --chart-3: oklch(0.439 0 0);
-  --chart-4: oklch(0.371 0 0);
-  --chart-5: oklch(0.269 0 0);
+  --ring: oklch(0.7 0.15 280);
+  --chart-1: oklch(0.7 0.15 280);
+  --chart-2: oklch(0.65 0.18 290);
+  --chart-3: oklch(0.6 0.16 260);
+  --chart-4: oklch(0.68 0.17 280);
+  --chart-5: oklch(0.75 0.15 270);
   --sidebar: oklch(0.205 0 0);
   --sidebar-foreground: oklch(0.985 0 0);
-  --sidebar-primary: oklch(0.488 0.243 264.376);
+  --sidebar-primary: oklch(0.7 0.15 280);
   --sidebar-primary-foreground: oklch(0.985 0 0);
   --sidebar-accent: oklch(0.269 0 0);
   --sidebar-accent-foreground: oklch(0.985 0 0);
   --sidebar-border: oklch(1 0 0 / 10%);
-  --sidebar-ring: oklch(0.556 0 0);
+  --sidebar-ring: oklch(0.7 0.15 280);
 }
 
 @layer base {
@@ -130,108 +130,236 @@
 }
 
 /* ========================================
-   STATIC BACKGROUND (NO ANIMATION)
+   GRADIENT TEXT
    ======================================== */
 
-.hero-bg {
-  background:
-    radial-gradient(circle at 10% 20%, oklch(0.95 0 0 / 0.3%) 0%, transparent 40%),
-    radial-gradient(circle at 90% 80%, oklch(0.95 0 0 / 0.4%) 0%, transparent 50%);
-}
-
-.hero-gradient-text {
-  background: linear-gradient(135deg, oklch(0.205 0 0) 0%, oklch(0.205 0 0 / 0.6%) 100%);
+.gradient-text {
+  background: linear-gradient(135deg, oklch(0.475 0.19 277.35), oklch(0.55 0.22 290));
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
 }
 
-.cta-section-bg {
-  background: linear-gradient(to bottom, oklch(0.97 0 0 / 0.3), var(--background));
+.gradient-text-2 {
+  background: linear-gradient(135deg, oklch(0.55 0.22 290), oklch(0.475 0.19 277.35));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
 }
 
 /* ========================================
-   BUTTONS - SIMPLE TRANSITIONS ONLY
+   HERO SECTION
    ======================================== */
 
-.cta-button-primary {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  gap: 0.5rem;
-  height: 3rem;
-  padding: 0 1.5rem;
-  font-size: 0.875rem;
-  font-weight: 500;
-  border-radius: 9999px;
-  background: oklch(0.205 0 0);
-  color: oklch(0.985 0 0);
-  box-shadow: 0 4px 12px oklch(0.205 0 0 / 15%);
-  transition: background 0.15s ease, box-shadow 0.15s ease;
+.hero-gradient {
+  background:
+    radial-gradient(ellipse 80% 50% at 50% -20%, oklch(0.475 0.19 277.35 / 8%), transparent),
+    radial-gradient(ellipse 60% 40% at 80% 60%, oklch(0.55 0.22 290 / 5%), transparent),
+    radial-gradient(ellipse 50% 30% at 20% 80%, oklch(0.6 0.18 260 / 5%), transparent);
 }
 
-.cta-button-primary:hover {
-  background: oklch(0.205 0 0 / 90%);
-  box-shadow: 0 6px 16px oklch(0.205 0 0 / 20%);
+.animate-pulse-slow {
+  animation: pulse 8s ease-in-out infinite;
 }
 
-.cta-button-secondary {
+.animate-pulse-slow-delayed {
+  animation: pulse 10s ease-in-out infinite;
+  animation-delay: 2s;
+}
+
+@keyframes pulse {
+  0%, 100% { opacity: 0.5; transform: scale(1); }
+  50% { opacity: 0.8; transform: scale(1.05); }
+}
+
+/* ========================================
+   BUTTONS
+   ======================================== */
+
+.btn-primary {
   display: inline-flex;
   align-items: center;
-  justify-content: center;
   gap: 0.5rem;
-  height: 3rem;
-  padding: 0 1.5rem;
-  font-size: 0.875rem;
-  font-weight: 500;
+  padding: 0.875rem 1.75rem;
+  font-size: 0.9375rem;
+  font-weight: 600;
   border-radius: 9999px;
-  border: 2px solid oklch(0.922 0 0);
-  background: transparent;
+  background: linear-gradient(135deg, oklch(0.475 0.19 277.35), oklch(0.55 0.22 290));
+  color: white;
+  box-shadow: 0 4px 20px oklch(0.475 0.19 277.35 / 30%);
+  transition: all 0.2s ease;
+}
+
+.btn-primary:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 30px oklch(0.475 0.19 277.35 / 40%);
+}
+
+.btn-secondary {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.875rem 1.75rem;
+  font-size: 0.9375rem;
+  font-weight: 600;
+  border-radius: 9999px;
+  border: 2px solid oklch(0.205 0 0 / 20%);
+  background: oklch(1 0 0);
   color: oklch(0.145 0 0);
-  transition: background 0.15s ease, border-color 0.15s ease;
+  transition: all 0.2s ease;
 }
 
-.cta-button-secondary:hover {
-  background: oklch(0.97 0 0);
-  border-color: oklch(0.205 0 0 / 50%);
+.btn-secondary:hover {
+  border-color: oklch(0.475 0.19 277.35 / 50%);
+  background: oklch(0.475 0.19 277.35 / 5%);
 }
 
 /* ========================================
-   FEATURE CARDS - STATIC HOVER
+   SERVICE CARDS
    ======================================== */
 
-.feature-card {
-  padding: 1.5rem;
-  border-radius: 1rem;
-  background: var(--card);
+.service-card {
+  position: relative;
+  padding: 2rem;
+  border-radius: 1.5rem;
+  background: oklch(1 0 0);
   border: 1px solid oklch(0.922 0 0);
-  transition: border-color 0.2s ease, box-shadow 0.2s ease;
+  transition: all 0.3s ease;
+  overflow: hidden;
 }
 
-.feature-card:hover {
-  border-color: oklch(0.205 0 0 / 30%);
-  box-shadow: 0 8px 24px oklch(0.205 0 0 / 5%);
+.service-card:hover {
+  border-color: oklch(0.475 0.19 277.35 / 30%);
+  box-shadow: 0 20px 40px oklch(0 0 0 / 5%);
+  transform: translateY(-4px);
 }
 
-.feature-icon {
-  display: inline-flex;
-  padding: 0.75rem;
-  border-radius: 0.75rem;
-  background: oklch(0.205 0 0 / 10%);
-  color: oklch(0.205 0 0);
+.service-icon {
+  width: 3.5rem;
+  height: 3.5rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 1rem;
+  background: linear-gradient(135deg, oklch(0.475 0.19 277.35 / 10%), oklch(0.55 0.22 290 / 10%));
+  color: oklch(0.475 0.19 277.35);
+  transition: all 0.3s ease;
+}
+
+.service-card:hover .service-icon {
+  background: linear-gradient(135deg, oklch(0.475 0.19 277.35), oklch(0.55 0.22 290));
+  color: white;
+  transform: scale(1.05);
+}
+
+.service-number {
+  position: absolute;
+  top: 1rem;
+  right: 1rem;
+  font-size: 4rem;
+  font-weight: 800;
+  color: oklch(0.922 0 0);
+  line-height: 1;
+  opacity: 0.5;
 }
 
 /* ========================================
-   TECH BADGE - STATIC HOVER
+   PROJECT CARDS
+   ======================================== */
+
+.project-card-2 {
+  border-radius: 1.5rem;
+  background: oklch(1 0 0);
+  border: 1px solid oklch(0.922 0 0);
+  overflow: hidden;
+  transition: all 0.3s ease;
+}
+
+.project-card-2:hover {
+  border-color: oklch(0.475 0.19 277.35 / 30%);
+  box-shadow: 0 20px 50px oklch(0 0 0 / 8%);
+  transform: translateY(-4px);
+}
+
+.project-image {
+  position: relative;
+  height: 14rem;
+  background: linear-gradient(135deg, oklch(0.475 0.19 277.35 / 8%), oklch(0.55 0.22 290 / 5%), oklch(0.6 0.18 260 / 8%));
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.project-initial {
+  font-size: 5rem;
+  font-weight: 800;
+  color: oklch(0.475 0.19 277.35 / 15%);
+  transition: all 0.3s ease;
+}
+
+.project-card-2:hover .project-initial {
+  transform: scale(1.1);
+  color: oklch(0.475 0.19 277.35 / 25%);
+}
+
+.featured-badge {
+  position: absolute;
+  top: 1rem;
+  right: 1rem;
+  display: flex;
+  align-items: center;
+  gap: 0.25rem;
+  padding: 0.375rem 0.75rem;
+  font-size: 0.75rem;
+  font-weight: 600;
+  border-radius: 9999px;
+  background: linear-gradient(135deg, oklch(0.475 0.19 277.35), oklch(0.55 0.22 290));
+  color: white;
+}
+
+.project-content {
+  padding: 1.5rem;
+}
+
+.tech-tag {
+  display: inline-flex;
+  padding: 0.25rem 0.625rem;
+  font-size: 0.75rem;
+  font-weight: 500;
+  border-radius: 9999px;
+  background: oklch(0.475 0.19 277.35 / 10%);
+  color: oklch(0.475 0.19 277.35);
+}
+
+/* ========================================
+   TECH BADGES
    ======================================== */
 
 .tech-badge {
-  transition: transform 0.15s ease;
+  display: inline-flex;
+  align-items: center;
+  padding: 0.75rem 1.25rem;
+  font-size: 0.875rem;
+  font-weight: 600;
+  border-radius: 9999px;
+  border: 1px solid oklch(0.922 0 0);
+  background: oklch(1 0 0);
+  transition: all 0.2s ease;
 }
 
 .tech-badge:hover {
   transform: translateY(-2px);
+  box-shadow: 0 8px 20px oklch(0 0 0 / 10%);
 }
+
+.tech-flutter:hover { border-color: oklch(0.4 0.15 210 / 50%); background: oklch(0.4 0.15 210 / 5%); }
+.tech-dart:hover { border-color: oklch(0.3 0.12 220 / 50%); background: oklch(0.3 0.12 220 / 5%); }
+.tech-riverpod:hover { border-color: oklch(0.6 0.2 20 / 50%); background: oklch(0.6 0.2 20 / 5%); }
+.tech-bloc:hover { border-color: oklch(0.5 0.18 160 / 50%); background: oklch(0.5 0.18 160 / 5%); }
+.tech-firebase:hover { border-color: oklch(0.5 0.18 30 / 50%); background: oklch(0.5 0.18 30 / 5%); }
+.tech-sqlite:hover { border-color: oklch(0.5 0.18 280 / 50%); background: oklch(0.5 0.18 280 / 5%); }
+.tech-hive:hover { border-color: oklch(0.5 0.15 340 / 50%); background: oklch(0.5 0.15 340 / 5%); }
+.tech-arch:hover { border-color: oklch(0.5 0.15 260 / 50%); background: oklch(0.5 0.15 260 / 5%); }
 
 /* ========================================
    VIEW ALL LINK
@@ -241,17 +369,46 @@
   display: inline-flex;
   align-items: center;
   gap: 0.5rem;
-  color: oklch(0.556 0 0);
-  font-weight: 500;
-  transition: color 0.15s ease;
+  padding: 0.5rem 1rem;
+  font-size: 0.875rem;
+  font-weight: 600;
+  color: oklch(0.475 0.19 277.35);
+  border-radius: 9999px;
+  border: 1px solid oklch(0.475 0.19 277.35 / 30%);
+  transition: all 0.2s ease;
 }
 
 .view-all-link:hover {
-  color: oklch(0.145 0 0);
+  background: oklch(0.475 0.19 277.35 / 10%);
+  border-color: oklch(0.475 0.19 277.35 / 50%);
 }
 
 /* ========================================
-   ACCESSIBILITY - NO ANIMATION
+   NAVBAR
+   ======================================== */
+
+.navbar-link {
+  position: relative;
+  padding: 0.5rem 1rem;
+  font-size: 0.875rem;
+  font-weight: 500;
+  border-radius: 9999px;
+  color: oklch(0.556 0 0);
+  transition: all 0.2s ease;
+}
+
+.navbar-link:hover {
+  color: oklch(0.145 0 0);
+  background: oklch(0.145 0 0 / 5%);
+}
+
+.navbar-link.active {
+  color: oklch(0.475 0.19 277.35);
+  background: oklch(0.475 0.19 277.35 / 10%);
+}
+
+/* ========================================
+   ACCESSIBILITY
    ======================================== */
 
 @media (prefers-reduced-motion: reduce) {
@@ -269,7 +426,7 @@
    ======================================== */
 
 ::-webkit-scrollbar {
-  width: 6px;
+  width: 8px;
 }
 
 ::-webkit-scrollbar-track {
@@ -278,7 +435,7 @@
 
 ::-webkit-scrollbar-thumb {
   background: oklch(0.556 0 0);
-  border-radius: 3px;
+  border-radius: 4px;
 }
 
 ::-webkit-scrollbar-thumb:hover {
@@ -290,68 +447,112 @@
    ======================================== */
 
 ::selection {
-  background-color: oklch(0.205 0 0);
-  color: oklch(0.985 0 0);
+  background-color: oklch(0.475 0.19 277.35);
+  color: white;
 }
 
 /* ========================================
-   PROJECT CARD
+   PROJECTS PAGE - NEW STYLES
    ======================================== */
 
-.project-card {
-  overflow: hidden;
+.project-card-new {
+  display: flex;
+  flex-direction: column;
+  border-radius: 1.5rem;
+  background: oklch(1 0 0);
   border: 1px solid oklch(0.922 0 0);
-  transition: box-shadow 0.2s ease;
+  overflow: hidden;
+  transition: all 0.3s ease;
 }
 
-.project-card:hover {
-  box-shadow: 0 8px 24px oklch(0 0 0 / 8%);
+.project-card-new:hover {
+  border-color: oklch(0.475 0.19 277.35 / 30%);
+  box-shadow: 0 20px 50px oklch(0 0 0 / 8%);
+  transform: translateY(-6px);
 }
 
-.project-card-image {
+.project-image-new {
   position: relative;
-  aspect-ratio: 16/9;
-  background: linear-gradient(135deg, oklch(0.205 0 0 / 10%), oklch(0.205 0 0 / 5%));
+  height: 12rem;
+  overflow: hidden;
+}
+
+.project-gradient {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(135deg, oklch(0.475 0.19 277.35 / 12%), oklch(0.55 0.22 290 / 8%), oklch(0.6 0.18 260 / 10%));
+  transition: all 0.3s ease;
+}
+
+.project-card-new:hover .project-gradient {
+  transform: scale(1.05);
+}
+
+.project-initial-new {
+  position: absolute;
+  inset: 0;
   display: flex;
   align-items: center;
   justify-content: center;
+  font-size: 5rem;
+  font-weight: 800;
+  color: oklch(0.475 0.19 277.35 / 20%);
+  transition: all 0.3s ease;
 }
 
-.project-placeholder {
-  font-size: 3rem;
-  font-weight: 700;
-  color: oklch(0.205 0 0 / 20%);
+.project-card-new:hover .project-initial-new {
+  transform: scale(1.1);
+  color: oklch(0.475 0.19 277.35 / 30%);
 }
 
-.project-badge {
+.featured-badge-new {
   position: absolute;
-  top: 0.75rem;
-  right: 0.75rem;
-  background: oklch(0.205 0 0 / 90%);
-  color: oklch(0.985 0 0);
-  padding: 0.25rem 0.625rem;
+  top: 1rem;
+  right: 1rem;
+  display: flex;
+  align-items: center;
+  gap: 0.25rem;
+  padding: 0.5rem 0.875rem;
+  font-size: 0.75rem;
+  font-weight: 600;
   border-radius: 9999px;
+  background: linear-gradient(135deg, oklch(0.475 0.19 277.35), oklch(0.55 0.22 290));
+  color: white;
+  box-shadow: 0 4px 12px oklch(0.475 0.19 277.35 / 30%);
 }
 
-.project-card-content {
-  padding: 1.25rem;
+.project-content-new {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  padding: 1.5rem;
 }
 
-.project-link {
+.tech-tag-new {
+  display: inline-flex;
+  padding: 0.25rem 0.625rem;
+  font-size: 0.7rem;
+  font-weight: 500;
+  border-radius: 9999px;
+  background: oklch(0.475 0.19 277.35 / 10%);
+  color: oklch(0.475 0.19 277.35);
+}
+
+.btn-outline-sm {
   display: inline-flex;
   align-items: center;
   gap: 0.375rem;
-  height: 2rem;
-  padding: 0 0.75rem;
-  font-size: 0.75rem;
+  padding: 0.5rem 1rem;
+  font-size: 0.8125rem;
   font-weight: 500;
-  border-radius: 0.375rem;
+  border-radius: 9999px;
   border: 1px solid oklch(0.922 0 0);
-  background: var(--card);
-  color: var(--card-foreground);
-  transition: background 0.15s ease;
+  color: oklch(0.556 0 0);
+  transition: all 0.2s ease;
 }
 
-.project-link:hover {
-  background: oklch(0.97 0 0);
+.btn-outline-sm:hover {
+  border-color: oklch(0.475 0.19 277.35 / 50%);
+  color: oklch(0.475 0.19 277.35);
+  background: oklch(0.475 0.19 277.35 / 5%);
 }
