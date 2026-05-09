@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import "./globals.css";
 import { Navbar } from "@/components/Navbar";
+import { ThemeProvider } from "@/components/ThemeProvider";
 
 export const metadata: Metadata = {
   title: "Flutter Developer Portfolio",
@@ -13,13 +14,15 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="id">
+    <html lang="id" suppressHydrationWarning>
       <body className="min-h-screen flex flex-col antialiased">
-        <Navbar />
-        <main className="flex-1">{children}</main>
-        <footer className="border-t py-6 text-center text-sm text-muted-foreground">
-          <p>&copy; {new Date().getFullYear()} Portfolio. All rights reserved.</p>
-        </footer>
+        <ThemeProvider defaultTheme="dark" storageKey="portfolio-theme">
+          <Navbar />
+          <main className="flex-1">{children}</main>
+          <footer className="border-t py-6 text-center text-sm text-muted-foreground">
+            <p>&copy; {new Date().getFullYear()} Portfolio. All rights reserved.</p>
+          </footer>
+        </ThemeProvider>
       </body>
     </html>
   );
