@@ -1,39 +1,32 @@
 "use client";
 
-import { useState } from "react";
+import { useForm, ValidationError } from "@formspree/react";
 import { Send, CheckCircle, AlertCircle, Loader2 } from "lucide-react";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 
-type Status = "idle" | "loading" | "success" | "error";
+const formId = "mwvyraeg";
 
 export function ContactForm() {
-  const [status, setStatus] = useState<Status>("idle");
+  const [state, handleSubmit] = useForm(formId);
 
-  async function handleSubmit(e: React.FormEvent<HTMLFormElement>) {
-    e.preventDefault();
-    setStatus("loading");
-
-    const form = e.currentTarget;
-    const data = new FormData(form);
-
-    try {
-      const res = await fetch("https://formspree.io/f/YOUR_FORM_ID", {
-        method: "POST",
-        body: data,
-        headers: { Accept: "application/json" },
-      });
-
-      if (res.ok) {
-        setStatus("success");
-        form.reset();
-      } else {
-        setStatus("error");
-      }
-    } catch {
-      setStatus("error");
-    }
+  if (state.succeeded) {
+    return (
+      <Card className="max-w-md mx-auto">
+        <CardContent className="p-6 text-center">
+          <div className="flex flex-col items-center gap-4">
+            <div className="p-3 bg-green-100 rounded-full">
+              <CheckCircle className="h-8 w-8 text-green-600" />
+            </div>
+            <h3 className="text-lg font-semibold">Pesan Terkirim!</h3>
+            <p className="text-sm text-muted-foreground">
+              Terima kasih sudah menghubungi. Saya akan segera merespons pesan Anda.
+            </p>
+          </div>
+        </CardContent>
+      </Card>
+    );
   }
 
   return (
@@ -67,6 +60,12 @@ export function ContactForm() {
               required
               className="mt-1.5"
             />
+            <ValidationError
+              prefix="Email"
+              field="email"
+              errors={state.errors}
+              className="text-xs text-red-500 mt-1"
+            />
           </div>
           <div>
             <label htmlFor="message" className="text-sm font-medium">
@@ -80,21 +79,22 @@ export function ContactForm() {
               rows={5}
               className="mt-1.5 resize-none"
             />
+            <ValidationError
+              prefix="Pesan"
+              field="message"
+              errors={state.errors}
+              className="text-xs text-red-500 mt-1"
+            />
           </div>
           <button
             type="submit"
-            disabled={status === "loading"}
+            disabled={state.submitting}
             className="w-full inline-flex h-9 items-center justify-center gap-1.5 rounded-lg bg-primary px-2.5 text-sm font-medium text-primary-foreground transition-colors hover:bg-primary/80 disabled:pointer-events-none disabled:opacity-50"
           >
-            {status === "loading" ? (
+            {state.submitting ? (
               <>
                 <Loader2 className="mr-2 h-4 w-4 animate-spin" />
                 Mengirim...
-              </>
-            ) : status === "success" ? (
-              <>
-                <CheckCircle className="mr-2 h-4 w-4" />
-                Terkirim!
               </>
             ) : (
               <>
@@ -104,17 +104,7 @@ export function ContactForm() {
             )}
           </button>
 
-          {status === "success" && (
-            <p className="text-sm text-green-600 text-center">
-              Pesan berhasil terkirim. Saya akan segera merespons!
-            </p>
-          )}
-          {status === "error" && (
-            <p className="text-sm text-red-600 text-center flex items-center justify-center gap-2">
-              <AlertCircle className="h-4 w-4" />
-              Gagal mengirim. Coba lagi nanti.
-            </p>
-          )}
+          <ValidationError errors={state.errors} className="text-sm text-red-500 text-center" />
         </form>
       </CardContent>
     </Card>
