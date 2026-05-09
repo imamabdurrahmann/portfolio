@@ -1,47 +1,47 @@
-"use client";
-
-import { Mail, MapPin, Clock, Phone, MessageCircle, Send, Sparkles } from "lucide-react";
+import type { Metadata } from "next";
+import { Mail, MapPin, Clock, MessageCircle, Send, Sparkles } from "lucide-react";
 import { ContactForm } from "@/components/ContactForm";
 import { Card, CardContent } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 
+export const metadata: Metadata = {
+  title: "Contact | Flutter Developer Portfolio",
+  description: "Hubungi saya untuk project freelance atau kolaborasi",
+};
+
 const contactItems = [
   {
     icon: <Mail className="h-5 w-5" />,
-    iconBg: "bg-primary/10",
-    iconColor: "text-primary",
+    bgClass: "bg-primary/10",
+    colorClass: "text-primary",
     title: "Email",
     value: "muhammadimamabdurrahman93@gmail.com",
     href: "mailto:muhammadimamabdurrahman93@gmail.com",
-    hoverColor: "hover:text-primary"
   },
   {
     icon: <MessageCircle className="h-5 w-5" />,
-    iconBg: "bg-green-100",
-    iconColor: "text-green-600",
+    bgClass: "bg-green-100",
+    colorClass: "text-green-600",
     title: "WhatsApp",
     value: "082375227802",
     href: "https://wa.me/6282375227802?text=Halo%20Imam,%20saya%20tertarik%20dengan%20jasa%20pengembangan%20aplikasi%20Flutter",
-    hoverColor: "hover:text-green-600",
-    badge: "Chat Langsung"
+    badge: "Chat Langsung",
   },
   {
     icon: <MapPin className="h-5 w-5" />,
-    iconBg: "bg-primary/10",
-    iconColor: "text-primary",
+    bgClass: "bg-primary/10",
+    colorClass: "text-primary",
     title: "Lokasi",
     value: "Bengkulu, Indonesia",
     href: null,
-    hoverColor: ""
   },
   {
     icon: <Clock className="h-5 w-5" />,
-    iconBg: "bg-primary/10",
-    iconColor: "text-primary",
+    bgClass: "bg-primary/10",
+    colorClass: "text-primary",
     title: "Availability",
     value: "UTC+7 (WIB)",
     href: null,
-    hoverColor: ""
   },
 ];
 
@@ -78,10 +78,10 @@ export default function ContactPage() {
                 <div className="space-y-5">
                   {contactItems.map((item) => (
                     <div key={item.title} className="flex items-start gap-4">
-                      <div className={`p-2.5 rounded-xl ${item.iconBg}`}>
-                        <span className={item.iconColor}>{item.icon}</span>
+                      <div className={`p-2.5 rounded-xl ${item.bgClass}`}>
+                        <span className={item.colorClass}>{item.icon}</span>
                       </div>
-                      <div className="flex-1">
+                      <div>
                         <div className="flex items-center gap-2">
                           <h3 className="font-medium text-sm">{item.title}</h3>
                           {item.badge && (
@@ -95,7 +95,9 @@ export default function ContactPage() {
                             href={item.href}
                             target={item.href.startsWith("http") ? "_blank" : undefined}
                             rel={item.href.startsWith("http") ? "noopener noreferrer" : undefined}
-                            className={`text-muted-foreground ${item.hoverColor} transition-colors text-sm`}
+                            className={`text-muted-foreground text-sm hover:underline ${
+                              item.title === "WhatsApp" ? "hover:text-green-600" : "hover:text-primary"
+                            }`}
                           >
                             {item.value}
                           </a>
@@ -112,7 +114,7 @@ export default function ContactPage() {
             <Card>
               <CardContent className="p-6">
                 <div className="flex items-center gap-2 mb-4">
-                  <Phone className="h-4 w-4 text-primary" />
+                  <Send className="h-4 w-4 text-primary" />
                   <h3 className="font-medium">Layanan yang Ditawarkan</h3>
                 </div>
                 <ul className="space-y-2">
@@ -126,7 +128,6 @@ export default function ContactPage() {
               </CardContent>
             </Card>
 
-            {/* Quick CTA */}
             <div className="p-5 rounded-xl bg-gradient-to-br from-primary/10 to-primary/5 border border-primary/20">
               <div className="flex items-center gap-3 mb-2">
                 <div className="p-2 rounded-lg bg-primary/20">
