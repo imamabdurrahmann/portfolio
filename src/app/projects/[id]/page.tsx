@@ -3,7 +3,7 @@
 import { notFound } from "next/navigation";
 import Link from "next/link";
 import { motion } from "framer-motion";
-import { ArrowLeft, ExternalLink, Play, Star, Check } from "lucide-react";
+import { ArrowLeft, ExternalLink, Play, Star, Check, Zap, Shield, Clock, TrendingUp, Target, Award, Database, Users, Bell, FileText, Smartphone } from "lucide-react";
 import { getProjectById, getProjects } from "@/lib/projects";
 import { useLocale } from "@/i18n/LocaleProvider";
 
@@ -29,12 +29,10 @@ interface ProjectDetailProps {
 function ProjectDetail({ project }: ProjectDetailProps) {
   const { t, locale } = useLocale();
 
-  // Get translated title and description
   const title = t(`projectData.${project.id}.title`, undefined, project.title) as string;
   const description = t(`projectData.${project.id}.description`, undefined, project.description) as string;
 
-  // Get features based on project ID
-  const features = getFeaturesByProject(project.id, locale);
+  const allFeatures = getAllFeaturesByProject(project.id, locale);
 
   return (
     <div className="min-h-screen pt-20 pb-12">
@@ -62,7 +60,6 @@ function ProjectDetail({ project }: ProjectDetailProps) {
       >
         <div className="container mx-auto max-w-4xl">
           <div className="flex items-start gap-6">
-            {/* Project Icon */}
             <div className="w-20 h-20 md:w-24 md:h-24 rounded-2xl bg-gradient-to-br from-primary/30 to-primary/10 flex items-center justify-center shrink-0">
               <span className="text-4xl md:text-5xl font-bold gradient-text">{project.title.charAt(0)}</span>
             </div>
@@ -95,7 +92,8 @@ function ProjectDetail({ project }: ProjectDetailProps) {
         className="px-6 mb-8"
       >
         <div className="container mx-auto max-w-4xl">
-          <h2 className="text-lg font-semibold text-foreground mb-4">
+          <h2 className="text-lg font-semibold text-foreground mb-4 flex items-center gap-2">
+            <Database className="w-5 h-5 text-primary" />
             {locale === 'en' ? 'Technology Stack' : 'Tech Stack'}
           </h2>
           <div className="flex flex-wrap gap-2">
@@ -106,38 +104,42 @@ function ProjectDetail({ project }: ProjectDetailProps) {
         </div>
       </motion.section>
 
-      {/* Features */}
-      <motion.section
-        initial={{ opacity: 0, y: 20 }}
-        animate={{ opacity: 1, y: 0 }}
-        transition={{ delay: 0.3 }}
-        className="px-6 mb-8"
-      >
-        <div className="container mx-auto max-w-4xl">
-          <h2 className="text-lg font-semibold text-foreground mb-4">
-            {locale === 'en' ? 'Key Features' : 'Fitur Utama'}
-          </h2>
-          <div className="grid md:grid-cols-2 gap-4">
-            {features.map((feature, index) => (
-              <motion.div
-                key={feature.title}
-                initial={{ opacity: 0, y: 20 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ delay: 0.3 + index * 0.05 }}
-                className="glass-card p-4 flex items-start gap-3"
-              >
-                <div className="w-8 h-8 rounded-lg bg-gradient-to-br from-primary/20 to-primary/10 flex items-center justify-center shrink-0">
-                  <Check className="w-4 h-4 text-primary" />
-                </div>
-                <div>
-                  <h3 className="font-semibold text-foreground">{feature.title}</h3>
-                  <p className="text-sm text-foreground/60 mt-1">{feature.description}</p>
-                </div>
-              </motion.div>
-            ))}
+      {/* Features by Category */}
+      {allFeatures.map((category, catIndex) => (
+        <motion.section
+          key={category.category}
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ delay: 0.2 + catIndex * 0.1 }}
+          className="px-6 mb-8"
+        >
+          <div className="container mx-auto max-w-4xl">
+            <h2 className="text-lg font-semibold text-foreground mb-4 flex items-center gap-2">
+              {category.icon}
+              {category.category}
+            </h2>
+            <div className="grid md:grid-cols-2 gap-4">
+              {category.features.map((feature, index) => (
+                <motion.div
+                  key={feature.title}
+                  initial={{ opacity: 0, y: 20 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ delay: 0.3 + catIndex * 0.1 + index * 0.03 }}
+                  className="glass-card p-4 flex items-start gap-3"
+                >
+                  <div className="w-8 h-8 rounded-lg bg-gradient-to-br from-primary/20 to-primary/10 flex items-center justify-center shrink-0">
+                    <Check className="w-4 h-4 text-primary" />
+                  </div>
+                  <div>
+                    <h3 className="font-semibold text-foreground">{feature.title}</h3>
+                    <p className="text-sm text-foreground/60 mt-1">{feature.description}</p>
+                  </div>
+                </motion.div>
+              ))}
+            </div>
           </div>
-        </div>
-      </motion.section>
+        </motion.section>
+      ))}
 
       {/* Links */}
       <motion.section
@@ -215,64 +217,406 @@ function ProjectDetail({ project }: ProjectDetailProps) {
   );
 }
 
-function getFeaturesByProject(id: string, locale: string) {
-  const enFeatures: Record<string, Array<{ title: string; description: string }>> = {
-    "1": [
-      { title: "Income & Expense Tracking", description: "Track all your income and expenses with categorized transactions" },
-      { title: "Savings Goals", description: "Set and monitor savings targets with visual progress indicators" },
-      { title: "Debt Management", description: "Manage and track your debts, loans, and payments easily" },
-      { title: "Interactive Charts", description: "Visualize your financial data with beautiful, interactive charts" },
-      { title: "PDF Export", description: "Export your financial reports to PDF for record keeping or sharing" },
-      { title: "Biometric Authentication", description: "Secure your data with fingerprint or face unlock" },
-      { title: "Home Screen Widget", description: "Quick glance at your balance from your phone's home screen" },
-      { title: "Offline Support", description: "Works completely offline - your data stays on your device" },
-    ],
-    "2": [
-      { title: "Interactive Lessons", description: "Learn grammar through engaging, structured lessons" },
-      { title: "Practice Quizzes", description: "Test your knowledge with interactive quizzes" },
-      { title: "Text-to-Speech", description: "Hear correct pronunciation with built-in TTS" },
-      { title: "Progress Tracking", description: "Track your learning progress and identify weak areas" },
-      { title: "Offline Access", description: "Study anywhere without internet connection" },
-      { title: "Multiple Difficulty Levels", description: "From beginner to advanced grammar concepts" },
-    ],
-    "3": [
-      { title: "Clean Architecture", description: "Well-structured, maintainable codebase following best practices" },
-      { title: "Comprehensive Practice Tests", description: "Hundreds of questions covering all exam topics" },
-      { title: "Progress Analytics", description: "Track your improvement with detailed analytics dashboard" },
-      { title: "Timed Exams", description: "Simulate real exam conditions with timed practice sessions" },
-      { title: "Topic-based Practice", description: "Focus on specific subjects you need to improve" },
-      { title: "Offline Mode", description: "Practice anywhere, even without internet connection" },
-    ],
-  };
+interface FeatureCategory {
+  category: string;
+  icon: React.ReactNode;
+  features: Array<{ title: string; description: string }>;
+}
 
-  const idFeatures: Record<string, Array<{ title: string; description: string }>> = {
-    "1": [
-      { title: "Pencatatan Pemasukan & Pengeluaran", description: "Lacak semua pemasukan dan pengeluaran dengan transaksi terkategori" },
-      { title: "Target Tabungan", description: "Tetapkan dan pantau target tabungan dengan indikator progres visual" },
-      { title: "Manajemen Utang", description: "Kelola dan lacak utang, pinjaman, dan pembayaran dengan mudah" },
-      { title: "Grafik Interaktif", description: "Visualisasikan data keuangan Anda dengan grafik interaktif yang indah" },
-      { title: "Ekspor PDF", description: "Ekspor laporan keuangan ke PDF untuk arsip atau berbagi" },
-      { title: "Autentikasi Biometrik", description: "Amankan data Anda dengan sidik jari atau buka kunci wajah" },
-      { title: "Widget Layar Utama", description: "Lihat saldo cepat dari layar utama HP Anda" },
-      { title: "Dukungan Offline", description: "Berfungsi sepenuhnya offline - data Anda tetap di perangkat Anda" },
-    ],
-    "2": [
-      { title: "Pelajaran Interaktif", description: "Pelajari tata bahasa melalui pelajaran terstruktur yang menarik" },
-      { title: "Kuis Latihan", description: "Uji pengetahuan Anda dengan kuis interaktif" },
-      { title: "Text-to-Speech", description: "Dengar pengucapan yang benar dengan TTS bawaan" },
-      { title: "Pantau Progres", description: "Lacak progres belajar dan identifikasi area lemah" },
-      { title: "Akses Offline", description: "Belajar di mana saja tanpa koneksi internet" },
-      { title: "Berbagai Tingkat Kesulitan", description: "Dari konsep tata bahasa pemula hingga lanjutan" },
-    ],
-    "3": [
-      { title: "Clean Architecture", description: "Kode terstruktur dengan baik, mengikuti best practices" },
-      { title: "Try Out Lengkap", description: "Ratusan soal yang mencakup semua topik ujian" },
-      { title: "Analitik Progres", description: "Lacak peningkatan Anda dengan dashboard analitik detail" },
-      { title: "Ujian Berbatas Waktu", description: "Simulasikan kondisi ujian nyata dengan sesi latihan berbatas waktu" },
-      { title: "Latihan Berbasis Topik", description: "Fokus pada topik spesifik yang perlu Anda tingkatkan" },
-      { title: "Mode Offline", description: "Berlatih di mana saja, bahkan tanpa koneksi internet" },
-    ],
-  };
+function getAllFeaturesByProject(id: string, locale: string): FeatureCategory[] {
+  if (id === "1") {
+    return locale === 'en' ? [
+      {
+        category: "Transaction Management",
+        icon: <TrendingUp className="w-5 h-5 text-primary" />,
+        features: [
+          { title: "Income & Expense Tracking", description: "Full CRUD operations with categorized transactions, search, and pagination" },
+          { title: "Multiple Wallets (Dompet)", description: "Support multiple wallets with different currencies, automatic balance sync" },
+          { title: "Recurring Transactions", description: "Auto-create daily, weekly, monthly, quarterly, yearly transactions" },
+          { title: "Receipt Attachments", description: "Attach photo receipts to transactions for record keeping" },
+          { title: "Soft Delete & Trash", description: "Deleted transactions go to trash, can be restored or permanently deleted" },
+          { title: "Full-text Search", description: "Search across all transactions with filters by date, category, wallet" },
+        ]
+      },
+      {
+        category: "Budget & Planning",
+        icon: <Target className="w-5 h-5 text-primary" />,
+        features: [
+          { title: "Monthly Budgets", description: "Set budget per category with visual progress indicators" },
+          { title: "Budget Rollover", description: "Unused budget automatically carries to next month" },
+          { title: "Budget Alerts", description: "Notifications when spending reaches 80% threshold" },
+          { title: "Cashflow Prediction", description: "Algorithm calculates days remaining based on spending pattern" },
+        ]
+      },
+      {
+        category: "Goals & Debts",
+        icon: <Award className="w-5 h-5 text-primary" />,
+        features: [
+          { title: "Savings Goals (Tabungan Impian)", description: "Target-based savings with visual progress, milestone notifications at 50%, 75%, 100%" },
+          { title: "Debt Management", description: "Track money owed to/by others with installment payment history" },
+          { title: "Due Date Reminders", description: "Notifications for approaching debt deadlines" },
+        ]
+      },
+      {
+        category: "Security & Profiles",
+        icon: <Shield className="w-5 h-5 text-primary" />,
+        features: [
+          { title: "PIN Lock", description: "Optional 6-digit PIN protection for app access" },
+          { title: "Biometric Auth", description: "Fingerprint and face unlock for secure access" },
+          { title: "Multi-Profile Support", description: "Separate profiles for family members with data isolation" },
+          { title: "App Lock on Background", description: "Auto re-lock when app goes to background" },
+        ]
+      },
+      {
+        category: "Export & Reports",
+        icon: <FileText className="w-5 h-5 text-primary" />,
+        features: [
+          { title: "PDF Export", description: "Generate professional financial reports as PDF documents" },
+          { title: "JSON Backup/Restore", description: "Full data backup to JSON with file sharing, restore from backup" },
+          { title: "Monthly Summaries", description: "Income/expense totals with category breakdown pie charts" },
+        ]
+      },
+      {
+        category: "Platform & Integration",
+        icon: <Smartphone className="w-5 h-5 text-primary" />,
+        features: [
+          { title: "Android Home Widget", description: "Show balance on home screen with quick add income/expense actions" },
+          { title: "Desktop Support", description: "Full Windows/Mac/Linux support with window management" },
+          { title: "Local Notifications", description: "Budget warnings, debt reminders, savings milestones" },
+        ]
+      },
+    ] : [
+      {
+        category: "Manajemen Transaksi",
+        icon: <TrendingUp className="w-5 h-5 text-primary" />,
+        features: [
+          { title: "Pencatatan Pemasukan & Pengeluaran", description: "Operasi CRUD lengkap dengan transaksi terkategori, pencarian, dan pagination" },
+          { title: "Multi Dompet", description: "Dukung banyak dompet dengan mata uang berbeda, sinkronisasi saldo otomatis" },
+          { title: "Transaksi Berulang", description: "Auto-create transaksi harian, mingguan, bulanan, quarterly, tahunan" },
+          { title: "Lampiran Struk", description: "Lampirkan foto struk untuk arsip transaksi" },
+          { title: "Soft Delete & Tong Sampah", description: "Transaksi dihapus masuk tong sampah, bisa direstore atau hapus permanen" },
+          { title: "Pencarian Lengkap", description: "Cari semua transaksi dengan filter tanggal, kategori, dompet" },
+        ]
+      },
+      {
+        category: "Anggaran & Perencanaan",
+        icon: <Target className="w-5 h-5 text-primary" />,
+        features: [
+          { title: "Anggaran Bulanan", description: "Tetapkan anggaran per kategori dengan indikator progres visual" },
+          { title: "Roll Over Anggaran", description: "Anggaran tidak terpakai secara otomatis masuk bulan berikutnya" },
+          { title: "Peringatan Anggaran", description: "Notifikasi saat pengeluaran mencapai 80% batas anggaran" },
+          { title: "Prediksi Arus Kas", description: "Algoritma menghitung hari tersisa berdasarkan pola pengeluaran" },
+        ]
+      },
+      {
+        category: "Target & Utang",
+        icon: <Award className="w-5 h-5 text-primary" />,
+        features: [
+          { title: "Tabungan Impian", description: "Tabungan berbasis target dengan progres visual, notifikasi di 50%, 75%, 100%" },
+          { title: "Manajemen Utang", description: "Lacak uang yang dipinjam/utang dengan history cicilan" },
+          { title: "Pengingat Jatuh Tempo", description: "Notifikasi untuk deadline utang yang mendekati" },
+        ]
+      },
+      {
+        category: "Keamanan & Profil",
+        icon: <Shield className="w-5 h-5 text-primary" />,
+        features: [
+          { title: "Kunci PIN", description: "Proteksi opsional dengan PIN 6 digit untuk akses aplikasi" },
+          { title: "Autentikasi Biometrik", description: "Buka kunci dengan sidik jari atau wajah" },
+          { title: "Multi Profil", description: "Profil terpisah untuk anggota keluarga dengan isolasi data" },
+          { title: "Kunci Saat Background", description: "Otomatis kunci kembali saat aplikasi di background" },
+        ]
+      },
+      {
+        category: "Ekspor & Laporan",
+        icon: <FileText className="w-5 h-5 text-primary" />,
+        features: [
+          { title: "Ekspor PDF", description: "Generate laporan keuangan profesional sebagai dokumen PDF" },
+          { title: "Backup/Restore JSON", description: "Backup data lengkap ke JSON dengan berbagi file, restore dari backup" },
+          { title: "Ringkasan Bulanan", description: "Total pemasukan/pengeluaran dengan breakdown kategori pie chart" },
+        ]
+      },
+      {
+        category: "Platform & Integrasi",
+        icon: <Smartphone className="w-5 h-5 text-primary" />,
+        features: [
+          { title: "Widget Android", description: "Tampilkan saldo di layar utama dengan aksi cepat tambah transaksi" },
+          { title: "Dukungan Desktop", description: "Dukungan penuh Windows/Mac/Linux dengan window management" },
+          { title: "Notifikasi Lokal", description: "Peringatan anggaran, pengingat utang, pencapaian tabungan" },
+        ]
+      },
+    ];
+  }
 
-  return locale === 'en' ? enFeatures[id] || [] : idFeatures[id] || [];
+  if (id === "2") {
+    return locale === 'en' ? [
+      {
+        category: "Grammar Learning",
+        icon: <Zap className="w-5 h-5 text-primary" />,
+        features: [
+          { title: "Organized Grammar Categories", description: "Learn Tenses, Articles, Prepositions, and more with structured lessons" },
+          { title: "Rich Lesson Content", description: "Markdown-like formatting with bold, lists, and examples" },
+          { title: "Sentence Type Detection", description: "Auto-detect positive/negative/interrogative with color-coded badges" },
+          { title: "Learning Tips", description: "Helpful tips for each grammar concept" },
+          { title: "XP Rewards System", description: "Earn experience points for completing lessons" },
+        ]
+      },
+      {
+        category: "Quiz System",
+        icon: <Target className="w-5 h-5 text-primary" />,
+        features: [
+          { title: "6 Question Types", description: "Multiple Choice, Fill in Blank, True/False, Sentence Ordering, Drag & Drop, Matching" },
+          { title: "Timer Support", description: "Optional timed quizzes for exam simulation" },
+          { title: "Hint System", description: "Optional hints for difficult questions" },
+          { title: "Detailed Explanations", description: "Learn from each question with full explanations" },
+          { title: "Score Tracking", description: "Percentage-based scoring with XP rewards" },
+        ]
+      },
+      {
+        category: "Spaced Repetition System (SRS)",
+        icon: <Clock className="w-5 h-5 text-primary" />,
+        features: [
+          { title: "SM-2 Algorithm", description: "Enhanced spaced repetition with ease factors" },
+          { title: "Card Flip Animation", description: "Beautiful 3D flip animation for flashcard review" },
+          { title: "Swipe Gestures", description: "Swipe to rate cards (Again, Hard, Good, Easy)" },
+          { title: "Review Statistics", description: "Due count, new cards, retention rate, review forecast" },
+        ]
+      },
+      {
+        category: "Special Practice",
+        icon: <Award className="w-5 h-5 text-primary" />,
+        features: [
+          { title: "Daily Challenge", description: "Timed grammar challenges every day" },
+          { title: "Sentence Transformation", description: "Practice transforming sentence structures" },
+          { title: "Grammar Error Correction", description: "Find and fix grammar errors" },
+          { title: "Idioms Collection", description: "Learn common English idiomatic expressions" },
+          { title: "Collocations", description: "Word combination learning" },
+          { title: "Word Roots", description: "Etymology-based vocabulary building" },
+          { title: "Mnemonics", description: "Memory tricks for grammar rules" },
+        ]
+      },
+      {
+        category: "Text-to-Speech",
+        icon: <ExternalLink className="w-5 h-5 text-primary" />,
+        features: [
+          { title: "English Pronunciation", description: "Hear correct pronunciation for all grammar examples" },
+          { title: "Adjustable Settings", description: "Control speech rate, pitch, and volume" },
+          { title: "Toggle On/Off", description: "Enable or disable TTS as needed" },
+        ]
+      },
+      {
+        category: "Gamification & Progress",
+        icon: <Star className="w-5 h-5 text-primary" />,
+        features: [
+          { title: "XP & Leveling System", description: "Automatic level up based on XP earned" },
+          { title: "Daily Streaks", description: "Track consecutive study days with animations" },
+          { title: "10+ Achievements", description: "Unlockable achievements for milestones" },
+          { title: "Celebration Dialogs", description: "Animated celebrations for streaks and level-ups" },
+          { title: "Progress Dashboard", description: "Topic-by-topic completion tracking" },
+        ]
+      },
+    ] : [
+      {
+        category: "Pembelajaran Tata Bahasa",
+        icon: <Zap className="w-5 h-5 text-primary" />,
+        features: [
+          { title: "Kategori Tata Bahasa Terorganisir", description: "Pelajari Tenses, Articles, Prepositions, dan lainnya dengan pelajaran terstruktur" },
+          { title: "Konten Pelajaran Rich", description: "Format seperti markdown dengan bold, lists, dan contoh" },
+          { title: "Deteksi Tipe Kalimat", description: "Auto-detect kalimat positif/negatif/interogatif dengan badge berkode warna" },
+          { title: "Tips Pembelajaran", description: "Tips berguna untuk setiap konsep tata bahasa" },
+          { title: "Sistem XP Rewards", description: "Peroleh experience points untuk menyelesaikan pelajaran" },
+        ]
+      },
+      {
+        category: "Sistem Kuis",
+        icon: <Target className="w-5 h-5 text-primary" />,
+        features: [
+          { title: "6 Tipe Soal", description: "Pilihan Ganda, Isi Kosong, Benar/Salah, Susun Kalimat, Drag & Drop, Pasangan" },
+          { title: "Dukungan Timer", description: "Kuis berbatas waktu opsional untuk simulasi ujian" },
+          { title: "Sistem Petunjuk", description: "Petunjuk opsional untuk soal sulit" },
+          { title: "Penjelasan Detail", description: "Pelajari dari setiap soal dengan penjelasan lengkap" },
+          { title: "Pelacakan Skor", description: "Scoring berbasis persentase dengan reward XP" },
+        ]
+      },
+      {
+        category: "Spaced Repetition System (SRS)",
+        icon: <Clock className="w-5 h-5 text-primary" />,
+        features: [
+          { title: "Algoritma SM-2", description: "Spaced repetition enhanced dengan ease factors" },
+          { title: "Animasi Flip Card", description: "Animasi flip 3D yang indah untuk review flashcard" },
+          { title: "Gesture Swipe", description: "Swipe untuk memberi rating kartu (Ulangi, Susah, Bagus, Mudah)" },
+          { title: "Statistik Review", description: "Jumlah due, kartu baru, retention rate, forecast review" },
+        ]
+      },
+      {
+        category: "Latihan Khusus",
+        icon: <Award className="w-5 h-5 text-primary" />,
+        features: [
+          { title: "Tantangan Harian", description: "Tantangan tata bahasa berbatas waktu setiap hari" },
+          { title: "Transformasi Kalimat", description: "Latihan mengubah struktur kalimat" },
+          { title: "Koreksi Error Tata Bahasa", description: "Temukan dan perbaiki error tata bahasa" },
+          { title: "Koleksi Idioms", description: "Pelajari ungkapan idiomatik bahasa Inggris" },
+          { title: "Collocations", description: "Pembelajaran kombinasi kata" },
+          { title: "Word Roots", description: "Pembelajaran vocabulary berbasis etimologi" },
+          { title: "Mnemonics", description: "Trik memori untuk aturan tata bahasa" },
+        ]
+      },
+      {
+        category: "Text-to-Speech",
+        icon: <ExternalLink className="w-5 h-5 text-primary" />,
+        features: [
+          { title: "Pengucapan Bahasa Inggris", description: "Dengar pengucapan yang benar untuk semua contoh tata bahasa" },
+          { title: "Pengaturan Adjustable", description: "Kontrol speech rate, pitch, dan volume" },
+          { title: "Toggle On/Off", description: "Aktifkan atau nonaktifkan TTS sesuai kebutuhan" },
+        ]
+      },
+      {
+        category: "Gamifikasi & Progres",
+        icon: <Star className="w-5 h-5 text-primary" />,
+        features: [
+          { title: "Sistem XP & Leveling", description: "Level up otomatis berdasarkan XP yang diperoleh" },
+          { title: "Daily Streaks", description: "Lacak hari belajar berturut-turut dengan animasi" },
+          { title: "10+ Achievement", description: "Achievement yang bisa di-unlock untuk milestone" },
+          { title: "Dialog Celebrasi", description: "Animasi celebration untuk streaks dan level-ups" },
+          { title: "Dashboard Progress", description: "Pelacakan completion per topik" },
+        ]
+      },
+    ];
+  }
+
+  if (id === "3") {
+    return locale === 'en' ? [
+      {
+        category: "Exam Simulation",
+        icon: <Target className="w-5 h-5 text-primary" />,
+        features: [
+          { title: "Full 110-Question Exam", description: "Complete exam simulation with all question types" },
+          { title: "Category-Specific Tests", description: "Practice TWK, TIU, or TKP only" },
+          { title: "Timed Exams", description: "Configurable time limits with auto-submit at time end" },
+          { title: "Keyboard Navigation", description: "A-E for answers, arrow keys for navigation, fully keyboard-driven" },
+          { title: "Flag System", description: "Mark questions for review before submission" },
+        ]
+      },
+      {
+        category: "Question Bank",
+        icon: <Database className="w-5 h-5 text-primary" />,
+        features: [
+          { title: "Multiple Choice with 5 Options", description: "Comprehensive question format" },
+          { title: "Categories: TWK, TIU, TKP", description: "All three exam categories covered" },
+          { title: "Subcategory Organization", description: "More granular topic organization" },
+          { title: "Difficulty Levels", description: "Easy, medium, hard questions" },
+          { title: "Figural Questions", description: "Image-based questions support" },
+        ]
+      },
+      {
+        category: "Scoring & Results",
+        icon: <TrendingUp className="w-5 h-5 text-primary" />,
+        features: [
+          { title: "Passing Grades", description: "TWK (65), TIU (80), TKP (166) benchmarks" },
+          { title: "Category Scores", description: "Individual section scores breakdown" },
+          { title: "Overall Pass/Fail", description: "Combined scoring with pass/fail determination" },
+          { title: "Score History", description: "Track performance across all attempts" },
+          { title: "Detailed Results", description: "Score breakdown by category with explanations" },
+        ]
+      },
+      {
+        category: "Statistics & Analytics",
+        icon: <Award className="w-5 h-5 text-primary" />,
+        features: [
+          { title: "Progress Chart", description: "Visual score progression over time" },
+          { title: "Category Accuracy", description: "Per-category accuracy rates analysis" },
+          { title: "Weakness Analysis", description: "AI-based identification of weakest areas" },
+          { title: "Trend Analysis", description: "Score trend indicators (improving/declining)" },
+          { title: "Summary Statistics", description: "Total sessions, pass rate, average score" },
+        ]
+      },
+      {
+        category: "Practice Mode",
+        icon: <Zap className="w-5 h-5 text-primary" />,
+        features: [
+          { title: "Per-Subtopic Practice", description: "Practice specific subtopics for targeted learning" },
+          { title: "Immediate Feedback", description: "See correct answer right away after answering" },
+          { title: "Untimed Practice", description: "No timer for relaxed learning sessions" },
+          { title: "Detailed Explanations", description: "Full explanations for every question" },
+        ]
+      },
+      {
+        category: "Data & Recovery",
+        icon: <Shield className="w-5 h-5 text-primary" />,
+        features: [
+          { title: "Auto-Save", description: "Save progress during exam to prevent data loss" },
+          { title: "Crash Recovery", description: "Resume interrupted exams seamlessly" },
+          { title: "Session History", description: "Complete history of past attempts" },
+          { title: "Time Warnings", description: "10min, 5min, 1min warnings during exam" },
+        ]
+      },
+    ] : [
+      {
+        category: "Simulasi Ujian",
+        icon: <Target className="w-5 h-5 text-primary" />,
+        features: [
+          { title: "Ujian Lengkap 110 Soal", description: "Simulasi ujian lengkap dengan semua tipe soal" },
+          { title: "Tes per Kategori", description: "Latihan TWK, TIU, atau TKP saja" },
+          { title: "Ujian Berbatas Waktu", description: "Batas waktu configurable dengan auto-submit saat waktu habis" },
+          { title: "Navigasi Keyboard", description: "A-E untuk jawaban, arrow keys untuk navigasi, sepenuhnya keyboard-driven" },
+          { title: "Sistem Flag", description: "Tandai soal untuk di-review sebelum submit" },
+        ]
+      },
+      {
+        category: "Bank Soal",
+        icon: <Database className="w-5 h-5 text-primary" />,
+        features: [
+          { title: "Pilihan Ganda 5 Opsi", description: "Format soal komprehensif" },
+          { title: "Kategori: TWK, TIU, TKP", description: "Semua tiga kategori ujian tercakup" },
+          { title: "Organisasi Subkategori", description: "Organisasi topik yang lebih granular" },
+          { title: "Tingkat Kesulitan", description: "Soal mudah, sedang, sulit" },
+          { title: "Soal Figural", description: "Dukungan soal berbasis gambar" },
+        ]
+      },
+      {
+        category: "Scoring & Hasil",
+        icon: <TrendingUp className="w-5 h-5 text-primary" />,
+        features: [
+          { title: "Nilai Lulus", description: "Benchmark TWK (65), TIU (80), TKP (166)" },
+          { title: "Skor per Kategori", description: "Breakdown skor per section" },
+          { title: "Lulus/Gagal Keseluruhan", description: "Scoring gabungan dengan penentuan lulus/gagal" },
+          { title: "Riwayat Skor", description: "Lacak performa di semua attempt" },
+          { title: "Hasil Detail", description: "Breakdown skor per kategori dengan penjelasan" },
+        ]
+      },
+      {
+        category: "Statistik & Analitik",
+        icon: <Award className="w-5 h-5 text-primary" />,
+        features: [
+          { title: "Grafik Progress", description: "Visual progression skor dari waktu ke waktu" },
+          { title: "Akurasi per Kategori", description: "Analisis tingkat akurasi per kategori" },
+          { title: "Analisis Kelemahan", description: "Identifikasi area terlemah berbasis AI" },
+          { title: "Analisis Trend", description: "Indikator trend skor (meningkat/menurun)" },
+          { title: "Statistik Ringkasan", description: "Total sesi, pass rate, rata-rata skor" },
+        ]
+      },
+      {
+        category: "Mode Latihan",
+        icon: <Zap className="w-5 h-5 text-primary" />,
+        features: [
+          { title: "Latihan per Subtopik", description: "Latihan subtopik spesifik untuk pembelajaran target" },
+          { title: "Feedback Langsung", description: "Lihat jawaban benar langsung setelah menjawab" },
+          { title: "Latihan Tanpa Timer", description: "Sesi pembelajaran santai tanpa batasan waktu" },
+          { title: "Penjelasan Detail", description: "Penjelasan lengkap untuk setiap soal" },
+        ]
+      },
+      {
+        category: "Data & Recovery",
+        icon: <Shield className="w-5 h-5 text-primary" />,
+        features: [
+          { title: "Auto-Save", description: "Simpan progress selama ujian untuk mencegah kehilangan data" },
+          { title: "Crash Recovery", description: "Lanjutkan ujian yang terputus dengan seamless" },
+          { title: "Riwayat Sesi", description: "History lengkap attempt sebelumnya" },
+          { title: "Peringatan Waktu", description: "Peringatan 10menit, 5menit, 1menit selama ujian" },
+        ]
+      },
+    ];
+  }
+
+  return [];
 }
