@@ -48,10 +48,10 @@ export default function ProjectsPage() {
                 </div>
 
                 <h3 className="text-base font-bold text-foreground group-hover:text-primary transition-colors">
-                  {project.title}
+                  {t(`projectData.${project.id}.title`, undefined, project.title)}
                 </h3>
                 <p className="mt-2 text-xs text-foreground/60 leading-relaxed line-clamp-2">
-                  {project.description}
+                  {t(`projectData.${project.id}.description`, undefined, project.description)}
                 </p>
 
                 <div className="flex flex-wrap gap-1.5 mt-3">

@@ -61,5 +61,19 @@
   },
   "footer": {
     "copyright": "Hak cipta dilindungi."
+  },
+  "projectData": {
+    "1": {
+      "title": "Catatan Keuangan (DompetKu)",
+      "description": "Aplikasi pencatatan keuangan personal. Track income, expense, savings, dan debts dengan fitur charts, PDF export, biometric auth, dan home screen widget."
+    },
+    "2": {
+      "title": "Grammar Master",
+      "description": "Offline English Grammar Learning App. Master grammar dengan interactive lessons dan quizzes, plus text-to-speech."
+    },
+    "3": {
+      "title": "Try Outcpns",
+      "description": "Aplikasi Try Outcpns dengan Clean Architecture. Fitur lengkap untuk latihan soal cpns dengan progress tracking."
+    }
   }
 }

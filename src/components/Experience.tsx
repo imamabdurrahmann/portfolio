@@ -51,10 +51,10 @@ export function Experience() {
 
                 <div className="flex-1 min-w-0">
                   <h3 className="text-base font-semibold text-foreground group-hover:text-primary transition-colors">
-                    {project.title}
+                    {t(`projectData.${project.id}.title`, undefined, project.title)}
                   </h3>
                   <p className="text-sm text-foreground/60 mt-1.5 leading-relaxed line-clamp-2">
-                    {project.description}
+                    {t(`projectData.${project.id}.description`, undefined, project.description)}
                   </p>
                 </div>
               </div>

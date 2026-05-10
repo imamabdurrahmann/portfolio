@@ -61,5 +61,19 @@
   },
   "footer": {
     "copyright": "All rights reserved."
+  },
+  "projectData": {
+    "1": {
+      "title": "Financial Notes (DompetKu)",
+      "description": "Personal finance tracking application. Track income, expenses, savings, and debts with features including charts, PDF export, biometric auth, and home screen widget."
+    },
+    "2": {
+      "title": "Grammar Master",
+      "description": "Offline English Grammar Learning App. Master grammar with interactive lessons and quizzes, plus text-to-speech."
+    },
+    "3": {
+      "title": "Try Outcpns",
+      "description": "Try Outcpns application with Clean Architecture. Full-featured for practicing Indonesian civil service exam questions with progress tracking."
+    }
   }
 }

@@ -78,12 +78,12 @@ export function FeaturedProjects() {
                 <div className={`order-2 ${isEven ? "lg:col-start-1 lg:row-start-1" : ""}`}>
                   <span className="text-primary text-xs font-medium uppercase tracking-wider">{t("featured.title")}</span>
                   <h3 className="text-xl lg:text-2xl font-bold text-foreground mt-1">
-                    {project.title}
+                    {t(`projectData.${project.id}.title`, { fallback: project.title })}
                   </h3>
 
                   {/* Description */}
                   <p className="mt-4 text-sm text-foreground/70 leading-relaxed">
-                    {project.description}
+                    {t(`projectData.${project.id}.description`, { fallback: project.description })}
                   </p>
 
                   {/* Tech Tags */}

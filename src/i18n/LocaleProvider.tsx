@@ -21,7 +21,7 @@ const STORAGE_KEY = "portfolio-locale";
 interface LocaleContextValue {
   locale: Locale;
   setLocale: (locale: Locale) => void;
-  t: (key: string, params?: Record<string, string | number>) => string;
+  t: (key: string, params?: Record<string, string | number>, fallback?: string) => string;
 }
 
 const LocaleContext = createContext<LocaleContextValue | null>(null);
@@ -69,8 +69,11 @@ export function LocaleProvider({ children }: { children: ReactNode }) {
   }, []);
 
   const t = useCallback(
-    (key: string, params?: Record<string, string | number>): string => {
+    (key: string, params?: Record<string, string | number>, fallback?: string): string => {
       let text = getNestedValue(messages[locale], key);
+      if (text === key && fallback) {
+        text = fallback;
+      }
 
       if (params) {
         Object.entries(params).forEach(([paramKey, value]) => {
@@ -101,8 +104,11 @@ export function useLocale() {
     return {
       locale: defaultLocale,
       setLocale: () => {},
-      t: (key: string, params?: Record<string, string | number>): string => {
+      t: (key: string, params?: Record<string, string | number>, fallback?: string): string => {
         let text = getNestedValue(messages[defaultLocale], key);
+        if (text === key && fallback) {
+          text = fallback;
+        }
         if (params) {
           Object.entries(params).forEach(([paramKey, value]) => {
             text = text.replace(new RegExp(`\\{${paramKey}\\}`, "g"), String(value));
