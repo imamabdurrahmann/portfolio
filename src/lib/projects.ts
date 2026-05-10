@@ -8,6 +8,7 @@ export interface Project {
   github?: string;
   tech: string[];
   featured?: boolean;
+  contactMessage?: string;
 }
 
 export const projects: Project[] = [
@@ -18,6 +19,7 @@ export const projects: Project[] = [
     image: "/projects/catatan-keuangan.jpg",
     tech: ["Flutter", "Riverpod", "SQLite", "fl_chart", "PDF", "Biometric Auth", "GoRouter"],
     featured: true,
+    contactMessage: "Halo Imam, saya tertarik dengan project DompetKu - Catatan Keuangan",
   },
   {
     id: "2",
@@ -26,6 +28,7 @@ export const projects: Project[] = [
     image: "/projects/grammar-master.jpg",
     tech: ["Flutter", "Provider", "TTS", "Shared Preferences", "Google Fonts"],
     featured: true,
+    contactMessage: "Halo Imam, saya tertarik dengan project Grammar Master",
   },
   {
     id: "3",
@@ -34,6 +37,7 @@ export const projects: Project[] = [
     image: "/projects/tryout-cpns.jpg",
     tech: ["Flutter", "Riverpod", "Hive", "Clean Architecture", "GoRouter", "Dio"],
     featured: false,
+    contactMessage: "Halo Imam, saya tertarik dengan project Try Outcpns",
   },
 ];
 

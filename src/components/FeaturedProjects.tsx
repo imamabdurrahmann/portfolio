@@ -1,26 +1,9 @@
 import Link from "next/link";
 import { ArrowRight, Star } from "lucide-react";
-
-const featuredProjects = [
-  {
-    id: "1",
-    title: "Catatan Keuangan (DompetKu)",
-    description: "Aplikasi pencatatan keuangan personal dengan fitur lengkap: track income, expense, savings, debts, charts interaktif, PDF export, biometric auth, dan home screen widget.",
-    tech: ["Flutter", "Riverpod", "SQLite", "fl_chart", "PDF", "Biometric Auth"],
-    featured: true,
-    contactMessage: "Halo Imam, saya tertarik dengan project DompetKu - Catatan Keuangan",
-  },
-  {
-    id: "3",
-    title: "Try Outcpns",
-    description: "Aplikasi Try Outcpns dengan Clean Architecture. Fitur lengkap untuk latihan soal cpns dengan progress tracking dan analytics.",
-    tech: ["Flutter", "Riverpod", "Hive", "Clean Architecture", "GoRouter"],
-    featured: false,
-    contactMessage: "Halo Imam, saya tertarik dengan project Try Outcpns",
-  },
-];
+import { getFeaturedProjects } from "@/lib/projects";
 
 export function FeaturedProjects() {
+  const featuredProjects = getFeaturedProjects();
   return (
     <section id="lab" className="py-12 px-6">
       <div className="container mx-auto max-w-5xl">
@@ -75,7 +58,7 @@ export function FeaturedProjects() {
                   {/* CTA */}
                   <div className="mt-5">
                     <Link
-                      href={`https://wa.me/6282375227802?text=${encodeURIComponent(project.contactMessage)}`}
+                      href={`https://wa.me/6282375227802?text=${encodeURIComponent(project.contactMessage || `Halo Imam, saya tertarik dengan project ${project.title}`)}`}
                       target="_blank"
                       rel="noopener noreferrer"
                       className="btn-primary text-sm"

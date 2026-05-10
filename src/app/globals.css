@@ -3,6 +3,7 @@
 
 @custom-variant dark (&:is(.dark *));
 @custom-variant light (&:is(.light *));
+@custom-variant hi-contrast (&:is([data-theme="light"] *));
 
 @theme inline {
   --color-background: var(--background);
@@ -12,10 +13,25 @@
 }
 
 /* ========================================
+   FORCE DARK MODE PROTECTION
+   ======================================== */
+
+html[data-theme="light"] {
+  color-scheme: light;
+  forced-color-adjust: none;
+}
+
+html[data-theme="dark"] {
+  color-scheme: dark;
+  forced-color-adjust: none;
+}
+
+/* ========================================
    DARK THEME (Default)
    ======================================== */
 
 :root,
+html[data-theme="dark"],
 .dark {
   --background: #0f0a1e;
   --foreground: #ffffff;
@@ -45,10 +61,12 @@
 }
 
 /* ========================================
-   LIGHT THEME
+   LIGHT THEME (High Contrast - Protected)
    ======================================== */
 
+html[data-theme="light"],
 .light {
+  color-scheme: light !important;
   --background: #ffffff;
   --foreground: #1e1b2e;
   --card: #ffffff;
@@ -69,8 +87,8 @@
   --ring: #7c3aed;
   --gradient-start: #7c3aed;
   --gradient-end: #4f46e5;
-  --glass-bg: rgba(255, 255, 255, 0.9);
-  --glass-border: rgba(0, 0, 0, 0.08);
+  --glass-bg: rgba(255, 255, 255, 0.95);
+  --glass-border: rgba(0, 0, 0, 0.1);
   --text-primary: #1e1b2e;
   --text-secondary: #4b5563;
   --text-muted: #9ca3af;
