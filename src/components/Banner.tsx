@@ -2,10 +2,28 @@
 
 import Link from "next/link";
 import { Star, Heart, TrendingUp, ArrowRight, Mail } from "lucide-react";
+import { motion } from "framer-motion";
 import { useTypingAnimation } from "@/hooks/useTypingAnimation";
 import { useLocale } from "@/i18n/LocaleProvider";
+import { fadeInUp, staggerContainer } from "@/lib/animations";
 
 const roles = ["Flutter Developer", "Mobile App Builder", "UI Enthusiast"];
+
+const containerVariants = {
+  hidden: { opacity: 0 },
+  visible: {
+    opacity: 1,
+    transition: {
+      staggerChildren: 0.15,
+      delayChildren: 0.2
+    }
+  }
+};
+
+const itemVariants = {
+  hidden: { opacity: 0, y: 20 },
+  visible: { opacity: 1, y: 0, transition: { duration: 0.5 } }
+};
 
 export function Banner() {
   const { displayedText } = useTypingAnimation(roles);
@@ -17,33 +35,38 @@ export function Banner() {
       <div className="hero-glow-2" />
 
       <div className="container mx-auto max-w-5xl relative z-10">
-        <div className="text-center">
+        <motion.div
+          className="text-center"
+          variants={containerVariants}
+          initial="hidden"
+          animate="visible"
+        >
           {/* Badge */}
-          <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full glass mb-6">
+          <motion.div variants={itemVariants} className="inline-flex items-center gap-2 px-4 py-2 rounded-full glass mb-6">
             <span className="w-2 h-2 bg-green-400 rounded-full animate-pulse" />
             <span className="text-sm font-medium text-foreground/80">{t("hero.available")}</span>
-          </div>
+          </motion.div>
 
           {/* Heading */}
-          <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold leading-tight text-foreground">
+          <motion.h1 variants={itemVariants} className="text-4xl md:text-5xl lg:text-6xl font-bold leading-tight text-foreground">
             {t("hero.title")}<br />
             {t("hero.titleAccent")}<br />
             <span className="gradient-text">{t("hero.titleAccent2")}</span>
-          </h1>
+          </motion.h1>
 
           {/* Typing Role */}
-          <div className="mt-6 text-xl md:text-2xl font-semibold text-foreground/90">
+          <motion.div variants={itemVariants} className="mt-6 text-xl md:text-2xl font-semibold text-foreground/90">
             {t("hero.typingRole", { role: displayedText })}
             <span className="typing-cursor text-primary">|</span>
-          </div>
+          </motion.div>
 
           {/* Description */}
-          <p className="mt-4 text-base text-foreground/70 max-w-xl mx-auto leading-relaxed">
+          <motion.p variants={itemVariants} className="mt-4 text-base text-foreground/70 max-w-xl mx-auto leading-relaxed">
             {t("hero.description")}
-          </p>
+          </motion.p>
 
           {/* Stats */}
-          <div className="flex flex-wrap justify-center gap-6 md:gap-12 mt-8">
+          <motion.div variants={itemVariants} className="flex flex-wrap justify-center gap-6 md:gap-12 mt-8">
             {[
               { num: "3+", label: t("hero.project"), icon: <Star className="w-4 h-4" /> },
               { num: "100%", label: t("hero.dedication"), icon: <Heart className="w-4 h-4" /> },
@@ -57,10 +80,10 @@ export function Banner() {
                 <span className="text-xs text-foreground/60 mt-1">{stat.label}</span>
               </div>
             ))}
-          </div>
+          </motion.div>
 
           {/* CTA */}
-          <div className="flex flex-wrap justify-center gap-3 mt-8">
+          <motion.div variants={itemVariants} className="flex flex-wrap justify-center gap-3 mt-8">
             <Link href="/projects" className="btn-primary">
               {t("hero.viewProject")}
               <ArrowRight className="w-4 h-4" />
@@ -69,8 +92,8 @@ export function Banner() {
               <Mail className="w-4 h-4" />
               {t("hero.contactMe")}
             </Link>
-          </div>
-        </div>
+          </motion.div>
+        </motion.div>
       </div>
     </section>
   );

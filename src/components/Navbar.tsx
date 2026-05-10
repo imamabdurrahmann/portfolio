@@ -2,10 +2,24 @@
 
 import Link from "next/link";
 import { usePathname } from "next/navigation";
+import { motion } from "framer-motion";
 import { Code2 } from "lucide-react";
 import { ThemeToggle } from "./ThemeToggle";
 import { LanguageToggle } from "./LanguageToggle";
 import { useLocale } from "@/i18n/LocaleProvider";
+
+const navItemVariants = {
+  hidden: { opacity: 0, y: -10 },
+  visible: { opacity: 1, y: 0, transition: { duration: 0.3 } }
+};
+
+const containerVariants = {
+  hidden: { opacity: 0 },
+  visible: {
+    opacity: 1,
+    transition: { staggerChildren: 0.08, delayChildren: 0.1 }
+  }
+};
 
 export function Navbar() {
   const pathname = usePathname();
@@ -18,7 +32,12 @@ export function Navbar() {
   ];
 
   return (
-    <header className="header">
+    <motion.header
+      className="header"
+      initial="hidden"
+      animate="visible"
+      variants={containerVariants}
+    >
       <nav className="px-6 py-4">
         <div className="container mx-auto max-w-6xl flex items-center justify-between">
           <Link href="/" className="flex items-center gap-2 group">
@@ -32,15 +51,16 @@ export function Navbar() {
             {/* Desktop Nav */}
             <div className="hidden md:flex items-center gap-2">
               {navLinks.map((link) => (
-                <Link
-                  key={link.href}
-                  href={link.href}
-                  className={`nav-link px-4 py-2 rounded-lg ${
-                    pathname === link.href ? "active" : ""
-                  }`}
-                >
-                  {link.label}
-                </Link>
+                <motion.div key={link.href} variants={navItemVariants}>
+                  <Link
+                    href={link.href}
+                    className={`nav-link px-4 py-2 rounded-lg ${
+                      pathname === link.href ? "active" : ""
+                    }`}
+                  >
+                    {link.label}
+                  </Link>
+                </motion.div>
               ))}
             </div>
 
@@ -51,15 +71,17 @@ export function Navbar() {
             <LanguageToggle />
 
             {/* CTA - Desktop */}
-            <Link
-              href="/contact"
-              className="hidden md:inline-flex items-center gap-2 px-5 py-2.5 rounded-full bg-gradient-to-r from-purple-500 to-indigo-500 text-white text-sm font-semibold shadow-lg shadow-purple-500/20 hover:shadow-xl hover:shadow-purple-500/30 transition-all"
-            >
-              {t("nav.hireMe")}
-            </Link>
+            <motion.div variants={navItemVariants}>
+              <Link
+                href="/contact"
+                className="hidden md:inline-flex items-center gap-2 px-5 py-2.5 rounded-full bg-gradient-to-r from-purple-500 to-indigo-500 text-white text-sm font-semibold shadow-lg shadow-purple-500/20 hover:shadow-xl hover:shadow-purple-500/30 transition-all"
+              >
+                {t("nav.hireMe")}
+              </Link>
+            </motion.div>
           </div>
         </div>
       </nav>
-    </header>
+    </motion.header>
   );
 }

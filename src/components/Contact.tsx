@@ -1,14 +1,26 @@
 "use client";
 
 import Link from "next/link";
+import { motion } from "framer-motion";
 import { useLocale } from "@/i18n/LocaleProvider";
+
+const fadeInUp = {
+  hidden: { opacity: 0, y: 20 },
+  visible: { opacity: 1, y: 0, transition: { duration: 0.5 } }
+};
 
 export function Contact() {
   const { t } = useLocale();
 
   return (
     <footer id="contact" className="py-12 px-6 footer">
-      <div className="container mx-auto max-w-4xl">
+      <motion.div
+        className="container mx-auto max-w-4xl"
+        initial="hidden"
+        whileInView="visible"
+        viewport={{ once: true, margin: "-50px" }}
+        variants={fadeInUp}
+      >
         <div className="text-center mb-8">
           <h2 className="text-3xl lg:text-4xl font-bold text-foreground mb-4">
             <span className="gradient-text">{t("contact.title")}</span>
@@ -66,7 +78,7 @@ export function Contact() {
             &copy; {new Date().getFullYear()} Muhammad Imam Abdurrahman. {t("footer.copyright")}
           </p>
         </div>
-      </div>
+      </motion.div>
     </footer>
   );
 }

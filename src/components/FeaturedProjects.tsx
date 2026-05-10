@@ -1,9 +1,33 @@
 "use client";
 
+import { motion } from "framer-motion";
 import Link from "next/link";
 import { ArrowRight, Star } from "lucide-react";
 import { getFeaturedProjects } from "@/lib/projects";
 import { useLocale } from "@/i18n/LocaleProvider";
+
+const fadeInUp = {
+  hidden: { opacity: 0, y: 30 },
+  visible: { opacity: 1, y: 0, transition: { duration: 0.6 } }
+};
+
+const projectVariants = {
+  hidden: { opacity: 0, y: 40 },
+  visible: { opacity: 1, y: 0, transition: { duration: 0.6, ease: "easeOut" as const } }
+};
+
+const techTagVariants = {
+  hidden: { opacity: 0, scale: 0.8 },
+  visible: { opacity: 1, scale: 1, transition: { duration: 0.3 } }
+};
+
+const techContainerVariants = {
+  hidden: { opacity: 0 },
+  visible: {
+    opacity: 1,
+    transition: { staggerChildren: 0.08 }
+  }
+};
 
 export function FeaturedProjects() {
   const { t } = useLocale();
@@ -11,18 +35,31 @@ export function FeaturedProjects() {
   return (
     <section id="lab" className="py-12 px-6">
       <div className="container mx-auto max-w-5xl">
-        <div className="text-center mb-10">
+        <motion.div
+          className="text-center mb-10"
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true, margin: "-50px" }}
+          variants={fadeInUp}
+        >
           <span className="text-primary text-sm font-medium uppercase tracking-wider">{t("featured.title")}</span>
           <h2 className="text-3xl lg:text-4xl font-bold text-foreground mt-2">
             Project <span className="gradient-text">{t("featured.titleAccent")}</span>
           </h2>
-        </div>
+        </motion.div>
 
         {featuredProjects.map((project, index) => {
           const isEven = index % 2 === 1;
 
           return (
-            <div key={project.id} className="mb-12 last:mb-0">
+            <motion.div
+              key={project.id}
+              className="mb-12 last:mb-0"
+              initial="hidden"
+              whileInView="visible"
+              viewport={{ once: true, margin: "-50px" }}
+              variants={projectVariants}
+            >
               <div className={`featured-item grid grid-cols-1 lg:grid-cols-2 gap-6 lg:gap-8 items-start ${
                 isEven ? "lg:grid-flow-dense" : ""
               }`}>
@@ -50,14 +87,21 @@ export function FeaturedProjects() {
                   </p>
 
                   {/* Tech Tags */}
-                  <div className="flex flex-wrap gap-2 mt-4">
+                  <motion.div
+                    className="flex flex-wrap gap-2 mt-4"
+                    variants={techContainerVariants}
+                  >
                     {project.tech.slice(0, 4).map((tech) => (
-                      <span key={tech} className="tech-tag">{tech}</span>
+                      <motion.span key={tech} className="tech-tag" variants={techTagVariants}>
+                        {tech}
+                      </motion.span>
                     ))}
                     {project.tech.length > 4 && (
-                      <span className="tech-tag text-foreground/50">+{project.tech.length - 4}</span>
+                      <motion.span className="tech-tag text-foreground/50" variants={techTagVariants}>
+                        +{project.tech.length - 4}
+                      </motion.span>
                     )}
-                  </div>
+                  </motion.div>
 
                   {/* CTA */}
                   <div className="mt-5">
@@ -73,7 +117,7 @@ export function FeaturedProjects() {
                   </div>
                 </div>
               </div>
-            </div>
+            </motion.div>
           );
         })}
       </div>
