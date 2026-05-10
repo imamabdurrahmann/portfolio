@@ -57,7 +57,7 @@ export function Contact() {
             </motion.a>
 
             <motion.a
-              href="mailto:imamabdurrahmann@gmail.com"
+              href="mailto:muhammadimamabdurrahman93@gmail.com"
               className="glass-card p-4 flex items-center gap-3 group"
               whileHover={{ y: -4, scale: 1.02 }}
             >
@@ -67,7 +67,7 @@ export function Contact() {
               <div>
                 <span className="text-xs text-foreground/60">Email</span>
                 <p className="font-semibold text-foreground group-hover:text-primary transition-colors">
-                  imamabdurrahmann@gmail.com
+                  muhammadimamabdurrahman93@gmail.com
                 </p>
               </div>
             </motion.a>
@@ -125,7 +125,7 @@ export function Contact() {
             transition={{ type: "spring", stiffness: 400 }}
           >
             <Link
-              href="mailto:imamabdurrahmann@gmail.com"
+              href="mailto:muhammadimamabdurrahman93@gmail.com"
               className="social-icon"
               aria-label="Email"
             >
