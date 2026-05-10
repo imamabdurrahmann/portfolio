@@ -5,7 +5,6 @@ import { Star, Heart, TrendingUp, ArrowRight, Mail } from "lucide-react";
 import { motion } from "framer-motion";
 import { useTypingAnimation } from "@/hooks/useTypingAnimation";
 import { useLocale } from "@/i18n/LocaleProvider";
-import { fadeInUp, staggerContainer } from "@/lib/animations";
 
 const roles = ["Flutter Developer", "Mobile App Builder", "UI Enthusiast"];
 
@@ -14,15 +13,20 @@ const containerVariants = {
   visible: {
     opacity: 1,
     transition: {
-      staggerChildren: 0.15,
-      delayChildren: 0.2
+      staggerChildren: 0.12,
+      delayChildren: 0.3
     }
   }
 };
 
 const itemVariants = {
-  hidden: { opacity: 0, y: 20 },
-  visible: { opacity: 1, y: 0, transition: { duration: 0.5 } }
+  hidden: { opacity: 0, y: 30, scale: 0.95 },
+  visible: {
+    opacity: 1,
+    y: 0,
+    scale: 1,
+    transition: { duration: 0.6, ease: "easeOut" as const }
+  }
 };
 
 export function Banner() {
@@ -31,8 +35,10 @@ export function Banner() {
 
   return (
     <section className="hero-section px-6">
-      <div className="hero-glow" />
-      <div className="hero-glow-2" />
+      {/* Floating orbs for depth */}
+      <div className="hero-orb hero-orb-1" />
+      <div className="hero-orb hero-orb-2" />
+      <div className="hero-orb hero-orb-3" />
 
       <div className="container mx-auto max-w-5xl relative z-10">
         <motion.div
@@ -41,55 +47,76 @@ export function Banner() {
           initial="hidden"
           animate="visible"
         >
-          {/* Badge */}
-          <motion.div variants={itemVariants} className="inline-flex items-center gap-2 px-4 py-2 rounded-full glass mb-6">
-            <span className="w-2 h-2 bg-green-400 rounded-full animate-pulse" />
-            <span className="text-sm font-medium text-foreground/80">{t("hero.available")}</span>
+          {/* Premium Badge */}
+          <motion.div
+            variants={itemVariants}
+            className="hero-badge mb-8"
+          >
+            <span className="hero-badge-dot" />
+            <span className="text-sm font-medium">{t("hero.available")}</span>
           </motion.div>
 
-          {/* Heading */}
-          <motion.h1 variants={itemVariants} className="text-4xl md:text-5xl lg:text-6xl font-bold leading-tight text-foreground">
+          {/* Premium Heading */}
+          <motion.h1
+            variants={itemVariants}
+            className="hero-heading"
+          >
             {t("hero.title")}<br />
-            {t("hero.titleAccent")}<br />
-            <span className="gradient-text">{t("hero.titleAccent2")}</span>
+            <span className="hero-heading-accent">{t("hero.titleAccent2")}</span>
           </motion.h1>
 
-          {/* Typing Role */}
-          <motion.div variants={itemVariants} className="mt-6 text-xl md:text-2xl font-semibold text-foreground/90">
+          {/* Typing Role - cleaner styling */}
+          <motion.div
+            variants={itemVariants}
+            className="hero-role mt-6"
+          >
             {t("hero.typingRole", { role: displayedText })}
-            <span className="typing-cursor text-primary">|</span>
+            <span className="typing-cursor text-primary ml-1">|</span>
           </motion.div>
 
-          {/* Description */}
-          <motion.p variants={itemVariants} className="mt-4 text-base text-foreground/70 max-w-xl mx-auto leading-relaxed">
+          {/* Description with more breathing room */}
+          <motion.p
+            variants={itemVariants}
+            className="mt-6 text-base md:text-lg text-foreground/70 max-w-2xl mx-auto leading-relaxed"
+          >
             {t("hero.description")}
           </motion.p>
 
-          {/* Stats */}
-          <motion.div variants={itemVariants} className="flex flex-wrap justify-center gap-6 md:gap-12 mt-8">
+          {/* Premium Stats - cards instead of plain numbers */}
+          <motion.div
+            variants={itemVariants}
+            className="flex flex-wrap justify-center gap-4 mt-10"
+          >
             {[
-              { num: "3+", label: t("hero.project"), icon: <Star className="w-4 h-4" /> },
+              { num: "4", label: t("hero.project"), icon: <Star className="w-4 h-4" /> },
               { num: "100%", label: t("hero.dedication"), icon: <Heart className="w-4 h-4" /> },
-              { num: "5+", label: t("hero.techStack"), icon: <TrendingUp className="w-4 h-4" /> },
-            ].map((stat) => (
-              <div key={stat.label} className="flex flex-col items-center">
-                <div className="flex items-center gap-1 text-3xl md:text-4xl font-bold gradient-text">
+              { num: "8+", label: t("hero.techStack"), icon: <TrendingUp className="w-4 h-4" /> },
+            ].map((stat, index) => (
+              <motion.div
+                key={stat.label}
+                className="hero-stat"
+                whileHover={{ y: -4 }}
+                transition={{ type: "spring", stiffness: 400 }}
+              >
+                <div className="flex items-center gap-2 hero-stat-number">
                   {stat.num}
-                  {stat.icon}
                 </div>
-                <span className="text-xs text-foreground/60 mt-1">{stat.label}</span>
-              </div>
+                <span className="hero-stat-label">{stat.label}</span>
+              </motion.div>
             ))}
           </motion.div>
 
-          {/* CTA */}
-          <motion.div variants={itemVariants} className="flex flex-wrap justify-center gap-3 mt-8">
-            <Link href="/projects" className="btn-primary">
+          {/* Premium CTA */}
+          <motion.div
+            variants={itemVariants}
+            className="flex flex-wrap justify-center gap-4 mt-10"
+          >
+            <Link href="/projects" className="hero-cta">
               {t("hero.viewProject")}
-              <ArrowRight className="w-4 h-4" />
+              <ArrowRight className="w-5 h-5" />
             </Link>
-            <Link href="/contact" className="btn-secondary">
-              <Mail className="w-4 h-4" />
+            <Link href="/contact" className="hero-cta-secondary">
+              <Mail className="w-5 h-5" />
               {t("hero.contactMe")}
             </Link>
           </motion.div>
