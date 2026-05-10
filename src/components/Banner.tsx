@@ -1,43 +1,13 @@
 "use client";
 
 import Link from "next/link";
-import { useState, useEffect } from "react";
 import { Star, Heart, TrendingUp, ArrowRight, Mail } from "lucide-react";
+import { useTypingAnimation } from "@/hooks/useTypingAnimation";
 
 const roles = ["Flutter Developer", "Mobile App Builder", "UI Enthusiast"];
 
 export function Banner() {
-  const [currentRoleIndex, setCurrentRoleIndex] = useState(0);
-  const [displayedText, setDisplayedText] = useState("");
-  const [isDeleting, setIsDeleting] = useState(false);
-
-  useEffect(() => {
-    const currentRole = roles[currentRoleIndex];
-
-    if (!isDeleting) {
-      if (displayedText.length < currentRole.length) {
-        const timeout = setTimeout(() => {
-          setDisplayedText(currentRole.slice(0, displayedText.length + 1));
-        }, 100);
-        return () => clearTimeout(timeout);
-      } else {
-        const timeout = setTimeout(() => {
-          setIsDeleting(true);
-        }, 2000);
-        return () => clearTimeout(timeout);
-      }
-    } else {
-      if (displayedText.length > 0) {
-        const timeout = setTimeout(() => {
-          setDisplayedText(currentRole.slice(0, displayedText.length - 1));
-        }, 50);
-        return () => clearTimeout(timeout);
-      } else {
-        setIsDeleting(false);
-        setCurrentRoleIndex((prev) => (prev + 1) % roles.length);
-      }
-    }
-  }, [displayedText, isDeleting, currentRoleIndex]);
+  const { displayedText } = useTypingAnimation(roles);
 
   return (
     <section className="hero-section px-6">
