@@ -4,16 +4,16 @@ import { notFound } from "next/navigation";
 import Link from "next/link";
 import { motion } from "framer-motion";
 import { ArrowLeft, ExternalLink, Play, Star, Check, Zap, Shield, Clock, TrendingUp, Target, Award, Database, Users, Bell, FileText, Smartphone } from "lucide-react";
-import { getProjectById, getProjects } from "@/lib/projects";
+import { getProjectBySlug } from "@/lib/projects";
 import { useLocale } from "@/i18n/LocaleProvider";
 
 interface PageProps {
-  params: Promise<{ id: string }>;
+  params: Promise<{ slug: string }>;
 }
 
 export default async function ProjectDetailPage({ params }: PageProps) {
-  const { id } = await params;
-  const project = getProjectById(id);
+  const { slug } = await params;
+  const project = getProjectBySlug(slug);
 
   if (!project) {
     notFound();
@@ -23,7 +23,7 @@ export default async function ProjectDetailPage({ params }: PageProps) {
 }
 
 interface ProjectDetailProps {
-  project: NonNullable<ReturnType<typeof getProjectById>>;
+  project: NonNullable<ReturnType<typeof getProjectBySlug>>;
 }
 
 function ProjectDetail({ project }: ProjectDetailProps) {
@@ -32,7 +32,7 @@ function ProjectDetail({ project }: ProjectDetailProps) {
   const title = t(`projectData.${project.id}.title`, undefined, project.title) as string;
   const description = t(`projectData.${project.id}.description`, undefined, project.description) as string;
 
-  const allFeatures = getAllFeaturesByProject(project.id, locale);
+  const allFeatures = getAllFeaturesByProject(project.slug, locale);
 
   return (
     <div className="min-h-screen pt-20 pb-12">
@@ -223,8 +223,8 @@ interface FeatureCategory {
   features: Array<{ title: string; description: string }>;
 }
 
-function getAllFeaturesByProject(id: string, locale: string): FeatureCategory[] {
-  if (id === "1") {
+function getAllFeaturesByProject(slug: string, locale: string): FeatureCategory[] {
+  if (slug === "catatan-keuangan-dompetku") {
     return locale === 'en' ? [
       {
         category: "Transaction Management",
@@ -348,7 +348,7 @@ function getAllFeaturesByProject(id: string, locale: string): FeatureCategory[] 
     ];
   }
 
-  if (id === "2") {
+  if (slug === "part-of-english") {
     return locale === 'en' ? [
       {
         category: "Grammar Learning",
@@ -484,7 +484,7 @@ function getAllFeaturesByProject(id: string, locale: string): FeatureCategory[] 
     ];
   }
 
-  if (id === "3") {
+  if (slug === "try-outcpns") {
     return locale === 'en' ? [
       {
         category: "Exam Simulation",
@@ -618,7 +618,7 @@ function getAllFeaturesByProject(id: string, locale: string): FeatureCategory[] 
     ];
   }
 
-  if (id === "4") {
+  if (slug === "calcpro") {
     return locale === 'en' ? [
       {
         category: "Calculator",
