@@ -35,6 +35,7 @@
   "projectCard": {
     "featured": "Featured",
     "viewProject": "View Project",
+    "viewDetails": "View Details",
     "playStore": "Play Store",
     "appStore": "App Store",
     "github": "GitHub"

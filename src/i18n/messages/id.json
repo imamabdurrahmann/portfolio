@@ -35,6 +35,7 @@
   "projectCard": {
     "featured": "Unggulan",
     "viewProject": "Lihat Project",
+    "viewDetails": "Lihat Detail",
     "playStore": "Play Store",
     "appStore": "App Store",
     "github": "GitHub"

@@ -37,41 +37,45 @@ export default function ProjectsPage() {
                 transition={{ delay: index * 0.1 }}
                 className="glass-card p-5 group"
               >
-                {/* Project Image Placeholder */}
-                <div className="relative h-28 rounded-xl bg-gradient-to-br from-primary/15 to-primary/5 flex items-center justify-center mb-4 overflow-hidden">
-                  <span className="text-4xl font-bold gradient-text opacity-40">{project.title.charAt(0)}</span>
-                  {project.featured && (
-                    <div className="absolute top-2 right-2 flex items-center gap-1 px-2.5 py-1 rounded-full bg-gradient-to-r from-primary to-indigo-500 text-white text-xs font-semibold">
-                      <Star className="w-3 h-3" />
+                <Link href={`/projects/${project.id}`} className="block cursor-pointer">
+                  {/* Project Image Placeholder */}
+                  <div className="relative h-28 rounded-xl bg-gradient-to-br from-primary/15 to-primary/5 flex items-center justify-center mb-4 overflow-hidden">
+                    <span className="text-4xl font-bold gradient-text opacity-40">{project.title.charAt(0)}</span>
+                    {project.featured && (
+                      <div className="absolute top-2 right-2 flex items-center gap-1 px-2.5 py-1 rounded-full bg-gradient-to-r from-primary to-indigo-500 text-white text-xs font-semibold">
+                        <Star className="w-3 h-3" />
+                      </div>
+                    )}
+                    {/* Hover overlay */}
+                    <div className="absolute inset-0 bg-primary/80 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center">
+                      <span className="text-white font-semibold">{t("projectCard.viewDetails")}</span>
                     </div>
-                  )}
-                </div>
+                  </div>
 
-                <h3 className="text-base font-bold text-foreground group-hover:text-primary transition-colors">
-                  {t(`projectData.${project.id}.title`, undefined, project.title)}
-                </h3>
-                <p className="mt-2 text-xs text-foreground/60 leading-relaxed line-clamp-2">
-                  {t(`projectData.${project.id}.description`, undefined, project.description)}
-                </p>
+                  <h3 className="text-base font-bold text-foreground group-hover:text-primary transition-colors">
+                    {t(`projectData.${project.id}.title`, undefined, project.title)}
+                  </h3>
+                  <p className="mt-2 text-xs text-foreground/60 leading-relaxed line-clamp-2">
+                    {t(`projectData.${project.id}.description`, undefined, project.description)}
+                  </p>
 
-                <div className="flex flex-wrap gap-1.5 mt-3">
-                  {project.tech.slice(0, 3).map((tech) => (
-                    <span key={tech} className="tech-tag">{tech}</span>
-                  ))}
-                  {project.tech.length > 3 && (
-                    <span className="tech-tag text-foreground/50">+{project.tech.length - 3}</span>
-                  )}
-                </div>
+                  <div className="flex flex-wrap gap-1.5 mt-3">
+                    {project.tech.slice(0, 3).map((tech) => (
+                      <span key={tech} className="tech-tag">{tech}</span>
+                    ))}
+                    {project.tech.length > 3 && (
+                      <span className="tech-tag text-foreground/50">+{project.tech.length - 3}</span>
+                    )}
+                  </div>
+                </Link>
 
                 <div className="flex items-center gap-2 mt-4 pt-3 border-t border-border">
                   <Link
-                    href={`https://wa.me/6282375227802?text=${encodeURIComponent(project.contactMessage || `Hi Imam, I'm interested in the ${project.title} project`)}`}
-                    target="_blank"
-                    rel="noopener noreferrer"
+                    href={`/projects/${project.id}`}
                     className="btn-secondary text-xs py-2 px-3"
                   >
                     <ExternalLink className="w-3.5 h-3.5" />
-                    {t("projectCard.viewProject")}
+                    {t("projectCard.viewDetails")}
                   </Link>
                   <Link href="/contact" className="btn-primary text-xs py-2 px-3">
                     {t("nav.contact")}
