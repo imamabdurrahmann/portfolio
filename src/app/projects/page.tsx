@@ -37,7 +37,7 @@ export default function ProjectsPage() {
                 transition={{ delay: index * 0.1 }}
                 className="glass-card p-5 group"
               >
-                <Link href={`/projects/${project.id}`} className="block cursor-pointer">
+                <Link href={`/projects/${project.slug}`} className="block cursor-pointer">
                   {/* Project Image Placeholder */}
                   <div className="relative h-28 rounded-xl bg-gradient-to-br from-primary/15 to-primary/5 flex items-center justify-center mb-4 overflow-hidden">
                     <span className="text-4xl font-bold gradient-text opacity-40">{project.title.charAt(0)}</span>
@@ -71,7 +71,7 @@ export default function ProjectsPage() {
 
                 <div className="flex items-center gap-2 mt-4 pt-3 border-t border-border">
                   <Link
-                    href={`/projects/${project.id}`}
+                    href={`/projects/${project.slug}`}
                     className="btn-secondary text-xs py-2 px-3"
                   >
                     <ExternalLink className="w-3.5 h-3.5" />

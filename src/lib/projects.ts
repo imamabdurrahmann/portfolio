@@ -1,5 +1,6 @@
 export interface Project {
   id: string;
+  slug: string;
   title: string;
   description: string;
   image: string;
@@ -11,9 +12,17 @@ export interface Project {
   contactMessage?: string;
 }
 
+function generateSlug(title: string): string {
+  return title
+    .toLowerCase()
+    .replace(/[^a-z0-9]+/g, '-')
+    .replace(/^-|-$/g, '');
+}
+
 export const projects: Project[] = [
   {
     id: "1",
+    slug: generateSlug("Catatan Keuangan (DompetKu)"),
     title: "Catatan Keuangan (DompetKu)",
     description: "Aplikasi pencatatan keuangan personal. Track income, expense, savings, dan debts dengan fitur charts, PDF export, biometric auth, dan home screen widget.",
     image: "/projects/catatan-keuangan.jpg",
@@ -23,6 +32,7 @@ export const projects: Project[] = [
   },
   {
     id: "2",
+    slug: generateSlug("Grammar Master"),
     title: "Grammar Master",
     description: "Offline English Grammar Learning App. Master grammar dengan interactive lessons dan quizzes, plus text-to-speech.",
     image: "/projects/grammar-master.jpg",
@@ -32,6 +42,7 @@ export const projects: Project[] = [
   },
   {
     id: "3",
+    slug: generateSlug("Try Outcpns"),
     title: "Try Outcpns",
     description: "Aplikasi Try Outcpns dengan Clean Architecture. Fitur lengkap untuk latihan soal cpns dengan progress tracking.",
     image: "/projects/tryout-cpns.jpg",
@@ -41,6 +52,7 @@ export const projects: Project[] = [
   },
   {
     id: "4",
+    slug: generateSlug("CalcPro"),
     title: "CalcPro",
     description: "Kalkulator lengkap dengan fitur Scientific, Konversi Unit, BMI, Diskon, Split Bill, Kurs Mata Uang, Pinjaman, Grafik, dan Matrix.",
     image: "/projects/calcpro.jpg",
@@ -49,6 +61,10 @@ export const projects: Project[] = [
     contactMessage: "Halo Imam, saya tertarik dengan project CalcPro - Kalkulator Lengkap",
   },
 ];
+
+export function getProjectBySlug(slug: string): Project | undefined {
+  return projects.find((p) => p.slug === slug);
+}
 
 export function getProjectById(id: string): Project | undefined {
   return projects.find((p) => p.id === id);

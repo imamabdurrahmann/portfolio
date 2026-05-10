@@ -65,7 +65,7 @@ export function FeaturedProjects() {
                 isEven ? "lg:grid-flow-dense" : ""
               }`}>
                 {/* Image Content - Clickable */}
-                <Link href={`/projects/${project.id}`} className={`order-1 ${isEven ? "lg:col-start-2" : ""} block cursor-pointer group`}>
+                <Link href={`/projects/${project.slug}`} className={`order-1 ${isEven ? "lg:col-start-2" : ""} block cursor-pointer group`}>
                   <div className="featured-project-image rounded-2xl overflow-hidden">
                     <div className="featured-project-placeholder">{project.title.charAt(0)}</div>
                     <div className="absolute top-3 right-3 flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-gradient-to-r from-primary to-indigo-500 text-white text-xs font-semibold shadow-lg">
@@ -81,7 +81,7 @@ export function FeaturedProjects() {
 
                 {/* Text Content */}
                 <div className={`order-2 ${isEven ? "lg:col-start-1 lg:row-start-1" : ""}`}>
-                  <Link href={`/projects/${project.id}`} className="block group">
+                  <Link href={`/projects/${project.slug}`} className="block group">
                     <span className="text-primary text-xs font-medium uppercase tracking-wider">{t("featured.title")}</span>
                     <h3 className="text-xl lg:text-2xl font-bold text-foreground mt-1 group-hover:text-primary transition-colors">
                       {t(`projectData.${project.id}.title`, undefined, project.title)}
@@ -113,7 +113,7 @@ export function FeaturedProjects() {
                   {/* CTA */}
                   <div className="mt-5 flex flex-wrap gap-3">
                     <Link
-                      href={`/projects/${project.id}`}
+                      href={`/projects/${project.slug}`}
                       className="btn-primary text-sm"
                     >
                       {locale === 'en' ? 'View Details' : 'Lihat Detail'}
