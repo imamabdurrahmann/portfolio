@@ -27,7 +27,7 @@ export const projects: Project[] = [
     description: "Offline English Grammar Learning App. Master grammar dengan interactive lessons dan quizzes, plus text-to-speech.",
     image: "/projects/grammar-master.jpg",
     tech: ["Flutter", "Provider", "TTS", "Shared Preferences", "Google Fonts"],
-    featured: true,
+    featured: false,
     contactMessage: "Halo Imam, saya tertarik dengan project Grammar Master",
   },
   {
@@ -36,7 +36,7 @@ export const projects: Project[] = [
     description: "Aplikasi Try Outcpns dengan Clean Architecture. Fitur lengkap untuk latihan soal cpns dengan progress tracking.",
     image: "/projects/tryout-cpns.jpg",
     tech: ["Flutter", "Riverpod", "Hive", "Clean Architecture", "GoRouter", "Dio"],
-    featured: false,
+    featured: true,
     contactMessage: "Halo Imam, saya tertarik dengan project Try Outcpns",
   },
   {
@@ -45,7 +45,7 @@ export const projects: Project[] = [
     description: "Kalkulator lengkap dengan fitur Scientific, Konversi Unit, BMI, Diskon, Split Bill, Kurs Mata Uang, Pinjaman, Grafik, dan Matrix.",
     image: "/projects/calcpro.jpg",
     tech: ["Flutter", "Provider", "fl_chart", "math_expressions", "Google Fonts"],
-    featured: true,
+    featured: false,
     contactMessage: "Halo Imam, saya tertarik dengan project CalcPro - Kalkulator Lengkap",
   },
 ];
