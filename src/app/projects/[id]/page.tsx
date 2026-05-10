@@ -618,5 +618,123 @@ function getAllFeaturesByProject(id: string, locale: string): FeatureCategory[] 
     ];
   }
 
+  if (id === "4") {
+    return locale === 'en' ? [
+      {
+        category: "Calculator",
+        icon: <Target className="w-5 h-5 text-primary" />,
+        features: [
+          { title: "Standard Calculator", description: "Basic arithmetic (+, -, ×, ÷) with Samsung-style display and live result preview" },
+          { title: "Scientific Calculator", description: "sin, cos, tan, asin, acos, atan, log, ln, √, π, e, x², xⁿ, factorial with DEG/RAD toggle" },
+          { title: "Fraction Mode", description: "Display results as mixed fractions (a/b) using fraction package" },
+          { title: "Smart Input", description: "Auto-inserts parentheses, implicit multiplication (2( becomes 2×(), 500-char limit" },
+          { title: "Calculator History", description: "Stores last 50 calculations, persisted locally" },
+          { title: "Post-evaluate Continuation", description: "Press number after = to start new; press operator to continue from result" },
+        ]
+      },
+      {
+        category: "Unit Conversion",
+        icon: <Database className="w-5 h-5 text-primary" />,
+        features: [
+          { title: "7 Categories", description: "Length, Weight, Temperature, Area, Volume, Speed, Digital Storage" },
+          { title: "26+ Units", description: "km, m, cm, mm, mi, yd, ft, in, ton, kg, g, mg, lb, oz, °C, °F, K, L, mL, gal, cup, km/h, m/s, mph, TB, GB, MB, KB, B, bit" },
+          { title: "Temperature Formulas", description: "Proper Celsius/Fahrenheit/Kelvin conversions (not linear)" },
+          { title: "Swap Units", description: "Quick button to swap from/to units" },
+        ]
+      },
+      {
+        category: "Health & Finance Tools",
+        icon: <Award className="w-5 h-5 text-primary" />,
+        features: [
+          { title: "BMI Calculator", description: "weight(kg) / height(m)² with color-coded categories and ideal weight range" },
+          { title: "Discount Calculator", description: "Single and stacked discounts (20%+10%), optional PPN 11% toggle" },
+          { title: "Split Bill", description: "Divide total bill among people with tip calculator (0-20%)" },
+          { title: "Currency Exchange", description: "20 currencies with live rates from exchangerate-api.com, 24-hour cache" },
+          { title: "Loan Calculator", description: "Monthly instalment with DP, interest rate, tenor; pie chart visualization" },
+        ]
+      },
+      {
+        category: "Advanced Features",
+        icon: <TrendingUp className="w-5 h-5 text-primary" />,
+        features: [
+          { title: "Programmer Mode", description: "HEX/DEC/OCT/BIN conversions with bitwise operations (AND, OR, XOR, SHL, SHR)" },
+          { title: "Function Graphing", description: "Plot y = f(x) equations with parser caching for performance" },
+          { title: "Matrix Operations", description: "2x2 and 3x3 support with +,-,×, determinant, and inverse" },
+          { title: "PDF Export", description: "Generate loan reports and calculation history as PDF documents" },
+          { title: "Share Results", description: "Share calculation results via native share sheet" },
+        ]
+      },
+      {
+        category: "UI/UX Features",
+        icon: <Zap className="w-5 h-5 text-primary" />,
+        features: [
+          { title: "6 Theme Presets", description: "Deep Space, Cyberpunk Neon, Rose Gold, Mint Fresh, Sunset Blaze, Arctic Blue" },
+          { title: "Material You", description: "Android 12+ dynamic color extraction support" },
+          { title: "Left-handed Mode", description: "Reverses calculator button layout for accessibility" },
+          { title: "Haptic Feedback", description: "Light impact on all button presses" },
+          { title: "Glassmorphism UI", description: "Custom GlassContainer widget with optional blur effect" },
+          { title: "Onboarding", description: "3-page intro with PageView and animated dots" },
+        ]
+      },
+    ] : [
+      {
+        category: "Kalkulator",
+        icon: <Target className="w-5 h-5 text-primary" />,
+        features: [
+          { title: "Kalkulator Standar", description: "Aritmatika dasar (+, -, ×, ÷) dengan tampilan style Samsung dan live preview hasil" },
+          { title: "Kalkulator Ilmiah", description: "sin, cos, tan, asin, acos, atan, log, ln, √, π, e, x², xⁿ, faktorial dengan toggle DEG/RAD" },
+          { title: "Mode Pecahan", description: "Tampilkan hasil sebagai pecahan campuran (a/b)" },
+          { title: "Input Cerdas", description: "Auto-insert tanda kurung, perkalian implisit (2( menjadi 2×(), batas 500 karakter" },
+          { title: "Riwayat Kalkulator", description: "Simpan 50 perhitungan terakhir, tersimpan secara lokal" },
+          { title: "Lanjut dari Hasil", description: "Tekan angka setelah = untuk mulai baru; tekan operator untuk lanjut dari hasil" },
+        ]
+      },
+      {
+        category: "Konversi Unit",
+        icon: <Database className="w-5 h-5 text-primary" />,
+        features: [
+          { title: "7 Kategori", description: "Panjang, Berat, Suhu, Luas, Volume, Kecepatan, Penyimpanan Digital" },
+          { title: "26+ Satuan", description: "km, m, cm, mm, mi, yd, ft, in, ton, kg, g, mg, lb, oz, °C, °F, K, L, mL, gal, cup, km/h, m/s, mph, TB, GB, MB, KB, B, bit" },
+          { title: "Formula Suhu", description: "Konversi Celsius/Fahrenheit/Kelvin yang tepat (bukan linear)" },
+          { title: "Tukar Satuan", description: "Tombol cepat untuk tukar satuan dari/ke" },
+        ]
+      },
+      {
+        category: "Alat Kesehatan & Keuangan",
+        icon: <Award className="w-5 h-5 text-primary" />,
+        features: [
+          { title: "Kalkulator BMI", description: "berat(kg) / tinggi(m)² dengan kategori berkode warna dan rentang berat ideal" },
+          { title: "Kalkulator Diskon", description: "Diskon tunggal dan bertumpuk (20%+10%), toggle PPN 11% opsional" },
+          { title: "Split Bill", description: "Bagi tagihan dengan tip calculator (0-20%)" },
+          { title: "Konversi Mata Uang", description: "20 mata uang dengan kurs live dari exchangerate-api.com, cache 24 jam" },
+          { title: "Kalkulator Pinjaman", description: "Cicilan bulanan dengan DP, suku bunga, tenor; visualisasi pie chart" },
+        ]
+      },
+      {
+        category: "Fitur Lanjutan",
+        icon: <TrendingUp className="w-5 h-5 text-primary" />,
+        features: [
+          { title: "Mode Programmer", description: "Konversi HEX/DEC/OCT/BIN dengan operasi bitwise (AND, OR, XOR, SHL, SHR)" },
+          { title: "Grafik Fungsi", description: "Plot persamaan y = f(x) dengan parser caching untuk performa" },
+          { title: "Operasi Matrix", description: "Mendukung 2x2 dan 3x3 dengan +,-,×, determinan, dan invers" },
+          { title: "Ekspor PDF", description: "Generate laporan pinjaman dan riwayat kalkulasi sebagai dokumen PDF" },
+          { title: "Bagikan Hasil", description: "Bagikan hasil kalkulasi via native share sheet" },
+        ]
+      },
+      {
+        category: "Fitur UI/UX",
+        icon: <Zap className="w-5 h-5 text-primary" />,
+        features: [
+          { title: "6 Tema Preset", description: "Deep Space, Cyberpunk Neon, Rose Gold, Mint Fresh, Sunset Blaze, Arctic Blue" },
+          { title: "Material You", description: "Dukungan dynamic color Android 12+" },
+          { title: "Mode Kidal", description: "Balik layout tombol kalkulator untuk aksesibilitas" },
+          { title: "Haptic Feedback", description: "Light impact di setiap tekan tombol" },
+          { title: "Glassmorphism UI", description: "Widget GlassContainer custom dengan efek blur opsional" },
+          { title: "Onboarding", description: "Intro 3 halaman dengan PageView dan animated dots" },
+        ]
+      },
+    ];
+  }
+
   return [];
 }

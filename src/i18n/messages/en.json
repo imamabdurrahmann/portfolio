@@ -75,6 +75,10 @@
     "3": {
       "title": "Try Outcpns",
       "description": "Try Outcpns application with Clean Architecture. Full-featured for practicing Indonesian civil service exam questions with progress tracking."
+    },
+    "4": {
+      "title": "CalcPro",
+      "description": "Complete calculator with Scientific, Unit Conversion, BMI, Discount, Split Bill, Currency Exchange, Loan, Graphing, and Matrix features."
     }
   }
 }

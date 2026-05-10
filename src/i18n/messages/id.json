@@ -75,6 +75,10 @@
     "3": {
       "title": "Try Outcpns",
       "description": "Aplikasi Try Outcpns dengan Clean Architecture. Fitur lengkap untuk latihan soal cpns dengan progress tracking."
+    },
+    "4": {
+      "title": "CalcPro",
+      "description": "Kalkulator lengkap dengan fitur Scientific, Konversi Unit, BMI, Diskon, Split Bill, Kurs Mata Uang, Pinjaman, Grafik, dan Matrix."
     }
   }
 }

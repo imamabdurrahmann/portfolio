@@ -39,6 +39,15 @@ export const projects: Project[] = [
     featured: false,
     contactMessage: "Halo Imam, saya tertarik dengan project Try Outcpns",
   },
+  {
+    id: "4",
+    title: "CalcPro",
+    description: "Kalkulator lengkap dengan fitur Scientific, Konversi Unit, BMI, Diskon, Split Bill, Kurs Mata Uang, Pinjaman, Grafik, dan Matrix.",
+    image: "/projects/calcpro.jpg",
+    tech: ["Flutter", "Provider", "fl_chart", "math_expressions", "Google Fonts"],
+    featured: true,
+    contactMessage: "Halo Imam, saya tertarik dengan project CalcPro - Kalkulator Lengkap",
+  },
 ];
 
 export function getProjectById(id: string): Project | undefined {
