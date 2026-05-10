@@ -14,9 +14,18 @@
     "description": "Building mobile applications that not only work well, but also provide a memorable experience for every user.",
     "viewProject": "View Projects",
     "contactMe": "Contact Me",
-    "project": "Project",
+    "project": "Projects",
     "dedication": "Dedication",
     "techStack": "Tech Stack"
+  },
+  "techStack": {
+    "title": "Tech Stack",
+    "subtitle": "Technologies"
+  },
+  "experience": {
+    "title": "Work Experience",
+    "contact": "Contact",
+    "contactMessage": "Hi Imam, I'm interested in the {project} project"
   },
   "featured": {
     "title": "Featured Project",
@@ -24,10 +33,19 @@
     "contactVia": "Contact via WhatsApp"
   },
   "projectCard": {
-    "featured": "Featured"
+    "featured": "Featured",
+    "viewProject": "View Project",
+    "playStore": "Play Store",
+    "appStore": "App Store",
+    "github": "GitHub"
+  },
+  "projects": {
+    "title": "All Projects",
+    "titleAccent": "Gallery",
+    "subtitle": "Explore my portfolio of mobile applications"
   },
   "contact": {
-    "title": "Let's Connect",
+    "title": "Get in Touch",
     "subtitle": "Interested in working together or have an exciting project? Feel free to reach out.",
     "contactTitle": "Contact Me",
     "name": "Name",

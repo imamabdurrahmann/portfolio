@@ -1,16 +1,16 @@
 {
   "nav": {
-    "home": "Home",
-    "projects": "Projects",
-    "contact": "Contact",
-    "hireMe": "Hire Me"
+    "home": "Beranda",
+    "projects": "Project",
+    "contact": "Kontak",
+    "hireMe": "Hubungi Saya"
   },
   "hero": {
-    "available": "Available for Projects",
+    "available": "Tersedia untuk Project",
     "title": "Flutter Developer",
     "titleAccent": "yang Menghadirkan",
     "titleAccent2": "Solusi Digital",
-    "typingRole": "I'm a {role}",
+    "typingRole": "Saya adalah {role}",
     "description": "Membangun aplikasi mobile yang tidak hanya berfungsi dengan baik, tapi juga memberikan pengalaman yang berkesan bagi setiap pengguna.",
     "viewProject": "Lihat Project",
     "contactMe": "Hubungi Saya",
@@ -18,16 +18,34 @@
     "dedication": "Dedikasi",
     "techStack": "Tech Stack"
   },
+  "techStack": {
+    "title": "Tech Stack",
+    "subtitle": "Teknologi"
+  },
+  "experience": {
+    "title": "Pengalaman Kerja",
+    "contact": "Hubungi",
+    "contactMessage": "Halo Imam, saya tertarik dengan project {project}"
+  },
   "featured": {
-    "title": "Featured Project",
+    "title": "Project Unggulan",
     "titleAccent": "Pilihan",
     "contactVia": "Hubungi via WhatsApp"
   },
   "projectCard": {
-    "featured": "Featured"
+    "featured": "Unggulan",
+    "viewProject": "Lihat Project",
+    "playStore": "Play Store",
+    "appStore": "App Store",
+    "github": "GitHub"
+  },
+  "projects": {
+    "title": "Semua Project",
+    "titleAccent": "Galeri",
+    "subtitle": "Jelajahi portfolio aplikasi mobile saya"
   },
   "contact": {
-    "title": "Let's Connect",
+    "title": "Hubungi Saya",
     "subtitle": "Tertarik bekerja sama atau punya project menarik? Jangan ragu untuk menghubungi saya.",
     "contactTitle": "Hubungi Saya",
     "name": "Nama",
@@ -42,6 +60,6 @@
     "successMessage": "Terima kasih sudah menghubungi. Saya akan segera merespons pesan Anda."
   },
   "footer": {
-    "copyright": "All rights reserved."
+    "copyright": "Hak cipta dilindungi."
   }
 }

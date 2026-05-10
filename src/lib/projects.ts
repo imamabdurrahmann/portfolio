@@ -45,6 +45,10 @@ export function getProjectById(id: string): Project | undefined {
   return projects.find((p) => p.id === id);
 }
 
+export function getProjects(): Project[] {
+  return projects;
+}
+
 export function getFeaturedProjects(): Project[] {
   return projects.filter((p) => p.featured);
 }
