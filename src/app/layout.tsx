@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import "./globals.css";
 import { Navbar } from "@/components/Navbar";
 import { ThemeProvider } from "@/components/ThemeProvider";
+import { ErrorBoundary } from "@/components/ErrorBoundary";
 
 export const metadata: Metadata = {
   title: "Flutter Developer Portfolio",
@@ -35,7 +36,9 @@ export default function RootLayout({
       <body className="min-h-screen flex flex-col antialiased">
         <ThemeProvider defaultTheme="dark" storageKey="portfolio-theme">
           <Navbar />
-          <main className="flex-1">{children}</main>
+          <main className="flex-1">
+            <ErrorBoundary>{children}</ErrorBoundary>
+          </main>
           <footer className="border-t py-6 text-center text-sm text-muted-foreground">
             <p>&copy; {new Date().getFullYear()} Portfolio. All rights reserved.</p>
           </footer>
