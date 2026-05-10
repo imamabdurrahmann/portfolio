@@ -1,15 +1,20 @@
+"use client";
+
 import Link from "next/link";
+import { useLocale } from "@/i18n/LocaleProvider";
 
 export function Contact() {
+  const { t } = useLocale();
+
   return (
     <footer id="contact" className="py-12 px-6 footer">
       <div className="container mx-auto max-w-4xl">
         <div className="text-center mb-8">
           <h2 className="text-3xl lg:text-4xl font-bold text-foreground mb-4">
-            Let&apos;s <span className="gradient-text">Connect</span>
+            <span className="gradient-text">{t("contact.title")}</span>
           </h2>
           <p className="text-foreground/60 max-w-lg mx-auto leading-relaxed">
-            Tertarik bekerja sama atau punya project menarik? Jangan ragu untuk menghubungi saya.
+            {t("contact.subtitle")}
           </p>
           <a
             href="https://wa.me/6282375227802"
@@ -58,7 +63,7 @@ export function Contact() {
 
         <div className="text-center mt-8 pt-6 border-t border-border">
           <p className="text-foreground/40 text-xs">
-            &copy; {new Date().getFullYear()} Muhammad Imam Abdurrahman. All rights reserved.
+            &copy; {new Date().getFullYear()} Muhammad Imam Abdurrahman. {t("footer.copyright")}
           </p>
         </div>
       </div>

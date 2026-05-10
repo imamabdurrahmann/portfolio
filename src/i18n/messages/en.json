@@ -1,0 +1,47 @@
+{
+  "nav": {
+    "home": "Home",
+    "projects": "Projects",
+    "contact": "Contact",
+    "hireMe": "Hire Me"
+  },
+  "hero": {
+    "available": "Available for Projects",
+    "title": "Flutter Developer",
+    "titleAccent": "Who Delivers",
+    "titleAccent2": "Digital Solutions",
+    "typingRole": "I'm a {role}",
+    "description": "Building mobile applications that not only work well, but also provide a memorable experience for every user.",
+    "viewProject": "View Projects",
+    "contactMe": "Contact Me",
+    "project": "Project",
+    "dedication": "Dedication",
+    "techStack": "Tech Stack"
+  },
+  "featured": {
+    "title": "Featured Project",
+    "titleAccent": "Highlights",
+    "contactVia": "Contact via WhatsApp"
+  },
+  "projectCard": {
+    "featured": "Featured"
+  },
+  "contact": {
+    "title": "Let's Connect",
+    "subtitle": "Interested in working together or have an exciting project? Feel free to reach out.",
+    "contactTitle": "Contact Me",
+    "name": "Name",
+    "namePlaceholder": "Full name",
+    "email": "Email",
+    "emailPlaceholder": "email@example.com",
+    "message": "Message",
+    "messagePlaceholder": "Write your message here...",
+    "sending": "Sending...",
+    "send": "Send Message",
+    "successTitle": "Message Sent!",
+    "successMessage": "Thanks for reaching out. I'll get back to you soon."
+  },
+  "footer": {
+    "copyright": "All rights reserved."
+  }
+}

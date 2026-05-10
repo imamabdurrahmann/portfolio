@@ -1,0 +1,47 @@
+{
+  "nav": {
+    "home": "Home",
+    "projects": "Projects",
+    "contact": "Contact",
+    "hireMe": "Hire Me"
+  },
+  "hero": {
+    "available": "Available for Projects",
+    "title": "Flutter Developer",
+    "titleAccent": "yang Menghadirkan",
+    "titleAccent2": "Solusi Digital",
+    "typingRole": "I'm a {role}",
+    "description": "Membangun aplikasi mobile yang tidak hanya berfungsi dengan baik, tapi juga memberikan pengalaman yang berkesan bagi setiap pengguna.",
+    "viewProject": "Lihat Project",
+    "contactMe": "Hubungi Saya",
+    "project": "Project",
+    "dedication": "Dedikasi",
+    "techStack": "Tech Stack"
+  },
+  "featured": {
+    "title": "Featured Project",
+    "titleAccent": "Pilihan",
+    "contactVia": "Hubungi via WhatsApp"
+  },
+  "projectCard": {
+    "featured": "Featured"
+  },
+  "contact": {
+    "title": "Let's Connect",
+    "subtitle": "Tertarik bekerja sama atau punya project menarik? Jangan ragu untuk menghubungi saya.",
+    "contactTitle": "Hubungi Saya",
+    "name": "Nama",
+    "namePlaceholder": "Nama lengkap",
+    "email": "Email",
+    "emailPlaceholder": "email@example.com",
+    "message": "Pesan",
+    "messagePlaceholder": "Tulis pesan Anda di sini...",
+    "sending": "Mengirim...",
+    "send": "Kirim Pesan",
+    "successTitle": "Pesan Terkirim!",
+    "successMessage": "Terima kasih sudah menghubungi. Saya akan segera merespons pesan Anda."
+  },
+  "footer": {
+    "copyright": "All rights reserved."
+  }
+}

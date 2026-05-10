@@ -3,11 +3,13 @@
 import Link from "next/link";
 import { Star, Heart, TrendingUp, ArrowRight, Mail } from "lucide-react";
 import { useTypingAnimation } from "@/hooks/useTypingAnimation";
+import { useLocale } from "@/i18n/LocaleProvider";
 
 const roles = ["Flutter Developer", "Mobile App Builder", "UI Enthusiast"];
 
 export function Banner() {
   const { displayedText } = useTypingAnimation(roles);
+  const { t } = useLocale();
 
   return (
     <section className="hero-section px-6">
@@ -19,34 +21,33 @@ export function Banner() {
           {/* Badge */}
           <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full glass mb-6">
             <span className="w-2 h-2 bg-green-400 rounded-full animate-pulse" />
-            <span className="text-sm font-medium text-foreground/80">Available for Projects</span>
+            <span className="text-sm font-medium text-foreground/80">{t("hero.available")}</span>
           </div>
 
           {/* Heading */}
           <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold leading-tight text-foreground">
-            Flutter Developer<br />
-            yang Menghadirkan<br />
-            <span className="gradient-text">Solusi Digital</span>
+            {t("hero.title")}<br />
+            {t("hero.titleAccent")}<br />
+            <span className="gradient-text">{t("hero.titleAccent2")}</span>
           </h1>
 
           {/* Typing Role */}
           <div className="mt-6 text-xl md:text-2xl font-semibold text-foreground/90">
-            I&apos;m a {displayedText}
+            {t("hero.typingRole", { role: displayedText })}
             <span className="typing-cursor text-primary">|</span>
           </div>
 
           {/* Description */}
           <p className="mt-4 text-base text-foreground/70 max-w-xl mx-auto leading-relaxed">
-            Membangun aplikasi mobile yang tidak hanya berfungsi dengan baik,
-            tapi juga memberikan pengalaman yang berkesan bagi setiap pengguna.
+            {t("hero.description")}
           </p>
 
           {/* Stats */}
           <div className="flex flex-wrap justify-center gap-6 md:gap-12 mt-8">
             {[
-              { num: "3+", label: "Project", icon: <Star className="w-4 h-4" /> },
-              { num: "100%", label: "Dedikasi", icon: <Heart className="w-4 h-4" /> },
-              { num: "5+", label: "Tech Stack", icon: <TrendingUp className="w-4 h-4" /> },
+              { num: "3+", label: t("hero.project"), icon: <Star className="w-4 h-4" /> },
+              { num: "100%", label: t("hero.dedication"), icon: <Heart className="w-4 h-4" /> },
+              { num: "5+", label: t("hero.techStack"), icon: <TrendingUp className="w-4 h-4" /> },
             ].map((stat) => (
               <div key={stat.label} className="flex flex-col items-center">
                 <div className="flex items-center gap-1 text-3xl md:text-4xl font-bold gradient-text">
@@ -61,12 +62,12 @@ export function Banner() {
           {/* CTA */}
           <div className="flex flex-wrap justify-center gap-3 mt-8">
             <Link href="/projects" className="btn-primary">
-              Lihat Project
+              {t("hero.viewProject")}
               <ArrowRight className="w-4 h-4" />
             </Link>
             <Link href="/contact" className="btn-secondary">
               <Mail className="w-4 h-4" />
-              Hubungi Saya
+              {t("hero.contactMe")}
             </Link>
           </div>
         </div>

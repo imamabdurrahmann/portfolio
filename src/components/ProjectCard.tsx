@@ -1,7 +1,10 @@
+"use client";
+
 import Image from "next/image";
 import { ExternalLink, Play, Link2 } from "lucide-react";
 import { Card, CardContent } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
+import { useLocale } from "@/i18n/LocaleProvider";
 
 interface Project {
   id: string;
@@ -21,6 +24,8 @@ interface ProjectCardProps {
 }
 
 export function ProjectCard({ project, variant = "default" }: ProjectCardProps) {
+  const { t } = useLocale();
+
   if (variant === "compact") {
     return (
       <Card className="overflow-hidden hover:shadow-md transition-shadow">
@@ -28,9 +33,9 @@ export function ProjectCard({ project, variant = "default" }: ProjectCardProps) 
           <h3 className="font-semibold">{project.title}</h3>
           <p className="text-sm text-muted-foreground mt-1">{project.description}</p>
           <div className="flex flex-wrap gap-1.5 mt-3">
-            {project.tech.slice(0, 3).map((t) => (
-              <Badge key={t} variant="secondary" className="text-xs">
-                {t}
+            {project.tech.slice(0, 3).map((tech) => (
+              <Badge key={tech} variant="secondary" className="text-xs">
+                {tech}
               </Badge>
             ))}
           </div>
@@ -49,7 +54,7 @@ export function ProjectCard({ project, variant = "default" }: ProjectCardProps) 
         )}
         {project.featured && (
           <div className="project-badge">
-            <span className="text-xs font-medium">Featured</span>
+            <span className="text-xs font-medium">{t("projectCard.featured")}</span>
           </div>
         )}
       </div>
@@ -59,9 +64,9 @@ export function ProjectCard({ project, variant = "default" }: ProjectCardProps) 
           {project.description}
         </p>
         <div className="flex flex-wrap gap-2 mt-4">
-          {project.tech.map((t) => (
-            <Badge key={t} variant="secondary" className="text-xs">
-              {t}
+          {project.tech.map((tech) => (
+            <Badge key={tech} variant="secondary" className="text-xs">
+              {tech}
             </Badge>
           ))}
         </div>

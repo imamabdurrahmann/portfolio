@@ -3,6 +3,7 @@ import "./globals.css";
 import { Navbar } from "@/components/Navbar";
 import { ThemeProvider } from "@/components/ThemeProvider";
 import { ErrorBoundary } from "@/components/ErrorBoundary";
+import { LocaleProvider } from "@/i18n/LocaleProvider";
 
 export const metadata: Metadata = {
   title: "Flutter Developer Portfolio",
@@ -34,15 +35,17 @@ export default function RootLayout({
         />
       </head>
       <body className="min-h-screen flex flex-col antialiased">
-        <ThemeProvider defaultTheme="dark" storageKey="portfolio-theme">
-          <Navbar />
-          <main className="flex-1">
-            <ErrorBoundary>{children}</ErrorBoundary>
-          </main>
-          <footer className="border-t py-6 text-center text-sm text-muted-foreground">
-            <p>&copy; {new Date().getFullYear()} Portfolio. All rights reserved.</p>
-          </footer>
-        </ThemeProvider>
+        <LocaleProvider>
+          <ThemeProvider defaultTheme="dark" storageKey="portfolio-theme">
+            <Navbar />
+            <main className="flex-1">
+              <ErrorBoundary>{children}</ErrorBoundary>
+            </main>
+            <footer className="border-t py-6 text-center text-sm text-muted-foreground">
+              <p>&copy; {new Date().getFullYear()} Muhammad Imam Abdurrahman. All rights reserved.</p>
+            </footer>
+          </ThemeProvider>
+        </LocaleProvider>
       </body>
     </html>
   );

@@ -1,16 +1,20 @@
+"use client";
+
 import Link from "next/link";
 import { ArrowRight, Star } from "lucide-react";
 import { getFeaturedProjects } from "@/lib/projects";
+import { useLocale } from "@/i18n/LocaleProvider";
 
 export function FeaturedProjects() {
+  const { t } = useLocale();
   const featuredProjects = getFeaturedProjects();
   return (
     <section id="lab" className="py-12 px-6">
       <div className="container mx-auto max-w-5xl">
         <div className="text-center mb-10">
-          <span className="text-primary text-sm font-medium uppercase tracking-wider">Featured Project</span>
+          <span className="text-primary text-sm font-medium uppercase tracking-wider">{t("featured.title")}</span>
           <h2 className="text-3xl lg:text-4xl font-bold text-foreground mt-2">
-            Project <span className="gradient-text">Pilihan</span>
+            Project <span className="gradient-text">{t("featured.titleAccent")}</span>
           </h2>
         </div>
 
@@ -28,14 +32,14 @@ export function FeaturedProjects() {
                     <div className="featured-project-placeholder">{project.title.charAt(0)}</div>
                     <div className="absolute top-3 right-3 flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-gradient-to-r from-primary to-indigo-500 text-white text-xs font-semibold shadow-lg">
                       <Star className="w-3 h-3" />
-                      Featured
+                      {t("projectCard.featured")}
                     </div>
                   </div>
                 </div>
 
                 {/* Text Content */}
                 <div className={`order-2 ${isEven ? "lg:col-start-1 lg:row-start-1" : ""}`}>
-                  <span className="text-primary text-xs font-medium uppercase tracking-wider">Featured Project</span>
+                  <span className="text-primary text-xs font-medium uppercase tracking-wider">{t("featured.title")}</span>
                   <h3 className="text-xl lg:text-2xl font-bold text-foreground mt-1">
                     {project.title}
                   </h3>
@@ -47,8 +51,8 @@ export function FeaturedProjects() {
 
                   {/* Tech Tags */}
                   <div className="flex flex-wrap gap-2 mt-4">
-                    {project.tech.slice(0, 4).map((t) => (
-                      <span key={t} className="tech-tag">{t}</span>
+                    {project.tech.slice(0, 4).map((tech) => (
+                      <span key={tech} className="tech-tag">{tech}</span>
                     ))}
                     {project.tech.length > 4 && (
                       <span className="tech-tag text-foreground/50">+{project.tech.length - 4}</span>
@@ -63,7 +67,7 @@ export function FeaturedProjects() {
                       rel="noopener noreferrer"
                       className="btn-primary text-sm"
                     >
-                      Hubungi via WhatsApp
+                      {t("featured.contactVia")}
                       <ArrowRight className="w-4 h-4" />
                     </Link>
                   </div>

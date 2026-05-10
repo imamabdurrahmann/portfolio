@@ -5,11 +5,13 @@ import { Send, CheckCircle, Loader2 } from "lucide-react";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
+import { useLocale } from "@/i18n/LocaleProvider";
 
 const formId = "mwvyraeg";
 
 export function ContactForm() {
   const [state, handleSubmit] = useForm(formId);
+  const { t } = useLocale();
 
   if (state.succeeded) {
     return (
@@ -18,9 +20,9 @@ export function ContactForm() {
           <div className="p-3 bg-green-100 rounded-full inline-flex mb-4">
             <CheckCircle className="h-8 w-8 text-green-600" />
           </div>
-          <h3 className="text-lg font-semibold">Pesan Terkirim!</h3>
+          <h3 className="text-lg font-semibold">{t("contact.successTitle")}</h3>
           <p className="text-sm text-muted-foreground mt-2">
-            Terima kasih sudah menghubungi. Saya akan segera merespons pesan Anda.
+            {t("contact.successMessage")}
           </p>
         </CardContent>
       </Card>
@@ -30,23 +32,23 @@ export function ContactForm() {
   return (
     <Card className="max-w-md mx-auto">
       <CardHeader>
-        <CardTitle className="text-center">Hubungi Saya</CardTitle>
+        <CardTitle className="text-center">{t("contact.contactTitle")}</CardTitle>
       </CardHeader>
       <CardContent>
         <form onSubmit={handleSubmit} className="space-y-4">
           <div>
-            <label htmlFor="name" className="text-sm font-medium">Nama</label>
-            <Input id="name" name="name" placeholder="Nama lengkap" required className="mt-1.5" />
+            <label htmlFor="name" className="text-sm font-medium">{t("contact.name")}</label>
+            <Input id="name" name="name" placeholder={t("contact.namePlaceholder")} required className="mt-1.5" />
           </div>
           <div>
-            <label htmlFor="email" className="text-sm font-medium">Email</label>
-            <Input id="email" name="email" type="email" placeholder="email@example.com" required className="mt-1.5" />
+            <label htmlFor="email" className="text-sm font-medium">{t("contact.email")}</label>
+            <Input id="email" name="email" type="email" placeholder={t("contact.emailPlaceholder")} required className="mt-1.5" />
             <ValidationError prefix="Email" field="email" errors={state.errors} className="text-xs text-red-500 mt-1" />
           </div>
           <div>
-            <label htmlFor="message" className="text-sm font-medium">Pesan</label>
-            <Textarea id="message" name="message" placeholder="Tulis pesan Anda di sini..." required rows={5} className="mt-1.5 resize-none" />
-            <ValidationError prefix="Pesan" field="message" errors={state.errors} className="text-xs text-red-500 mt-1" />
+            <label htmlFor="message" className="text-sm font-medium">{t("contact.message")}</label>
+            <Textarea id="message" name="message" placeholder={t("contact.messagePlaceholder")} required rows={5} className="mt-1.5 resize-none" />
+            <ValidationError prefix="Message" field="message" errors={state.errors} className="text-xs text-red-500 mt-1" />
           </div>
           <button
             type="submit"
@@ -56,12 +58,12 @@ export function ContactForm() {
             {state.submitting ? (
               <>
                 <Loader2 className="h-4 w-4 animate-spin" />
-                Mengirim...
+                {t("contact.sending")}
               </>
             ) : (
               <>
                 <Send className="h-4 w-4" />
-                Kirim Pesan
+                {t("contact.send")}
               </>
             )}
           </button>
