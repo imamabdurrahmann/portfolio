@@ -859,3 +859,39 @@ html[data-theme="light"],
 .footer {
   border-top: 1px solid var(--border);
 }
+
+/* ========================================
+   CONTACT TILE - Minimalist Icon Links
+   ======================================== */
+
+.contact-tile {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 56px;
+  height: 56px;
+  border-radius: 1rem;
+  background: var(--glass-bg);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border: 1px solid var(--glass-border);
+  color: var(--text-secondary);
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  cursor: pointer;
+}
+
+.contact-tile:hover {
+  border-color: var(--primary);
+  color: var(--primary);
+  box-shadow:
+    0 8px 24px rgba(124, 58, 237, 0.2),
+    0 0 0 1px rgba(124, 58, 237, 0.1);
+}
+
+.contact-tile svg {
+  transition: transform 0.3s ease;
+}
+
+.contact-tile:hover svg {
+  transform: scale(1.1);
+}

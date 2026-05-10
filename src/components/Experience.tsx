@@ -46,9 +46,9 @@ export function Experience() {
           </h2>
         </motion.div>
 
-        {/* Staggered Grid */}
+        {/* Stable Grid */}
         <motion.div
-          className="grid grid-cols-1 md:grid-cols-3 gap-6 [&>*:nth-child(2)]:md:mt-12"
+          className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6"
           variants={containerVariants}
           initial="hidden"
           whileInView="visible"
