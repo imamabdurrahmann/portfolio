@@ -142,17 +142,13 @@ export default function ProjectsPage() {
                   </div>
                 </Link>
 
-                <div className="flex items-center gap-2 mt-4 pt-3 border-t border-border">
+                <div className="mt-4 pt-3 border-t border-border">
                   <Link
                     href={`/projects/${project.slug}`}
                     className="btn-secondary text-xs py-2 px-3"
                   >
                     <ExternalLink className="w-3.5 h-3.5" />
                     {t("projectCard.viewDetails")}
-                  </Link>
-                  <Link href="/contact" className="btn-primary text-xs py-2 px-3">
-                    {t("nav.contact")}
-                    <ArrowRight className="w-3.5 h-3.5" />
                   </Link>
                 </div>
               </motion.div>
