@@ -84,6 +84,25 @@ export function Banner() {
             {t("hero.description")}
           </motion.p>
 
+          {/* Profile Image */}
+          <motion.div
+            variants={itemVariants}
+            className="mt-8 mb-6"
+          >
+            <div className="relative inline-block">
+              <div className="w-36 h-36 md:w-44 md:h-44 rounded-full overflow-hidden border-4 border-primary/20 shadow-xl shadow-primary/10">
+                <img
+                  src="/profile.jpg"
+                  alt="Muhammad Imam Abdurrahman"
+                  className="w-full h-full object-cover"
+                />
+              </div>
+              <div className="absolute -bottom-1 -right-1 w-8 h-8 bg-emerald-500 rounded-full border-4 border-background flex items-center justify-center">
+                <span className="text-white text-xs">✓</span>
+              </div>
+            </div>
+          </motion.div>
+
           {/* Premium Stats - cards instead of plain numbers */}
           <motion.div
             variants={itemVariants}
