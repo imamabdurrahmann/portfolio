@@ -85,9 +85,9 @@ export default function ContactPage() {
 
           <div className="grid lg:grid-cols-2 gap-6">
             {/* Left - Contact Info */}
-            <div className="space-y-4">
-              <div className="glass-card p-5">
-                <div className="space-y-4">
+            <div className="space-y-6">
+              <div className="glass-card p-5 border border-border/50 shadow-sm">
+                <div className="flex flex-col gap-4">
                   {contactItems.map((item) => (
                     item.href ? (
                       <a
@@ -97,36 +97,36 @@ export default function ContactPage() {
                         rel={item.href.startsWith("http") ? "noopener noreferrer" : undefined}
                         className="flex items-center gap-4 p-2 -m-2 rounded-xl hover:bg-accent-secondary/5 transition-colors duration-300 group"
                       >
-                        <div className="w-11 h-11 rounded-xl bg-accent-secondary/10 flex items-center justify-center text-accent-secondary group-hover:bg-accent-secondary/20 transition-colors duration-300">
+                        <div className="w-10 h-10 rounded-xl bg-accent-secondary/10 border border-accent-secondary/20 flex items-center justify-center text-accent-secondary group-hover:bg-accent-secondary/20 transition-colors duration-300">
                           {item.icon}
                         </div>
                         <div className="flex-1">
                           <div className="flex items-center gap-2">
-                            <h3 className="font-medium text-foreground text-sm">{item.title}</h3>
+                            <h3 className="font-semibold text-gray-900 dark:text-gray-100 text-sm">{item.title}</h3>
                             {item.badge && (
-                              <span className="text-xs px-2 py-0.5 rounded-full bg-green-500/20 text-green-600 font-medium">
+                              <span className="text-xs px-2 py-1 rounded-full bg-emerald-100 text-emerald-700 font-medium">
                                 {item.badge}
                               </span>
                             )}
                           </div>
-                          <p className="text-foreground/60 text-xs">{item.value}</p>
+                          <p className="text-gray-600 dark:text-gray-400 text-xs">{item.value}</p>
                         </div>
                       </a>
                     ) : (
-                      <div key={item.title} className="flex items-center gap-4">
-                        <div className="w-11 h-11 rounded-xl bg-accent-secondary/10 flex items-center justify-center text-accent-secondary">
+                      <div key={item.title} className="flex items-center gap-4 p-2 -m-2">
+                        <div className="w-10 h-10 rounded-xl bg-accent-secondary/10 border border-accent-secondary/20 flex items-center justify-center text-accent-secondary">
                           {item.icon}
                         </div>
                         <div className="flex-1">
                           <div className="flex items-center gap-2">
-                            <h3 className="font-medium text-foreground text-sm">{item.title}</h3>
+                            <h3 className="font-semibold text-gray-900 dark:text-gray-100 text-sm">{item.title}</h3>
                             {item.badge && (
-                              <span className="text-xs px-2 py-0.5 rounded-full bg-green-500/20 text-green-600 font-medium">
+                              <span className="text-xs px-2 py-1 rounded-full bg-emerald-100 text-emerald-700 font-medium">
                                 {item.badge}
                               </span>
                             )}
                           </div>
-                          <p className="text-foreground/60 text-xs">{item.value}</p>
+                          <p className="text-gray-600 dark:text-gray-400 text-xs">{item.value}</p>
                         </div>
                       </div>
                     )
