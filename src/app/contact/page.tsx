@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { Mail, MapPin, Clock, MessageCircle, Send } from "lucide-react";
+import { Mail, MapPin, Clock, MessageCircle, Send, Zap } from "lucide-react";
 import { ContactForm } from "@/components/ContactForm";
 
 const LinkedinIcon = ({ className }: { className?: string }) => (
@@ -158,8 +158,11 @@ export default function ContactPage() {
               </div>
 
               {/* Quick Response Note */}
-              <div className="p-5 rounded-xl bg-gradient-to-br from-primary/10 to-primary/5 border border-primary/20">
-                <h3 className="text-lg font-semibold text-foreground mb-2">Respons Cepat</h3>
+              <div className="glass-card p-5 border border-border/50 shadow-sm">
+                <div className="flex items-center gap-2 mb-3">
+                  <Zap className="h-4 w-4 text-primary" />
+                  <h3 className="text-lg font-semibold text-foreground">Respons Cepat</h3>
+                </div>
                 <p className="text-base text-foreground/80 leading-relaxed">
                   Biasanya merespons 1x24 jam. Untuk urgent, hubungi via WhatsApp.
                 </p>
