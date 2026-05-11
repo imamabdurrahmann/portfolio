@@ -49,7 +49,7 @@ const contactItems = [
     icon: <MapPin className="h-5 w-5" />,
     title: "Lokasi",
     value: "Bengkulu, Indonesia",
-    href: null,
+    href: "https://www.google.com/maps/search/Bengkulu,+Indonesia",
   },
   {
     icon: <Clock className="h-5 w-5" />,
