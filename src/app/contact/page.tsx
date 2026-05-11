@@ -91,7 +91,7 @@ const services = [
 
 export default function ContactPage() {
   return (
-    <div className="min-h-screen pt-20">
+    <div className="min-h-screen pt-24">
       {/* Hero */}
       <section className="py-12 px-6">
         <div className="container mx-auto max-w-5xl">
@@ -106,7 +106,7 @@ export default function ContactPage() {
             </p>
           </div>
 
-          <div className="grid lg:grid-cols-2 gap-6">
+          <div className="grid md:grid-cols-2 gap-10 lg:gap-16">
             {/* Left - Contact Info */}
             <div className="space-y-6">
               <div className="glass-card p-5 border border-border/50 shadow-sm">
