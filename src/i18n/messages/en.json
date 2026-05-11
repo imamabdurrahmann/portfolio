@@ -9,13 +9,13 @@
     "available": "Available for Projects",
     "title": "Flutter Developer",
     "titleAccent": "Who Delivers",
-    "titleAccent2": "Digital Solutions",
+    "titleAccent2": "From Bengkulu, Building for Everyone",
     "typingRole": "I'm a {role}",
-    "description": "Software Developer based in Bengkulu, Indonesia. Specializing in building high-performance mobile applications with Flutter and Dart. Experienced in designing dynamic UI/UX and managing complex state to deliver optimal user experiences. Open for freelance and collaboration.",
+    "description": "I build Flutter apps that solve real problems — from personal finance tracking to a CPNS exam app I built for my own exam prep.",
     "viewProject": "View Projects",
     "contactMe": "Contact Me",
     "project": "Projects",
-    "dedication": "Dedication",
+    "dedication": "2023",
     "techStack": "Tech Stack"
   },
   "techStack": {
@@ -47,7 +47,7 @@
   },
   "contact": {
     "title": "Get in Touch",
-    "subtitle": "Interested in working together or have an exciting project? Feel free to reach out.",
+    "subtitle": "Got a project? Or just want to talk Flutter? Hit me up — I usually reply within 24 hours.",
     "contactTitle": "Contact Me",
     "name": "Name",
     "namePlaceholder": "Full name",
@@ -74,7 +74,7 @@
     },
     "3": {
       "title": "Try Outcpns",
-      "description": "Try Outcpns application with Clean Architecture. Full-featured for practicing Indonesian civil service exam questions with progress tracking."
+      "description": "A CPNS exam practice app I built for my own civil servant exam preparation. Clean Architecture, offline-first, with per-category progress tracking."
     },
     "4": {
       "title": "CalcPro",
