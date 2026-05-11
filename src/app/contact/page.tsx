@@ -172,6 +172,11 @@ export default function ContactPage() {
                   ))}
                 </ul>
               </div>
+            </div>
+
+            {/* Right - Contact Form */}
+            <div className="space-y-6">
+              <ContactForm />
 
               {/* Quick Response Note */}
               <div className="p-4 rounded-xl bg-gradient-to-br from-primary/10 to-primary/5 border border-primary/20">
@@ -181,9 +186,6 @@ export default function ContactPage() {
                 </p>
               </div>
             </div>
-
-            {/* Right - Contact Form */}
-            <ContactForm />
           </div>
         </div>
       </section>
