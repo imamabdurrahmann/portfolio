@@ -6,8 +6,45 @@ import { ErrorBoundary } from "@/components/ErrorBoundary";
 import { LocaleProvider } from "@/i18n/LocaleProvider";
 
 export const metadata: Metadata = {
-  title: "Flutter Developer Portfolio",
-  description: "Portfolio showcasing Flutter mobile application projects",
+  title: "Muhammad Imam Abdurrahman | Flutter Developer",
+  description: "Portfolio of Muhammad Imam Abdurrahman, a passionate Flutter & Dart Developer from Indonesia specializing in high-performance mobile applications.",
+  keywords: [
+    "Flutter Developer",
+    "Dart",
+    "Mobile App Developer Indonesia",
+    "Muhammad Imam Abdurrahman",
+    "Frontend",
+    "Bengkulu",
+    "Flutter Portfolio",
+    "App Development",
+  ],
+  authors: [{ name: "Muhammad Imam Abdurrahman", url: "https://imamabdurrahman.info" }],
+  creator: "Muhammad Imam Abdurrahman",
+  openGraph: {
+    title: "Muhammad Imam Abdurrahman | Flutter Developer",
+    description: "Portfolio of Muhammad Imam Abdurrahman, a passionate Flutter & Dart Developer from Indonesia.",
+    url: "https://imamabdurrahman.info",
+    siteName: "Portfolio",
+    locale: "en_US",
+    type: "website",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Muhammad Imam Abdurrahman | Flutter Developer",
+    description: "Portfolio of a passionate Flutter & Dart Developer from Indonesia.",
+    creator: "@imamabdurrahman",
+  },
+  robots: {
+    index: true,
+    follow: true,
+    googleBot: {
+      index: true,
+      follow: true,
+      "max-video-preview": -1,
+      "max-image-preview": "large",
+      "max-snippet": -1,
+    },
+  },
 };
 
 export default function RootLayout({

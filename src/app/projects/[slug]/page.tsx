@@ -54,8 +54,8 @@ function ProjectDetail({ project }: ProjectDetailProps) {
       {/* Hero Section */}
       <motion.section
         initial={{ opacity: 0, y: 20 }}
-        animate={{ opacity: 1, y: 0 }}
-        transition={{ delay: 0.1 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        viewport={{ once: true, margin: "-50px" }}
         className="px-6 mb-8"
       >
         <div className="container mx-auto max-w-4xl">
@@ -87,8 +87,8 @@ function ProjectDetail({ project }: ProjectDetailProps) {
       {/* Tech Stack */}
       <motion.section
         initial={{ opacity: 0, y: 20 }}
-        animate={{ opacity: 1, y: 0 }}
-        transition={{ delay: 0.2 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        viewport={{ once: true, margin: "-50px" }}
         className="px-6 mb-8"
       >
         <div className="container mx-auto max-w-4xl">
@@ -109,8 +109,9 @@ function ProjectDetail({ project }: ProjectDetailProps) {
         <motion.section
           key={category.category}
           initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ delay: 0.2 + catIndex * 0.1 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, margin: "-50px" }}
+          transition={{ delay: catIndex * 0.05 }}
           className="px-6 mb-8"
         >
           <div className="container mx-auto max-w-4xl">
@@ -123,8 +124,9 @@ function ProjectDetail({ project }: ProjectDetailProps) {
                 <motion.div
                   key={feature.title}
                   initial={{ opacity: 0, y: 20 }}
-                  animate={{ opacity: 1, y: 0 }}
-                  transition={{ delay: 0.3 + catIndex * 0.1 + index * 0.03 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true, margin: "-30px" }}
+                  transition={{ delay: index * 0.04 }}
                   className="glass-card p-4 flex items-start gap-3"
                 >
                   <div className="w-8 h-8 rounded-lg bg-gradient-to-br from-primary/20 to-primary/10 flex items-center justify-center shrink-0">
@@ -144,8 +146,8 @@ function ProjectDetail({ project }: ProjectDetailProps) {
       {/* Links */}
       <motion.section
         initial={{ opacity: 0, y: 20 }}
-        animate={{ opacity: 1, y: 0 }}
-        transition={{ delay: 0.4 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        viewport={{ once: true, margin: "-50px" }}
         className="px-6"
       >
         <div className="container mx-auto max-w-4xl">
@@ -193,8 +195,8 @@ function ProjectDetail({ project }: ProjectDetailProps) {
       {/* CTA */}
       <motion.section
         initial={{ opacity: 0, y: 20 }}
-        animate={{ opacity: 1, y: 0 }}
-        transition={{ delay: 0.5 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        viewport={{ once: true, margin: "-50px" }}
         className="px-6 mt-12"
       >
         <div className="container mx-auto max-w-4xl text-center">

@@ -68,10 +68,12 @@ export function Banner() {
           {/* Typing Role - cleaner styling */}
           <motion.div
             variants={itemVariants}
-            className="hero-role mt-6"
+            className="mt-6 min-h-[2.5rem] flex items-center justify-center"
           >
-            {t("hero.typingRole", { role: displayedText })}
-            <span className="typing-cursor text-primary ml-1">|</span>
+            <span className="hero-role">
+              {t("hero.typingRole", { role: displayedText })}
+              <span className="typing-cursor text-primary ml-1">|</span>
+            </span>
           </motion.div>
 
           {/* Description with more breathing room */}

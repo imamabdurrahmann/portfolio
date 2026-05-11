@@ -1,6 +1,24 @@
 import type { Metadata } from "next";
-import Link from "next/link";
-import { Mail, MapPin, Clock, MessageCircle, Send, ArrowRight } from "lucide-react";
+import { Mail, MapPin, Clock, MessageCircle, Send } from "lucide-react";
+
+const LinkedinIcon = ({ className }: { className?: string }) => (
+  <svg
+    xmlns="http://www.w3.org/2000/svg"
+    width="20"
+    height="20"
+    viewBox="0 0 24 24"
+    fill="none"
+    stroke="currentColor"
+    strokeWidth="2"
+    strokeLinecap="round"
+    strokeLinejoin="round"
+    className={className}
+  >
+    <path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z" />
+    <rect width="4" height="12" x="2" y="9" />
+    <circle cx="4" cy="4" r="2" />
+  </svg>
+);
 
 export const metadata: Metadata = {
   title: "Contact | Flutter Developer Portfolio",
@@ -13,6 +31,12 @@ const contactItems = [
     title: "Email",
     value: "muhammadimamabdurrahman93@gmail.com",
     href: "mailto:muhammadimamabdurrahman93@gmail.com",
+  },
+  {
+    icon: <LinkedinIcon className="h-5 w-5" />,
+    title: "LinkedIn",
+    value: "Muhammad Imam Abdurrahman",
+    href: "https://linkedin.com/in/muhammad-imam-abdurrahman-24108417a",
   },
   {
     icon: <MessageCircle className="h-5 w-5" />,
