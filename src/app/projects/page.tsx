@@ -6,6 +6,28 @@ import { motion } from "framer-motion";
 import { useLocale } from "@/i18n/LocaleProvider";
 import { getProjects } from "@/lib/projects";
 
+const cardVariants = {
+  hidden: { opacity: 0, y: 40 },
+  visible: (i: number) => ({
+    opacity: 1,
+    y: 0,
+    transition: {
+      delay: i * 0.12,
+      duration: 0.6,
+      ease: [0.25, 0.46, 0.45, 0.94]
+    }
+  })
+};
+
+const featuredVariants = {
+  hidden: { opacity: 0, y: 30 },
+  visible: {
+    opacity: 1,
+    y: 0,
+    transition: { duration: 0.7, ease: [0.25, 0.46, 0.45, 0.94] }
+  }
+};
+
 export default function ProjectsPage() {
   const { t } = useLocale();
   const projects = getProjects();
@@ -29,9 +51,11 @@ export default function ProjectsPage() {
       {projects.length > 0 && (
         <motion.div
           key={projects[0].id}
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          className="glass-card p-6 group mb-6"
+          variants={featuredVariants}
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true, margin: "-50px" }}
+          className="glass-card p-6 group mb-6 hover:shadow-lg hover:shadow-primary/10 transition-shadow duration-500"
         >
           <div className="grid md:grid-cols-2 gap-6 items-center">
             {/* Project Image */}
@@ -97,10 +121,14 @@ export default function ProjectsPage() {
             {projects.slice(1).map((project, index) => (
               <motion.div
                 key={project.id}
-                initial={{ opacity: 0, y: 20 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ delay: index * 0.1 }}
-                className="glass-card p-5 group"
+                variants={cardVariants}
+                initial="hidden"
+                whileInView="visible"
+                viewport={{ once: true, margin: "-50px" }}
+                custom={index}
+                whileHover={{ scale: 1.02, y: -4 }}
+                transition={{ type: "spring", stiffness: 300, damping: 20 }}
+                className="glass-card p-5 group cursor-pointer"
               >
                 <Link href={`/projects/${project.slug}`} className="block cursor-pointer">
                   {/* Project Image Placeholder */}
@@ -125,11 +153,26 @@ export default function ProjectsPage() {
                   </p>
 
                   <div className="flex flex-wrap gap-1.5 mt-3">
-                    {project.tech.slice(0, 3).map((tech) => (
-                      <span key={tech} className="tech-tag">{tech}</span>
+                    {project.tech.slice(0, 3).map((tech, techIndex) => (
+                      <motion.span
+                        key={tech}
+                        initial={{ opacity: 0, scale: 0.8 }}
+                        animate={{ opacity: 1, scale: 1 }}
+                        transition={{ delay: 0.4 + techIndex * 0.06, duration: 0.3, ease: "backOut" }}
+                        className="tech-tag"
+                      >
+                        {tech}
+                      </motion.span>
                     ))}
                     {project.tech.length > 3 && (
-                      <span className="tech-tag text-foreground/50">+{project.tech.length - 3}</span>
+                      <motion.span
+                        initial={{ opacity: 0, scale: 0.8 }}
+                        animate={{ opacity: 1, scale: 1 }}
+                        transition={{ delay: 0.4 + 3 * 0.06, duration: 0.3, ease: "backOut" }}
+                        className="tech-tag text-foreground/50"
+                      >
+                        +{project.tech.length - 3}
+                      </motion.span>
                     )}
                   </div>
                 </Link>
