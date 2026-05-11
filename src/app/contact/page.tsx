@@ -106,7 +106,7 @@ export default function ContactPage() {
             </p>
           </div>
 
-          <div className="grid md:grid-cols-2 gap-10">
+          <div className="grid md:grid-cols-2 gap-10 items-start">
             {/* Left - Contact Info */}
             <div className="space-y-6">
               <div className="glass-card p-5 border border-border/50 shadow-sm">

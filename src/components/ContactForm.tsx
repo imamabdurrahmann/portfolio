@@ -15,7 +15,7 @@ export function ContactForm() {
 
   if (state.succeeded) {
     return (
-      <Card className="w-full glass-card border border-border/50 shadow-sm">
+      <Card className="w-full glass-card border border-border/50 shadow-sm h-fit">
         <CardContent className="p-8 text-center">
           <div className="p-4 bg-emerald-100 rounded-full inline-flex mb-4">
             <CheckCircle className="h-10 w-10 text-emerald-600" />
@@ -30,7 +30,7 @@ export function ContactForm() {
   }
 
   return (
-    <Card className="w-full glass-card border border-border/50 shadow-sm">
+    <Card className="w-full glass-card border border-border/50 shadow-sm h-fit">
       <CardHeader>
         <CardTitle className="text-center text-lg font-semibold">{t("contact.contactTitle")}</CardTitle>
       </CardHeader>
