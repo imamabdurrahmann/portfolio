@@ -94,7 +94,7 @@ export default function ContactPage() {
     <div className="min-h-screen pt-24">
       {/* Hero */}
       <section className="py-12 px-6">
-        <div className="container mx-auto max-w-5xl">
+        <div className="container mx-auto max-w-4xl">
           <div className="text-center mb-10">
             <span className="text-primary text-xs font-medium uppercase tracking-wider">Get In Touch</span>
             <h1 className="text-3xl md:text-4xl font-bold text-foreground mt-3 font-heading">
@@ -106,7 +106,7 @@ export default function ContactPage() {
             </p>
           </div>
 
-          <div className="grid md:grid-cols-2 gap-10 lg:gap-16">
+          <div className="grid md:grid-cols-2 gap-10">
             {/* Left - Contact Info */}
             <div className="space-y-6">
               <div className="glass-card p-5 border border-border/50 shadow-sm">
