@@ -75,14 +75,16 @@ export function TechStack() {
             <motion.div
               key={tech.name}
               variants={itemVariants}
-              className="group px-5 py-3 rounded-full glass-card text-sm font-semibold text-foreground flex items-center gap-2 cursor-default"
+              className="group px-5 py-3 rounded-full glass-card text-sm font-semibold text-foreground flex items-center gap-2 cursor-pointer"
               whileHover={{ scale: 1.05, y: -2 }}
               transition={{ type: "spring", stiffness: 400 }}
             >
-              <span className="text-primary group-hover:text-white transition-colors">
+              <span className="text-accent-secondary transition-colors duration-300 group-hover:text-slate-900 dark:group-hover:text-accent-secondary">
                 {tech.icon}
               </span>
-              <span className="group-hover:text-white transition-colors">{tech.name}</span>
+              <span className="group-hover:text-slate-900 dark:group-hover:text-accent-secondary transition-colors duration-300">
+                {tech.name}
+              </span>
             </motion.div>
           ))}
         </motion.div>

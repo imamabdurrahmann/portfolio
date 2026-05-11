@@ -812,11 +812,11 @@ html[data-theme="light"],
 }
 
 .tech-tag:hover {
-  background: var(--primary);
-  color: white;
-  border-color: var(--primary);
+  background: var(--accent-secondary);
+  color: #0f172a;
+  border-color: var(--accent-secondary);
   transform: scale(1.05);
-  box-shadow: 0 4px 12px rgba(124, 58, 237, 0.3);
+  box-shadow: 0 4px 16px var(--accent-secondary-glow);
 }
 
 /* ========================================
