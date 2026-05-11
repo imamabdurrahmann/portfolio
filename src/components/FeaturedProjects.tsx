@@ -122,22 +122,14 @@ export function FeaturedProjects() {
                     )}
                   </motion.div>
 
-                  {/* CTA Buttons */}
-                  <div className="mt-6 flex flex-wrap gap-3">
+                  {/* CTA Button */}
+                  <div className="mt-6">
                     <Link
                       href={`/projects/${project.slug}`}
                       className="btn-primary text-sm"
                     >
                       {locale === 'en' ? 'View Details' : 'Lihat Detail'}
                       <ArrowRight className="w-4 h-4" />
-                    </Link>
-                    <Link
-                      href={`https://wa.me/6282375227802?text=${encodeURIComponent(t("experience.contactMessage", { project: t(`projectData.${project.id}.title`, undefined, project.title) as string }))}`}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="btn-secondary text-sm"
-                    >
-                      {t("featured.contactVia")}
                     </Link>
                   </div>
                 </div>
