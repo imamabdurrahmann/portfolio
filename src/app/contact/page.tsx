@@ -157,6 +157,19 @@ export default function ContactPage() {
                 </div>
               </div>
 
+              {/* Quick Response Note */}
+              <div className="p-5 rounded-xl bg-gradient-to-br from-primary/10 to-primary/5 border border-primary/20">
+                <h3 className="text-lg font-semibold text-foreground mb-2">Respons Cepat</h3>
+                <p className="text-base text-foreground/80 leading-relaxed">
+                  Biasanya merespons 1x24 jam. Untuk urgent, hubungi via WhatsApp.
+                </p>
+              </div>
+            </div>
+
+            {/* Right - Contact Form */}
+            <div className="space-y-6">
+              <ContactForm />
+
               {/* Services */}
               <div className="glass-card p-5">
                 <div className="flex items-center gap-2 mb-3">
@@ -171,19 +184,6 @@ export default function ContactPage() {
                     </li>
                   ))}
                 </ul>
-              </div>
-            </div>
-
-            {/* Right - Contact Form */}
-            <div className="space-y-6">
-              <ContactForm />
-
-              {/* Quick Response Note */}
-              <div className="p-4 rounded-xl bg-gradient-to-br from-primary/10 to-primary/5 border border-primary/20">
-                <h3 className="font-semibold text-foreground text-sm mb-1">Respons Cepat</h3>
-                <p className="text-xs text-foreground/60 leading-relaxed">
-                  Biasanya merespons 1x24 jam. Untuk urgent, hubungi via WhatsApp.
-                </p>
               </div>
             </div>
           </div>
