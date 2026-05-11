@@ -123,16 +123,16 @@ export default function ContactPage() {
                         <div className="w-10 h-10 rounded-xl bg-accent-secondary/10 border border-accent-secondary/20 flex items-center justify-center text-accent-secondary group-hover:bg-accent-secondary/20 transition-colors duration-300">
                           {item.icon}
                         </div>
-                        <div className="flex-1">
+                        <div className="flex-1 min-w-0">
                           <div className="flex items-center gap-2">
-                            <h3 className="font-semibold text-gray-900 dark:text-gray-100 text-sm">{item.title}</h3>
+                            <h3 className="font-semibold text-gray-900 dark:text-gray-100 text-sm truncate">{item.title}</h3>
                             {item.badge && (
-                              <span className="text-xs px-2 py-1 rounded-full bg-emerald-100 text-emerald-700 font-medium">
+                              <span className="text-xs px-2 py-1 rounded-full bg-emerald-100 text-emerald-700 font-medium shrink-0">
                                 {item.badge}
                               </span>
                             )}
                           </div>
-                          <p className="text-gray-600 dark:text-gray-400 text-xs">{item.value}</p>
+                          <p className="text-gray-600 dark:text-gray-400 text-xs truncate">{item.value}</p>
                         </div>
                       </a>
                     ) : (
@@ -140,16 +140,16 @@ export default function ContactPage() {
                         <div className="w-10 h-10 rounded-xl bg-accent-secondary/10 border border-accent-secondary/20 flex items-center justify-center text-accent-secondary">
                           {item.icon}
                         </div>
-                        <div className="flex-1">
+                        <div className="flex-1 min-w-0">
                           <div className="flex items-center gap-2">
-                            <h3 className="font-semibold text-gray-900 dark:text-gray-100 text-sm">{item.title}</h3>
+                            <h3 className="font-semibold text-gray-900 dark:text-gray-100 text-sm truncate">{item.title}</h3>
                             {item.badge && (
-                              <span className="text-xs px-2 py-1 rounded-full bg-emerald-100 text-emerald-700 font-medium">
+                              <span className="text-xs px-2 py-1 rounded-full bg-emerald-100 text-emerald-700 font-medium shrink-0">
                                 {item.badge}
                               </span>
                             )}
                           </div>
-                          <p className="text-gray-600 dark:text-gray-400 text-xs">{item.value}</p>
+                          <p className="text-gray-600 dark:text-gray-400 text-xs truncate">{item.value}</p>
                         </div>
                       </div>
                     )
