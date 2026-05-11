@@ -15,13 +15,13 @@ export function ContactForm() {
 
   if (state.succeeded) {
     return (
-      <Card className="max-w-md mx-auto">
-        <CardContent className="p-6 text-center">
-          <div className="p-3 bg-green-100 rounded-full inline-flex mb-4">
-            <CheckCircle className="h-8 w-8 text-green-600" />
+      <Card className="max-w-md mx-auto glass-card border border-border/50 shadow-sm">
+        <CardContent className="p-8 text-center">
+          <div className="p-4 bg-emerald-100 rounded-full inline-flex mb-4">
+            <CheckCircle className="h-10 w-10 text-emerald-600" />
           </div>
-          <h3 className="text-lg font-semibold">{t("contact.successTitle")}</h3>
-          <p className="text-sm text-muted-foreground mt-2">
+          <h3 className="text-lg font-semibold text-foreground">{t("contact.successTitle")}</h3>
+          <p className="text-sm text-foreground/60 mt-2">
             {t("contact.successMessage")}
           </p>
         </CardContent>
@@ -30,24 +30,24 @@ export function ContactForm() {
   }
 
   return (
-    <Card className="max-w-md mx-auto">
+    <Card className="max-w-md mx-auto glass-card border border-border/50 shadow-sm">
       <CardHeader>
-        <CardTitle className="text-center">{t("contact.contactTitle")}</CardTitle>
+        <CardTitle className="text-center text-lg font-semibold">{t("contact.contactTitle")}</CardTitle>
       </CardHeader>
       <CardContent>
         <form onSubmit={handleSubmit} className="space-y-4">
           <div>
-            <label htmlFor="name" className="text-sm font-medium">{t("contact.name")}</label>
-            <Input id="name" name="name" placeholder={t("contact.namePlaceholder")} required className="mt-1.5" />
+            <label htmlFor="name" className="block text-xs font-medium text-foreground/80 mb-1.5">{t("contact.name")}</label>
+            <Input id="name" name="name" placeholder={t("contact.namePlaceholder")} required />
           </div>
           <div>
-            <label htmlFor="email" className="text-sm font-medium">{t("contact.email")}</label>
-            <Input id="email" name="email" type="email" placeholder={t("contact.emailPlaceholder")} required className="mt-1.5" />
+            <label htmlFor="email" className="block text-xs font-medium text-foreground/80 mb-1.5">{t("contact.email")}</label>
+            <Input id="email" name="email" type="email" placeholder={t("contact.emailPlaceholder")} required />
             <ValidationError prefix="Email" field="email" errors={state.errors} className="text-xs text-red-500 mt-1" />
           </div>
           <div>
-            <label htmlFor="message" className="text-sm font-medium">{t("contact.message")}</label>
-            <Textarea id="message" name="message" placeholder={t("contact.messagePlaceholder")} required rows={5} className="mt-1.5 resize-none" />
+            <label htmlFor="message" className="block text-xs font-medium text-foreground/80 mb-1.5">{t("contact.message")}</label>
+            <Textarea id="message" name="message" placeholder={t("contact.messagePlaceholder")} required rows={4} className="resize-none" />
             <ValidationError prefix="Message" field="message" errors={state.errors} className="text-xs text-red-500 mt-1" />
           </div>
           <button

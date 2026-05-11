@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import { Mail, MapPin, Clock, MessageCircle, Send } from "lucide-react";
+import { ContactForm } from "@/components/ContactForm";
 
 const LinkedinIcon = ({ className }: { className?: string }) => (
   <svg
@@ -160,42 +161,7 @@ export default function ContactPage() {
             </div>
 
             {/* Right - Contact Form */}
-            <div className="glass-card p-6">
-              <h3 className="text-lg font-semibold text-foreground mb-5">Kirim Pesan</h3>
-              <form className="space-y-4">
-                <div>
-                  <label className="block text-xs font-medium text-foreground/80 mb-1.5">Nama</label>
-                  <input
-                    type="text"
-                    placeholder="Nama lengkap Anda"
-                    className="w-full px-4 py-3 rounded-xl bg-background border border-border text-foreground text-sm placeholder-foreground/40 focus:outline-none focus:border-accent-secondary focus:ring-2 focus:ring-accent-secondary/20 transition-colors"
-                  />
-                </div>
-                <div>
-                  <label className="block text-xs font-medium text-foreground/80 mb-1.5">Email</label>
-                  <input
-                    type="email"
-                    placeholder="email@example.com"
-                    className="w-full px-4 py-3 rounded-xl bg-background border border-border text-foreground text-sm placeholder-foreground/40 focus:outline-none focus:border-accent-secondary focus:ring-2 focus:ring-accent-secondary/20 transition-colors"
-                  />
-                </div>
-                <div>
-                  <label className="block text-xs font-medium text-foreground/80 mb-1.5">Pesan</label>
-                  <textarea
-                    rows={4}
-                    placeholder="Tulis pesan Anda di sini..."
-                    className="w-full px-4 py-3 rounded-xl bg-background border border-border text-foreground text-sm placeholder-foreground/40 focus:outline-none focus:border-accent-secondary focus:ring-2 focus:ring-accent-secondary/20 transition-colors resize-none"
-                  />
-                </div>
-                <button
-                  type="submit"
-                  className="w-full btn-primary justify-center"
-                >
-                  Kirim Pesan
-                  <Send className="w-4 h-4" />
-                </button>
-              </form>
-            </div>
+            <ContactForm />
           </div>
         </div>
       </section>
