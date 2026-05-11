@@ -89,12 +89,10 @@ export function Experience() {
                 {/* CTA Link */}
                 <div className="mt-5 pt-4 border-t border-border/50">
                   <Link
-                    href={`https://wa.me/6282375227802?text=${encodeURIComponent(t("experience.contactMessage", { project: project.title }))}`}
-                    target="_blank"
-                    rel="noopener noreferrer"
+                    href={`/projects/${project.slug}`}
                     className="inline-flex items-center gap-2 text-primary hover:gap-3 font-semibold text-sm transition-all duration-300"
                   >
-                    {t("experience.contact")}
+                    {t("projectCard.viewDetails")}
                     <ArrowRight className="w-4 h-4" />
                   </Link>
                 </div>
