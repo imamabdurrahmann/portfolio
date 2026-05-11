@@ -50,7 +50,7 @@ export default function ContactPage() {
         <div className="container mx-auto max-w-5xl">
           <div className="text-center mb-10">
             <span className="text-primary text-xs font-medium uppercase tracking-wider">Get In Touch</span>
-            <h1 className="text-3xl md:text-4xl font-bold text-foreground mt-3">
+            <h1 className="text-3xl md:text-4xl font-bold text-foreground mt-3 font-heading">
               Hubungi <span className="gradient-text">Saya</span>
             </h1>
             <p className="mt-3 text-sm text-foreground/60 max-w-xl mx-auto leading-relaxed">
@@ -66,7 +66,7 @@ export default function ContactPage() {
                 <div className="space-y-4">
                   {contactItems.map((item) => (
                     <div key={item.title} className="flex items-center gap-4">
-                      <div className="w-11 h-11 rounded-xl bg-primary/10 flex items-center justify-center text-primary">
+                      <div className="w-11 h-11 rounded-xl bg-accent-secondary/10 flex items-center justify-center text-accent-secondary">
                         {item.icon}
                       </div>
                       <div className="flex-1">
@@ -83,7 +83,7 @@ export default function ContactPage() {
                             href={item.href}
                             target={item.href.startsWith("http") ? "_blank" : undefined}
                             rel={item.href.startsWith("http") ? "noopener noreferrer" : undefined}
-                            className="text-foreground/60 text-xs hover:text-primary transition-colors"
+                            className="text-foreground/60 text-xs hover:text-accent-secondary transition-colors duration-300"
                           >
                             {item.value}
                           </a>
@@ -105,7 +105,7 @@ export default function ContactPage() {
                 <ul className="space-y-2">
                   {services.map((service) => (
                     <li key={service} className="flex items-center text-foreground/60 text-xs">
-                      <span className="w-1.5 h-1.5 bg-primary rounded-full mr-2" />
+                      <span className="w-1.5 h-1.5 bg-accent-secondary rounded-full mr-2" />
                       {service}
                     </li>
                   ))}
@@ -130,7 +130,7 @@ export default function ContactPage() {
                   <input
                     type="text"
                     placeholder="Nama lengkap Anda"
-                    className="w-full px-4 py-3 rounded-xl bg-background border border-border text-foreground text-sm placeholder-foreground/40 focus:outline-none focus:border-primary transition-colors"
+                    className="w-full px-4 py-3 rounded-xl bg-background border border-border text-foreground text-sm placeholder-foreground/40 focus:outline-none focus:border-accent-secondary focus:ring-2 focus:ring-accent-secondary/20 transition-colors"
                   />
                 </div>
                 <div>
@@ -138,7 +138,7 @@ export default function ContactPage() {
                   <input
                     type="email"
                     placeholder="email@example.com"
-                    className="w-full px-4 py-3 rounded-xl bg-background border border-border text-foreground text-sm placeholder-foreground/40 focus:outline-none focus:border-primary transition-colors"
+                    className="w-full px-4 py-3 rounded-xl bg-background border border-border text-foreground text-sm placeholder-foreground/40 focus:outline-none focus:border-accent-secondary focus:ring-2 focus:ring-accent-secondary/20 transition-colors"
                   />
                 </div>
                 <div>
@@ -146,7 +146,7 @@ export default function ContactPage() {
                   <textarea
                     rows={4}
                     placeholder="Tulis pesan Anda di sini..."
-                    className="w-full px-4 py-3 rounded-xl bg-background border border-border text-foreground text-sm placeholder-foreground/40 focus:outline-none focus:border-primary transition-colors resize-none"
+                    className="w-full px-4 py-3 rounded-xl bg-background border border-border text-foreground text-sm placeholder-foreground/40 focus:outline-none focus:border-accent-secondary focus:ring-2 focus:ring-accent-secondary/20 transition-colors resize-none"
                   />
                 </div>
                 <button

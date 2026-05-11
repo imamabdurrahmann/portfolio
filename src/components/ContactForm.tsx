@@ -53,7 +53,7 @@ export function ContactForm() {
           <button
             type="submit"
             disabled={state.submitting}
-            className="w-full h-9 flex items-center justify-center gap-1.5 rounded-lg bg-primary text-primary-foreground text-sm font-medium hover:bg-primary/90 disabled:opacity-50"
+            className="w-full btn-primary justify-center disabled:opacity-50 disabled:cursor-not-allowed"
           >
             {state.submitting ? (
               <>

@@ -25,11 +25,84 @@ export default function ProjectsPage() {
         </div>
       </section>
 
-      {/* Projects Grid */}
+      {/* Featured Project (First Project - Full Width) */}
+      {projects.length > 0 && (
+        <motion.div
+          key={projects[0].id}
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          className="glass-card p-6 group mb-6"
+        >
+          <div className="grid md:grid-cols-2 gap-6 items-center">
+            {/* Project Image */}
+            <Link href={`/projects/${projects[0].slug}`} className="block cursor-pointer">
+              <div className="relative aspect-video rounded-xl bg-gradient-to-br from-accent-secondary/20 via-primary/15 to-primary/5 flex items-center justify-center overflow-hidden">
+                <span className="text-7xl md:text-8xl font-black gradient-text opacity-25">
+                  {projects[0].title.charAt(0)}
+                </span>
+                {projects[0].featured && (
+                  <div className="absolute top-3 right-3 flex items-center gap-1 px-3 py-1.5 rounded-full bg-gradient-to-r from-accent-secondary to-primary text-white text-xs font-semibold shadow-lg">
+                    <Star className="w-3 h-3" />
+                    Featured
+                  </div>
+                )}
+                <div className="absolute inset-0 bg-accent-secondary/80 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
+                  <span className="text-white font-semibold">{t("projectCard.viewDetails")}</span>
+                </div>
+              </div>
+            </Link>
+
+            {/* Project Info */}
+            <div>
+              <span className="inline-flex items-center gap-2 text-accent-secondary text-xs font-bold uppercase tracking-widest mb-3">
+                <div className="w-6 h-[2px] bg-accent-secondary" />
+                Featured Project
+              </span>
+              <Link href={`/projects/${projects[0].slug}`} className="block group">
+                <h3 className="text-xl md:text-2xl font-bold text-foreground group-hover:text-accent-secondary transition-colors duration-300">
+                  {t(`projectData.${projects[0].id}.title`, undefined, projects[0].title)}
+                </h3>
+              </Link>
+              <p className="mt-3 text-sm text-foreground/70 leading-relaxed">
+                {t(`projectData.${projects[0].id}.description`, undefined, projects[0].description)}
+              </p>
+
+              <div className="flex flex-wrap gap-2 mt-4">
+                {projects[0].tech.slice(0, 4).map((tech) => (
+                  <span key={tech} className="tech-tag">{tech}</span>
+                ))}
+                {projects[0].tech.length > 4 && (
+                  <span className="tech-tag">+{projects[0].tech.length - 4}</span>
+                )}
+              </div>
+
+              <div className="flex items-center gap-3 mt-5 pt-4 border-t border-border">
+                <Link
+                  href={`/projects/${projects[0].slug}`}
+                  className="btn-primary"
+                >
+                  <ExternalLink className="w-4 h-4" />
+                  {t("projectCard.viewDetails")}
+                </Link>
+                <Link
+                  href={`https://wa.me/6282375227802?text=${encodeURIComponent(t("experience.contactMessage", { project: t(`projectData.${projects[0].id}.title`, undefined, projects[0].title) as string }))}`}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="btn-secondary"
+                >
+                  {t("featured.contactVia")}
+                </Link>
+              </div>
+            </div>
+          </div>
+        </motion.div>
+      )}
+
+      {/* Other Projects Grid */}
       <section className="py-8 px-6">
         <div className="container mx-auto max-w-5xl">
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-4">
-            {projects.map((project, index) => (
+            {projects.slice(1).map((project, index) => (
               <motion.div
                 key={project.id}
                 initial={{ opacity: 0, y: 20 }}
@@ -52,7 +125,7 @@ export default function ProjectsPage() {
                     </div>
                   </div>
 
-                  <h3 className="text-base font-bold text-foreground group-hover:text-primary transition-colors">
+                  <h3 className="text-base font-bold text-foreground group-hover:text-accent-secondary transition-colors duration-300">
                     {t(`projectData.${project.id}.title`, undefined, project.title)}
                   </h3>
                   <p className="mt-2 text-xs text-foreground/60 leading-relaxed line-clamp-2">
