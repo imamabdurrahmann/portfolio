@@ -76,21 +76,13 @@ export default function ProjectsPage() {
                 )}
               </div>
 
-              <div className="flex items-center gap-3 mt-5 pt-4 border-t border-border">
+              <div className="mt-5 pt-4 border-t border-border">
                 <Link
                   href={`/projects/${projects[0].slug}`}
                   className="btn-primary"
                 >
                   <ExternalLink className="w-4 h-4" />
                   {t("projectCard.viewDetails")}
-                </Link>
-                <Link
-                  href={`https://wa.me/6282375227802?text=${encodeURIComponent(t("experience.contactMessage", { project: t(`projectData.${projects[0].id}.title`, undefined, projects[0].title) as string }))}`}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="btn-secondary"
-                >
-                  {t("featured.contactVia")}
                 </Link>
               </div>
             </div>
