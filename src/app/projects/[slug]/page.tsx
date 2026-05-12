@@ -3,9 +3,10 @@
 import { notFound } from "next/navigation";
 import Link from "next/link";
 import { motion } from "framer-motion";
-import { ArrowLeft, ExternalLink, Play, Star, Check, Zap, Shield, Clock, TrendingUp, Target, Award, Database, Users, Bell, FileText, Smartphone } from "lucide-react";
+import { ArrowLeft, ExternalLink, Play, Star, Check, Zap, Shield, Clock, TrendingUp, Target, Award, Database, Users, Bell, FileText, Smartphone, Image as ImageIcon } from "lucide-react";
 import { getProjectBySlug } from "@/lib/projects";
 import { useLocale } from "@/i18n/LocaleProvider";
+import { useState } from "react";
 
 interface PageProps {
   params: Promise<{ slug: string }>;
@@ -28,14 +29,41 @@ interface ProjectDetailProps {
 
 function ProjectDetail({ project }: ProjectDetailProps) {
   const { t, locale } = useLocale();
+  const [selectedImage, setSelectedImage] = useState<string | null>(null);
 
   const title = t(`projectData.${project.id}.title`, undefined, project.title) as string;
   const description = t(`projectData.${project.id}.description`, undefined, project.description) as string;
 
   const allFeatures = getAllFeaturesByProject(project.slug, locale);
 
+  const images = project.images || [];
+
   return (
     <div className="min-h-screen pt-20 pb-12">
+      {/* Image Modal */}
+      {selectedImage && (
+        <motion.div
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          className="fixed inset-0 z-50 bg-black/90 flex items-center justify-center p-4"
+          onClick={() => setSelectedImage(null)}
+        >
+          <button
+            className="absolute top-4 right-4 text-white p-2 hover:bg-white/20 rounded-full"
+            onClick={() => setSelectedImage(null)}
+          >
+            <ArrowLeft className="w-6 h-6" />
+          </button>
+          <motion.img
+            initial={{ scale: 0.8, opacity: 0 }}
+            animate={{ scale: 1, opacity: 1 }}
+            src={selectedImage}
+            alt="Screenshot"
+            className="max-w-full max-h-[90vh] object-contain rounded-lg"
+          />
+        </motion.div>
+      )}
+
       {/* Back Button */}
       <motion.div
         initial={{ opacity: 0, x: -20 }}
@@ -60,8 +88,13 @@ function ProjectDetail({ project }: ProjectDetailProps) {
       >
         <div className="container mx-auto max-w-4xl">
           <div className="flex items-start gap-6">
-            <div className="w-20 h-20 md:w-24 md:h-24 rounded-2xl bg-gradient-to-br from-primary/30 to-primary/10 flex items-center justify-center shrink-0">
-              <span className="text-4xl md:text-5xl font-bold gradient-text">{project.title.charAt(0)}</span>
+            <div className="w-20 h-20 md:w-24 md:h-24 rounded-2xl bg-gradient-to-br from-primary/30 to-primary/10 flex items-center justify-center shrink-0 overflow-hidden">
+              {project.image && (
+                <img src={project.image} alt={project.title} className="w-full h-full object-cover" />
+              )}
+              {!project.image && (
+                <span className="text-4xl md:text-5xl font-bold gradient-text">{project.title.charAt(0)}</span>
+              )}
             </div>
 
             <div className="flex-1">
@@ -83,6 +116,45 @@ function ProjectDetail({ project }: ProjectDetailProps) {
           </div>
         </div>
       </motion.section>
+
+      {/* Screenshot Gallery */}
+      {images.length > 0 && (
+        <motion.section
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, margin: "-50px" }}
+          className="px-6 mb-8"
+        >
+          <div className="container mx-auto max-w-4xl">
+            <h2 className="text-lg font-semibold text-foreground mb-4 flex items-center gap-2">
+              <ImageIcon className="w-5 h-5 text-primary" />
+              Screenshots ({images.length})
+            </h2>
+            <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-3">
+              {images.map((img, index) => (
+                <motion.div
+                  key={img}
+                  initial={{ opacity: 0, scale: 0.9 }}
+                  whileInView={{ opacity: 1, scale: 1 }}
+                  viewport={{ once: true }}
+                  transition={{ delay: index * 0.03 }}
+                  className="relative aspect-video rounded-xl overflow-hidden cursor-pointer group"
+                  onClick={() => setSelectedImage(img)}
+                >
+                  <img
+                    src={img}
+                    alt={`Screenshot ${index + 1}`}
+                    className="w-full h-full object-cover transition-transform duration-300 group-hover:scale-105"
+                  />
+                  <div className="absolute inset-0 bg-black/50 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center">
+                    <ExternalLink className="w-6 h-6 text-white" />
+                  </div>
+                </motion.div>
+              ))}
+            </div>
+          </div>
+        </motion.section>
+      )}
 
       {/* Tech Stack */}
       <motion.section

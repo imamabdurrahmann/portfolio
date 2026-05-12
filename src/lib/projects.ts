@@ -4,6 +4,7 @@ export interface Project {
   title: string;
   description: string;
   image: string;
+  images?: string[];  // Multiple images for gallery
   playStore?: string;
   appStore?: string;
   github?: string;
@@ -45,7 +46,26 @@ export const projects: Project[] = [
     slug: generateSlug("Try Outcpns"),
     title: "Try Outcpns",
     description: "Aplikasi Try Outcpns dengan Clean Architecture. Fitur lengkap untuk latihan soal cpns dengan progress tracking.",
-    image: "/projects/tryout-cpns.jpg",
+    image: "/projects/tryout-cpns/preview.png",
+    images: [
+      "/projects/tryout-cpns/berandalightmode.jpg",
+      "/projects/tryout-cpns/berandadarkmode.jpg",
+      "/projects/tryout-cpns/persiapansebelummulaitryout.jpg",
+      "/projects/tryout-cpns/contohpemilihanpaket.jpg",
+      "/projects/tryout-cpns/twktryout.jpg",
+      "/projects/tryout-cpns/tiutryout.jpg",
+      "/projects/tryout-cpns/tkptryout.jpg",
+      "/projects/tryout-cpns/contohsoaldenganpilihangandanya.jpg",
+      "/projects/tryout-cpns/setelahselesaitryout.jpg",
+      "/projects/tryout-cpns/contohpembahasan.jpg",
+      "/projects/tryout-cpns/statistik.jpg",
+      "/projects/tryout-cpns/statistik1.jpg",
+      "/projects/tryout-cpns/profil.jpg",
+      "/projects/tryout-cpns/latihanpertopik1.jpg",
+      "/projects/tryout-cpns/latihanpertopik2.jpg",
+      "/projects/tryout-cpns/latihanpertopik3.jpg",
+      "/projects/tryout-cpns/listratusansoalataupreviewtampilan.jpg",
+    ],
     tech: ["Flutter", "Riverpod", "Hive", "Clean Architecture", "GoRouter", "Dio"],
     featured: true,
     contactMessage: "Halo Imam, saya tertarik dengan project Try Outcpns",
