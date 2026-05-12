@@ -61,9 +61,13 @@ export default function ProjectsPage() {
             {/* Project Image */}
             <Link href={`/projects/${projects[0].slug}`} className="block cursor-pointer">
               <div className="relative aspect-video rounded-xl bg-gradient-to-br from-accent-secondary/20 via-primary/15 to-primary/5 flex items-center justify-center overflow-hidden">
-                <span className="text-7xl md:text-8xl font-black gradient-text opacity-25">
-                  {projects[0].title.charAt(0)}
-                </span>
+                {projects[0].image ? (
+                  <img src={projects[0].image} alt={projects[0].title} className="w-full h-full object-contain" />
+                ) : (
+                  <span className="text-7xl md:text-8xl font-black gradient-text opacity-25">
+                    {projects[0].title.charAt(0)}
+                  </span>
+                )}
                 {projects[0].featured && (
                   <div className="absolute top-3 right-3 flex items-center gap-1 px-3 py-1.5 rounded-full bg-gradient-to-r from-accent-secondary to-primary text-white text-xs font-semibold shadow-lg">
                     <Star className="w-3 h-3" />
@@ -131,9 +135,13 @@ export default function ProjectsPage() {
                 className="glass-card p-5 group cursor-pointer"
               >
                 <Link href={`/projects/${project.slug}`} className="block cursor-pointer">
-                  {/* Project Image Placeholder */}
+                  {/* Project Image */}
                   <div className="relative h-28 rounded-xl bg-gradient-to-br from-primary/15 to-primary/5 flex items-center justify-center mb-4 overflow-hidden">
-                    <span className="text-4xl font-bold gradient-text opacity-40">{project.title.charAt(0)}</span>
+                    {project.image ? (
+                      <img src={project.image} alt={project.title} className="w-full h-full object-contain" />
+                    ) : (
+                      <span className="text-4xl font-bold gradient-text opacity-40">{project.title.charAt(0)}</span>
+                    )}
                     {project.featured && (
                       <div className="absolute top-2 right-2 flex items-center gap-1 px-2.5 py-1 rounded-full bg-gradient-to-r from-primary to-indigo-500 text-white text-xs font-semibold">
                         <Star className="w-3 h-3" />

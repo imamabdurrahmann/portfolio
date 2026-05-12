@@ -57,7 +57,7 @@ export function ProjectCard({ project, variant = "default" }: ProjectCardProps) 
       <Card className="project-card overflow-hidden">
         <div className="project-card-image">
           {project.image ? (
-            <img src={project.image} alt={project.title} className="w-full h-full object-cover" />
+            <img src={project.image} alt={project.title} className="w-full h-full object-contain" />
           ) : (
             <span className="project-placeholder">{project.title.charAt(0)}</span>
           )}
