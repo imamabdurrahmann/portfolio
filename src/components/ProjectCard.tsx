@@ -1,6 +1,5 @@
 "use client";
 
-import Image from "next/image";
 import { motion } from "framer-motion";
 import { ExternalLink, Play, Link2 } from "lucide-react";
 import { Card, CardContent } from "@/components/ui/card";
@@ -58,7 +57,7 @@ export function ProjectCard({ project, variant = "default" }: ProjectCardProps) 
       <Card className="project-card overflow-hidden">
         <div className="project-card-image">
           {project.image ? (
-            <Image src={project.image} alt={project.title} fill className="object-cover" />
+            <img src={project.image} alt={project.title} className="w-full h-full object-cover" />
           ) : (
             <span className="project-placeholder">{project.title.charAt(0)}</span>
           )}

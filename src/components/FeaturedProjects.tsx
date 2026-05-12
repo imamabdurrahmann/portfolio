@@ -73,11 +73,19 @@ export function FeaturedProjects() {
                   className={`block group ${isEven ? "md:order-2" : "md:order-1"}`}
                 >
                   <div className="relative rounded-2xl overflow-hidden aspect-video bg-gradient-to-br from-primary/20 to-secondary/50">
-                    <div className="absolute inset-0 flex items-center justify-center">
-                      <span className="text-8xl font-black gradient-text opacity-30">
-                        {project.title.charAt(0)}
-                      </span>
-                    </div>
+                    {project.image ? (
+                      <img
+                        src={project.image}
+                        alt={project.title}
+                        className="w-full h-full object-cover"
+                      />
+                    ) : (
+                      <div className="absolute inset-0 flex items-center justify-center">
+                        <span className="text-8xl font-black gradient-text opacity-30">
+                          {project.title.charAt(0)}
+                        </span>
+                      </div>
+                    )}
                     <div className="absolute top-3 right-3 flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-gradient-to-r from-primary to-indigo-500 text-white text-xs font-semibold shadow-lg">
                       <Star className="w-3 h-3" />
                       {t("projectCard.featured")}

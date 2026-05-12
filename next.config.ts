@@ -8,6 +8,8 @@ const nextConfig: NextConfig = {
   images: {
     formats: ["image/avif", "image/webp"],
     minimumCacheTTL: 31536000,
+    // Allow images from public folder
+    unoptimized: true,
   },
 
   // Remove console in production
