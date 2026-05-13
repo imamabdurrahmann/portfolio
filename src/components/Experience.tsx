@@ -2,47 +2,15 @@
 
 import { ArrowRight, Code2 } from "lucide-react";
 import Link from "next/link";
-import { motion } from "framer-motion";
 import { useLocale } from "@/i18n/LocaleProvider";
 import { getProjects } from "@/lib/projects";
 
-// Varying widths for human feel - not uniform grid
 const cardWidths = [
-  "lg:col-span-2", // wide
-  "lg:col-span-1", // narrow
-  "lg:col-span-1", // narrow
-  "lg:col-span-2", // wide
+  "lg:col-span-2",
+  "lg:col-span-1",
+  "lg:col-span-1",
+  "lg:col-span-2",
 ];
-
-// Slight random rotations
-const getRotation = (index: number) => {
-  const rotations = [0, -1, 1, -0.5];
-  return rotations[index % rotations.length];
-};
-
-const containerVariants = {
-  hidden: { opacity: 0 },
-  visible: {
-    opacity: 1,
-    transition: {
-      staggerChildren: 0.08,
-      delayChildren: 0.15,
-      when: "async",
-    }
-  }
-};
-
-const itemVariants = {
-  hidden: { opacity: 0, y: 20 },
-  visible: (i: number) => ({
-    opacity: 1,
-    y: 0,
-    transition: {
-      duration: 0.4,
-      delay: i * 0.07
-    }
-  })
-};
 
 export function Experience() {
   const { t } = useLocale();
@@ -51,14 +19,8 @@ export function Experience() {
   return (
     <section id="experience" className="py-20 px-6">
       <div className="container mx-auto max-w-6xl">
-        {/* Section Header - left aligned */}
-        <motion.div
-          initial={{ opacity: 0, x: -20 }}
-          whileInView={{ opacity: 1, x: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.5 }}
-          className="mb-12"
-        >
+        {/* Section Header */}
+        <div className="mb-12">
           <div className="flex items-center gap-3 mb-3">
             <Code2 className="w-5 h-5 text-primary" />
             <span className="text-xs font-medium uppercase tracking-widest text-primary">
@@ -71,30 +33,18 @@ export function Experience() {
             </h2>
             <span className="text-sm text-foreground/50">({projects.length})</span>
           </div>
-        </motion.div>
+        </div>
 
-        {/* Broken grid - varying widths */}
-        <motion.div
-          className="grid grid-cols-1 md:grid-cols-2 gap-5"
-          variants={containerVariants}
-          initial="hidden"
-          whileInView="visible"
-          viewport={{ once: true, margin: "-50px" }}
-        >
+        {/* Grid - no stagger animations */}
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
           {projects.map((project, index) => {
             return (
-              <motion.div
+              <div
                 key={project.id}
-                custom={index}
-                variants={itemVariants}
-                className={`glass-card p-5 group relative overflow-hidden self-start ${cardWidths[index]}`}
-                style={{ transform: `rotate(${getRotation(index)}deg)` }}
+                className={`p-5 rounded-xl bg-secondary border border-border self-start ${cardWidths[index]}`}
               >
-                {/* Subtle warm gradient on hover */}
-                <div className="absolute inset-0 border-2 border-primary/0 group-hover:border-primary/20 transition-colors duration-300" />
-
-                <div className="relative z-10">
-                  {/* Project Index - subtle, not too big */}
+                <div>
+                  {/* Project Index */}
                   <span
                     className="text-2xl font-black text-primary/8 absolute -top-1 -right-1"
                     style={{ fontFamily: "'Outfit', sans-serif" }}
@@ -103,7 +53,7 @@ export function Experience() {
                   </span>
 
                   {/* Project Initial */}
-                  <div className="w-10 h-10 rounded-lg bg-secondary flex items-center justify-center mb-3">
+                  <div className="w-10 h-10 rounded-lg bg-secondary border border-border flex items-center justify-center mb-3">
                     <span
                       className="text-lg font-bold text-primary"
                       style={{ fontFamily: "'Outfit', sans-serif" }}
@@ -114,7 +64,7 @@ export function Experience() {
 
                   {/* Title */}
                   <h3
-                    className="text-base font-bold text-foreground group-hover:text-primary transition-colors duration-300"
+                    className="text-base font-bold text-foreground"
                     style={{ fontFamily: "'Outfit', sans-serif" }}
                   >
                     {t(`projectData.${project.id}.title`, undefined, project.title)}
@@ -143,17 +93,17 @@ export function Experience() {
                   <div className="mt-4 pt-3 border-t border-border/50">
                     <Link
                       href={`/projects/${project.slug}`}
-                      className="inline-flex items-center gap-1.5 text-primary hover:gap-2.5 font-semibold text-xs transition-all duration-300"
+                      className="inline-flex items-center gap-1.5 text-primary font-semibold text-xs"
                     >
                       {t("projectCard.viewDetails")}
                       <ArrowRight className="w-3 h-3" />
                     </Link>
                   </div>
                 </div>
-              </motion.div>
+              </div>
             );
           })}
-        </motion.div>
+        </div>
       </div>
     </section>
   );

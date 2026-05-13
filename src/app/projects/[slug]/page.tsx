@@ -2,7 +2,6 @@
 
 import { notFound } from "next/navigation";
 import Link from "next/link";
-import { motion } from "framer-motion";
 import { ArrowLeft, ExternalLink, Play, Star, Check, Zap, Shield, Clock, TrendingUp, Target, Award, Database, Users, Bell, FileText, Smartphone, Image as ImageIcon } from "lucide-react";
 import { getProjectBySlug } from "@/lib/projects";
 import { useLocale } from "@/i18n/LocaleProvider";
@@ -42,9 +41,7 @@ function ProjectDetail({ project }: ProjectDetailProps) {
     <div className="min-h-screen pt-20 pb-12">
       {/* Image Modal */}
       {selectedImage && (
-        <motion.div
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
+        <div
           className="fixed inset-0 z-50 bg-black/90 flex items-center justify-center p-4"
           onClick={() => setSelectedImage(null)}
         >
@@ -54,22 +51,16 @@ function ProjectDetail({ project }: ProjectDetailProps) {
           >
             <ArrowLeft className="w-6 h-6" />
           </button>
-          <motion.img
-            initial={{ scale: 0.8, opacity: 0 }}
-            animate={{ scale: 1, opacity: 1 }}
+          <img
             src={selectedImage}
             alt="Screenshot"
             className="max-w-full max-h-[90vh] object-contain rounded-lg"
           />
-        </motion.div>
+        </div>
       )}
 
       {/* Back Button */}
-      <motion.div
-        initial={{ opacity: 0, x: -20 }}
-        animate={{ opacity: 1, x: 0 }}
-        className="px-6 py-6"
-      >
+      <div className="px-6 py-6">
         <Link
           href="/projects"
           className="inline-flex items-center gap-2 text-foreground/60 hover:text-primary transition-colors"
@@ -77,18 +68,13 @@ function ProjectDetail({ project }: ProjectDetailProps) {
           <ArrowLeft className="w-4 h-4" />
           {locale === 'en' ? 'Back to Projects' : 'Kembali ke Project'}
         </Link>
-      </motion.div>
+      </div>
 
       {/* Hero Section */}
-      <motion.section
-        initial={{ opacity: 0, y: 20 }}
-        whileInView={{ opacity: 1, y: 0 }}
-        viewport={{ once: true, margin: "-50px" }}
-        className="px-6 mb-8"
-      >
+      <div className="px-6 mb-8">
         <div className="container mx-auto max-w-4xl">
           <div className="flex items-start gap-6">
-            <div className="w-20 h-20 md:w-24 md:h-24 rounded-2xl bg-gradient-to-br from-primary/30 to-primary/10 flex items-center justify-center shrink-0 overflow-hidden">
+            <div className="w-20 h-20 md:w-24 md:h-24 rounded-2xl bg-secondary border border-border flex items-center justify-center shrink-0 overflow-hidden">
               {project.image && (
                 <img src={project.image} alt={project.title} className="w-full h-full object-cover" />
               )}
@@ -100,7 +86,7 @@ function ProjectDetail({ project }: ProjectDetailProps) {
             <div className="flex-1">
               <div className="flex items-center gap-2 mb-2">
                 {project.featured && (
-                  <span className="px-3 py-1 rounded-full bg-gradient-to-r from-primary to-indigo-500 text-white text-xs font-semibold flex items-center gap-1">
+                  <span className="px-3 py-1 rounded-full bg-primary text-white text-xs font-semibold flex items-center gap-1">
                     <Star className="w-3 h-3" />
                     {t("projectCard.featured")}
                   </span>
@@ -115,54 +101,37 @@ function ProjectDetail({ project }: ProjectDetailProps) {
             </div>
           </div>
         </div>
-      </motion.section>
+      </div>
 
       {/* Screenshot Gallery */}
       {images.length > 0 && (
-        <motion.section
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true, margin: "-50px" }}
-          className="px-6 mb-8"
-        >
+        <div className="px-6 mb-8">
           <div className="container mx-auto max-w-4xl">
             <h2 className="text-lg font-semibold text-foreground mb-4 flex items-center gap-2">
               <ImageIcon className="w-5 h-5 text-primary" />
               Screenshots ({images.length})
             </h2>
             <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-3">
-              {images.map((img, index) => (
-                <motion.div
+              {images.map((img) => (
+                <div
                   key={img}
-                  initial={{ opacity: 0, scale: 0.9 }}
-                  whileInView={{ opacity: 1, scale: 1 }}
-                  viewport={{ once: true }}
-                  transition={{ delay: index * 0.03 }}
-                  className="relative aspect-video rounded-xl overflow-hidden cursor-pointer group"
+                  className="relative aspect-video rounded-xl overflow-hidden cursor-pointer"
                   onClick={() => setSelectedImage(img)}
                 >
                   <img
                     src={img}
-                    alt={`Screenshot ${index + 1}`}
-                    className="w-full h-full object-cover transition-transform duration-300 group-hover:scale-105"
+                    alt="Screenshot"
+                    className="w-full h-full object-cover"
                   />
-                  <div className="absolute inset-0 bg-black/50 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center">
-                    <ExternalLink className="w-6 h-6 text-white" />
-                  </div>
-                </motion.div>
+                </div>
               ))}
             </div>
           </div>
-        </motion.section>
+        </div>
       )}
 
       {/* Tech Stack */}
-      <motion.section
-        initial={{ opacity: 0, y: 20 }}
-        whileInView={{ opacity: 1, y: 0 }}
-        viewport={{ once: true, margin: "-50px" }}
-        className="px-6 mb-8"
-      >
+      <div className="px-6 mb-8">
         <div className="container mx-auto max-w-4xl">
           <h2 className="text-lg font-semibold text-foreground mb-4 flex items-center gap-2">
             <Database className="w-5 h-5 text-primary" />
@@ -174,54 +143,38 @@ function ProjectDetail({ project }: ProjectDetailProps) {
             ))}
           </div>
         </div>
-      </motion.section>
+      </div>
 
       {/* Features by Category */}
-      {allFeatures.map((category, catIndex) => (
-        <motion.section
-          key={category.category}
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true, margin: "-50px" }}
-          transition={{ delay: catIndex * 0.05 }}
-          className="px-6 mb-8"
-        >
+      {allFeatures.map((category) => (
+        <div key={category.category} className="px-6 mb-8">
           <div className="container mx-auto max-w-4xl">
             <h2 className="text-lg font-semibold text-foreground mb-4 flex items-center gap-2">
               {category.icon}
               {category.category}
             </h2>
             <div className="grid md:grid-cols-2 gap-4">
-              {category.features.map((feature, index) => (
-                <motion.div
+              {category.features.map((feature) => (
+                <div
                   key={feature.title}
-                  initial={{ opacity: 0, y: 20 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  viewport={{ once: true, margin: "-30px" }}
-                  transition={{ delay: index * 0.04 }}
-                  className="glass-card p-4 flex items-start gap-3"
+                  className="p-4 rounded-xl bg-secondary border border-border flex items-start gap-3"
                 >
-                  <div className="w-8 h-8 rounded-lg bg-gradient-to-br from-primary/20 to-primary/10 flex items-center justify-center shrink-0">
+                  <div className="w-8 h-8 rounded-lg bg-secondary border border-border flex items-center justify-center shrink-0">
                     <Check className="w-4 h-4 text-primary" />
                   </div>
                   <div>
                     <h3 className="font-semibold text-foreground">{feature.title}</h3>
                     <p className="text-sm text-foreground/60 mt-1">{feature.description}</p>
                   </div>
-                </motion.div>
+                </div>
               ))}
             </div>
           </div>
-        </motion.section>
+        </div>
       ))}
 
       {/* Links */}
-      <motion.section
-        initial={{ opacity: 0, y: 20 }}
-        whileInView={{ opacity: 1, y: 0 }}
-        viewport={{ once: true, margin: "-50px" }}
-        className="px-6"
-      >
+      <div className="px-6">
         <div className="container mx-auto max-w-4xl">
           <h2 className="text-lg font-semibold text-foreground mb-4">
             {locale === 'en' ? 'Get the App' : 'Dapatkan Aplikasi'}
@@ -232,7 +185,7 @@ function ProjectDetail({ project }: ProjectDetailProps) {
                 href={project.playStore}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="inline-flex items-center gap-2 px-6 py-3 rounded-full bg-gradient-to-r from-primary to-indigo-500 text-white font-semibold hover:shadow-lg hover:shadow-primary/30 transition-all"
+                className="inline-flex items-center gap-2 px-6 py-3 rounded-full bg-primary text-white font-semibold"
               >
                 <Play className="w-5 h-5" />
                 {t("projectCard.playStore")}
@@ -243,7 +196,7 @@ function ProjectDetail({ project }: ProjectDetailProps) {
                 href={project.appStore}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="inline-flex items-center gap-2 px-6 py-3 rounded-full bg-gradient-to-r from-primary to-indigo-500 text-white font-semibold hover:shadow-lg hover:shadow-primary/30 transition-all"
+                className="inline-flex items-center gap-2 px-6 py-3 rounded-full bg-primary text-white font-semibold"
               >
                 <ExternalLink className="w-5 h-5" />
                 {t("projectCard.appStore")}
@@ -262,15 +215,10 @@ function ProjectDetail({ project }: ProjectDetailProps) {
             )}
           </div>
         </div>
-      </motion.section>
+      </div>
 
       {/* CTA */}
-      <motion.section
-        initial={{ opacity: 0, y: 20 }}
-        whileInView={{ opacity: 1, y: 0 }}
-        viewport={{ once: true, margin: "-50px" }}
-        className="px-6 mt-12"
-      >
+      <div className="px-6 mt-12">
         <div className="container mx-auto max-w-4xl text-center">
           <h2 className="text-xl font-bold text-foreground mb-2">
             {locale === 'en' ? 'Interested in this project?' : 'Tertarik dengan project ini?'}
@@ -286,7 +234,7 @@ function ProjectDetail({ project }: ProjectDetailProps) {
             <ArrowLeft className="w-4 h-4 rotate-180" />
           </Link>
         </div>
-      </motion.section>
+      </div>
     </div>
   );
 }

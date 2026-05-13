@@ -2,25 +2,11 @@
 
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import { motion } from "framer-motion";
-import { Code2, Menu, X } from "lucide-react";
+import { Menu, X } from "lucide-react";
 import { ThemeToggle } from "./ThemeToggle";
 import { LanguageToggle } from "./LanguageToggle";
 import { useLocale } from "@/i18n/LocaleProvider";
 import { useState } from "react";
-
-const navItemVariants = {
-  hidden: { opacity: 0, y: -10 },
-  visible: { opacity: 1, y: 0, transition: { duration: 0.3 } }
-};
-
-const containerVariants = {
-  hidden: { opacity: 0 },
-  visible: {
-    opacity: 1,
-    transition: { staggerChildren: 0.08, delayChildren: 0.1 }
-  }
-};
 
 export function Navbar() {
   const pathname = usePathname();
@@ -34,42 +20,31 @@ export function Navbar() {
   ];
 
   return (
-    <motion.header
-      className="header"
-      initial="hidden"
-      animate="visible"
-      variants={containerVariants}
-    >
+    <header className="header">
       <nav className="px-6 py-4">
         <div className="container mx-auto max-w-6xl flex items-center justify-between">
-          {/* Logo - simple text */}
-          <Link href="/" className="flex items-center gap-2 group">
+          {/* Logo */}
+          <Link href="/" className="flex items-center gap-2">
             <span className="text-xl font-bold text-primary" style={{ fontFamily: "'Outfit', sans-serif" }}>
               Imam.dev
             </span>
           </Link>
 
           <div className="flex items-center gap-4">
-            {/* Desktop Nav */}
+            {/* Desktop Nav - simple, no animations */}
             <div className="hidden md:flex items-center gap-1">
               {navLinks.map((link) => (
-                <motion.div key={link.href} variants={navItemVariants}>
-                  <Link
-                    href={link.href}
-                    className={`nav-link relative px-5 py-2.5 rounded-xl text-sm font-medium transition-all duration-300 ${
-                      pathname === link.href ? "active bg-primary/10 text-primary" : ""
-                    }`}
-                  >
-                    {link.label}
-                    {pathname === link.href && (
-                      <motion.div
-                        layoutId="nav-indicator"
-                        className="absolute bottom-0 left-1/2 -translate-x-1/2 w-1 h-1 rounded-full bg-primary"
-                        transition={{ type: "spring", stiffness: 500, damping: 30 }}
-                      />
-                    )}
-                  </Link>
-                </motion.div>
+                <Link
+                  key={link.href}
+                  href={link.href}
+                  className={`px-5 py-2.5 rounded-xl text-sm font-medium transition-colors ${
+                    pathname === link.href
+                      ? "bg-secondary text-primary"
+                      : "text-foreground/60 hover:text-foreground hover:bg-secondary"
+                  }`}
+                >
+                  {link.label}
+                </Link>
               ))}
             </div>
 
@@ -80,18 +55,16 @@ export function Navbar() {
             <LanguageToggle />
 
             {/* CTA - Desktop */}
-            <motion.div variants={navItemVariants} className="hidden md:block">
-              <Link
-                href="/contact"
-                className="hero-cta !py-2.5 !px-5 !text-sm"
-              >
-                {t("nav.hireMe")}
-              </Link>
-            </motion.div>
+            <Link
+              href="/contact"
+              className="hidden md:inline-flex hero-cta !py-2.5 !px-5 !text-sm"
+            >
+              {t("nav.hireMe")}
+            </Link>
 
-            {/* Mobile Menu Toggle */}
+            {/* Mobile Menu Toggle - simple */}
             <button
-              className="md:hidden p-2 rounded-xl glass-card"
+              className="md:hidden p-2 rounded-xl bg-secondary"
               onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
             >
               {mobileMenuOpen ? (
@@ -103,14 +76,9 @@ export function Navbar() {
           </div>
         </div>
 
-        {/* Mobile Menu */}
+        {/* Mobile Menu - simple */}
         {mobileMenuOpen && (
-          <motion.div
-            initial={{ opacity: 0, y: -20 }}
-            animate={{ opacity: 1, y: 0 }}
-            exit={{ opacity: 0, y: -20 }}
-            className="md:hidden mt-4 p-4 rounded-2xl glass-card"
-          >
+          <div className="md:hidden mt-4 p-4 rounded-2xl bg-secondary border border-border">
             <div className="flex flex-col gap-2">
               {navLinks.map((link) => (
                 <Link
@@ -120,7 +88,7 @@ export function Navbar() {
                   className={`px-4 py-3 rounded-xl text-sm font-medium transition-colors ${
                     pathname === link.href
                       ? "bg-primary/10 text-primary"
-                      : "hover:bg-secondary"
+                      : "hover:bg-primary/5"
                   }`}
                 >
                   {link.label}
@@ -134,9 +102,9 @@ export function Navbar() {
                 {t("nav.hireMe")}
               </Link>
             </div>
-          </motion.div>
+          </div>
         )}
       </nav>
-    </motion.header>
+    </header>
   );
 }

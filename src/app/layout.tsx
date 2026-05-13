@@ -4,7 +4,6 @@ import { Navbar } from "@/components/Navbar";
 import { ThemeProvider } from "@/components/ThemeProvider";
 import { ErrorBoundary } from "@/components/ErrorBoundary";
 import { LocaleProvider } from "@/i18n/LocaleProvider";
-import { EasterEgg } from "@/components/EasterEgg";
 
 export const metadata: Metadata = {
   title: "Muhammad Imam Abdurrahman | Flutter Developer",
@@ -75,7 +74,6 @@ export default function RootLayout({
       <body className="min-h-screen flex flex-col antialiased">
         <LocaleProvider>
           <ThemeProvider defaultTheme="dark" storageKey="portfolio-theme">
-            <EasterEgg />
             <Navbar />
             <main className="flex-1">
               <ErrorBoundary>{children}</ErrorBoundary>
