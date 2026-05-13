@@ -44,7 +44,7 @@ export function FeaturedProjects() {
         >
           <div className="flex items-end gap-4">
             <h2 className="text-3xl font-bold text-foreground">
-              Featured <span className="gradient-text">{t("featured.titleAccent")}</span>
+              Featured <span className="text-primary">{t("featured.titleAccent")}</span>
             </h2>
             <div className="flex-1 h-px bg-gradient-to-r from-primary/30 to-transparent mb-2 hidden md:block" />
           </div>

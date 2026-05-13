@@ -87,7 +87,7 @@ export function LessonsLearned() {
             </span>
           </div>
           <h2 className="text-3xl lg:text-4xl font-bold text-foreground">
-            {lang === "id" ? "Dari" : "From"} <span className="gradient-text">{lang === "id" ? "kesalahan" : "Mistakes"}</span>
+            {lang === "id" ? "Dari" : "From"} <span className="text-primary">{lang === "id" ? "kesalahan" : "Mistakes"}</span>
           </h2>
           <p className="text-foreground/60 text-sm mt-3 max-w-lg">
             {lang === "id"

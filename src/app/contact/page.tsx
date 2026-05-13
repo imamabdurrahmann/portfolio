@@ -98,7 +98,7 @@ export default function ContactPage() {
           <div className="text-center mb-10">
             <span className="text-primary text-xs font-medium uppercase tracking-wider">Get In Touch</span>
             <h1 className="text-3xl md:text-4xl font-bold text-foreground mt-3 font-heading">
-              Hubungi <span className="gradient-text">Saya</span>
+              Hubungi <span className="text-primary">Saya</span>
             </h1>
             <p className="mt-3 text-sm text-foreground/60 max-w-xl mx-auto leading-relaxed">
               Punya project menarik atau ingin berdiskusi? Jangan ragu untuk menghubungi saya.

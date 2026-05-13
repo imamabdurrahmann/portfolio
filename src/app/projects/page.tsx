@@ -39,7 +39,7 @@ export default function ProjectsPage() {
         <div className="container mx-auto max-w-5xl text-center">
           <span className="text-primary text-xs font-medium uppercase tracking-wider">{t("nav.projects")}</span>
           <h1 className="text-3xl md:text-4xl font-bold text-foreground mt-3">
-            {t("projects.title")} <span className="gradient-text">{t("projects.titleAccent")}</span>
+            {t("projects.title")} <span className="text-primary">{t("projects.titleAccent")}</span>
           </h1>
           <p className="mt-3 text-sm text-foreground/60 max-w-xl mx-auto leading-relaxed">
             {t("projects.subtitle")}
@@ -64,7 +64,7 @@ export default function ProjectsPage() {
                 {projects[0].image ? (
                   <img src={projects[0].image} alt={projects[0].title} className="w-full h-full object-contain" />
                 ) : (
-                  <span className="text-7xl md:text-8xl font-black gradient-text opacity-25">
+                  <span className="text-7xl md:text-8xl font-black text-primary opacity-25">
                     {projects[0].title.charAt(0)}
                   </span>
                 )}
@@ -140,7 +140,7 @@ export default function ProjectsPage() {
                     {project.image ? (
                       <img src={project.image} alt={project.title} className="w-full h-full object-contain" />
                     ) : (
-                      <span className="text-4xl font-bold gradient-text opacity-40">{project.title.charAt(0)}</span>
+                      <span className="text-4xl font-bold text-primary opacity-40">{project.title.charAt(0)}</span>
                     )}
                     {project.featured && (
                       <div className="absolute top-2 right-2 flex items-center gap-1 px-2.5 py-1 rounded-full bg-gradient-to-r from-primary to-indigo-500 text-white text-xs font-semibold">

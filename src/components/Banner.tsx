@@ -41,9 +41,7 @@ export function Banner() {
 
   return (
     <section className="hero-section px-6">
-      {/* Warm ambient background */}
-      <div className="hero-orb hero-orb-1" />
-      <div className="hero-orb hero-orb-2" />
+      {/* No animated orbs - clean background */}
 
       <div className="container mx-auto max-w-6xl relative z-10">
         <motion.div
@@ -157,7 +155,7 @@ export function Banner() {
                 </div>
 
                 {/* Status badge - no "Available" text, just the dot */}
-                <div className="absolute -bottom-3 -right-3 w-3 h-3 bg-emerald-500 rounded-full animate-pulse shadow-lg shadow-emerald-500/50" />
+                <div className="absolute -bottom-3 -right-3 w-3 h-3 bg-foreground/20 rounded-full" />
               </div>
             </div>
 
@@ -171,14 +169,14 @@ export function Banner() {
               <div className="glass-card px-4 py-3 flex items-center gap-3">
                 <div className="flex items-center gap-1.5">
                   <Star className="w-4 h-4 text-primary" />
-                  <span className="text-lg font-bold gradient-text">4</span>
+                  <span className="text-lg font-bold text-primary">4</span>
                 </div>
                 <span className="text-xs text-foreground/60">Apps</span>
               </div>
               <div className="glass-card px-4 py-3 flex items-center gap-3">
                 <div className="flex items-center gap-1.5">
                   <Heart className="w-4 h-4 text-rose-400" />
-                  <span className="text-lg font-bold gradient-text">3+</span>
+                  <span className="text-lg font-bold text-primary">3+</span>
                 </div>
                 <span className="text-xs text-foreground/60">Years</span>
               </div>

@@ -67,7 +67,7 @@ export function Experience() {
           </div>
           <div className="flex items-baseline gap-4">
             <h2 className="text-3xl lg:text-4xl font-bold text-foreground">
-              All <span className="gradient-text">Projects</span>
+              All <span className="text-primary">Projects</span>
             </h2>
             <span className="text-sm text-foreground/50">({projects.length})</span>
           </div>
@@ -91,7 +91,7 @@ export function Experience() {
                 style={{ transform: `rotate(${getRotation(index)}deg)` }}
               >
                 {/* Subtle warm gradient on hover */}
-                <div className="absolute inset-0 bg-gradient-to-br from-primary/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+                <div className="absolute inset-0 border-2 border-primary/0 group-hover:border-primary/20 transition-colors duration-300" />
 
                 <div className="relative z-10">
                   {/* Project Index - subtle, not too big */}
@@ -103,9 +103,9 @@ export function Experience() {
                   </span>
 
                   {/* Project Initial */}
-                  <div className="w-10 h-10 rounded-lg bg-gradient-to-br from-primary/20 to-primary/10 flex items-center justify-center mb-3 group-hover:scale-105 transition-transform duration-400">
+                  <div className="w-10 h-10 rounded-lg bg-secondary flex items-center justify-center mb-3">
                     <span
-                      className="text-lg font-bold gradient-text"
+                      className="text-lg font-bold text-primary"
                       style={{ fontFamily: "'Outfit', sans-serif" }}
                     >
                       {project.title.charAt(0)}

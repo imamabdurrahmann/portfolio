@@ -93,7 +93,7 @@ function ProjectDetail({ project }: ProjectDetailProps) {
                 <img src={project.image} alt={project.title} className="w-full h-full object-cover" />
               )}
               {!project.image && (
-                <span className="text-4xl md:text-5xl font-bold gradient-text">{project.title.charAt(0)}</span>
+                <span className="text-4xl md:text-5xl font-bold text-primary">{project.title.charAt(0)}</span>
               )}
             </div>
 

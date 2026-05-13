@@ -44,7 +44,7 @@ export function Navbar() {
         <div className="container mx-auto max-w-6xl flex items-center justify-between">
           {/* Logo - simple text */}
           <Link href="/" className="flex items-center gap-2 group">
-            <span className="text-xl font-bold gradient-text" style={{ fontFamily: "'Outfit', sans-serif" }}>
+            <span className="text-xl font-bold text-primary" style={{ fontFamily: "'Outfit', sans-serif" }}>
               Imam.dev
             </span>
           </Link>

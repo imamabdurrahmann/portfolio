@@ -133,9 +133,7 @@ html[data-theme="light"],
     inset: 0;
     z-index: -1;
     pointer-events: none;
-    background:
-      radial-gradient(ellipse 80% 50% at 20% 0%, rgba(251, 146, 60, 0.06) 0%, transparent 50%),
-      radial-gradient(ellipse 60% 40% at 80% 100%, rgba(234, 88, 12, 0.04) 0%, transparent 50%);
+    background: radial-gradient(ellipse 100% 80% at 50% 0%, rgba(251, 146, 60, 0.05) 0%, transparent 60%);
   }
 
   a {
@@ -170,14 +168,14 @@ h1, h2, h3, h4, h5, h6 {
 .text-foreground\/50 { color: var(--text-muted); }
 
 /* ========================================
-   GRADIENT TEXT - Warm orange gradient
+   GRADIENT TEXT - REMOVED (too AI-generic)
+   Now using solid primary color instead
    ======================================== */
 
+/* Keeping class for potential future use, but no gradient */
 .gradient-text {
-  background: linear-gradient(135deg, var(--gradient-start), var(--gradient-end));
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  background-clip: text;
+  /* solid color only - no gradient */
+  color: var(--primary);
 }
 
 /* ========================================
@@ -201,13 +199,11 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 .glass-card:hover {
-  border-color: var(--accent-secondary);
-  box-shadow: 0 8px 24px var(--warm-glow);
-  transform: translateY(-2px);
+  border-color: var(--primary); /* simple color change only */
 }
 
 .glass-card:active {
-  transform: translateY(0);
+  opacity: 0.9;
 }
 
 /* ========================================
@@ -278,22 +274,17 @@ h1, h2, h3, h4, h5, h6 {
   font-size: 0.875rem;
   font-weight: 600;
   border-radius: 9999px;
-  background: linear-gradient(135deg, var(--gradient-start), var(--gradient-end));
+  background: var(--primary); /* solid, no gradient */
   color: white;
-  box-shadow: 0 4px 14px rgba(234, 88, 12, 0.25);
-  transition: all 0.2s ease;
-  will-change: transform, box-shadow;
+  transition: background 0.2s ease;
 }
 
 .btn-primary:hover {
-  transform: translateY(-2px);
-  box-shadow:
-    0 6px 20px rgba(234, 88, 12, 0.35),
-    0 0 0 2px var(--accent-secondary-glow);
+  background: var(--gradient-end); /* slight darken on hover */
 }
 
 .btn-primary:active {
-  transform: translateY(0px);
+  opacity: 0.9;
 }
 
 .btn-secondary {
@@ -332,40 +323,11 @@ h1, h2, h3, h4, h5, h6 {
   overflow: hidden;
 }
 
-/* Warm orbs - not generic purple */
-.hero-orb {
-  position: absolute;
-  border-radius: 50%;
-  filter: blur(100px);
-  opacity: 0.35;
-  animation: float-subtle 25s ease-in-out infinite;
-  pointer-events: none;
-}
+/* Hero orbs removed - replaced with static subtle background */
 
-.hero-orb-1 {
-  width: 600px;
-  height: 600px;
-  background: radial-gradient(circle, rgba(251, 146, 60, 0.25), transparent 70%);
-  top: -10%;
-  right: -5%;
-  animation-delay: 0s;
-}
-
-.hero-orb-2 {
-  width: 500px;
-  height: 500px;
-  background: radial-gradient(circle, rgba(234, 88, 12, 0.15), transparent 70%);
-  bottom: -15%;
-  left: 10%;
-  animation-delay: -10s;
-}
-
-/* Subtle, organic floating - not predictable */
-@keyframes float-subtle {
-  0%, 100% { transform: translate(0, 0) scale(1); }
-  33% { transform: translate(30px, -20px) scale(1.02); }
-  66% { transform: translate(-15px, 25px) scale(0.98); }
-}
+/* ========================================
+   HERO SECTION - Clean, no orbs
+   ======================================== */
 
 .hero-content {
   position: relative;
@@ -412,10 +374,7 @@ h1, h2, h3, h4, h5, h6 {
 
 .hero-heading-accent {
   display: block;
-  background: linear-gradient(135deg, var(--gradient-start), var(--gradient-end));
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  background-clip: text;
+  color: var(--primary); /* solid color, no gradient */
 }
 
 .hero-role {
@@ -459,10 +418,7 @@ h1, h2, h3, h4, h5, h6 {
   font-family: 'Outfit', sans-serif;
   font-size: 2rem;
   font-weight: 800;
-  background: linear-gradient(135deg, var(--gradient-start), var(--gradient-end));
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  background-clip: text;
+  color: var(--primary); /* solid, no gradient */
   line-height: 1;
 }
 
@@ -484,30 +440,17 @@ h1, h2, h3, h4, h5, h6 {
   font-size: 0.875rem;
   font-weight: 600;
   border-radius: 9999px;
-  background: linear-gradient(135deg, var(--gradient-start), var(--gradient-end));
+  background: var(--primary); /* solid, no gradient */
   color: white;
-  transition: all 0.2s ease;
-}
-
-.hero-cta::before {
-  content: '';
-  position: absolute;
-  inset: 0;
-  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.1), transparent);
-  transform: translateX(-100%);
-  transition: transform 0.4s ease;
-}
-
-.hero-cta:hover::before {
-  transform: translateX(100%);
+  transition: background 0.2s ease;
 }
 
 .hero-cta:hover {
-  transform: translateY(-1px);
+  background: var(--gradient-end); /* slight darken */
 }
 
 .hero-cta:active {
-  transform: translateY(0px);
+  opacity: 0.9;
 }
 
 .hero-cta-secondary {
@@ -615,12 +558,7 @@ h1, h2, h3, h4, h5, h6 {
   top: 0;
   bottom: 0;
   width: 2px;
-  background: linear-gradient(
-    to bottom,
-    var(--primary) 0%,
-    var(--gradient-end) 50%,
-    var(--primary) 100%
-  );
+  background: var(--primary); /* solid, no gradient */
   opacity: 0.3;
 }
 
@@ -647,81 +585,32 @@ h1, h2, h3, h4, h5, h6 {
   border-radius: 50%;
   background: var(--primary);
   border: 3px solid var(--background);
-  box-shadow: 0 0 0 4px var(--primary), 0 0 20px var(--primary);
-  animation: timeline-pulse 3.5s ease-in-out infinite;
-}
-
-@keyframes timeline-pulse {
-  0%, 100% { box-shadow: 0 0 0 4px var(--primary), 0 0 20px var(--primary); }
-  50% { box-shadow: 0 0 0 8px transparent, 0 0 30px var(--primary); }
-}
-
-:is(.dark, [data-theme="dark"]) .timeline-dot {
-  animation: timeline-pulse-dark 3.5s ease-in-out infinite;
-}
-
-@keyframes timeline-pulse-dark {
-  0%, 100% {
-    box-shadow:
-      0 0 0 4px var(--primary),
-      0 0 15px var(--primary),
-      0 0 40px rgba(251, 146, 60, 0.4);
-  }
-  50% {
-    box-shadow:
-      0 0 0 8px transparent,
-      0 0 25px var(--primary),
-      0 0 60px rgba(251, 146, 60, 0.7);
-  }
+  /* Static, no animation - more human/real */
 }
 
 /* ========================================
    SCROLL REVEAL ANIMATIONS
-   More organic timing
+   Simplified, faster - not flashy
    ======================================== */
 
 .reveal {
   opacity: 0;
-  transform: translateY(25px);
-  transition: all 0.7s cubic-bezier(0.4, 0, 0.2, 1);
+  transition: opacity 0.4s ease; /* simple fade, no translate */
 }
 
 .reveal.visible {
   opacity: 1;
-  transform: translateY(0);
 }
 
-.reveal-left {
+.reveal-left, .reveal-right, .reveal-scale {
   opacity: 0;
-  transform: translateX(-30px);
-  transition: all 0.7s cubic-bezier(0.4, 0, 0.2, 1);
+  transition: opacity 0.4s ease;
 }
 
-.reveal-left.visible {
-  opacity: 1;
-  transform: translateX(0);
-}
-
-.reveal-right {
-  opacity: 0;
-  transform: translateX(30px);
-  transition: all 0.7s cubic-bezier(0.4, 0, 0.2, 1);
-}
-
-.reveal-right.visible {
-  opacity: 1;
-  transform: translateX(0);
-}
-
-.reveal-scale {
-  opacity: 0;
-  transform: scale(0.92);
-  transition: all 0.6s cubic-bezier(0.4, 0, 0.2, 1);
-}
-
+.reveal-left.visible,
+.reveal-right.visible,
 .reveal-scale.visible {
   opacity: 1;
-  transform: scale(1);
 }
 
 /* Organic stagger delays */
@@ -742,48 +631,12 @@ h1, h2, h3, h4, h5, h6 {
   background: var(--card);
   border: 1px solid var(--border);
   overflow: hidden;
-  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
-}
-
-.premium-card::before {
-  content: '';
-  position: absolute;
-  inset: 0;
-  background: linear-gradient(
-    135deg,
-    rgba(234, 88, 12, 0.08) 0%,
-    transparent 50%
-  );
-  opacity: 0;
-  transition: opacity 0.4s ease;
+  transition: all 0.3s ease;
 }
 
 .premium-card:hover {
   border-color: var(--primary);
-  transform: translateY(-6px);
-  box-shadow:
-    0 20px 40px rgba(0, 0, 0, 0.15),
-    0 0 0 1px rgba(234, 88, 12, 0.1),
-    0 8px 32px var(--warm-glow);
-}
-
-.premium-card:hover::before {
-  opacity: 1;
-}
-
-.premium-card::after {
-  content: '';
-  position: absolute;
-  top: 0;
-  left: -100%;
-  width: 50%;
-  height: 100%;
-  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.08), transparent);
-  transition: left 0.8s ease;
-}
-
-.premium-card:hover::after {
-  left: 150%;
+  /* No translateY, no multiple shadows - just color change */
 }
 
 /* ========================================
@@ -797,19 +650,16 @@ h1, h2, h3, h4, h5, h6 {
   font-size: 0.75rem;
   font-weight: 600;
   border-radius: 9999px;
-  background: linear-gradient(135deg, rgba(234, 88, 12, 0.12), rgba(251, 146, 60, 0.08));
-  color: var(--primary);
-  border: 1px solid rgba(234, 88, 12, 0.15);
-  transition: all 0.3s ease;
-  letter-spacing: 0.02em;
+  background: var(--secondary); /* solid, no gradient */
+  color: var(--text-secondary);
+  border: 1px solid var(--border);
+  transition: color 0.2s ease, border-color 0.2s ease;
 }
 
 .tech-tag:hover {
-  background: var(--accent-secondary);
-  color: #1c1917;
-  border-color: var(--accent-secondary);
-  transform: scale(1.03);
-  box-shadow: 0 4px 16px var(--accent-secondary-glow);
+  color: var(--primary);
+  border-color: var(--primary);
+  /* No transform, no shadow */
 }
 
 /* ========================================
@@ -945,7 +795,7 @@ h1, h2, h3, h4, h5, h6 {
 
 .section-divider {
   height: 1px;
-  background: linear-gradient(90deg, transparent, var(--border), transparent);
+  background: var(--border); /* solid, no gradient */
   margin: 4rem 0;
 }
 
