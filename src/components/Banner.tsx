@@ -140,14 +140,16 @@ export function Banner() {
             className="lg:col-span-5 relative"
             variants={itemVariants}
           >
-            {/* Offset decorative elements */}
-            <div className="relative inline-block">
-              <div className="absolute -top-3 -left-3 w-20 h-20 border border-primary/20 rounded-xl" />
-              <div className="absolute -bottom-2 right-10 w-14 h-14 bg-gradient-to-br from-accent-secondary/15 to-transparent rounded-xl" />
+            {/* Main profile with personal styling - tight wrapper */}
+            <div className="relative inline-block overflow-visible">
+              {/* Top-left decorative accent - overlaps corner */}
+              <div className="absolute -top-2 -left-2 w-12 h-12 border-2 border-primary/30 rounded-xl z-10" />
 
-              {/* Main profile with personal styling */}
-              <div className="relative profile-image-wrapper">
-                <div className="w-72 h-72 md:w-80 md:h-80 rounded-3xl overflow-hidden shadow-2xl shadow-primary/10">
+              {/* Profile image with tight orange border frame */}
+              <div className="profile-image-wrapper overflow-visible">
+                <div className="w-72 h-72 md:w-80 md:h-80 rounded-3xl overflow-hidden shadow-2xl shadow-primary/10 relative">
+                  {/* Orange border frame - tight fit */}
+                  <div className="absolute inset-0 rounded-3xl border-2 border-primary/40 pointer-events-none" />
                   <img
                     src="/profile.jpg"
                     alt="Muhammad Imam Abdurrahman"
@@ -155,8 +157,8 @@ export function Banner() {
                   />
                 </div>
 
-                {/* Status badge */}
-                <div className="absolute -bottom-3 -right-3 flex items-center gap-2 px-4 py-2 rounded-full glass">
+                {/* Status badge - fully visible */}
+                <div className="absolute -bottom-3 -right-3 flex items-center gap-2 px-4 py-2 rounded-full glass overflow-visible">
                   <span className="w-2.5 h-2.5 bg-emerald-500 rounded-full animate-pulse" />
                   <span className="text-sm font-medium">Available</span>
                 </div>
@@ -165,7 +167,7 @@ export function Banner() {
 
             {/* Stats - asymmetric placement */}
             <motion.div
-              className="absolute -bottom-12 -left-2 lg:left-6 flex items-center gap-3 mt-8"
+              className="absolute -bottom-14 left-0 flex items-center gap-3 mt-8"
               initial={{ opacity: 0, x: -20 }}
               animate={{ opacity: 1, x: 0 }}
               transition={{ delay: 0.6, duration: 0.5 }}
