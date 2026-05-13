@@ -9,11 +9,7 @@ import { getFeaturedProjects } from "@/lib/projects";
 // More organic animation timing
 const fadeInUp = {
   hidden: { opacity: 0, y: 25 },
-  visible: {
-    opacity: 1,
-    y: 0,
-    transition: { duration: 0.6, ease: [0.25, 0.1, 0.25, 1] }
-  }
+  visible: { opacity: 1, y: 0 }
 };
 
 // Random-feeling stagger
@@ -24,8 +20,7 @@ const projectVariants = {
     y: 0,
     transition: {
       duration: 0.65,
-      delay: i * 0.12,
-      ease: [0.25, 0.1, 0.25, 1]
+      delay: i * 0.12
     }
   })
 };

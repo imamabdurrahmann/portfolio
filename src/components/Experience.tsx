@@ -14,7 +14,6 @@ const containerVariants = {
     transition: {
       staggerChildren: 0.08,
       delayChildren: 0.15,
-      // More organic - stagger with variable delays
       when: "async",
     }
   }
@@ -27,9 +26,8 @@ const itemVariants = {
     opacity: 1,
     y: 0,
     transition: {
-      duration: 0.4 + Math.random() * 0.2,
-      delay: i * 0.07,
-      ease: [0.25, 0.1, 0.25, 1]
+      duration: 0.4,
+      delay: i * 0.07
     }
   })
 };
