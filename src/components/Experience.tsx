@@ -70,18 +70,12 @@ export function Experience() {
           viewport={{ once: true, margin: "-50px" }}
         >
           {projects.map((project, index) => {
-            // First card gets more visual weight
-            const isLarge = index === 0;
-
             return (
               <motion.div
                 key={project.id}
                 custom={index}
                 variants={itemVariants}
-                className={`
-                  glass-card p-5 group relative overflow-hidden
-                  ${isLarge ? 'lg:row-span-2' : ''}
-                `}
+                className="glass-card p-5 group relative overflow-hidden self-start"
               >
                 {/* Subtle warm gradient */}
                 <div className="absolute inset-0 bg-gradient-to-br from-primary/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
@@ -99,9 +93,9 @@ export function Experience() {
                   </span>
 
                   {/* Project Initial */}
-                  <div className={`w-12 h-12 rounded-xl bg-gradient-to-br from-primary/20 to-primary/10 flex items-center justify-center mb-4 group-hover:scale-105 transition-transform duration-400 ${isLarge ? 'w-14 h-14' : ''}`}>
+                  <div className="w-12 h-12 rounded-xl bg-gradient-to-br from-primary/20 to-primary/10 flex items-center justify-center mb-4 group-hover:scale-105 transition-transform duration-400">
                     <span
-                      className={`font-bold gradient-text ${isLarge ? 'text-2xl' : 'text-xl'}`}
+                      className="text-xl font-bold gradient-text"
                       style={{ fontFamily: "'Outfit', sans-serif" }}
                     >
                       {project.title.charAt(0)}
@@ -110,7 +104,7 @@ export function Experience() {
 
                   {/* Title */}
                   <h3
-                    className={`font-bold text-foreground group-hover:text-primary transition-colors duration-300 ${isLarge ? 'text-xl' : 'text-base'}`}
+                    className="text-base font-bold text-foreground group-hover:text-primary transition-colors duration-300"
                     style={{ fontFamily: "'Outfit', sans-serif" }}
                   >
                     {t(`projectData.${project.id}.title`, undefined, project.title)}
@@ -123,14 +117,14 @@ export function Experience() {
 
                   {/* Tech Tags - compact */}
                   <div className="flex flex-wrap gap-1.5 mt-3">
-                    {project.tech.slice(0, isLarge ? 4 : 3).map((tech) => (
+                    {project.tech.slice(0, 3).map((tech) => (
                       <span key={tech} className="text-[10px] px-2 py-1 rounded-full bg-primary/10 text-primary font-medium">
                         {tech}
                       </span>
                     ))}
-                    {project.tech.length > (isLarge ? 4 : 3) && (
+                    {project.tech.length > 3 && (
                       <span className="text-[10px] px-2 py-1 rounded-full bg-primary/10 text-primary font-medium">
-                        +{project.tech.length - (isLarge ? 4 : 3)}
+                        +{project.tech.length - 3}
                       </span>
                     )}
                   </div>

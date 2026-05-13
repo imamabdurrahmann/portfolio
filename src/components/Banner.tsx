@@ -141,7 +141,7 @@ export function Banner() {
             variants={itemVariants}
           >
             {/* Offset decorative elements */}
-            <div className="relative pl-6 pt-6">
+            <div className="relative inline-block">
               <div className="absolute -top-3 -left-3 w-20 h-20 border border-primary/20 rounded-xl" />
               <div className="absolute -bottom-2 right-10 w-14 h-14 bg-gradient-to-br from-accent-secondary/15 to-transparent rounded-xl" />
 
