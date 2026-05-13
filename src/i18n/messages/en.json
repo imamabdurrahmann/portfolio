@@ -12,10 +12,12 @@
     "titleAccent2": "From Bengkulu, Building for Everyone",
     "typingRole": "I'm a {role}",
     "description": "I build Flutter apps that solve real problems — from personal finance tracking to a CPNS exam app I built for my own exam prep.",
+    "storyTitle": "Why Flutter?",
+    "storyDescription": "Flutter gives me the power to write once and deploy everywhere — Android, iOS, macOS, Windows, Linux, and the Web. When a client needs a feature update, I push it once and it reaches all platforms instantly. No separate teams. No duplicated work. Just clean, efficient code that reaches everyone.",
     "viewProject": "View Projects",
     "contactMe": "Contact Me",
     "project": "Projects",
-    "dedication": "2023",
+    "dedication": "Since 2023",
     "techStack": "Tech Stack"
   },
   "techStack": {

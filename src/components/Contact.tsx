@@ -6,8 +6,8 @@ import { useLocale } from "@/i18n/LocaleProvider";
 import { Mail, ArrowRight } from "lucide-react";
 
 const fadeInUp = {
-  hidden: { opacity: 0, y: 30 },
-  visible: { opacity: 1, y: 0, transition: { duration: 0.6, ease: "easeOut" as const } }
+  hidden: { opacity: 0, y: 20 },
+  visible: { opacity: 1, y: 0, transition: { duration: 0.5, ease: [0.25, 0.1, 0.25, 1] } }
 };
 
 export function Contact() {
@@ -22,24 +22,25 @@ export function Contact() {
         viewport={{ once: true, margin: "-50px" }}
         variants={fadeInUp}
       >
-        {/* CTA Section - Minimalist & Centered */}
+        {/* CTA Section */}
         <div className="text-center mb-12">
-          <h2 className="text-2xl lg:text-3xl font-bold text-foreground mb-3">
+          <h2 className="text-2xl lg:text-3xl font-bold text-foreground mb-3"
+            style={{ fontFamily: "'Outfit', sans-serif" }}>
             {t("contact.title")}
           </h2>
           <p className="text-foreground/60 text-sm max-w-md mx-auto">
             {t("contact.subtitle")}
           </p>
 
-          {/* Minimalist Icon Tiles - Centered */}
+          {/* Social tiles - warm styling */}
           <div className="flex flex-wrap justify-center items-center gap-4 mt-8">
-            {/* WhatsApp Tile */}
+            {/* WhatsApp */}
             <motion.a
               href="https://wa.me/6282375227802"
               target="_blank"
               rel="noopener noreferrer"
               className="contact-tile group"
-              whileHover={{ y: -4, scale: 1.05 }}
+              whileHover={{ y: -3, scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
             >
               <svg className="w-7 h-7" viewBox="0 0 24 24" fill="currentColor">
@@ -47,23 +48,23 @@ export function Contact() {
               </svg>
             </motion.a>
 
-            {/* Email Tile */}
+            {/* Email */}
             <motion.a
               href="mailto:muhammadimamabdurrahman93@gmail.com"
               className="contact-tile group"
-              whileHover={{ y: -4, scale: 1.05 }}
+              whileHover={{ y: -3, scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
             >
               <Mail className="w-7 h-7" />
             </motion.a>
 
-            {/* Instagram Tile */}
+            {/* Instagram */}
             <motion.a
               href="https://instagram.com/itsimammm"
               target="_blank"
               rel="noopener noreferrer"
               className="contact-tile group"
-              whileHover={{ y: -4, scale: 1.05 }}
+              whileHover={{ y: -3, scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
             >
               <svg className="w-7 h-7" viewBox="0 0 24 24" fill="currentColor">

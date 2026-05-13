@@ -1,13 +1,11 @@
 "use client";
 
 import Link from "next/link";
-import { Star, Heart, TrendingUp, ArrowRight, Mail } from "lucide-react";
+import { Star, Heart, ArrowRight, Mail, Sparkles, Smartphone, Globe, Monitor } from "lucide-react";
 import { motion } from "framer-motion";
-import { useTypingAnimation } from "@/hooks/useTypingAnimation";
 import { useLocale } from "@/i18n/LocaleProvider";
 
-const roles = ["Flutter Developer", "Mobile App Builder", "UI Enthusiast"];
-
+// Organic animation variants - less predictable
 const containerVariants = {
   hidden: { opacity: 0 },
   visible: {
@@ -20,127 +18,208 @@ const containerVariants = {
 };
 
 const itemVariants = {
-  hidden: { opacity: 0, y: 30, scale: 0.95 },
+  hidden: { opacity: 0, y: 25 },
   visible: {
     opacity: 1,
     y: 0,
-    scale: 1,
+    transition: {
+      duration: 0.5,
+      ease: [0.25, 0.1, 0.25, 1]
+    }
+  }
+};
+
+// Random offset animation for personal feel
+const offsetVariants = {
+  hidden: { opacity: 0, x: -15, rotate: -1 },
+  visible: {
+    opacity: 1,
+    x: 0,
+    rotate: 0,
     transition: { duration: 0.6, ease: "easeOut" as const }
   }
 };
 
+const platforms = [
+  { icon: Smartphone, label: "Android" },
+  { icon: Globe, label: "iOS" },
+  { icon: Globe, label: "Web" },
+  { icon: Monitor, label: "Desktop" },
+];
+
 export function Banner() {
-  const { displayedText } = useTypingAnimation(roles);
   const { t } = useLocale();
 
   return (
     <section className="hero-section px-6">
-      {/* Floating orbs for depth */}
+      {/* Warm ambient background */}
       <div className="hero-orb hero-orb-1" />
       <div className="hero-orb hero-orb-2" />
-      <div className="hero-orb hero-orb-3" />
 
-      <div className="container mx-auto max-w-5xl relative z-10">
+      <div className="container mx-auto max-w-6xl relative z-10">
         <motion.div
-          className="text-center"
+          className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-16 items-center"
           variants={containerVariants}
           initial="hidden"
           animate="visible"
         >
-          {/* Premium Badge */}
-          <motion.div
-            variants={itemVariants}
-            className="hero-badge mb-8"
-          >
-            <span className="hero-badge-dot" />
-            <span className="text-sm font-medium">{t("hero.available")}</span>
-          </motion.div>
+          {/* Left Column - Personal, asymmetric */}
+          <div className="lg:col-span-7 space-y-7">
+            {/* Small badge - left aligned */}
+            <motion.div
+              variants={itemVariants}
+              className="inline-flex items-center gap-2 px-4 py-2 rounded-full glass"
+            >
+              <span className="hero-badge-dot" />
+              <span className="text-sm font-medium">{t("hero.available")}</span>
+            </motion.div>
 
-          {/* Premium Heading */}
-          <motion.h1
-            variants={itemVariants}
-            className="hero-heading"
-          >
-            {t("hero.title")}<br />
-            <span className="hero-heading-accent">{t("hero.titleAccent2")}</span>
-          </motion.h1>
+            {/* Heading - uncentered, personal */}
+            <motion.div variants={itemVariants} className="text-left">
+              <h1 className="hero-heading text-left">
+                {t("hero.title")}<br />
+                <span className="hero-heading-accent">{t("hero.titleAccent2")}</span>
+              </h1>
+            </motion.div>
 
-          {/* Typing Role - cleaner styling */}
-          <motion.div
-            variants={itemVariants}
-            className="mt-6 min-h-[2.5rem] flex items-center justify-center"
-          >
-            <span className="hero-role">
-              {t("hero.typingRole", { role: displayedText })}
-              <span className="typing-cursor text-primary ml-1">|</span>
-            </span>
-          </motion.div>
+            {/* Role indicator */}
+            <motion.div
+              variants={itemVariants}
+              className="flex items-center gap-3"
+            >
+              <span className="h-6 w-[2px] bg-gradient-to-b from-primary to-accent-secondary rounded-full" />
+              <span className="hero-role">
+                Flutter Developer
+              </span>
+            </motion.div>
 
-          {/* Description with more breathing room */}
-          <motion.p
-            variants={itemVariants}
-            className="mt-6 text-base md:text-lg text-foreground/70 max-w-2xl mx-auto leading-relaxed"
-          >
-            {t("hero.description")}
-          </motion.p>
+            {/* Personal story */}
+            <motion.p
+              variants={itemVariants}
+              className="text-base md:text-lg text-foreground/70 leading-relaxed text-left max-w-xl"
+            >
+              {t("hero.description")}
+            </motion.p>
 
-          {/* Profile Image */}
-          <motion.div
-            variants={itemVariants}
-            className="mt-8 mb-6"
-          >
-            <div className="relative inline-block">
-              <div className="w-36 h-36 md:w-44 md:h-44 rounded-full overflow-hidden border-4 border-primary/20 shadow-xl shadow-primary/10">
-                <img
-                  src="/profile.jpg"
-                  alt="Muhammad Imam Abdurrahman"
-                  className="w-full h-full object-cover"
-                />
+            {/* Why Flutter story - personal POV */}
+            <motion.div
+              variants={offsetVariants}
+              className="relative pl-5 border-l-2 border-primary/25"
+            >
+              <div className="flex items-center gap-2 mb-3">
+                <Sparkles className="w-4 h-4 text-primary" />
+                <span className="text-sm font-semibold text-primary">{t("hero.storyTitle")}</span>
               </div>
-              <div className="absolute -bottom-1 -right-1 w-8 h-8 bg-emerald-500 rounded-full border-4 border-background flex items-center justify-center">
-                <span className="text-white text-xs">✓</span>
+              <p className="text-sm text-foreground/60 leading-relaxed">
+                {t("hero.storyDescription")}
+              </p>
+
+              {/* Platform badges - show cross-platform power */}
+              <div className="flex flex-wrap items-center gap-3 mt-4">
+                {platforms.map((platform, i) => (
+                  <motion.div
+                    key={platform.label}
+                    className="platform-badge"
+                    initial={{ opacity: 0, y: 10 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    transition={{ delay: 0.5 + i * 0.08 }}
+                  >
+                    <platform.icon className="w-3 h-3" />
+                    <span>{platform.label}</span>
+                  </motion.div>
+                ))}
+              </div>
+            </motion.div>
+
+            {/* CTA buttons */}
+            <motion.div
+              variants={itemVariants}
+              className="flex flex-wrap items-center gap-4 pt-2"
+            >
+              <Link href="/projects" className="hero-cta">
+                {t("hero.viewProject")}
+                <ArrowRight className="w-4 h-4" />
+              </Link>
+              <Link href="/contact" className="hero-cta-secondary">
+                <Mail className="w-4 h-4" />
+                {t("hero.contactMe")}
+              </Link>
+            </motion.div>
+          </div>
+
+          {/* Right Column - Profile with personal touches */}
+          <motion.div
+            className="lg:col-span-5 relative"
+            variants={itemVariants}
+          >
+            {/* Offset decorative elements */}
+            <div className="relative pl-6 pt-6">
+              <div className="absolute -top-3 -left-3 w-20 h-20 border border-primary/20 rounded-xl" />
+              <div className="absolute -bottom-2 right-10 w-14 h-14 bg-gradient-to-br from-accent-secondary/15 to-transparent rounded-xl" />
+
+              {/* Main profile with personal styling */}
+              <div className="relative profile-image-wrapper">
+                <div className="w-72 h-72 md:w-80 md:h-80 rounded-3xl overflow-hidden shadow-2xl shadow-primary/10">
+                  <img
+                    src="/profile.jpg"
+                    alt="Muhammad Imam Abdurrahman"
+                    className="w-full h-full object-cover"
+                  />
+                </div>
+
+                {/* Status badge */}
+                <div className="absolute -bottom-3 -right-3 flex items-center gap-2 px-4 py-2 rounded-full glass">
+                  <span className="w-2.5 h-2.5 bg-emerald-500 rounded-full animate-pulse" />
+                  <span className="text-sm font-medium">Available</span>
+                </div>
               </div>
             </div>
-          </motion.div>
 
-          {/* Premium Stats - cards instead of plain numbers */}
-          <motion.div
-            variants={itemVariants}
-            className="flex flex-wrap justify-center gap-4 mt-10"
-          >
-            {[
-              { num: "4", label: t("hero.project"), icon: <Star className="w-4 h-4" /> },
-              { num: "100%", label: t("hero.dedication"), icon: <Heart className="w-4 h-4" /> },
-              { num: "8+", label: t("hero.techStack"), icon: <TrendingUp className="w-4 h-4" /> },
-            ].map((stat, index) => (
-              <motion.div
-                key={stat.label}
-                className="hero-stat"
-                whileHover={{ y: -4 }}
-                transition={{ type: "spring", stiffness: 400 }}
-              >
-                <div className="flex items-center gap-2 hero-stat-number">
-                  {stat.num}
+            {/* Stats - asymmetric placement */}
+            <motion.div
+              className="absolute -bottom-12 -left-2 lg:left-6 flex items-center gap-3 mt-8"
+              initial={{ opacity: 0, x: -20 }}
+              animate={{ opacity: 1, x: 0 }}
+              transition={{ delay: 0.6, duration: 0.5 }}
+            >
+              <div className="glass-card px-4 py-3 flex items-center gap-3">
+                <div className="flex items-center gap-1.5">
+                  <Star className="w-4 h-4 text-primary" />
+                  <span className="text-lg font-bold gradient-text">4</span>
                 </div>
-                <span className="hero-stat-label">{stat.label}</span>
-              </motion.div>
-            ))}
+                <span className="text-xs text-foreground/60">Projects</span>
+              </div>
+              <div className="glass-card px-4 py-3 flex items-center gap-3">
+                <div className="flex items-center gap-1.5">
+                  <Heart className="w-4 h-4 text-rose-400" />
+                  <span className="text-lg font-bold gradient-text">3+</span>
+                </div>
+                <span className="text-xs text-foreground/60">Years</span>
+              </div>
+            </motion.div>
           </motion.div>
+        </motion.div>
 
-          {/* Premium CTA */}
-          <motion.div
-            variants={itemVariants}
-            className="flex flex-wrap justify-center gap-4 mt-10"
-          >
-            <Link href="/projects" className="hero-cta">
-              {t("hero.viewProject")}
-              <ArrowRight className="w-5 h-5" />
-            </Link>
-            <Link href="/contact" className="hero-cta-secondary">
-              <Mail className="w-5 h-5" />
-              {t("hero.contactMe")}
-            </Link>
-          </motion.div>
+        {/* Bottom line - subtle, personal */}
+        <motion.div
+          className="mt-20 pt-6 border-t border-foreground/10 flex flex-wrap items-center gap-8"
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          transition={{ delay: 0.8, duration: 0.5 }}
+        >
+          <div className="flex items-center gap-2 text-sm text-foreground/50">
+            <svg className="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+              <path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5" />
+            </svg>
+            <span>Clean Architecture</span>
+          </div>
+          <div className="flex items-center gap-2 text-sm text-foreground/50">
+            <svg className="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+              <circle cx="12" cy="12" r="10" />
+              <path d="M2 12h20M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z" />
+            </svg>
+            <span>Bengkulu, Indonesia</span>
+          </div>
         </motion.div>
       </div>
     </section>

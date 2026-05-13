@@ -12,10 +12,12 @@
     "titleAccent2": "Dari Bengkulu, Untuk Semua Orang",
     "typingRole": "Saya adalah {role}",
     "description": "Saya bikin aplikasi Flutter yang solve masalah nyata — dari tracking keuangan pribadi sampai aplikasi tryout CPNS yang saya bangun untuk ujian saya sendiri.",
+    "storyTitle": "Kenapa Flutter?",
+    "storyDescription": "Flutter memberi saya kekuatan untuk menulis sekali dan deploy ke mana-mana — Android, iOS, macOS, Windows, Linux, dan Web. Saat client butuh update fitur, saya push sekali dan langsung sampai ke semua platform. Tanpa tim terpisah. Tanpa kerja ganda. Cukup kode yang bersih dan efisien yang raggiungi semua orang.",
     "viewProject": "Lihat Project",
     "contactMe": "Hubungi Saya",
     "project": "Project",
-    "dedication": "2023",
+    "dedication": "Sejak 2023",
     "techStack": "Tech Stack"
   },
   "techStack": {
@@ -74,7 +76,7 @@
     },
     "3": {
       "title": "Try Outcpns",
-      "description": "Aplikasi tryout CPNS yang saya bangun untuk persiapan ujian saya sendiri. Clean Architecture, offline-first, lengkap dengan tracking progress per kategori soal."
+      "description": "Aplikasi tryout cpns yang saya bangun untuk persiapan ujian saya sendiri. Clean Architecture, offline-first, lengkap dengan tracking progress per kategori soal."
     },
     "4": {
       "title": "CalcPro",
