@@ -520,6 +520,11 @@ h1, h2, h3, h4, h5, h6 {
   align-items: center;
   justify-content: center;
   background: var(--secondary);
+  transition: transform 0.3s ease;
+}
+
+.project-card-image:hover {
+  transform: scale(1.02);
 }
 
 .project-card-image img {
@@ -590,27 +595,51 @@ h1, h2, h3, h4, h5, h6 {
 
 /* ========================================
    SCROLL REVEAL ANIMATIONS
-   Simplified, faster - not flashy
+   Subtle fade-in + slide up on scroll
    ======================================== */
 
 .reveal {
   opacity: 0;
-  transition: opacity 0.4s ease; /* simple fade, no translate */
+  transform: translateY(20px);
+  transition: opacity 0.5s ease, transform 0.5s ease;
 }
 
 .reveal.visible {
   opacity: 1;
+  transform: translateY(0);
 }
 
-.reveal-left, .reveal-right, .reveal-scale {
+.reveal-left {
   opacity: 0;
-  transition: opacity 0.4s ease;
+  transform: translateX(-20px);
+  transition: opacity 0.5s ease, transform 0.5s ease;
 }
 
-.reveal-left.visible,
-.reveal-right.visible,
+.reveal-left.visible {
+  opacity: 1;
+  transform: translateX(0);
+}
+
+.reveal-right {
+  opacity: 0;
+  transform: translateX(20px);
+  transition: opacity 0.5s ease, transform 0.5s ease;
+}
+
+.reveal-right.visible {
+  opacity: 1;
+  transform: translateX(0);
+}
+
+.reveal-scale {
+  opacity: 0;
+  transform: scale(0.95);
+  transition: opacity 0.4s ease, transform 0.4s ease;
+}
+
 .reveal-scale.visible {
   opacity: 1;
+  transform: scale(1);
 }
 
 /* Organic stagger delays */
@@ -680,11 +709,9 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 .social-icon:hover {
-  background: var(--accent-secondary);
-  border-color: var(--accent-secondary);
-  color: #1c1917;
   transform: translateY(-2px);
-  box-shadow: 0 4px 16px var(--accent-secondary-glow);
+  color: var(--primary);
+  border-color: var(--primary);
 }
 
 /* ========================================
@@ -746,30 +773,25 @@ h1, h2, h3, h4, h5, h6 {
   width: 56px;
   height: 56px;
   border-radius: 1rem;
-  background: var(--glass-bg);
-  backdrop-filter: blur(16px);
-  -webkit-backdrop-filter: blur(16px);
-  border: 1px solid var(--glass-border);
+  background: var(--secondary);
+  border: 1px solid var(--border);
   color: var(--text-secondary);
-  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  transition: all 0.2s ease;
   cursor: pointer;
 }
 
 .contact-tile:hover {
-  border-color: var(--accent-secondary);
-  color: var(--accent-secondary);
-  box-shadow:
-    0 8px 24px var(--accent-secondary-glow),
-    0 0 0 1px var(--accent-secondary-glow);
+  border-color: var(--primary);
+  color: var(--primary);
 }
 
 .contact-tile:focus-visible {
-  outline: 2px solid var(--accent-secondary);
+  outline: 2px solid var(--primary);
   outline-offset: 2px;
 }
 
 .contact-tile svg {
-  transition: transform 0.3s ease;
+  transition: transform 0.2s ease;
 }
 
 .contact-tile:hover svg {

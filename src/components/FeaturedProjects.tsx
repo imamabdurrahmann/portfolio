@@ -29,17 +29,17 @@ export function FeaturedProjects() {
           return (
             <div key={project.id} className="mb-16 last:mb-0">
               <div className="grid gap-8 items-center grid-cols-1 md:grid-cols-2">
-                {/* Image */}
+                {/* Image - subtle scale on hover */}
                 <Link
                   href={`/projects/${project.slug}`}
                   className={`block ${isEven ? "md:order-2" : "md:order-1"}`}
                 >
-                  <div className="relative rounded-xl overflow-hidden aspect-video bg-secondary">
+                  <div className="relative rounded-xl overflow-hidden aspect-video bg-secondary group">
                     {project.image ? (
                       <img
                         src={project.image}
                         alt={project.title}
-                        className="w-full h-full object-cover"
+                        className="w-full h-full object-cover transition-transform duration-300 group-hover:scale-105"
                       />
                     ) : (
                       <div className="absolute inset-0 flex items-center justify-center">
