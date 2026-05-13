@@ -11,7 +11,7 @@ export function EasterEgg() {
 %c ║   👋 Hey, thanks for checking the console!  ║
 %c ║                                           ║
 %c ║   Built with Next.js, Tailwind, and       ║
-%c ║   way too much coffee ☕                   ║
+%c ║   way too much coffee                   ║
 %c ║                                           ║
 %c ║   — Imam                                   ║
 %c ║                                           ║
