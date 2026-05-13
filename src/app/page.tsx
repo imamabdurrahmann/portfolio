@@ -1,9 +1,9 @@
-import Link from "next/link";
-import { ArrowRight, Mail, Link2, Star, Heart, TrendingUp, Code2, ExternalLink } from "lucide-react";
 import { Banner } from "@/components/Banner";
 import { FeaturedProjects } from "@/components/FeaturedProjects";
 import { Experience } from "@/components/Experience";
 import { TechStack } from "@/components/TechStack";
+import { LessonsLearned } from "@/components/LessonsLearned";
+import { FunFacts } from "@/components/FunFacts";
 import { Contact } from "@/components/Contact";
 
 export default function Home() {
@@ -12,7 +12,9 @@ export default function Home() {
       <Banner />
       <Experience />
       <FeaturedProjects />
+      <LessonsLearned />
       <TechStack />
+      <FunFacts />
       <Contact />
     </div>
   );

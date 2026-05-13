@@ -157,7 +157,7 @@ html[data-theme="light"],
 h1, h2, h3, h4, h5, h6 {
   font-family: 'Outfit', sans-serif;
   font-weight: 700;
-  line-height: 1.2;
+  line-height: 1.15;
 }
 
 /* ========================================
@@ -988,4 +988,57 @@ h1, h2, h3, h4, h5, h6 {
   background: var(--secondary);
   color: var(--text-muted);
   border: 1px solid var(--border);
+}
+
+/* ========================================
+   CUSTOM CURSOR - subtle pointer change
+   ======================================== */
+
+a, button, [role="button"] {
+  cursor: pointer;
+}
+
+/* ========================================
+   SELECTION - warm orange tint
+   ======================================== */
+
+::selection {
+  background-color: rgba(251, 146, 60, 0.3);
+  color: var(--text-primary);
+}
+
+/* ========================================
+   SMOOTH SCROLL
+   ======================================== */
+
+html {
+  scroll-behavior: smooth;
+}
+
+/* ========================================
+   FOCUS STATES - subtle, not ugly
+   ======================================== */
+
+:focus-visible {
+  outline: 2px solid var(--primary);
+  outline-offset: 2px;
+  border-radius: 4px;
+}
+
+/* ========================================
+   HUMAN TOUCH - subtle imperfections
+   ======================================== */
+
+/* Vary line heights slightly */
+.leading-relaxed {
+  line-height: 1.75;
+}
+
+/* Make certain elements slightly tilted */
+.tilt-left {
+  transform: rotate(-0.5deg);
+}
+
+.tilt-right {
+  transform: rotate(0.5deg);
 }
