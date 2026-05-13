@@ -3,17 +3,17 @@
     "home": "Home",
     "projects": "Projects",
     "contact": "Contact",
-    "hireMe": "Hire Me"
+    "hireMe": "Work with me"
   },
   "hero": {
-    "available": "Available for Projects",
+    "available": "Tersedia untuk Project",
     "title": "Flutter Developer",
     "titleAccent": "Who Delivers",
     "titleAccent2": "From Bengkulu, Building for Everyone",
     "typingRole": "I'm a {role}",
-    "description": "I build Flutter apps that solve real problems — from personal finance tracking to a CPNS exam app I built for my own exam prep.",
-    "storyTitle": "Why Flutter?",
-    "storyDescription": "Flutter gives me the power to write once and deploy everywhere — Android, iOS, macOS, Windows, Linux, and the Web. When a client needs a feature update, I push it once and it reaches all platforms instantly. No separate teams. No duplicated work. Just clean, efficient code that reaches everyone.",
+    "description": "I build Flutter apps that solve real problems — from personal finance tracking to a cpns exam app I built for my own exam prep.",
+    "storyTitle": "Kenapa Flutter?",
+    "storyDescription": "Flutter gives me the power to write once and deploy everywhere — Android, iOS, macOS, Windows, Linux, and Web. When a client needs a feature update, I push it once and it reaches all platforms instantly. No separate teams. No duplicated work. Just clean, efficient code that reaches everyone.",
     "viewProject": "View Projects",
     "contactMe": "Contact Me",
     "project": "Projects",
@@ -22,22 +22,22 @@
   },
   "techStack": {
     "title": "Tech Stack",
-    "subtitle": "Technologies"
+    "subtitle": "Tools I use"
   },
   "experience": {
-    "title": "Work Experience",
-    "contact": "Contact",
-    "contactMessage": "Hi Imam, I'm interested in the {project} project"
+    "title": "What I built",
+    "contact": "Hubungi",
+    "contactMessage": "Halo Imam, saya tertarik dengan project {project}"
   },
   "featured": {
     "title": "Featured Project",
     "titleAccent": "Highlights",
-    "contactVia": "Contact via WhatsApp"
+    "contactVia": "Hubungi via WhatsApp"
   },
   "projectCard": {
     "featured": "Featured",
     "viewProject": "View Project",
-    "viewDetails": "View Details",
+    "viewDetails": "See details",
     "playStore": "Play Store",
     "appStore": "App Store",
     "github": "GitHub"
@@ -48,19 +48,19 @@
     "subtitle": "Explore my portfolio of mobile applications"
   },
   "contact": {
-    "title": "Get in Touch",
-    "subtitle": "Got a project? Or just want to talk Flutter? Hit me up — I usually reply within 24 hours.",
+    "title": "Let's talk",
+    "subtitle": "Got a project idea? Or just wanna chat about Flutter? I'm down. Usually reply within a day.",
     "contactTitle": "Contact Me",
     "name": "Name",
-    "namePlaceholder": "Full name",
+    "namePlaceholder": "What should I call you?",
     "email": "Email",
-    "emailPlaceholder": "email@example.com",
+    "emailPlaceholder": "your@email.com",
     "message": "Message",
-    "messagePlaceholder": "Write your message here...",
+    "messagePlaceholder": "What's on your mind?",
     "sending": "Sending...",
-    "send": "Send Message",
+    "send": "Send it",
     "successTitle": "Message Sent!",
-    "successMessage": "Thanks for reaching out. I'll get back to you soon."
+    "successMessage": "Got it. I'll get back to you soon."
   },
   "footer": {
     "copyright": "All rights reserved."
@@ -68,19 +68,19 @@
   "projectData": {
     "1": {
       "title": "Financial Notes (DompetKu)",
-      "description": "Personal finance tracking application. Track income, expenses, savings, and debts with features including charts, PDF export, biometric auth, and home screen widget."
+      "description": "Personal finance tracking app I built to stop wondering where my money went. Charts, PDF export, fingerprint login, home screen widget."
     },
     "2": {
       "title": "Part of English",
-      "description": "Learn English Offline: Grammar, Vocabulary, Idioms, Collocations, Word Roots with interactive lessons, quizzes, spaced repetition, TTS, and gamification."
+      "description": "English learning app I made because I needed to improve my vocabulary. Grammar, Idioms, Collocations, spaced repetition, and TTS."
     },
     "3": {
       "title": "Try Outcpns",
-      "description": "A CPNS exam practice app I built for my own civil servant exam preparation. Clean Architecture, offline-first, with per-category progress tracking."
+      "description": "cpns exam practice app I built for my own test prep. Clean Architecture, works offline, progress tracking per category."
     },
     "4": {
       "title": "CalcPro",
-      "description": "Complete calculator with Scientific, Unit Conversion, BMI, Discount, Split Bill, Currency Exchange, Loan, Graphing, and Matrix features."
+      "description": "Calculator app with everything I needed — Scientific, Unit Conversion, BMI, Split Bill, Currency, Loan calculator."
     }
   }
 }

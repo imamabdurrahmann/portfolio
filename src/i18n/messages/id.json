@@ -3,7 +3,7 @@
     "home": "Beranda",
     "projects": "Project",
     "contact": "Kontak",
-    "hireMe": "Hubungi Saya"
+    "hireMe": "Kerja bareng"
   },
   "hero": {
     "available": "Tersedia untuk Project",
@@ -11,7 +11,7 @@
     "titleAccent": "yang Menghadirkan",
     "titleAccent2": "Dari Bengkulu, Untuk Semua Orang",
     "typingRole": "Saya adalah {role}",
-    "description": "Saya bikin aplikasi Flutter yang solve masalah nyata — dari tracking keuangan pribadi sampai aplikasi tryout CPNS yang saya bangun untuk ujian saya sendiri.",
+    "description": "Saya bikin aplikasi Flutter yang solve masalah nyata — dari tracking keuangan pribadi sampai aplikasi tryout cpns yang saya bangun untuk ujian saya sendiri.",
     "storyTitle": "Kenapa Flutter?",
     "storyDescription": "Flutter memberi saya kekuatan untuk menulis sekali dan deploy ke mana-mana — Android, iOS, macOS, Windows, Linux, dan Web. Saat client butuh update fitur, saya push sekali dan langsung sampai ke semua platform. Tanpa tim terpisah. Tanpa kerja ganda. Cukup kode yang bersih dan efisien yang raggiungi semua orang.",
     "viewProject": "Lihat Project",
@@ -22,10 +22,10 @@
   },
   "techStack": {
     "title": "Tech Stack",
-    "subtitle": "Teknologi"
+    "subtitle": "Alat yang saya pakai"
   },
   "experience": {
-    "title": "Pengalaman Kerja",
+    "title": "Yang pernah saya buat",
     "contact": "Hubungi",
     "contactMessage": "Halo Imam, saya tertarik dengan project {project}"
   },
@@ -37,7 +37,7 @@
   "projectCard": {
     "featured": "Unggulan",
     "viewProject": "Lihat Project",
-    "viewDetails": "Lihat Detail",
+    "viewDetails": "Lihat detail",
     "playStore": "Play Store",
     "appStore": "App Store",
     "github": "GitHub"
@@ -48,19 +48,19 @@
     "subtitle": "Jelajahi portfolio aplikasi mobile saya"
   },
   "contact": {
-    "title": "Hubungi Saya",
-    "subtitle": "Ada project? Atau sekadar mau ngobrol soal Flutter? Hubungi saya — biasanya respons dalam 24 jam.",
+    "title": "Ngobrol yuk",
+    "subtitle": "Punya ide project? Atau cuma mau ngobrol soal Flutter? Silakan. Biasanya respons dalam sehari.",
     "contactTitle": "Hubungi Saya",
     "name": "Nama",
-    "namePlaceholder": "Nama lengkap",
+    "namePlaceholder": "Nama kamu siapa?",
     "email": "Email",
-    "emailPlaceholder": "email@example.com",
+    "emailPlaceholder": "email@mu.com",
     "message": "Pesan",
-    "messagePlaceholder": "Tulis pesan Anda di sini...",
+    "messagePlaceholder": "Mau ngomong apa?",
     "sending": "Mengirim...",
-    "send": "Kirim Pesan",
+    "send": "Kirim",
     "successTitle": "Pesan Terkirim!",
-    "successMessage": "Terima kasih sudah menghubungi. Saya akan segera merespons pesan Anda."
+    "successMessage": "Sip, bakal saya bales secepatnya."
   },
   "footer": {
     "copyright": "Hak cipta dilindungi."
@@ -68,19 +68,19 @@
   "projectData": {
     "1": {
       "title": "Catatan Keuangan (DompetKu)",
-      "description": "Aplikasi pencatatan keuangan personal. Track income, expense, savings, dan debts dengan fitur charts, PDF export, biometric auth, dan home screen widget."
+      "description": "Aplikasi pencatatan keuangan yang saya bikin biar ga bingung lagi uang habis kemana. Charts, export PDF, login fingerprint, widget homescreen."
     },
     "2": {
       "title": "Part of English",
-      "description": "Learn English Offline: Grammar, Vocabulary, Idioms, Collocations, Word Roots dengan interactive lessons, quizzes, spaced repetition, TTS, dan gamification."
+      "description": "App belajar English yang saya bikin karena saya butuh improve vocabulary. Grammar, Idioms, Collocations, spaced repetition, TTS."
     },
     "3": {
       "title": "Try Outcpns",
-      "description": "Aplikasi tryout cpns yang saya bangun untuk persiapan ujian saya sendiri. Clean Architecture, offline-first, lengkap dengan tracking progress per kategori soal."
+      "description": "App tryout cpns yang saya bikin untuk persiapan ujian saya sendiri. Clean Architecture, bisa offline, tracking progress per kategori."
     },
     "4": {
       "title": "CalcPro",
-      "description": "Kalkulator lengkap dengan fitur Scientific, Konversi Unit, BMI, Diskon, Split Bill, Kurs Mata Uang, Pinjaman, Grafik, dan Matrix."
+      "description": "App kalkulator dengan semua yang saya butuhkan — Scientific, Konversi Unit, BMI, Split Bill, Kurs Mata Uang, Kalkulator Pinjaman."
     }
   }
 }

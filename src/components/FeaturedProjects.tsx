@@ -6,13 +6,11 @@ import { ArrowRight, Star, Sparkles } from "lucide-react";
 import { useLocale } from "@/i18n/LocaleProvider";
 import { getFeaturedProjects } from "@/lib/projects";
 
-// More organic animation timing
 const fadeInUp = {
   hidden: { opacity: 0, y: 25 },
   visible: { opacity: 1, y: 0 }
 };
 
-// Random-feeling stagger
 const projectVariants = {
   hidden: { opacity: 0, y: 35 },
   visible: (i: number) => ({
@@ -32,7 +30,7 @@ export function FeaturedProjects() {
   return (
     <section id="lab" className="py-20 px-6">
       <div className="container mx-auto max-w-6xl">
-        {/* Section Header - asymmetric, personal */}
+        {/* Section Header - asymmetric */}
         <motion.div
           className="mb-16"
           initial="hidden"
@@ -50,29 +48,27 @@ export function FeaturedProjects() {
 
         {featuredProjects.map((project, index) => {
           const isEven = index % 2 === 1;
-          // First project gets more visual weight
-          const isLarge = index === 0;
 
           return (
             <motion.div
               key={project.id}
-              className={`mb-16 last:mb-0 ${isLarge ? 'relative' : ''}`}
+              className="mb-16 last:mb-0"
               initial="hidden"
               whileInView="visible"
               viewport={{ once: true, margin: "-50px" }}
               custom={index}
               variants={projectVariants}
             >
-              <div className={`grid gap-8 items-center ${isLarge ? 'md:grid-cols-5' : 'grid-cols-1 md:grid-cols-2'}`}>
-                {/* Image - offset for personality */}
+              <div className={`grid gap-8 items-center grid-cols-1 ${isEven ? 'md:grid-cols-2' : 'md:grid-cols-2'}`}>
+                {/* Image */}
                 <Link
                   href={`/projects/${project.slug}`}
-                  className={`block group relative ${isEven ? "md:order-2" : "md:order-1"} ${isLarge ? 'md:col-span-3' : ''}`}
+                  className={`block group relative ${isEven ? "md:order-2" : "md:order-1"}`}
                 >
                   {/* Decorative corner - not centered */}
-                  <div className="absolute -top-3 -left-3 w-14 h-14 border border-primary/20 rounded-lg -z-10" />
+                  <div className="absolute -top-2 -left-2 w-10 h-10 border border-primary/20 rounded-lg -z-10" />
 
-                  <div className={`relative rounded-2xl overflow-hidden ${isLarge ? 'aspect-[4/3]' : 'aspect-video'} bg-gradient-to-br from-primary/15 to-secondary/40 group-hover:shadow-xl group-hover:shadow-primary/10 transition-shadow duration-500`}>
+                  <div className={`relative rounded-xl overflow-hidden aspect-video bg-gradient-to-br from-primary/15 to-secondary/40 group-hover:shadow-xl group-hover:shadow-primary/10 transition-shadow duration-500`}>
                     {project.image ? (
                       <img
                         src={project.image}
@@ -81,42 +77,34 @@ export function FeaturedProjects() {
                       />
                     ) : (
                       <div className="absolute inset-0 flex items-center justify-center">
-                        <span className="text-7xl font-black gradient-text opacity-15"
+                        <span className="text-6xl font-black gradient-text opacity-10"
                           style={{ fontFamily: "'Outfit', sans-serif" }}>
                           {project.title.charAt(0)}
                         </span>
                       </div>
                     )}
 
-                    {/* Featured badge - top right */}
-                    <div className="absolute top-4 right-4 flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-gradient-to-r from-primary to-orange-600 text-white text-xs font-semibold shadow-lg">
+                    {/* Featured badge */}
+                    <div className="absolute top-3 right-3 flex items-center gap-1 px-2 py-1 rounded-full bg-primary/90 text-white text-xs font-semibold shadow-lg">
                       <Star className="w-3 h-3" />
                       {t("projectCard.featured")}
                     </div>
 
                     {/* Hover reveal */}
-                    <div className="absolute inset-0 bg-primary/85 opacity-0 group-hover:opacity-100 transition-all duration-300 flex items-center justify-center">
+                    <div className="absolute inset-0 bg-primary/80 opacity-0 group-hover:opacity-100 transition-all duration-300 flex items-center justify-center">
                       <div className="flex items-center gap-2 text-white font-semibold">
-                        <span>{locale === 'en' ? 'View Details' : 'Lihat Detail'}</span>
+                        <span>{locale === 'en' ? 'View' : 'Lihat'}</span>
                         <ArrowRight className="w-4 h-4" />
                       </div>
                     </div>
                   </div>
                 </Link>
 
-                {/* Text - offset for balance */}
-                <div className={`${isEven ? "md:order-1" : "md:order-2"} ${isLarge ? 'md:col-span-2' : ''}`}>
-                  <div className="space-y-4">
-                    {/* Project index - big, subtle */}
-                    <span
-                      className="project-index"
-                      style={{ fontFamily: "'Outfit', sans-serif" }}
-                    >
-                      {String(index + 1).padStart(2, '0')}
-                    </span>
-
+                {/* Text */}
+                <div className={`${isEven ? "md:order-1" : "md:order-2"}`}>
+                  <div className="space-y-3">
                     <div className="flex items-center gap-2">
-                      <div className="w-8 h-[2px] bg-primary" />
+                      <div className="w-6 h-[2px] bg-primary" />
                       <span className="text-xs font-bold uppercase tracking-widest text-primary">
                         {t("featured.title")}
                       </span>
@@ -133,8 +121,8 @@ export function FeaturedProjects() {
                       {t(`projectData.${project.id}.description`, undefined, project.description)}
                     </p>
 
-                    {/* Tech stack - compact */}
-                    <div className="flex flex-wrap gap-2 pt-1">
+                    {/* Tech stack */}
+                    <div className="flex flex-wrap gap-2">
                       {project.tech.slice(0, 3).map((tech) => (
                         <span key={tech} className="tech-tag">
                           {tech}
@@ -146,7 +134,7 @@ export function FeaturedProjects() {
                     </div>
 
                     {/* CTA */}
-                    <div className="pt-4">
+                    <div className="pt-2">
                       <Link
                         href={`/projects/${project.slug}`}
                         className="inline-flex items-center gap-2 text-primary hover:gap-3 font-semibold text-sm transition-all duration-300"

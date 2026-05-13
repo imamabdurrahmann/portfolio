@@ -6,7 +6,20 @@ import { motion } from "framer-motion";
 import { useLocale } from "@/i18n/LocaleProvider";
 import { getProjects } from "@/lib/projects";
 
-// More organic animation timing
+// Varying widths for human feel - not uniform grid
+const cardWidths = [
+  "lg:col-span-2", // wide
+  "lg:col-span-1", // narrow
+  "lg:col-span-1", // narrow
+  "lg:col-span-2", // wide
+];
+
+// Slight random rotations
+const getRotation = (index: number) => {
+  const rotations = [0, -1, 1, -0.5];
+  return rotations[index % rotations.length];
+};
+
 const containerVariants = {
   hidden: { opacity: 0 },
   visible: {
@@ -19,7 +32,6 @@ const containerVariants = {
   }
 };
 
-// Variable animation durations
 const itemVariants = {
   hidden: { opacity: 0, y: 20 },
   visible: (i: number) => ({
@@ -61,9 +73,9 @@ export function Experience() {
           </div>
         </motion.div>
 
-        {/* Asymmetric grid */}
+        {/* Broken grid - varying widths */}
         <motion.div
-          className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5"
+          className="grid grid-cols-1 md:grid-cols-2 gap-5"
           variants={containerVariants}
           initial="hidden"
           whileInView="visible"
@@ -75,27 +87,25 @@ export function Experience() {
                 key={project.id}
                 custom={index}
                 variants={itemVariants}
-                className="glass-card p-5 group relative overflow-hidden self-start"
+                className={`glass-card p-5 group relative overflow-hidden self-start ${cardWidths[index]}`}
+                style={{ transform: `rotate(${getRotation(index)}deg)` }}
               >
-                {/* Subtle warm gradient */}
+                {/* Subtle warm gradient on hover */}
                 <div className="absolute inset-0 bg-gradient-to-br from-primary/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
 
-                {/* Decorative corner */}
-                <div className="absolute top-0 right-0 w-16 h-16 bg-gradient-to-bl from-accent-secondary/8 to-transparent rounded-bl-full opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
-
                 <div className="relative z-10">
-                  {/* Project Index */}
+                  {/* Project Index - subtle, not too big */}
                   <span
-                    className="text-4xl font-black text-primary/10 leading-none absolute -top-2 -right-2"
+                    className="text-2xl font-black text-primary/8 absolute -top-1 -right-1"
                     style={{ fontFamily: "'Outfit', sans-serif" }}
                   >
                     {String(index + 1).padStart(2, '0')}
                   </span>
 
                   {/* Project Initial */}
-                  <div className="w-12 h-12 rounded-xl bg-gradient-to-br from-primary/20 to-primary/10 flex items-center justify-center mb-4 group-hover:scale-105 transition-transform duration-400">
+                  <div className="w-10 h-10 rounded-lg bg-gradient-to-br from-primary/20 to-primary/10 flex items-center justify-center mb-3 group-hover:scale-105 transition-transform duration-400">
                     <span
-                      className="text-xl font-bold gradient-text"
+                      className="text-lg font-bold gradient-text"
                       style={{ fontFamily: "'Outfit', sans-serif" }}
                     >
                       {project.title.charAt(0)}
@@ -115,7 +125,7 @@ export function Experience() {
                     {t(`projectData.${project.id}.description`, undefined, project.description)}
                   </p>
 
-                  {/* Tech Tags - compact */}
+                  {/* Tech Tags */}
                   <div className="flex flex-wrap gap-1.5 mt-3">
                     {project.tech.slice(0, 3).map((tech) => (
                       <span key={tech} className="text-[10px] px-2 py-1 rounded-full bg-primary/10 text-primary font-medium">

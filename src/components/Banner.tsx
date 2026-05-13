@@ -5,7 +5,9 @@ import { Star, Heart, ArrowRight, Mail, Sparkles, Smartphone, Globe, Monitor } f
 import { motion } from "framer-motion";
 import { useLocale } from "@/i18n/LocaleProvider";
 
-// Organic animation variants - less predictable
+// Slight rotation for human feel - not perfectly aligned
+const ROTATION_ANGLE = 2;
+
 const containerVariants = {
   hidden: { opacity: 0 },
   visible: {
@@ -22,7 +24,6 @@ const itemVariants = {
   visible: { opacity: 1, y: 0 }
 };
 
-// Random offset animation for personal feel
 const offsetVariants = {
   hidden: { opacity: 0, x: -15 },
   visible: { opacity: 1, x: 0 }
@@ -53,38 +54,30 @@ export function Banner() {
         >
           {/* Left Column - Personal, asymmetric */}
           <div className="lg:col-span-7 space-y-7">
-            {/* Small badge - left aligned */}
-            <motion.div
-              variants={itemVariants}
-              className="inline-flex items-center gap-2 px-4 py-2 rounded-full glass"
-            >
-              <span className="hero-badge-dot" />
-              <span className="text-sm font-medium">{t("hero.available")}</span>
-            </motion.div>
-
-            {/* Heading - uncentered, personal */}
+            {/* No badge - more authentic, just intro */}
             <motion.div variants={itemVariants} className="text-left">
-              <h1 className="hero-heading text-left">
+              <h1 className="hero-heading text-left" style={{ transform: `rotate(-${ROTATION_ANGLE * 0.3}deg)` }}>
                 {t("hero.title")}<br />
                 <span className="hero-heading-accent">{t("hero.titleAccent2")}</span>
               </h1>
             </motion.div>
 
-            {/* Role indicator */}
+            {/* Role indicator - slightly varied spacing */}
             <motion.div
               variants={itemVariants}
               className="flex items-center gap-3"
+              style={{ marginLeft: `${Math.random() * 8}px` }}
             >
               <span className="h-6 w-[2px] bg-gradient-to-b from-primary to-accent-secondary rounded-full" />
-              <span className="hero-role">
+              <span className="hero-role font-normal italic">
                 Flutter Developer
               </span>
             </motion.div>
 
-            {/* Personal story */}
+            {/* Personal story - conversational, not corporate */}
             <motion.p
               variants={itemVariants}
-              className="text-base md:text-lg text-foreground/70 leading-relaxed text-left max-w-xl"
+              className="text-base md:text-lg text-foreground/70 leading-relaxed text-left max-w-xl font-light"
             >
               {t("hero.description")}
             </motion.p>
@@ -102,7 +95,7 @@ export function Banner() {
                 {t("hero.storyDescription")}
               </p>
 
-              {/* Platform badges - show cross-platform power */}
+              {/* Platform badges */}
               <div className="flex flex-wrap items-center gap-3 mt-4">
                 {platforms.map((platform, i) => (
                   <motion.div
@@ -119,7 +112,7 @@ export function Banner() {
               </div>
             </motion.div>
 
-            {/* CTA buttons */}
+            {/* CTA buttons - no unnecessary polish */}
             <motion.div
               variants={itemVariants}
               className="flex flex-wrap items-center gap-4 pt-2"
@@ -135,20 +128,26 @@ export function Banner() {
             </motion.div>
           </div>
 
-          {/* Right Column - Profile with personal touches */}
+          {/* Right Column - Profile with slight rotation for human feel */}
           <motion.div
             className="lg:col-span-5 relative"
             variants={itemVariants}
           >
-            {/* Main profile with personal styling - tight wrapper */}
+            {/* Main profile - slightly rotated for imperfect feel */}
             <div className="relative inline-block overflow-visible">
               {/* Top-left decorative accent - overlaps corner */}
-              <div className="absolute -top-2 -left-2 w-12 h-12 border-2 border-primary/30 rounded-xl z-10" />
+              <div
+                className="absolute -top-2 -left-2 w-12 h-12 border-2 border-primary/30 rounded-xl z-10"
+                style={{ transform: `rotate(${ROTATION_ANGLE}deg)` }}
+              />
 
-              {/* Profile image with tight orange border frame */}
-              <div className="profile-image-wrapper overflow-visible">
+              {/* Profile image with subtle rotation */}
+              <div
+                className="profile-image-wrapper overflow-visible"
+                style={{ transform: `rotate(${ROTATION_ANGLE}deg)` }}
+              >
                 <div className="w-72 h-72 md:w-80 md:h-80 rounded-3xl overflow-hidden shadow-2xl shadow-primary/10 relative">
-                  {/* Orange border frame - tight fit */}
+                  {/* Tight orange border */}
                   <div className="absolute inset-0 rounded-3xl border-2 border-primary/40 pointer-events-none" />
                   <img
                     src="/profile.jpg"
@@ -157,17 +156,14 @@ export function Banner() {
                   />
                 </div>
 
-                {/* Status badge - fully visible */}
-                <div className="absolute -bottom-3 -right-3 flex items-center gap-2 px-4 py-2 rounded-full glass overflow-visible">
-                  <span className="w-2.5 h-2.5 bg-emerald-500 rounded-full animate-pulse" />
-                  <span className="text-sm font-medium">Available</span>
-                </div>
+                {/* Status badge - no "Available" text, just the dot */}
+                <div className="absolute -bottom-3 -right-3 w-3 h-3 bg-emerald-500 rounded-full animate-pulse shadow-lg shadow-emerald-500/50" />
               </div>
             </div>
 
-            {/* Stats - asymmetric placement */}
+            {/* Stats - positioned below, not floating awkwardly */}
             <motion.div
-              className="absolute -bottom-14 left-0 flex items-center gap-3 mt-8"
+              className="mt-16 ml-2 flex items-center gap-3"
               initial={{ opacity: 0, x: -20 }}
               animate={{ opacity: 1, x: 0 }}
               transition={{ delay: 0.6, duration: 0.5 }}
@@ -177,7 +173,7 @@ export function Banner() {
                   <Star className="w-4 h-4 text-primary" />
                   <span className="text-lg font-bold gradient-text">4</span>
                 </div>
-                <span className="text-xs text-foreground/60">Projects</span>
+                <span className="text-xs text-foreground/60">Apps</span>
               </div>
               <div className="glass-card px-4 py-3 flex items-center gap-3">
                 <div className="flex items-center gap-1.5">
@@ -190,9 +186,9 @@ export function Banner() {
           </motion.div>
         </motion.div>
 
-        {/* Bottom line - subtle, personal */}
+        {/* Bottom line - simple, honest */}
         <motion.div
-          className="mt-20 pt-6 border-t border-foreground/10 flex flex-wrap items-center gap-8"
+          className="mt-16 pt-6 border-t border-foreground/10 flex flex-wrap items-center gap-8"
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={{ delay: 0.8, duration: 0.5 }}
