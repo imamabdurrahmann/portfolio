@@ -126,6 +126,20 @@ html[data-theme="light"],
     position: relative;
   }
 
+  /* Page transition - fade in on load */
+  main {
+    animation: pageIn 0.3s ease-out;
+  }
+
+  @keyframes pageIn {
+    from {
+      opacity: 0;
+    }
+    to {
+      opacity: 1;
+    }
+  }
+
   /* Warm ambient background - not generic purple */
   body::before {
     content: '';
