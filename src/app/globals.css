@@ -230,11 +230,8 @@ h1, h2, h3, h4, h5, h6 {
   left: 0;
   right: 0;
   z-index: 50;
-  background: var(--glass-bg);
-  backdrop-filter: blur(16px);
-  -webkit-backdrop-filter: blur(16px);
+  background: var(--background);
   border-bottom: 1px solid var(--border);
-  transition: all 0.3s ease;
 }
 
 .nav-link {
