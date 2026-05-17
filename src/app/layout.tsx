@@ -4,6 +4,9 @@ import { Navbar } from "@/components/Navbar";
 import { ThemeProvider } from "@/components/ThemeProvider";
 import { ErrorBoundary } from "@/components/ErrorBoundary";
 import { LocaleProvider } from "@/i18n/LocaleProvider";
+import { LenisScroll } from "@/components/LenisScroll";
+import { Preloader } from "@/components/Preloader";
+import { CustomCursor } from "@/components/CustomCursor";
 
 export const metadata: Metadata = {
   title: "Muhammad Imam Abdurrahman | Flutter Developer",
@@ -74,6 +77,9 @@ export default function RootLayout({
       <body className="min-h-screen flex flex-col antialiased">
         <LocaleProvider>
           <ThemeProvider defaultTheme="dark" storageKey="portfolio-theme">
+            <LenisScroll />
+            <Preloader />
+            <CustomCursor />
             <Navbar />
             <main className="flex-1">
               <ErrorBoundary>{children}</ErrorBoundary>

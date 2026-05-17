@@ -2,6 +2,7 @@
 
 import Link from "next/link";
 import { Star, Heart, ArrowRight, Mail, Sparkles, Smartphone, Globe, Monitor } from "lucide-react";
+import { Magnetic } from "./Magnetic";
 import { useLocale } from "@/i18n/LocaleProvider";
 
 const platforms = [
@@ -57,14 +58,18 @@ export function Banner() {
 
             {/* CTA buttons */}
             <div className="flex flex-wrap items-center gap-4 pt-2">
-              <Link href="/projects" className="hero-cta">
-                {t("hero.viewProject")}
-                <ArrowRight className="w-4 h-4" />
-              </Link>
-              <Link href="/contact" className="hero-cta-secondary">
-                <Mail className="w-4 h-4" />
-                {t("hero.contactMe")}
-              </Link>
+              <Magnetic>
+                <Link href="/projects" className="hero-cta">
+                  {t("hero.viewProject")}
+                  <ArrowRight className="w-4 h-4" />
+                </Link>
+              </Magnetic>
+              <Magnetic>
+                <Link href="/contact" className="hero-cta-secondary">
+                  <Mail className="w-4 h-4" />
+                  {t("hero.contactMe")}
+                </Link>
+              </Magnetic>
             </div>
           </div>
 
