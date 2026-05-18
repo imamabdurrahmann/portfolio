@@ -4,7 +4,7 @@ import { Mail, MapPin, Clock, MessageCircle, Send, Zap, Copy, CheckCircle2 } fro
 import { ContactForm } from "@/components/ContactForm";
 import { motion, AnimatePresence } from "framer-motion";
 import { Magnetic } from "@/components/Magnetic";
-import { LocationMap } from "@/components/LocationMap";
+import { CobeGlobe } from "@/components/CobeGlobe";
 import { useState, useEffect } from "react";
 
 const LinkedinIcon = ({ className }: { className?: string }) => (
@@ -232,8 +232,8 @@ export function ContactClient() {
               {/* Globe Card */}
               <div className="p-8 rounded-[2rem] bg-card border border-border shadow-lg relative group transition-colors duration-500 hover:border-primary/50 overflow-hidden min-h-[300px]">
                 <div className="absolute inset-0 bg-primary/5 opacity-0 group-hover:opacity-100 transition-opacity duration-500 z-0 pointer-events-none" />
-                <div className="absolute inset-0 z-0 opacity-40 group-hover:opacity-80 transition-opacity duration-700 pointer-events-auto">
-                  <LocationMap />
+                <div className="absolute -inset-10 z-0 opacity-40 group-hover:opacity-80 transition-opacity duration-700 pointer-events-auto">
+                  <CobeGlobe />
                 </div>
                 <div className="relative z-10 flex flex-col justify-between h-full pointer-events-none">
                   <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full border border-border bg-card/80 backdrop-blur-md w-fit">
