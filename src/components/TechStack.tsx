@@ -51,7 +51,7 @@ export function TechStack() {
             }}
           >
             {techStack.map((tech, index) => (
-              <div key={`${tech.name}-${index}`} className="mx-4 flex items-center gap-3 px-8 py-4 rounded-full bg-secondary/80 border border-border text-lg font-medium text-foreground hover:border-primary hover:text-primary transition-all hover:shadow-[0_0_20px_rgba(251,146,60,0.2)] cursor-pointer backdrop-blur-sm">
+              <div key={`${tech.name}-${index}`} className="shrink-0 mx-4 flex items-center gap-3 px-8 py-4 rounded-full bg-secondary/80 border border-border text-lg font-medium text-foreground hover:border-primary hover:text-primary transition-all hover:shadow-[0_0_20px_rgba(251,146,60,0.2)] cursor-pointer backdrop-blur-sm">
                 <span className="text-primary">{tech.icon}</span>
                 {tech.name}
               </div>
