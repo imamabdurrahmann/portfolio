@@ -64,9 +64,9 @@ export function Banner() {
             </div>
 
             <h1 className="text-5xl md:text-7xl lg:text-8xl font-black tracking-tight leading-[1.1] mb-6">
-              {t("hero.title").split(',')[0]}<br />
+              {t("hero.title").replace("Developer", "").replace("Dari Bengkulu, Untuk Semua Orang", "").trim()}<br />
               <span className="text-transparent bg-clip-text bg-gradient-to-r from-primary to-orange-400">
-                {t("hero.title").split(',')[1] ? t("hero.title").split(',')[1] : "Developer"}
+                Developer
               </span>
             </h1>
 
@@ -123,7 +123,7 @@ export function Banner() {
                 <img
                   src="/profile.jpg"
                   alt="Muhammad Imam Abdurrahman"
-                  className="w-full h-full object-cover grayscale hover:grayscale-0 transition-all duration-700"
+                  className="w-full h-full object-cover transition-all duration-700"
                 />
               </div>
               
