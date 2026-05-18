@@ -26,9 +26,9 @@ export function CobeGlobe() {
       diffuse: 1.2,
       mapSamples: 16000,
       mapBrightness: 6,
-      baseColor: [0.1, 0.1, 0.1],
+      baseColor: [1, 1, 1], // White dots
       markerColor: [251 / 255, 146 / 255, 60 / 255],
-      glowColor: [0.1, 0.1, 0.15],
+      glowColor: [1, 1, 1], // White glow
       markers: [
         { location: [-3.7928, 102.2608], size: 0.1 } // Bengkulu
       ],
