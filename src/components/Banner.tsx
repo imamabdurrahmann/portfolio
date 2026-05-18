@@ -37,7 +37,7 @@ export function Banner() {
   const { t } = useLocale();
 
   return (
-    <section className="hero-section relative w-full overflow-hidden flex items-center justify-center pt-24 pb-16 lg:pt-32 lg:pb-24 min-h-[95vh]">
+    <section className="hero-section relative w-full overflow-hidden flex items-center justify-center pt-32 pb-16 lg:pt-40 lg:pb-24 min-h-[95vh]">
       {/* Background Huge Text Overlay */}
       <motion.div 
         initial={{ opacity: 0, y: 50 }}
@@ -74,9 +74,9 @@ export function Banner() {
               {t("hero.description")}
             </p>
 
-            <div className="flex flex-wrap items-center gap-4 mb-10">
+            <div className="flex flex-col sm:flex-row flex-wrap items-center gap-4 mb-10 w-full sm:w-auto">
               <Magnetic>
-                <Link href="/projects" className="group relative inline-flex items-center justify-center gap-2 px-8 py-4 bg-primary text-primary-foreground font-bold rounded-full overflow-hidden transition-all active:scale-95 shadow-[inset_0_-4px_0_rgba(0,0,0,0.2)] hover:shadow-[inset_0_-4px_0_rgba(0,0,0,0.4)] hover:bg-orange-600">
+                <Link href="/projects" className="w-full sm:w-auto group relative inline-flex items-center justify-center gap-2 px-8 py-4 bg-primary text-primary-foreground font-bold rounded-full overflow-hidden transition-all active:scale-95 shadow-[inset_0_-4px_0_rgba(0,0,0,0.2)] hover:shadow-[inset_0_-4px_0_rgba(0,0,0,0.4)] hover:bg-orange-600">
                   <span className="relative flex items-center gap-2">
                     {t("hero.viewProject")}
                     <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
@@ -85,15 +85,15 @@ export function Banner() {
               </Magnetic>
               
               <Magnetic>
-                <Link href="/contact" className="group inline-flex items-center gap-2 px-8 py-4 bg-secondary/80 hover:bg-secondary border border-border text-foreground font-bold rounded-full transition-colors active:scale-95 backdrop-blur-md">
+                <Link href="/contact" className="w-full sm:w-auto group inline-flex items-center justify-center gap-2 px-8 py-4 bg-secondary/80 hover:bg-secondary border border-border text-foreground font-bold rounded-full transition-colors active:scale-95 backdrop-blur-md">
                   <Mail className="w-5 h-5 text-primary" />
                   <span>{t("hero.contactMe")}</span>
                 </Link>
               </Magnetic>
             </div>
 
-            <div className="flex flex-wrap gap-4 items-center">
-              <span className="text-sm font-semibold text-foreground/50 uppercase tracking-widest mr-2">Deploy To:</span>
+            <div className="flex flex-wrap gap-3 items-center w-full">
+              <span className="text-sm font-semibold text-foreground/50 uppercase tracking-widest mr-1 w-full sm:w-auto mb-1 sm:mb-0">Deploy To:</span>
               {platforms.map((platform, idx) => (
                 <motion.div 
                   initial={{ opacity: 0, y: 10 }}

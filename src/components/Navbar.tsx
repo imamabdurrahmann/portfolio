@@ -20,8 +20,8 @@ export function Navbar() {
   ];
 
   return (
-    <header className="fixed top-6 left-1/2 -translate-x-1/2 z-50 w-full max-w-fit px-4 pointer-events-none">
-      <nav className="pointer-events-auto bg-card/70 backdrop-blur-xl border border-border/50 shadow-2xl shadow-black/20 rounded-full px-2 py-2 flex items-center gap-1 sm:gap-2">
+    <header className="fixed top-4 sm:top-6 left-1/2 -translate-x-1/2 z-50 w-[95%] sm:w-full max-w-fit pointer-events-none">
+      <nav className="pointer-events-auto bg-card/70 backdrop-blur-xl border border-border/50 shadow-2xl shadow-black/20 rounded-full px-2 py-2 flex items-center justify-between gap-1 sm:gap-2">
         {/* Desktop & Mobile Links Container */}
         <div className="flex items-center">
           {navLinks.map((link) => {
@@ -30,7 +30,7 @@ export function Navbar() {
               <Link
                 key={link.href}
                 href={link.href}
-                className={`relative px-4 sm:px-6 py-2 rounded-full text-sm font-medium transition-colors ${
+                className={`relative px-3 sm:px-6 py-2 rounded-full text-xs sm:text-sm font-medium transition-colors ${
                   isActive
                     ? "text-primary"
                     : "text-foreground/60 hover:text-foreground"
@@ -52,7 +52,7 @@ export function Navbar() {
         <div className="flex items-center gap-1 sm:gap-2 pl-1 pr-1">
           <ThemeToggle />
           <LanguageToggle />
-          <Link href="/contact" className="ml-1 px-4 py-2 bg-primary text-primary-foreground font-bold rounded-full text-sm hover:scale-105 transition-transform">
+          <Link href="/contact" className="hidden sm:block ml-1 px-4 py-2 bg-primary text-primary-foreground font-bold rounded-full text-sm hover:scale-105 transition-transform">
             {t("nav.hireMe")}
           </Link>
         </div>

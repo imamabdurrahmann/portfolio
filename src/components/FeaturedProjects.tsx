@@ -17,7 +17,7 @@ export function FeaturedProjects() {
       <div className="absolute top-0 right-0 w-1/2 h-[500px] bg-primary/5 blur-[120px] -z-10 rounded-full pointer-events-none"></div>
       
       <div className="container mx-auto max-w-7xl relative z-10">
-        <div className="flex flex-col md:flex-row items-end justify-between gap-8 mb-20">
+        <div className="flex flex-col md:flex-row items-start md:items-end justify-between gap-6 mb-16 md:mb-20">
           <div>
             <div className="flex items-center gap-3 mb-4">
               <div className="w-2 h-2 rounded-full bg-primary animate-pulse"></div>
@@ -25,8 +25,8 @@ export function FeaturedProjects() {
                 Selected Works
               </span>
             </div>
-            <h2 className="text-5xl md:text-7xl font-black text-foreground tracking-tighter">
-              Featured <span className="text-transparent bg-clip-text bg-gradient-to-r from-primary to-orange-400">{t("featured.titleAccent")}</span>
+            <h2 className="text-4xl sm:text-5xl md:text-7xl font-black text-foreground tracking-tighter break-words max-w-full">
+              Featured <span className="text-transparent bg-clip-text bg-gradient-to-r from-primary to-orange-400 inline-block">{t("featured.titleAccent")}</span>
             </h2>
           </div>
           <Magnetic>
