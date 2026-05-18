@@ -115,10 +115,31 @@ export function Banner() {
             initial={{ opacity: 0, scale: 0.95 }}
             animate={{ opacity: 1, scale: 1 }}
             transition={{ duration: 0.8, delay: 0.2, ease: "easeOut" }}
-            className="lg:col-span-5 relative"
+            className="lg:col-span-5 relative flex flex-col items-center lg:items-end mt-16 lg:mt-0"
           >
+            {/* Profile Image */}
+            <div className="relative z-20 w-48 h-48 md:w-60 md:h-60 rounded-full p-2 bg-gradient-to-tr from-primary to-orange-400 mb-[-3rem] mr-auto lg:mr-10 shadow-2xl shadow-primary/20 hover:scale-105 transition-transform duration-500">
+              <div className="w-full h-full rounded-full overflow-hidden border-4 border-background bg-card">
+                <img
+                  src="/profile.jpg"
+                  alt="Muhammad Imam Abdurrahman"
+                  className="w-full h-full object-cover grayscale hover:grayscale-0 transition-all duration-700"
+                />
+              </div>
+              
+              {/* Floating badge */}
+              <motion.div 
+                animate={{ y: [0, -10, 0] }}
+                transition={{ duration: 4, repeat: Infinity, ease: "easeInOut" }}
+                className="absolute -right-4 top-1/2 px-4 py-2 rounded-2xl bg-card border border-border flex items-center gap-2 shadow-xl"
+              >
+                <Star className="w-4 h-4 text-primary" />
+                <span className="text-sm font-bold">4+ Apps</span>
+              </motion.div>
+            </div>
+
             {/* Terminal Window */}
-            <div className="w-full rounded-2xl overflow-hidden border border-border bg-[#0d1117] shadow-2xl relative z-20 md:-ml-12 lg:-ml-24 mt-8 lg:mt-0">
+            <div className="w-full rounded-2xl overflow-hidden border border-border bg-[#0d1117] shadow-2xl relative z-10 md:-ml-8">
               <div className="flex items-center px-4 py-3 bg-[#161b22] border-b border-border/40">
                 <div className="flex gap-2">
                   <div className="w-3 h-3 rounded-full bg-red-500/80"></div>
@@ -129,7 +150,7 @@ export function Banner() {
                   <Terminal className="w-3 h-3" /> main.dart
                 </div>
               </div>
-              <div className="p-6 font-mono text-sm leading-loose overflow-x-auto">
+              <div className="p-6 font-mono text-xs sm:text-sm leading-loose overflow-x-auto">
                 <div className="text-blue-400">void <span className="text-yellow-300">main</span>() {'{'}</div>
                 <div className="pl-4 text-gray-300">
                   <span className="text-purple-400">final</span> developer = <span className="text-yellow-300">Developer</span>(<br/>
@@ -144,41 +165,14 @@ export function Banner() {
                   );
                 </div>
                 <div>{'}'}</div>
-                <div className="mt-4 text-green-400/80 font-bold">
-                  $ <TypewriterText text="flutter run -d all_devices" delay={1000} />
+                <div className="mt-4 text-green-400/80 font-bold flex items-center gap-2">
+                  <span>$</span> <TypewriterText text="flutter run -d all_devices" delay={1000} />
                 </div>
               </div>
-            </div>
-
-            {/* Profile Image Behind */}
-            <div className="absolute -top-10 -right-4 md:right-0 lg:-right-10 w-64 h-64 md:w-80 md:h-80 z-10 opacity-60 hover:opacity-100 transition-opacity duration-500">
-              <div className="w-full h-full rounded-[2rem] rotate-3 overflow-hidden border-4 border-card shadow-2xl relative">
-                <div className="absolute inset-0 bg-primary/20 mix-blend-overlay z-10"></div>
-                <img
-                  src="/profile.jpg"
-                  alt="Muhammad Imam Abdurrahman"
-                  className="w-full h-full object-cover grayscale hover:grayscale-0 transition-all duration-700"
-                />
-              </div>
-              
-              {/* Floating badges */}
-              <motion.div 
-                animate={{ y: [0, -10, 0] }}
-                transition={{ duration: 4, repeat: Infinity, ease: "easeInOut" }}
-                className="absolute -bottom-6 -left-6 px-5 py-3 rounded-2xl bg-card border border-border flex items-center gap-3 shadow-xl z-30"
-              >
-                <div className="p-2 bg-primary/10 rounded-lg">
-                  <Star className="w-5 h-5 text-primary" />
-                </div>
-                <div>
-                  <div className="text-lg font-bold">4+</div>
-                  <div className="text-xs text-foreground/60 font-medium">Apps Shipped</div>
-                </div>
-              </motion.div>
             </div>
             
             {/* Background Glow */}
-            <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-full h-full bg-primary/20 blur-[100px] -z-10 rounded-full"></div>
+            <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-full h-[120%] bg-primary/10 blur-[100px] -z-10 rounded-full"></div>
           </motion.div>
           
         </div>
