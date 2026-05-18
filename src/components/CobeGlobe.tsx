@@ -8,35 +8,28 @@ export function CobeGlobe() {
 
   useEffect(() => {
     let phi = 0;
-    let width = 0;
     
     if (!canvasRef.current) return;
 
-    const onResize = () => canvasRef.current && (width = canvasRef.current.offsetWidth);
-    window.addEventListener('resize', onResize);
-    onResize();
-
     const globe = createGlobe(canvasRef.current, {
       devicePixelRatio: 2,
-      width: width * 2,
-      height: width * 2,
+      width: 1000,
+      height: 1000,
       phi: 0,
       theta: 0.3,
       dark: 1,
       diffuse: 1.2,
       mapSamples: 16000,
       mapBrightness: 6,
-      baseColor: [1, 1, 1], // White dots
+      baseColor: [1, 1, 1],
       markerColor: [251 / 255, 146 / 255, 60 / 255],
-      glowColor: [1, 1, 1], // White glow
+      glowColor: [1, 1, 1],
       markers: [
         { location: [-3.7928, 102.2608], size: 0.1 } // Bengkulu
       ],
       onRender: (state) => {
         state.phi = phi;
         phi += 0.005;
-        state.width = width * 2;
-        state.height = width * 2;
       },
     });
 
@@ -46,7 +39,6 @@ export function CobeGlobe() {
 
     return () => {
       globe.destroy();
-      window.removeEventListener('resize', onResize);
     };
   }, []);
 
