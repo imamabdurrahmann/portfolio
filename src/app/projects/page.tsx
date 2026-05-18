@@ -13,8 +13,8 @@ const getCardStyles = (index: number) => {
     "md:col-span-2 md:row-span-2 bg-gradient-to-br from-secondary to-background", // Large hero
     "md:col-span-1 md:row-span-1", // Standard
     "md:col-span-1 md:row-span-2 bg-primary/5 border-primary/20", // Tall
+    "md:col-span-2 md:row-span-1", // Wide (changed from standard to fill the hole for 4 items)
     "md:col-span-1 md:row-span-1", // Standard
-    "md:col-span-2 md:row-span-1", // Wide
   ];
   return styles[index % styles.length];
 };
