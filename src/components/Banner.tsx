@@ -76,8 +76,7 @@ export function Banner() {
 
             <div className="flex flex-wrap items-center gap-4 mb-10">
               <Magnetic>
-                <Link href="/projects" className="group relative inline-flex items-center justify-center gap-2 px-8 py-4 bg-primary text-primary-foreground font-bold rounded-full overflow-hidden transition-transform active:scale-95">
-                  <span className="absolute inset-0 w-full h-full -mt-1 rounded-full opacity-30 bg-gradient-to-b from-transparent via-transparent to-black"></span>
+                <Link href="/projects" className="group relative inline-flex items-center justify-center gap-2 px-8 py-4 bg-primary text-primary-foreground font-bold rounded-full overflow-hidden transition-all active:scale-95 shadow-[inset_0_-4px_0_rgba(0,0,0,0.2)] hover:shadow-[inset_0_-4px_0_rgba(0,0,0,0.4)] hover:bg-orange-600">
                   <span className="relative flex items-center gap-2">
                     {t("hero.viewProject")}
                     <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
