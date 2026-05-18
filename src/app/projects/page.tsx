@@ -1,161 +1,152 @@
 "use client";
 
 import Link from "next/link";
-import { ArrowRight, Star, ExternalLink } from "lucide-react";
+import { ArrowRight, Star, ExternalLink, Code2 } from "lucide-react";
 import { useLocale } from "@/i18n/LocaleProvider";
 import { getProjects } from "@/lib/projects";
+import { motion } from "framer-motion";
+import { Magnetic } from "@/components/Magnetic";
+
+// Asymmetric sizing for bento grid
+const getCardStyles = (index: number) => {
+  const styles = [
+    "md:col-span-2 md:row-span-2 bg-gradient-to-br from-secondary to-background", // Large hero
+    "md:col-span-1 md:row-span-1", // Standard
+    "md:col-span-1 md:row-span-2 bg-primary/5 border-primary/20", // Tall
+    "md:col-span-1 md:row-span-1", // Standard
+    "md:col-span-2 md:row-span-1", // Wide
+  ];
+  return styles[index % styles.length];
+};
 
 export default function ProjectsPage() {
   const { t } = useLocale();
   const projects = getProjects();
 
   return (
-    <div className="min-h-screen pt-20">
+    <div className="min-h-screen pt-20 bg-background">
       {/* Hero */}
-      <section className="py-12 px-6">
-        <div className="container mx-auto max-w-5xl text-center">
-          <span className="text-primary text-xs font-medium uppercase tracking-wider">{t("nav.projects")}</span>
-          <h1 className="text-3xl md:text-4xl font-bold text-foreground mt-3">
-            {t("projects.title")} <span className="text-primary">{t("projects.titleAccent")}</span>
-          </h1>
-          <p className="mt-3 text-sm text-foreground/60 max-w-xl mx-auto leading-relaxed">
-            {t("projects.subtitle")}
-          </p>
+      <section className="py-20 px-6 relative overflow-hidden">
+        <div className="absolute top-0 right-1/4 w-96 h-96 bg-primary/10 blur-[100px] rounded-full pointer-events-none -z-10" />
+        <div className="container mx-auto max-w-5xl text-center relative z-10">
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.5 }}
+          >
+            <span className="text-primary text-xs font-bold uppercase tracking-[0.2em]">{t("nav.projects")}</span>
+            <h1 className="text-5xl md:text-7xl font-black text-foreground mt-4 tracking-tighter">
+              {t("projects.title")} <span className="text-transparent bg-clip-text bg-gradient-to-r from-primary to-orange-400">{t("projects.titleAccent")}</span>
+            </h1>
+            <p className="mt-6 text-base md:text-lg text-foreground/60 max-w-2xl mx-auto leading-relaxed">
+              {t("projects.subtitle")}
+            </p>
+          </motion.div>
         </div>
       </section>
 
-      {/* Featured Project (First Project - Full Width) */}
-      {projects.length > 0 && (
-        <div className="p-6 rounded-xl bg-secondary border border-border mb-6 mx-6">
-          <div className="grid md:grid-cols-2 gap-6 items-center">
-            {/* Project Image */}
-            <Link href={`/projects/${projects[0].slug}`} className="block cursor-pointer">
-              <div className="relative aspect-video rounded-xl bg-secondary flex items-center justify-center overflow-hidden">
-                {projects[0].image ? (
-                  <img src={projects[0].image} alt={projects[0].title} className="w-full h-full object-contain" />
-                ) : (
-                  <span className="text-7xl md:text-8xl font-black text-primary opacity-25">
-                    {projects[0].title.charAt(0)}
-                  </span>
-                )}
-                {projects[0].featured && (
-                  <div className="absolute top-3 right-3 flex items-center gap-1 px-3 py-1.5 rounded-full bg-primary text-white text-xs font-semibold">
-                    <Star className="w-3 h-3" />
-                    Featured
-                  </div>
-                )}
-              </div>
-            </Link>
-
-            {/* Project Info */}
-            <div>
-              <span className="inline-flex items-center gap-2 text-primary text-xs font-bold uppercase tracking-widest mb-3">
-                <div className="w-6 h-[2px] bg-primary" />
-                Featured Project
-              </span>
-              <Link href={`/projects/${projects[0].slug}`} className="block">
-                <h3 className="text-xl md:text-2xl font-bold text-foreground">
-                  {t(`projectData.${projects[0].id}.title`, undefined, projects[0].title)}
-                </h3>
-              </Link>
-              <p className="mt-3 text-sm text-foreground/70 leading-relaxed">
-                {t(`projectData.${projects[0].id}.description`, undefined, projects[0].description)}
-              </p>
-
-              <div className="flex flex-wrap gap-2 mt-4">
-                {projects[0].tech.slice(0, 4).map((tech) => (
-                  <span key={tech} className="tech-tag">{tech}</span>
-                ))}
-                {projects[0].tech.length > 4 && (
-                  <span className="tech-tag">+{projects[0].tech.length - 4}</span>
-                )}
-              </div>
-
-              <div className="mt-5 pt-4 border-t border-border">
-                <Link
-                  href={`/projects/${projects[0].slug}`}
-                  className="btn-primary"
+      {/* Projects Bento Grid */}
+      <section className="py-12 px-6">
+        <div className="container mx-auto max-w-7xl">
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-6 auto-rows-[300px]">
+            {projects.map((project, index) => {
+              const bentoClass = getCardStyles(index);
+              
+              return (
+                <motion.div
+                  initial={{ opacity: 0, scale: 0.95, y: 20 }}
+                  whileInView={{ opacity: 1, scale: 1, y: 0 }}
+                  viewport={{ once: true, margin: "-50px" }}
+                  transition={{ duration: 0.5, delay: (index % 3) * 0.1 }}
+                  key={project.id}
+                  className={`group relative p-8 rounded-[2rem] bg-card border border-border overflow-hidden hover:border-primary/50 transition-all duration-500 flex flex-col justify-between ${bentoClass}`}
                 >
-                  <ExternalLink className="w-4 h-4" />
-                  {t("projectCard.viewDetails")}
-                </Link>
-              </div>
-            </div>
-          </div>
-        </div>
-      )}
+                  {/* Background Image / Glow */}
+                  {project.image ? (
+                     <div className="absolute inset-0 opacity-20 group-hover:opacity-40 transition-opacity duration-500 z-0">
+                       <img src={project.image} alt={project.title} className="w-full h-full object-cover mix-blend-overlay blur-[2px] group-hover:blur-0 transition-all duration-500" />
+                       <div className="absolute inset-0 bg-gradient-to-t from-background via-background/80 to-transparent"></div>
+                     </div>
+                  ) : (
+                    <div className="absolute inset-0 bg-primary/5 opacity-0 group-hover:opacity-100 transition-opacity duration-500 z-0"></div>
+                  )}
 
-      {/* Other Projects Grid */}
-      <section className="py-8 px-6">
-        <div className="container mx-auto max-w-5xl">
-          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-4">
-            {projects.slice(1).map((project) => (
-              <div
-                key={project.id}
-                className="p-5 rounded-xl bg-secondary border border-border cursor-pointer"
-              >
-                <Link href={`/projects/${project.slug}`} className="block cursor-pointer">
-                  {/* Project Image */}
-                  <div className="relative h-28 rounded-xl bg-secondary flex items-center justify-center mb-4 overflow-hidden">
-                    {project.image ? (
-                      <img src={project.image} alt={project.title} className="w-full h-full object-contain" />
-                    ) : (
-                      <span className="text-4xl font-bold text-primary opacity-40">{project.title.charAt(0)}</span>
-                    )}
-                    {project.featured && (
-                      <div className="absolute top-2 right-2 flex items-center gap-1 px-2.5 py-1 rounded-full bg-primary text-white text-xs font-semibold">
-                        <Star className="w-3 h-3" />
+                  <div className="relative z-10">
+                    <div className="flex justify-between items-start mb-6">
+                      <div className="w-14 h-14 rounded-2xl bg-secondary/80 backdrop-blur-md border border-border flex items-center justify-center group-hover:bg-primary group-hover:text-primary-foreground transition-colors duration-500 shadow-xl">
+                        <span className="text-2xl font-bold font-mono">
+                          {project.title.charAt(0)}
+                        </span>
                       </div>
-                    )}
+                      <div className="flex items-center gap-3">
+                        {project.featured && (
+                          <span className="flex items-center gap-1 px-3 py-1 rounded-full bg-primary/20 text-primary text-xs font-bold border border-primary/20">
+                            <Star className="w-3 h-3" /> Featured
+                          </span>
+                        )}
+                        <span className="text-4xl font-black text-foreground/10 font-mono pointer-events-none group-hover:text-primary/20 transition-colors duration-500">
+                          {String(index + 1).padStart(2, '0')}
+                        </span>
+                      </div>
+                    </div>
+
+                    <h3 className="text-2xl font-bold text-foreground mb-3 group-hover:text-primary transition-colors drop-shadow-md">
+                      {t(`projectData.${project.id}.title`, undefined, project.title)}
+                    </h3>
+
+                    <p className="text-sm text-foreground/70 leading-relaxed line-clamp-2 md:line-clamp-3">
+                      {t(`projectData.${project.id}.description`, undefined, project.description)}
+                    </p>
                   </div>
 
-                  <h3 className="text-base font-bold text-foreground">
-                    {t(`projectData.${project.id}.title`, undefined, project.title)}
-                  </h3>
-                  <p className="mt-2 text-xs text-foreground/60 leading-relaxed line-clamp-2">
-                    {t(`projectData.${project.id}.description`, undefined, project.description)}
-                  </p>
+                  <div className="relative z-10 mt-6 flex flex-col justify-end h-full">
+                    <div className="flex flex-wrap gap-2 mb-6">
+                      {project.tech.slice(0, 3).map((tech) => (
+                        <span key={tech} className="text-xs px-3 py-1 rounded-full bg-secondary/80 backdrop-blur-sm text-foreground/90 font-medium border border-border">
+                          {tech}
+                        </span>
+                      ))}
+                      {project.tech.length > 3 && (
+                        <span className="text-xs px-3 py-1 rounded-full bg-secondary/80 backdrop-blur-sm text-foreground/90 font-medium border border-border">
+                          +{project.tech.length - 3}
+                        </span>
+                      )}
+                    </div>
 
-                  <div className="flex flex-wrap gap-1.5 mt-3">
-                    {project.tech.slice(0, 3).map((tech) => (
-                      <span key={tech} className="tech-tag">
-                        {tech}
-                      </span>
-                    ))}
-                    {project.tech.length > 3 && (
-                      <span className="tech-tag">
-                        +{project.tech.length - 3}
-                      </span>
-                    )}
+                    <Magnetic>
+                      <Link
+                        href={`/projects/${project.slug}`}
+                        className="inline-flex items-center gap-3 text-foreground font-bold text-sm group/btn"
+                      >
+                        <span className="w-10 h-10 rounded-full bg-primary flex items-center justify-center text-primary-foreground group-hover/btn:scale-110 transition-transform shadow-lg shadow-primary/20">
+                          <ExternalLink className="w-4 h-4 group-hover/btn:translate-x-0.5 group-hover/btn:-translate-y-0.5 transition-transform" />
+                        </span>
+                        <span className="group-hover/btn:text-primary transition-colors">
+                          {t("projectCard.viewDetails")}
+                        </span>
+                      </Link>
+                    </Magnetic>
                   </div>
-                </Link>
-
-                <div className="mt-4 pt-3 border-t border-border">
-                  <Link
-                    href={`/projects/${project.slug}`}
-                    className="btn-secondary text-xs py-2 px-3"
-                  >
-                    <ExternalLink className="w-3.5 h-3.5" />
-                    {t("projectCard.viewDetails")}
-                  </Link>
-                </div>
-              </div>
-            ))}
+                </motion.div>
+              );
+            })}
           </div>
         </div>
       </section>
 
       {/* CTA */}
-      <section className="py-12 px-6">
-        <div className="container mx-auto max-w-5xl text-center">
-          <h2 className="text-xl md:text-2xl font-bold text-foreground">{t("contact.title")}</h2>
-          <p className="mt-2 text-foreground/60 text-sm max-w-md mx-auto">
+      <section className="py-24 px-6 relative">
+        <div className="container mx-auto max-w-4xl text-center">
+          <h2 className="text-3xl md:text-5xl font-black text-foreground mb-6">{t("contact.title")}</h2>
+          <p className="text-foreground/60 text-lg max-w-xl mx-auto mb-10">
             {t("contact.subtitle")}
           </p>
-          <Link href="/contact" className="inline-flex items-center gap-2 mt-5 btn-primary">
-            {t("nav.hireMe")}
-            <ArrowRight className="w-4 h-4" />
-          </Link>
+          <Magnetic>
+            <Link href="/contact" className="inline-flex items-center gap-3 px-8 py-4 rounded-full bg-primary text-primary-foreground font-bold text-lg hover:scale-105 transition-transform shadow-xl shadow-primary/25">
+              {t("nav.hireMe")}
+              <ArrowRight className="w-5 h-5" />
+            </Link>
+          </Magnetic>
         </div>
       </section>
     </div>
