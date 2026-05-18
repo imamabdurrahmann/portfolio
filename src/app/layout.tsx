@@ -73,7 +73,7 @@ export default function RootLayout({
           }}
         />
       </head>
-      <body className="min-h-screen flex flex-col antialiased">
+      <body className="min-h-screen flex flex-col antialiased" suppressHydrationWarning>
         <LocaleProvider>
           <ThemeProvider defaultTheme="dark" storageKey="portfolio-theme">
             <LenisScroll />
