@@ -33,8 +33,13 @@ export function Preloader() {
     <AnimatePresence>
       {loading && (
         <motion.div
-          initial={{ y: 0 }}
-          exit={{ y: "-100vh", transition: { duration: 0.9, ease: [0.76, 0, 0.24, 1], delay: 0.1 } }}
+          initial={{ y: 0, borderRadius: "0px" }}
+          exit={{ 
+            y: "-100vh", 
+            borderBottomLeftRadius: "50%",
+            borderBottomRightRadius: "50%",
+            transition: { duration: 0.9, ease: [0.76, 0, 0.24, 1], delay: 0.1 } 
+          }}
           className="preloader"
         >
           <motion.div exit={{ opacity: 0, transition: { duration: 0.3 } }} className="preloader-content">

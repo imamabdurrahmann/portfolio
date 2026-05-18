@@ -938,8 +938,6 @@ html {
   display: flex;
   justify-content: center;
   align-items: center;
-  border-bottom-left-radius: 30vh;
-  border-bottom-right-radius: 30vh;
 }
 .preloader-content {
   display: flex;
