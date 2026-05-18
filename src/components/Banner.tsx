@@ -1,9 +1,11 @@
 "use client";
 
 import Link from "next/link";
-import { Star, Heart, ArrowRight, Mail, Sparkles, Smartphone, Globe, Monitor } from "lucide-react";
+import { Star, Heart, ArrowRight, Mail, Terminal, Smartphone, Globe, Monitor, Code } from "lucide-react";
 import { Magnetic } from "./Magnetic";
 import { useLocale } from "@/i18n/LocaleProvider";
+import { motion } from "framer-motion";
+import { useState, useEffect } from "react";
 
 const platforms = [
   { icon: Smartphone, label: "Android" },
@@ -12,110 +14,173 @@ const platforms = [
   { icon: Monitor, label: "Desktop" },
 ];
 
+const TypewriterText = ({ text, delay = 0 }: { text: string; delay?: number }) => {
+  const [displayText, setDisplayText] = useState("");
+
+  useEffect(() => {
+    let i = 0;
+    const timer = setTimeout(() => {
+      const interval = setInterval(() => {
+        setDisplayText(text.slice(0, i));
+        i++;
+        if (i > text.length) clearInterval(interval);
+      }, 50);
+      return () => clearInterval(interval);
+    }, delay);
+    return () => clearTimeout(timer);
+  }, [text, delay]);
+
+  return <span>{displayText}<span className="animate-pulse">_</span></span>;
+};
+
 export function Banner() {
   const { t } = useLocale();
 
   return (
-    <section className="hero-section px-6">
-      <div className="container mx-auto max-w-6xl relative z-10">
-        {/* Grid layout - no stagger animations */}
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-16 items-center">
-          {/* Left Column */}
-          <div className="lg:col-span-7 space-y-6">
-            <h1 className="hero-heading text-left">
-              {t("hero.title")}<br />
-              <span className="hero-heading-accent">{t("hero.titleAccent2")}</span>
-            </h1>
+    <section className="hero-section relative w-full overflow-hidden flex items-center justify-center pt-24 pb-16 lg:pt-32 lg:pb-24 min-h-[95vh]">
+      {/* Background Huge Text Overlay */}
+      <motion.div 
+        initial={{ opacity: 0, y: 50 }}
+        animate={{ opacity: 0.05, y: 0 }}
+        transition={{ duration: 1.5, ease: "easeOut" }}
+        className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 text-[15vw] font-black leading-none whitespace-nowrap z-0 pointer-events-none tracking-tighter"
+      >
+        FLUTTER
+      </motion.div>
 
-            <div className="flex items-center gap-3">
-              <span className="h-6 w-[2px] bg-primary/40 rounded-full" />
-              <span className="hero-role">Flutter Developer</span>
+      <div className="container mx-auto px-6 max-w-7xl relative z-10">
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-8 items-center">
+          
+          {/* Left Content */}
+          <motion.div 
+            initial={{ opacity: 0, x: -50 }}
+            animate={{ opacity: 1, x: 0 }}
+            transition={{ duration: 0.8, ease: "easeOut" }}
+            className="lg:col-span-7 flex flex-col items-start"
+          >
+            <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full border border-primary/20 bg-primary/5 text-primary text-sm font-mono mb-6 backdrop-blur-sm">
+              <Code className="w-4 h-4" />
+              <span>Dart & Flutter Specialist</span>
             </div>
 
-            <p className="text-base md:text-lg text-foreground/70 leading-relaxed max-w-xl">
+            <h1 className="text-5xl md:text-7xl lg:text-8xl font-black tracking-tight leading-[1.1] mb-6">
+              {t("hero.title").split(',')[0]}<br />
+              <span className="text-transparent bg-clip-text bg-gradient-to-r from-primary to-orange-400">
+                {t("hero.title").split(',')[1] ? t("hero.title").split(',')[1] : "Developer"}
+              </span>
+            </h1>
+
+            <p className="text-lg md:text-xl text-foreground/60 max-w-2xl mb-8 leading-relaxed">
               {t("hero.description")}
             </p>
 
-            {/* Why Flutter story */}
-            <div className="relative pl-5 border-l-2 border-primary/25">
-              <div className="flex items-center gap-2 mb-3">
-                <Sparkles className="w-4 h-4 text-primary" />
-                <span className="text-sm font-semibold text-primary">{t("hero.storyTitle")}</span>
-              </div>
-              <p className="text-sm text-foreground/60 leading-relaxed">
-                {t("hero.storyDescription")}
-              </p>
-
-              <div className="flex flex-wrap items-center gap-3 mt-4">
-                {platforms.map((platform) => (
-                  <div key={platform.label} className="platform-badge">
-                    <platform.icon className="w-3 h-3" />
-                    <span>{platform.label}</span>
-                  </div>
-                ))}
-              </div>
-            </div>
-
-            {/* CTA buttons */}
-            <div className="flex flex-wrap items-center gap-4 pt-2">
+            <div className="flex flex-wrap items-center gap-4 mb-10">
               <Magnetic>
-                <Link href="/projects" className="hero-cta">
-                  {t("hero.viewProject")}
-                  <ArrowRight className="w-4 h-4" />
+                <Link href="/projects" className="group relative inline-flex items-center justify-center gap-2 px-8 py-4 bg-primary text-primary-foreground font-bold rounded-full overflow-hidden transition-transform active:scale-95">
+                  <span className="absolute inset-0 w-full h-full -mt-1 rounded-lg opacity-30 bg-gradient-to-b from-transparent via-transparent to-black"></span>
+                  <span className="relative flex items-center gap-2">
+                    {t("hero.viewProject")}
+                    <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
+                  </span>
                 </Link>
               </Magnetic>
+              
               <Magnetic>
-                <Link href="/contact" className="hero-cta-secondary">
-                  <Mail className="w-4 h-4" />
-                  {t("hero.contactMe")}
+                <Link href="/contact" className="group inline-flex items-center gap-2 px-8 py-4 bg-secondary/80 hover:bg-secondary border border-border text-foreground font-bold rounded-full transition-colors active:scale-95 backdrop-blur-md">
+                  <Mail className="w-5 h-5 text-primary" />
+                  <span>{t("hero.contactMe")}</span>
                 </Link>
               </Magnetic>
             </div>
-          </div>
 
-          {/* Right Column - Profile */}
-          <div className="lg:col-span-5 relative flex justify-center">
-            <div className="relative">
-              <div className="w-72 h-72 md:w-80 md:h-80 rounded-3xl overflow-hidden shadow-2xl shadow-primary/10 relative">
+            <div className="flex flex-wrap gap-4 items-center">
+              <span className="text-sm font-semibold text-foreground/50 uppercase tracking-widest mr-2">Deploy To:</span>
+              {platforms.map((platform, idx) => (
+                <motion.div 
+                  initial={{ opacity: 0, y: 10 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ delay: 0.5 + (idx * 0.1) }}
+                  key={platform.label} 
+                  className="flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-card border border-border/50 text-xs font-medium"
+                >
+                  <platform.icon className="w-3.5 h-3.5 text-foreground/70" />
+                  {platform.label}
+                </motion.div>
+              ))}
+            </div>
+          </motion.div>
+
+          {/* Right Content - Terminal & Profile */}
+          <motion.div 
+            initial={{ opacity: 0, scale: 0.95 }}
+            animate={{ opacity: 1, scale: 1 }}
+            transition={{ duration: 0.8, delay: 0.2, ease: "easeOut" }}
+            className="lg:col-span-5 relative"
+          >
+            {/* Terminal Window */}
+            <div className="w-full rounded-2xl overflow-hidden border border-border bg-[#0d1117] shadow-2xl relative z-20 md:-ml-12 lg:-ml-24 mt-8 lg:mt-0">
+              <div className="flex items-center px-4 py-3 bg-[#161b22] border-b border-border/40">
+                <div className="flex gap-2">
+                  <div className="w-3 h-3 rounded-full bg-red-500/80"></div>
+                  <div className="w-3 h-3 rounded-full bg-yellow-500/80"></div>
+                  <div className="w-3 h-3 rounded-full bg-green-500/80"></div>
+                </div>
+                <div className="flex-1 text-center text-xs font-mono text-foreground/40 flex items-center justify-center gap-2">
+                  <Terminal className="w-3 h-3" /> main.dart
+                </div>
+              </div>
+              <div className="p-6 font-mono text-sm leading-loose overflow-x-auto">
+                <div className="text-blue-400">void <span className="text-yellow-300">main</span>() {'{'}</div>
+                <div className="pl-4 text-gray-300">
+                  <span className="text-purple-400">final</span> developer = <span className="text-yellow-300">Developer</span>(<br/>
+                  <span className="pl-4 text-orange-300">name:</span> <span className="text-green-400">'Imam Abdurrahman'</span>,<br/>
+                  <span className="pl-4 text-orange-300">role:</span> <span className="text-green-400">'Flutter Expert'</span>,<br/>
+                  <span className="pl-4 text-orange-300">passion:</span> <span className="text-green-400">'Clean Code'</span>,<br/>
+                  );
+                </div>
+                <div className="pl-4 mt-2">
+                  <span className="text-yellow-300">runApp</span>(<br/>
+                  <span className="pl-4 text-blue-400">AwesomeApp</span>(developer)<br/>
+                  );
+                </div>
+                <div>{'}'}</div>
+                <div className="mt-4 text-green-400/80 font-bold">
+                  $ <TypewriterText text="flutter run -d all_devices" delay={1000} />
+                </div>
+              </div>
+            </div>
+
+            {/* Profile Image Behind */}
+            <div className="absolute -top-10 -right-4 md:right-0 lg:-right-10 w-64 h-64 md:w-80 md:h-80 z-10 opacity-60 hover:opacity-100 transition-opacity duration-500">
+              <div className="w-full h-full rounded-[2rem] rotate-3 overflow-hidden border-4 border-card shadow-2xl relative">
+                <div className="absolute inset-0 bg-primary/20 mix-blend-overlay z-10"></div>
                 <img
                   src="/profile.jpg"
                   alt="Muhammad Imam Abdurrahman"
-                  className="w-full h-full object-cover"
+                  className="w-full h-full object-cover grayscale hover:grayscale-0 transition-all duration-700"
                 />
               </div>
-
-              {/* Stats below image */}
-              <div className="mt-6 flex items-center justify-center gap-4">
-                <div className="px-4 py-2 rounded-xl bg-secondary border border-border flex items-center gap-2">
-                  <Star className="w-4 h-4 text-primary" />
-                  <span className="text-base font-bold text-primary">4</span>
-                  <span className="text-xs text-foreground/60">Apps</span>
+              
+              {/* Floating badges */}
+              <motion.div 
+                animate={{ y: [0, -10, 0] }}
+                transition={{ duration: 4, repeat: Infinity, ease: "easeInOut" }}
+                className="absolute -bottom-6 -left-6 px-5 py-3 rounded-2xl bg-card border border-border flex items-center gap-3 shadow-xl z-30"
+              >
+                <div className="p-2 bg-primary/10 rounded-lg">
+                  <Star className="w-5 h-5 text-primary" />
                 </div>
-                <div className="px-4 py-2 rounded-xl bg-secondary border border-border flex items-center gap-2">
-                  <Heart className="w-4 h-4 text-rose-400" />
-                  <span className="text-base font-bold text-primary">3+</span>
-                  <span className="text-xs text-foreground/60">Years</span>
+                <div>
+                  <div className="text-lg font-bold">4+</div>
+                  <div className="text-xs text-foreground/60 font-medium">Apps Shipped</div>
                 </div>
-              </div>
+              </motion.div>
             </div>
-          </div>
-        </div>
-
-        {/* Bottom line */}
-        <div className="mt-16 pt-6 border-t border-foreground/10 flex flex-wrap items-center gap-8">
-          <div className="flex items-center gap-2 text-sm text-foreground/50">
-            <svg className="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
-              <path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5" />
-            </svg>
-            <span>Clean Architecture</span>
-          </div>
-          <div className="flex items-center gap-2 text-sm text-foreground/50">
-            <svg className="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
-              <circle cx="12" cy="12" r="10" />
-              <path d="M2 12h20M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z" />
-            </svg>
-            <span>Bengkulu, Indonesia</span>
-          </div>
+            
+            {/* Background Glow */}
+            <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-full h-full bg-primary/20 blur-[100px] -z-10 rounded-full"></div>
+          </motion.div>
+          
         </div>
       </div>
     </section>

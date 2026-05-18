@@ -58,16 +58,15 @@ export default function RootLayout({
   return (
     <html lang="id" suppressHydrationWarning>
       <head>
-        <meta name="color-scheme" content="light dark" />
+        <meta name="color-scheme" content="dark" />
         <script
           dangerouslySetInnerHTML={{
             __html: `
               (function() {
                 try {
-                  var stored = localStorage.getItem('portfolio-theme');
-                  var theme = stored || 'dark';
-                  document.documentElement.setAttribute('data-theme', theme);
-                  document.documentElement.style.colorScheme = theme;
+                  document.documentElement.setAttribute('data-theme', 'dark');
+                  document.documentElement.style.colorScheme = 'dark';
+                  localStorage.setItem('portfolio-theme', 'dark');
                 } catch(e) {}
               })();
             `,
