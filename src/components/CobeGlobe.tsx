@@ -11,10 +11,15 @@ export function CobeGlobe() {
     
     if (!canvasRef.current) return;
 
+    // Explicitly set the internal canvas resolution to fix the WebGL surface rendering
+    const size = 1000;
+    canvasRef.current.width = size;
+    canvasRef.current.height = size;
+
     const globe = createGlobe(canvasRef.current, {
       devicePixelRatio: 2,
-      width: 1000,
-      height: 1000,
+      width: size,
+      height: size,
       phi: 0,
       theta: 0.3,
       dark: 1,
@@ -30,6 +35,8 @@ export function CobeGlobe() {
       onRender: (state) => {
         state.phi = phi;
         phi += 0.005;
+        state.width = size;
+        state.height = size;
       },
     });
 
