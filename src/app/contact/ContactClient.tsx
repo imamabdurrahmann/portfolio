@@ -240,7 +240,7 @@ export function ContactClient() {
                     <MapPin className="w-4 h-4 text-primary" />
                     <span className="font-bold text-foreground text-sm">Bengkulu, Indonesia</span>
                   </div>
-                  <div className="flex items-center gap-3 mt-40">
+                  <div className="flex items-center gap-3 mt-24">
                     <div className="w-10 h-10 rounded-full bg-secondary/80 border border-border flex items-center justify-center backdrop-blur-md">
                       <Clock className="w-4 h-4 text-primary" />
                     </div>
