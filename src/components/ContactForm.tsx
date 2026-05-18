@@ -7,34 +7,74 @@ import { Textarea } from "@/components/ui/textarea";
 import { useLocale } from "@/i18n/LocaleProvider";
 import { Magnetic } from "@/components/Magnetic";
 import { motion } from "framer-motion";
+import { useState, useEffect } from "react";
 
 const formId = "mwvyraeg";
 
 export function ContactForm() {
   const [state, handleSubmit] = useForm(formId);
   const { t } = useLocale();
+  const [isShaking, setIsShaking] = useState(false);
+
+  useEffect(() => {
+    if (state.errors && state.errors.length > 0) {
+      setIsShaking(true);
+      setTimeout(() => setIsShaking(false), 500);
+    }
+  }, [state.errors]);
+
+  const onSubmitWrap = (e: React.FormEvent<HTMLFormElement>) => {
+    if (!e.currentTarget.checkValidity()) {
+      setIsShaking(true);
+      setTimeout(() => setIsShaking(false), 500);
+      // Browser handles native tooltip, but we trigger shake
+    }
+    handleSubmit(e);
+  };
 
   if (state.succeeded) {
     return (
       <motion.div 
         initial={{ opacity: 0, scale: 0.95 }}
         animate={{ opacity: 1, scale: 1 }}
+        transition={{ duration: 0.5, ease: "easeOut" }}
         className="w-full p-8 rounded-[2rem] bg-card border border-border shadow-lg flex flex-col items-center justify-center text-center h-full min-h-[400px]"
       >
-        <div className="p-5 bg-emerald-500/10 rounded-full inline-flex mb-6 relative">
+        <motion.div 
+          initial={{ scale: 0 }}
+          animate={{ scale: 1 }}
+          transition={{ type: "spring", stiffness: 200, damping: 10, delay: 0.2 }}
+          className="p-5 bg-emerald-500/10 rounded-full inline-flex mb-6 relative"
+        >
           <div className="absolute inset-0 bg-emerald-500/20 blur-xl rounded-full" />
           <CheckCircle className="h-12 w-12 text-emerald-500 relative z-10" />
-        </div>
-        <h3 className="text-2xl font-bold text-foreground mb-3">{t("contact.successTitle")}</h3>
-        <p className="text-foreground/60 max-w-[250px]">
+        </motion.div>
+        <motion.h3 
+          initial={{ opacity: 0, y: 10 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ delay: 0.3 }}
+          className="text-2xl font-bold text-foreground mb-3"
+        >
+          {t("contact.successTitle")}
+        </motion.h3>
+        <motion.p 
+          initial={{ opacity: 0, y: 10 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ delay: 0.4 }}
+          className="text-foreground/60 max-w-[250px]"
+        >
           {t("contact.successMessage")}
-        </p>
+        </motion.p>
       </motion.div>
     );
   }
 
   return (
-    <div className="w-full p-8 rounded-[2rem] bg-card border border-border shadow-lg relative group transition-colors duration-500 hover:border-primary/50">
+    <motion.div 
+      animate={isShaking ? { x: [-10, 10, -10, 10, -5, 5, 0] } : {}}
+      transition={{ duration: 0.4 }}
+      className="w-full p-8 rounded-[2rem] bg-card border border-border shadow-lg relative group transition-colors duration-500 hover:border-primary/50"
+    >
       <div className="absolute inset-0 bg-primary/5 opacity-0 group-hover:opacity-100 transition-opacity duration-500 rounded-[2rem] z-0 pointer-events-none" />
       
       <div className="relative z-10">
@@ -45,7 +85,7 @@ export function ContactForm() {
           </h3>
         </div>
 
-        <form onSubmit={handleSubmit} className="space-y-5">
+        <form onSubmit={onSubmitWrap} className="space-y-5">
           <div className="space-y-2">
             <label htmlFor="name" className="text-xs font-bold text-foreground/60 uppercase tracking-wider ml-1">{t("contact.name")}</label>
             <Input 
@@ -108,6 +148,6 @@ export function ContactForm() {
           <ValidationError errors={state.errors} className="text-sm text-red-500 text-center" />
         </form>
       </div>
-    </div>
+    </motion.div>
   );
 }

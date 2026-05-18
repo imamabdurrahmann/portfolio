@@ -1,9 +1,11 @@
 "use client";
 
-import { Mail, MapPin, Clock, MessageCircle, Send, Zap } from "lucide-react";
+import { Mail, MapPin, Clock, MessageCircle, Send, Zap, Copy, CheckCircle2 } from "lucide-react";
 import { ContactForm } from "@/components/ContactForm";
-import { motion } from "framer-motion";
+import { motion, AnimatePresence } from "framer-motion";
 import { Magnetic } from "@/components/Magnetic";
+import { CobeGlobe } from "@/components/CobeGlobe";
+import { useState, useEffect } from "react";
 
 const LinkedinIcon = ({ className }: { className?: string }) => (
   <svg
@@ -66,19 +68,10 @@ const contactItems = [
     value: "@itsimammm",
     href: "https://instagram.com/itsimammm",
   },
-  {
-    icon: <MapPin className="h-5 w-5" />,
-    title: "Lokasi",
-    value: "Bengkulu, Indonesia",
-    href: "https://www.google.com/maps/search/Bengkulu,+Indonesia",
-  },
-  {
-    icon: <Clock className="h-5 w-5" />,
-    title: "Availability",
-    value: "UTC+7 (WIB)",
-    href: null,
-  },
 ];
+
+// Separated Location & Time to be used in the Globe Card
+// instead of regular contactItems
 
 const services = [
   "Pengembangan Aplikasi Web",
@@ -88,6 +81,30 @@ const services = [
 ];
 
 export function ContactClient() {
+  const [time, setTime] = useState("");
+  const [copiedItem, setCopiedItem] = useState<string | null>(null);
+
+  useEffect(() => {
+    const updateTime = () => {
+      const wibTime = new Date().toLocaleTimeString("id-ID", {
+        timeZone: "Asia/Jakarta",
+        hour: "2-digit",
+        minute: "2-digit",
+      });
+      setTime(`${wibTime} WIB`);
+    };
+    updateTime();
+    const interval = setInterval(updateTime, 1000);
+    return () => clearInterval(interval);
+  }, []);
+
+  const handleCopy = (e: React.MouseEvent, text: string, id: string) => {
+    e.preventDefault();
+    navigator.clipboard.writeText(text);
+    setCopiedItem(id);
+    setTimeout(() => setCopiedItem(null), 2000);
+  };
+
   return (
     <div className="min-h-screen pt-20 bg-background">
       {/* Hero */}
@@ -137,20 +154,41 @@ export function ContactClient() {
                         className="flex items-center gap-4 p-3 -m-3 rounded-2xl hover:bg-secondary/50 transition-colors duration-300 group/item"
                       >
                         <Magnetic>
-                          <div className="w-12 h-12 rounded-2xl bg-secondary/80 border border-border flex items-center justify-center text-foreground group-hover/item:bg-primary group-hover/item:text-primary-foreground group-hover/item:border-primary/50 transition-all duration-300 shadow-sm">
-                            {item.icon}
+                          <div className="w-12 h-12 rounded-2xl bg-secondary/80 border border-border flex items-center justify-center text-foreground group-hover/item:bg-primary group-hover/item:text-primary-foreground group-hover/item:border-primary/50 transition-all duration-300 shadow-sm relative">
+                            <AnimatePresence mode="wait">
+                              {copiedItem === item.title ? (
+                                <motion.div key="check" initial={{ scale: 0 }} animate={{ scale: 1 }} exit={{ scale: 0 }}>
+                                  <CheckCircle2 className="w-5 h-5" />
+                                </motion.div>
+                              ) : (
+                                <motion.div key="icon" initial={{ scale: 0 }} animate={{ scale: 1 }} exit={{ scale: 0 }}>
+                                  {item.icon}
+                                </motion.div>
+                              )}
+                            </AnimatePresence>
                           </div>
                         </Magnetic>
-                        <div className="flex-1 min-w-0">
-                          <div className="flex items-center gap-2">
-                            <h3 className="font-bold text-foreground text-sm truncate">{item.title}</h3>
-                            {item.badge && (
-                              <span className="text-[10px] px-2 py-0.5 rounded-full bg-emerald-500/10 text-emerald-500 font-bold uppercase tracking-wider shrink-0 border border-emerald-500/20">
-                                {item.badge}
-                              </span>
-                            )}
+                        <div className="flex items-center justify-between w-full">
+                          <div className="flex-1 min-w-0 pr-4">
+                            <div className="flex items-center gap-2">
+                              <h3 className="font-bold text-foreground text-sm truncate">{item.title}</h3>
+                              {item.badge && (
+                                <span className="text-[10px] px-2 py-0.5 rounded-full bg-emerald-500/10 text-emerald-500 font-bold uppercase tracking-wider shrink-0 border border-emerald-500/20">
+                                  {item.badge}
+                                </span>
+                              )}
+                            </div>
+                            <p className="text-foreground/60 text-xs truncate mt-0.5">{item.value}</p>
                           </div>
-                          <p className="text-foreground/60 text-xs truncate mt-0.5">{item.value}</p>
+                          {(item.title === "Email" || item.title === "WhatsApp") && (
+                            <button 
+                              onClick={(e) => handleCopy(e, item.title === "Email" ? item.value : "082375227802", item.title)}
+                              className="p-2 rounded-xl bg-background/50 border border-border hover:bg-primary hover:text-primary-foreground hover:border-primary transition-colors z-20"
+                              title="Copy to clipboard"
+                            >
+                              <Copy className="w-4 h-4" />
+                            </button>
+                          )}
                         </div>
                       </a>
                     ) : (
@@ -188,6 +226,29 @@ export function ContactClient() {
                   <p className="text-sm text-foreground/70 leading-relaxed font-medium">
                     Biasanya merespons dalam 1x24 jam. Untuk kebutuhan urgent, silakan hubungi via WhatsApp.
                   </p>
+                </div>
+              </div>
+
+              {/* Globe Card */}
+              <div className="p-8 rounded-[2rem] bg-card border border-border shadow-lg relative group transition-colors duration-500 hover:border-primary/50 overflow-hidden min-h-[300px]">
+                <div className="absolute inset-0 bg-primary/5 opacity-0 group-hover:opacity-100 transition-opacity duration-500 z-0 pointer-events-none" />
+                <div className="absolute -inset-10 z-0 opacity-40 group-hover:opacity-80 transition-opacity duration-700 pointer-events-auto">
+                  <CobeGlobe />
+                </div>
+                <div className="relative z-10 flex flex-col justify-between h-full pointer-events-none">
+                  <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full border border-border bg-card/80 backdrop-blur-md w-fit">
+                    <MapPin className="w-4 h-4 text-primary" />
+                    <span className="font-bold text-foreground text-sm">Bengkulu, Indonesia</span>
+                  </div>
+                  <div className="flex items-center gap-3 mt-40">
+                    <div className="w-10 h-10 rounded-full bg-secondary/80 border border-border flex items-center justify-center backdrop-blur-md">
+                      <Clock className="w-4 h-4 text-primary" />
+                    </div>
+                    <div className="bg-card/80 backdrop-blur-md px-3 py-1.5 rounded-xl border border-border">
+                      <p className="text-xs text-foreground/60 font-semibold uppercase tracking-wider">Local Time</p>
+                      <p className="font-black text-foreground font-mono">{time || "Menghitung..."}</p>
+                    </div>
+                  </div>
                 </div>
               </div>
             </motion.div>
