@@ -68,12 +68,6 @@ export function Contact() {
           </Link>
         </div>
 
-        {/* Copyright */}
-        <div className="text-center pt-6 border-t border-border/50">
-          <p className="text-foreground/40 text-xs">
-            &copy; {new Date().getFullYear()} Muhammad Imam Abdurrahman. {t("footer.copyright")}
-          </p>
-        </div>
       </div>
     </footer>
   );
