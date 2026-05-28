@@ -45,7 +45,10 @@
   "projects": {
     "title": "Semua Project",
     "titleAccent": "Galeri",
-    "subtitle": "Jelajahi portfolio aplikasi mobile saya"
+    "subtitle": "Jelajahi portfolio aplikasi mobile saya",
+    "filterAll": "Semua",
+    "filterMobile": "Mobile",
+    "filterWebsite": "Website"
   },
   "contact": {
     "title": "Ngobrol yuk",

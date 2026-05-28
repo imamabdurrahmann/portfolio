@@ -11,6 +11,7 @@ export interface Project {
   tech: string[];
   featured?: boolean;
   contactMessage?: string;
+  category: 'mobile' | 'website';
 }
 
 function generateSlug(title: string): string {
@@ -30,6 +31,7 @@ export const projects: Project[] = [
     tech: ["Flutter", "Riverpod", "SQLite", "fl_chart", "PDF", "Biometric Auth", "GoRouter"],
     featured: true,
     contactMessage: "Halo Imam, saya tertarik dengan project DompetKu - Catatan Keuangan",
+    category: "mobile",
   },
   {
     id: "2",
@@ -40,6 +42,7 @@ export const projects: Project[] = [
     tech: ["Flutter", "Provider", "TTS", "Shared Preferences", "Google Fonts", "Lottie", "flutter_animate"],
     featured: false,
     contactMessage: "Halo Imam, saya tertarik dengan project Part of English",
+    category: "mobile",
   },
   {
     id: "3",
@@ -69,6 +72,7 @@ export const projects: Project[] = [
     tech: ["Flutter", "Riverpod", "Hive", "Clean Architecture", "GoRouter", "Dio"],
     featured: true,
     contactMessage: "Halo Imam, saya tertarik dengan project Try Outcpns",
+    category: "mobile",
   },
   {
     id: "4",
@@ -79,6 +83,7 @@ export const projects: Project[] = [
     tech: ["Flutter", "Provider", "fl_chart", "math_expressions", "Google Fonts"],
     featured: false,
     contactMessage: "Halo Imam, saya tertarik dengan project CalcPro - Kalkulator Lengkap",
+    category: "mobile",
   },
 ];
 

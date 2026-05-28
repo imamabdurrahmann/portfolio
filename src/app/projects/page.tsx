@@ -1,5 +1,6 @@
 "use client";
 
+import { useState } from "react";
 import Link from "next/link";
 import { ArrowRight, Star, ExternalLink, Code2 } from "lucide-react";
 import { useLocale } from "@/i18n/LocaleProvider";
@@ -21,7 +22,10 @@ const getCardStyles = (index: number) => {
 
 export default function ProjectsPage() {
   const { t } = useLocale();
-  const projects = getProjects();
+  const allProjects = getProjects();
+  const [filter, setFilter] = useState<'all' | 'mobile' | 'website'>('all');
+
+  const projects = allProjects.filter(p => filter === 'all' || p.category === filter);
 
   return (
     <div className="min-h-screen pt-20 bg-background">
@@ -48,6 +52,25 @@ export default function ProjectsPage() {
       {/* Projects Bento Grid */}
       <section className="py-12 px-6">
         <div className="container mx-auto max-w-7xl">
+          {/* Filters */}
+          <div className="flex justify-center gap-4 mb-12">
+            {(['all', 'mobile', 'website'] as const).map((f) => (
+              <button
+                key={f}
+                onClick={() => setFilter(f)}
+                className={`px-6 py-2 rounded-full text-sm md:text-base font-bold transition-all ${
+                  filter === f 
+                    ? 'bg-primary text-primary-foreground shadow-lg shadow-primary/25 scale-105' 
+                    : 'bg-secondary/50 text-foreground/70 hover:bg-secondary hover:text-foreground hover:scale-105'
+                }`}
+              >
+                {f === 'all' ? t('projects.filterAll') : 
+                 f === 'mobile' ? t('projects.filterMobile') : 
+                 t('projects.filterWebsite')}
+              </button>
+            ))}
+          </div>
+
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6 auto-rows-[minmax(400px,auto)] md:auto-rows-[300px]">
             {projects.map((project, index) => {
               const bentoClass = getCardStyles(index);

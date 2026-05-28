@@ -45,7 +45,10 @@
   "projects": {
     "title": "All Projects",
     "titleAccent": "Gallery",
-    "subtitle": "Explore my portfolio of mobile applications"
+    "subtitle": "Explore my portfolio of mobile applications",
+    "filterAll": "All",
+    "filterMobile": "Mobile",
+    "filterWebsite": "Website"
   },
   "contact": {
     "title": "Let's talk",
