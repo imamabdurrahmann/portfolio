@@ -162,7 +162,7 @@ export function Banner() {
                   <div className="w-3 h-3 rounded-full bg-green-500/80"></div>
                 </div>
                 <div className="flex-1 text-center text-xs font-mono text-foreground/60 flex items-center justify-center gap-2">
-                  <FileSpreadsheet className="w-3.5 h-3.5 text-emerald-400" /> ringkasan_eksekutif.xlsx
+                  <FileSpreadsheet className="w-3.5 h-3.5 text-emerald-400" /> {locale === 'en' ? 'executive_summary.xlsx' : 'ringkasan_eksekutif.xlsx'}
                 </div>
               </div>
 

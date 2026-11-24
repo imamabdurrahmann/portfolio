@@ -34,7 +34,7 @@ export default function CertificatesPage() {
               <button
                 className="absolute -top-12 right-0 sm:right-2 p-2 rounded-full bg-white/10 hover:bg-white/20 text-white transition-colors"
                 onClick={() => setSelectedCert(null)}
-                title="Tutup"
+                title={locale === 'en' ? 'Close' : 'Tutup'}
               >
                 <X className="w-6 h-6" />
               </button>

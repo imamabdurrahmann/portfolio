@@ -1,25 +1,38 @@
 "use client";
 
 import { useLocale } from "@/i18n/LocaleProvider";
-import { localeNames, type Locale } from "@/i18n/config";
 import { Globe } from "lucide-react";
 
 export function LanguageToggle() {
   const { locale, setLocale } = useLocale();
 
-  const toggleLocale = () => {
-    const newLocale: Locale = locale === "en" ? "id" : "en";
-    setLocale(newLocale);
-  };
-
   return (
-    <button
-      onClick={toggleLocale}
-      className="flex items-center gap-1.5 px-2.5 py-1.5 rounded-lg text-sm font-medium text-foreground/70 hover:text-foreground hover:bg-muted transition-colors"
-      aria-label={`Switch to ${locale === "en" ? "Indonesian" : "English"}`}
-    >
-      <Globe className="w-4 h-4" />
-      <span>{localeNames[locale]}</span>
-    </button>
+    <div className="flex items-center gap-0.5 p-1 rounded-full bg-secondary/80 border border-border text-xs font-mono">
+      <Globe className="w-3.5 h-3.5 ml-1.5 mr-0.5 text-foreground/50 shrink-0" />
+      <button
+        type="button"
+        onClick={() => setLocale("id")}
+        className={`px-2 py-0.5 rounded-full transition-all text-xs font-bold ${
+          locale === "id"
+            ? "bg-primary text-primary-foreground shadow-sm"
+            : "text-foreground/50 hover:text-foreground hover:bg-white/5"
+        }`}
+        title="Ganti ke Bahasa Indonesia"
+      >
+        ID
+      </button>
+      <button
+        type="button"
+        onClick={() => setLocale("en")}
+        className={`px-2 py-0.5 rounded-full transition-all text-xs font-bold ${
+          locale === "en"
+            ? "bg-primary text-primary-foreground shadow-sm"
+            : "text-foreground/50 hover:text-foreground hover:bg-white/5"
+        }`}
+        title="Switch to English"
+      >
+        EN
+      </button>
+    </div>
   );
 }

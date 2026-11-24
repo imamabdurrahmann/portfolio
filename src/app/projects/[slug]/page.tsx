@@ -92,7 +92,7 @@ function ProjectDetail({ project }: ProjectDetailProps) {
                   </span>
                 )}
                 <span className="px-3 py-1 rounded-full bg-secondary text-foreground/70 text-xs font-medium uppercase tracking-wider border border-border">
-                  {project.category}
+                  {t(`projects.filter${project.category.charAt(0).toUpperCase() + project.category.slice(1)}`)}
                 </span>
               </div>
               <h1 className="text-2xl md:text-4xl font-bold text-foreground">
