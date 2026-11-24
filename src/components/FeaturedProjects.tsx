@@ -7,6 +7,133 @@ import { getFeaturedProjects } from "@/lib/projects";
 import { motion } from "framer-motion";
 import { Magnetic } from "./Magnetic";
 
+function ProjectMockup({ id }: { id: string }) {
+  if (id === "1") {
+    return (
+      <div className="w-full h-full p-6 md:p-8 bg-[#0b1120] flex flex-col justify-between font-mono text-xs select-none">
+        <div className="flex items-center justify-between pb-4 border-b border-white/10">
+          <div className="flex items-center gap-2">
+            <div className="w-3 h-3 rounded-full bg-red-500/80"></div>
+            <div className="w-3 h-3 rounded-full bg-yellow-500/80"></div>
+            <div className="w-3 h-3 rounded-full bg-green-500/80"></div>
+            <span className="text-slate-400 text-xs ml-2">omiko_warehouse_audit.xlsx</span>
+          </div>
+          <span className="px-2.5 py-1 rounded-full bg-emerald-500/10 text-emerald-400 text-[11px] font-bold border border-emerald-500/20">
+            Audit: 0% Discrepancy
+          </span>
+        </div>
+
+        <div className="grid grid-cols-2 gap-3 my-4">
+          <div className="p-3.5 rounded-xl bg-slate-900/80 border border-slate-800">
+            <span className="text-slate-400 text-[11px] block">Stock Discrepancy</span>
+            <span className="text-emerald-400 text-xl font-bold font-sans">0.00%</span>
+            <span className="text-slate-500 text-[10px] block mt-0.5">Physical vs System Match</span>
+          </div>
+          <div className="p-3.5 rounded-xl bg-slate-900/80 border border-slate-800">
+            <span className="text-slate-400 text-[11px] block">5S Compliance Audit</span>
+            <span className="text-amber-400 text-xl font-bold font-sans">98.5%</span>
+            <span className="text-slate-500 text-[10px] block mt-0.5">Grade A (Standardized)</span>
+          </div>
+        </div>
+
+        <div className="space-y-2 text-[11px] text-slate-300">
+          <div className="flex justify-between p-2.5 rounded-lg bg-slate-900/50 border border-slate-800/80">
+            <span>Inbound Logistics (Vendor)</span>
+            <span className="text-emerald-400 font-bold">100% Quality Checked</span>
+          </div>
+          <div className="flex justify-between p-2.5 rounded-lg bg-slate-900/50 border border-slate-800/80">
+            <span>Outbound Unit Distribution</span>
+            <span className="text-primary font-bold">Allocated On-Time</span>
+          </div>
+        </div>
+      </div>
+    );
+  }
+
+  if (id === "2") {
+    return (
+      <div className="w-full h-full p-6 md:p-8 bg-[#0b1120] flex flex-col justify-between font-mono text-xs select-none">
+        <div className="flex items-center justify-between pb-4 border-b border-white/10">
+          <div className="flex items-center gap-2">
+            <div className="w-3 h-3 rounded-full bg-red-500/80"></div>
+            <div className="w-3 h-3 rounded-full bg-yellow-500/80"></div>
+            <div className="w-3 h-3 rounded-full bg-green-500/80"></div>
+            <span className="text-slate-400 text-xs ml-2">manpower_roster_24h.xlsx</span>
+          </div>
+          <span className="px-2.5 py-1 rounded-full bg-emerald-500/10 text-emerald-400 text-[11px] font-bold border border-emerald-500/20">
+            Shift Fulfillment: 98.4%
+          </span>
+        </div>
+
+        <div className="grid grid-cols-2 gap-3 my-4">
+          <div className="p-3.5 rounded-xl bg-slate-900/80 border border-slate-800">
+            <span className="text-slate-400 text-[11px] block">Shift Fulfillment</span>
+            <span className="text-emerald-400 text-xl font-bold font-sans">98.4%</span>
+            <span className="text-slate-500 text-[10px] block mt-0.5">3-Shift 24h Rotation</span>
+          </div>
+          <div className="p-3.5 rounded-xl bg-slate-900/80 border border-slate-800">
+            <span className="text-slate-400 text-[11px] block">Overtime Reconciliation</span>
+            <span className="text-primary text-xl font-bold font-sans">100%</span>
+            <span className="text-slate-500 text-[10px] block mt-0.5">Zero Unbudgeted Discrepancy</span>
+          </div>
+        </div>
+
+        <div className="space-y-2 text-[11px] text-slate-300">
+          <div className="flex justify-between p-2.5 rounded-lg bg-slate-900/50 border border-slate-800/80">
+            <span>Timesheet Formula Engine</span>
+            <span className="text-emerald-400 font-bold">VLOOKUP • INDEX/MATCH</span>
+          </div>
+          <div className="flex justify-between p-2.5 rounded-lg bg-slate-900/50 border border-slate-800/80">
+            <span>Monthly Management Recap</span>
+            <span className="text-primary font-bold">Automated Pivot Tables</span>
+          </div>
+        </div>
+      </div>
+    );
+  }
+
+  // Project 3: CAT BKN Exam System
+  return (
+    <div className="w-full h-full p-6 md:p-8 bg-[#0b1120] flex flex-col justify-between font-mono text-xs select-none">
+      <div className="flex items-center justify-between pb-4 border-b border-white/10">
+        <div className="flex items-center gap-2">
+          <div className="w-3 h-3 rounded-full bg-red-500/80"></div>
+          <div className="w-3 h-3 rounded-full bg-yellow-500/80"></div>
+          <div className="w-3 h-3 rounded-full bg-green-500/80"></div>
+          <span className="text-slate-400 text-xs ml-2">cat_bkn_scoring_engine.dat</span>
+        </div>
+        <span className="px-2.5 py-1 rounded-full bg-blue-500/10 text-blue-400 text-[11px] font-bold border border-blue-500/20">
+          BKN Benchmark Evaluated
+        </span>
+      </div>
+
+      <div className="grid grid-cols-2 gap-3 my-4">
+        <div className="p-3.5 rounded-xl bg-slate-900/80 border border-slate-800">
+          <span className="text-slate-400 text-[11px] block">Passing Grade Benchmark</span>
+          <span className="text-blue-400 text-xl font-bold font-sans">TWK • TIU • TKP</span>
+          <span className="text-slate-500 text-[10px] block mt-0.5">Official Threshold Scored</span>
+        </div>
+        <div className="p-3.5 rounded-xl bg-slate-900/80 border border-slate-800">
+          <span className="text-slate-400 text-[11px] block">Candidate Flow Stability</span>
+          <span className="text-emerald-400 text-xl font-bold font-sans">Zero Latency</span>
+          <span className="text-slate-500 text-[10px] block mt-0.5">Peak Load Synchronized</span>
+        </div>
+      </div>
+
+      <div className="space-y-2 text-[11px] text-slate-300">
+        <div className="flex justify-between p-2.5 rounded-lg bg-slate-900/50 border border-slate-800/80">
+          <span>Question Bank Validation</span>
+          <span className="text-emerald-400 font-bold">Hundreds Curated</span>
+        </div>
+        <div className="flex justify-between p-2.5 rounded-lg bg-slate-900/50 border border-slate-800/80">
+          <span>Performance Analytics</span>
+          <span className="text-primary font-bold">Diagnostic Score Chart</span>
+        </div>
+      </div>
+    </div>
+  );
+}
+
 export function FeaturedProjects() {
   const { t, locale } = useLocale();
   const featuredProjects = getFeaturedProjects();
@@ -52,30 +179,17 @@ export function FeaturedProjects() {
               >
                 <div className={`flex flex-col ${isEven ? 'md:flex-row-reverse' : 'md:flex-row'} gap-8 md:gap-16 items-center`}>
                   
-                  {/* Image Container */}
+                  {/* Visual Mockup Container */}
                   <Link
                     href={`/projects/${project.slug}`}
-                    className="w-full md:w-3/5 block relative overflow-hidden rounded-[2rem] aspect-[4/3] md:aspect-video bg-card border border-border shadow-2xl"
+                    className="w-full md:w-3/5 block relative overflow-hidden rounded-[2rem] aspect-[4/3] md:aspect-video bg-card border border-border shadow-2xl hover:border-primary/50 transition-colors"
                   >
                     <motion.div 
-                      whileHover={{ scale: 1.05 }}
-                      transition={{ duration: 0.6, ease: "easeOut" }}
+                      whileHover={{ scale: 1.02 }}
+                      transition={{ duration: 0.4, ease: "easeOut" }}
                       className="w-full h-full relative"
                     >
-                      {project.image ? (
-                        <img
-                          src={project.image}
-                          alt={project.title}
-                          className="w-full h-full object-cover"
-                        />
-                      ) : (
-                        <div className="absolute inset-0 flex items-center justify-center bg-gradient-to-br from-secondary to-background">
-                          <span className="text-8xl font-black text-primary/10">
-                            {project.title.charAt(0)}
-                          </span>
-                        </div>
-                      )}
-                      <div className="absolute inset-0 bg-black/20 group-hover:bg-transparent transition-colors duration-500"></div>
+                      <ProjectMockup id={project.id} />
                     </motion.div>
 
                     {/* Badge */}
