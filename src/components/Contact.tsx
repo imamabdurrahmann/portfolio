@@ -37,7 +37,7 @@ export function Contact() {
   };
 
   return (
-    <footer id="contact" className="py-32 px-6 relative overflow-hidden bg-background">
+    <footer id="contact" className="py-16 sm:py-24 md:py-32 px-4 sm:px-6 relative overflow-hidden bg-background">
       {/* Background Glow */}
       <div className="absolute bottom-0 left-1/2 -translate-x-1/2 w-full max-w-3xl h-[300px] bg-primary/20 blur-[150px] rounded-full pointer-events-none -z-10" />
 
@@ -51,7 +51,7 @@ export function Contact() {
             rotateY,
             transformStyle: "preserve-3d",
           }}
-          className="w-full relative rounded-3xl border border-white/10 bg-gradient-to-b from-card/80 to-background backdrop-blur-xl p-10 md:p-20 shadow-2xl overflow-hidden"
+          className="w-full relative rounded-3xl border border-white/10 bg-gradient-to-b from-card/80 to-background backdrop-blur-xl p-6 sm:p-12 md:p-20 shadow-2xl overflow-hidden"
         >
           {/* Inner Glow following mouse */}
           <motion.div
@@ -65,10 +65,10 @@ export function Contact() {
           />
 
           <div style={{ transform: "translateZ(75px)" }} className="relative z-10 text-center flex flex-col items-center">
-            <h2 className="text-5xl md:text-7xl font-black text-foreground mb-6 tracking-tight">
+            <h2 className="text-3xl sm:text-5xl md:text-7xl font-black text-foreground mb-4 sm:mb-6 tracking-tight">
               {t("contact.title") || "Let's work together"}
             </h2>
-            <p className="text-foreground/60 text-lg max-w-md mx-auto mb-12">
+            <p className="text-foreground/70 text-sm sm:text-base md:text-lg max-w-md mx-auto mb-8 sm:mb-12">
               {t("contact.subtitle") || "I'm always open to discussing product design work or partnership opportunities."}
             </p>
 

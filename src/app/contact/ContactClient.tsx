@@ -109,7 +109,7 @@ export function ContactClient() {
   return (
     <div className="min-h-screen pt-20 bg-background">
       {/* Hero */}
-      <section className="py-20 px-6 relative overflow-hidden">
+      <section className="py-12 sm:py-20 px-4 sm:px-6 relative overflow-hidden">
         <div className="absolute top-0 right-1/4 w-96 h-96 bg-primary/10 blur-[100px] rounded-full pointer-events-none -z-10" />
         <div className="absolute bottom-0 left-1/4 w-96 h-96 bg-accent-secondary/10 blur-[100px] rounded-full pointer-events-none -z-10" />
         
@@ -120,7 +120,7 @@ export function ContactClient() {
             transition={{ duration: 0.5 }}
           >
             <span className="text-primary text-xs font-bold uppercase tracking-[0.2em]">{t("contact.badge")}</span>
-            <h1 className="text-5xl md:text-7xl font-black text-foreground mt-4 tracking-tighter">
+            <h1 className="text-3xl sm:text-5xl md:text-7xl font-black text-foreground mt-4 tracking-tighter">
               {locale === 'en' ? (
                 <>
                   Let&apos;s <span className="text-transparent bg-clip-text bg-gradient-to-r from-primary to-orange-400">Connect</span>
@@ -131,7 +131,7 @@ export function ContactClient() {
                 </>
               )}
             </h1>
-            <p className="mt-6 text-base md:text-lg text-foreground/60 max-w-2xl mx-auto leading-relaxed">
+            <p className="mt-4 sm:mt-6 text-sm sm:text-base md:text-lg text-foreground/70 max-w-2xl mx-auto leading-relaxed">
               {t("contact.subtitle")}
             </p>
           </motion.div>
@@ -139,7 +139,7 @@ export function ContactClient() {
       </section>
 
       {/* Bento Grid layout */}
-      <section className="py-12 px-6">
+      <section className="py-8 sm:py-12 px-4 sm:px-6">
         <div className="container mx-auto max-w-5xl">
           <div className="grid grid-cols-1 md:grid-cols-12 gap-6 auto-rows-[auto]">
             {/* Left - Contact Info */}
@@ -149,7 +149,7 @@ export function ContactClient() {
               transition={{ duration: 0.5, delay: 0.1 }}
               className="md:col-span-5 space-y-6"
             >
-              <div className="p-8 rounded-[2rem] bg-card border border-border shadow-lg relative group transition-colors duration-500 hover:border-primary/50 overflow-hidden">
+              <div className="p-6 sm:p-8 rounded-[2rem] bg-card border border-border shadow-lg relative group transition-colors duration-500 hover:border-primary/50 overflow-hidden">
                 <div className="absolute inset-0 bg-primary/5 opacity-0 group-hover:opacity-100 transition-opacity duration-500 z-0 pointer-events-none" />
                 <div className="relative z-10 flex flex-col gap-5">
                   {contactItems.map((item) => (

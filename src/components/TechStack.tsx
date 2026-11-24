@@ -86,19 +86,19 @@ export function TechStack() {
   const { t, locale } = useLocale();
 
   return (
-    <section className="py-24 overflow-hidden bg-background relative border-y border-border">
+    <section className="py-16 sm:py-24 overflow-hidden bg-background relative border-y border-border">
       {/* Background gradients */}
-      <div className="absolute left-0 top-0 w-32 h-full bg-gradient-to-r from-background to-transparent z-10 pointer-events-none"></div>
-      <div className="absolute right-0 top-0 w-32 h-full bg-gradient-to-l from-background to-transparent z-10 pointer-events-none"></div>
+      <div className="absolute left-0 top-0 w-16 sm:w-32 h-full bg-gradient-to-r from-background to-transparent z-10 pointer-events-none"></div>
+      <div className="absolute right-0 top-0 w-16 sm:w-32 h-full bg-gradient-to-l from-background to-transparent z-10 pointer-events-none"></div>
 
-      <div className="container mx-auto px-6 max-w-7xl mb-12 relative z-20">
+      <div className="container mx-auto px-4 sm:px-6 max-w-7xl mb-8 sm:mb-12 relative z-20">
         <div className="flex items-center gap-4">
           <div className="w-2 h-2 rounded-full bg-primary animate-pulse"></div>
           <span className="text-sm font-semibold uppercase tracking-[0.2em] text-primary">
             {t("techStack.subtitle") || "SOFTWARE & KETERAMPILAN ADMINISTRASI"}
           </span>
         </div>
-        <h2 className="text-4xl md:text-5xl font-black mt-4">
+        <h2 className="text-3xl sm:text-4xl md:text-5xl font-black mt-3 sm:mt-4">
           {t("techStack.title") || "Keahlian & Kemampuan"}
         </h2>
       </div>

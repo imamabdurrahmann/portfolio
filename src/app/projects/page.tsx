@@ -31,7 +31,7 @@ export default function ProjectsPage() {
   return (
     <div className="min-h-screen pt-20 bg-background">
       {/* Hero */}
-      <section className="py-20 px-6 relative overflow-hidden">
+      <section className="py-12 sm:py-20 px-4 sm:px-6 relative overflow-hidden">
         <div className="absolute top-0 right-1/4 w-96 h-96 bg-primary/10 blur-[100px] rounded-full pointer-events-none -z-10" />
         <div className="container mx-auto max-w-5xl text-center relative z-10">
           <motion.div
@@ -40,10 +40,10 @@ export default function ProjectsPage() {
             transition={{ duration: 0.5 }}
           >
             <span className="text-primary text-xs font-bold uppercase tracking-[0.2em]">{t("nav.projects")}</span>
-            <h1 className="text-5xl md:text-7xl font-black text-foreground mt-4 tracking-tighter">
+            <h1 className="text-3xl sm:text-5xl md:text-7xl font-black text-foreground mt-4 tracking-tighter">
               {t("projects.title")} <span className="text-transparent bg-clip-text bg-gradient-to-r from-primary to-orange-400">{t("projects.titleAccent")}</span>
             </h1>
-            <p className="mt-6 text-base md:text-lg text-foreground/60 max-w-2xl mx-auto leading-relaxed">
+            <p className="mt-4 sm:mt-6 text-sm sm:text-base md:text-lg text-foreground/70 max-w-2xl mx-auto leading-relaxed">
               {t("projects.subtitle")}
             </p>
           </motion.div>
@@ -51,15 +51,15 @@ export default function ProjectsPage() {
       </section>
 
       {/* Projects Grid */}
-      <section className="py-12 px-6">
+      <section className="py-8 sm:py-12 px-4 sm:px-6">
         <div className="container mx-auto max-w-6xl">
           {/* Filters */}
-          <div className="flex justify-center flex-wrap gap-3 md:gap-4 mb-12">
+          <div className="flex justify-center flex-wrap gap-2 sm:gap-3 md:gap-4 mb-8 sm:mb-12">
             {(['all', 'operations', 'administration', 'finance'] as const).map((f) => (
               <button
                 key={f}
                 onClick={() => setFilter(f)}
-                className={`px-6 py-2.5 rounded-full text-sm md:text-base font-bold transition-all ${
+                className={`px-4 sm:px-6 py-2 sm:py-2.5 rounded-full text-xs sm:text-sm md:text-base font-bold transition-all ${
                   filter === f 
                     ? 'bg-primary text-primary-foreground shadow-lg shadow-primary/25 scale-105' 
                     : 'bg-secondary/50 text-foreground/70 hover:bg-secondary hover:text-foreground hover:scale-105'

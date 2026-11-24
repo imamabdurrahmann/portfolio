@@ -10,7 +10,7 @@ import { Magnetic } from "./Magnetic";
 function ProjectMockup({ id, locale }: { id: string; locale: string }) {
   if (id === "4") {
     return (
-      <div className="w-full h-full p-6 md:p-8 bg-[#0b1120] flex flex-col justify-between font-mono text-xs select-none">
+      <div className="w-full h-full p-4 sm:p-6 md:p-8 bg-[#0b1120] flex flex-col justify-between font-mono text-xs select-none">
         <div className="flex items-center justify-between pb-4 border-b border-white/10">
           <div className="flex items-center gap-2">
             <div className="w-3 h-3 rounded-full bg-red-500/80"></div>
@@ -60,7 +60,7 @@ function ProjectMockup({ id, locale }: { id: string; locale: string }) {
 
   if (id === "2") {
     return (
-      <div className="w-full h-full p-6 md:p-8 bg-[#0b1120] flex flex-col justify-between font-mono text-xs select-none">
+      <div className="w-full h-full p-4 sm:p-6 md:p-8 bg-[#0b1120] flex flex-col justify-between font-mono text-xs select-none">
         <div className="flex items-center justify-between pb-4 border-b border-white/10">
           <div className="flex items-center gap-2">
             <div className="w-3 h-3 rounded-full bg-red-500/80"></div>
@@ -112,7 +112,7 @@ function ProjectMockup({ id, locale }: { id: string; locale: string }) {
 
   // Project 3: CAT BKN Exam System
   return (
-    <div className="w-full h-full p-6 md:p-8 bg-[#0b1120] flex flex-col justify-between font-mono text-xs select-none">
+    <div className="w-full h-full p-4 sm:p-6 md:p-8 bg-[#0b1120] flex flex-col justify-between font-mono text-xs select-none">
       <div className="flex items-center justify-between pb-4 border-b border-white/10">
         <div className="flex items-center gap-2">
           <div className="w-3 h-3 rounded-full bg-red-500/80"></div>
@@ -171,12 +171,12 @@ export function FeaturedProjects() {
   const featuredProjects = getFeaturedProjects();
 
   return (
-    <section id="lab" className="py-32 px-6 relative overflow-hidden bg-background">
+    <section id="lab" className="py-16 sm:py-24 md:py-32 px-4 sm:px-6 relative overflow-hidden bg-background">
       {/* Background elements */}
       <div className="absolute top-0 right-0 w-1/2 h-[500px] bg-primary/5 blur-[120px] -z-10 rounded-full pointer-events-none"></div>
       
       <div className="container mx-auto max-w-7xl relative z-10">
-        <div className="flex flex-col md:flex-row items-start md:items-end justify-between gap-6 mb-16 md:mb-20">
+        <div className="flex flex-col md:flex-row items-start md:items-end justify-between gap-6 mb-12 sm:mb-16 md:mb-20">
           <div>
             <div className="flex items-center gap-3 mb-4">
               <div className="w-2 h-2 rounded-full bg-primary animate-pulse"></div>
@@ -184,7 +184,7 @@ export function FeaturedProjects() {
                 {locale === 'en' ? 'Selected Portfolio' : 'Portofolio Pilihan'}
               </span>
             </div>
-            <h2 className="text-4xl sm:text-5xl md:text-7xl font-black text-foreground tracking-tighter break-words max-w-full">
+            <h2 className="text-3xl sm:text-5xl md:text-7xl font-black text-foreground tracking-tighter break-words max-w-full">
               {t("featured.title")}{" "}
               <span className="text-transparent bg-clip-text bg-gradient-to-r from-primary to-orange-400 inline-block">
                 {t("featured.titleAccent")}
@@ -235,8 +235,8 @@ export function FeaturedProjects() {
                   </Link>
 
                   {/* Content Container */}
-                  <div className="w-full md:w-2/5 flex flex-col items-start">
-                    <div className="text-9xl font-black text-foreground/5 absolute -top-10 -left-10 md:-left-20 pointer-events-none select-none z-0">
+                  <div className="w-full md:w-2/5 flex flex-col items-start relative overflow-hidden md:overflow-visible">
+                    <div className="text-8xl sm:text-9xl font-black text-foreground/5 absolute -top-8 left-0 md:-top-10 md:-left-20 pointer-events-none select-none z-0">
                       0{index + 1}
                     </div>
                     

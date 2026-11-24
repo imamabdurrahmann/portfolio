@@ -51,19 +51,19 @@ export function Banner() {
   }, []);
 
   return (
-    <section className="hero-section relative w-full overflow-hidden flex items-center justify-center pt-32 pb-16 lg:pt-40 lg:pb-24 min-h-[95vh]">
+    <section className="hero-section relative w-full overflow-hidden flex items-center justify-center pt-24 pb-12 sm:pt-32 sm:pb-16 lg:pt-40 lg:pb-24 min-h-[85vh] sm:min-h-[95vh]">
       {/* Background Huge Text Overlay */}
       <motion.div 
         initial={{ opacity: 0, y: 50 }}
         animate={{ opacity: 0.04, y: 0 }}
         transition={{ duration: 1.5, ease: "easeOut" }}
-        className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 text-[12vw] font-black leading-none whitespace-nowrap z-0 pointer-events-none tracking-tighter"
+        className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 text-[12vw] font-black leading-none whitespace-nowrap z-0 pointer-events-none tracking-tighter select-none hidden sm:block"
       >
         ADMINISTRATION
       </motion.div>
 
-      <div className="container mx-auto px-6 max-w-7xl relative z-10">
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-8 items-center">
+      <div className="container mx-auto px-4 sm:px-6 max-w-7xl relative z-10">
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-8 items-center">
           
           {/* Left Content */}
           <motion.div 
@@ -72,25 +72,25 @@ export function Banner() {
             transition={{ duration: 0.8, ease: "easeOut" }}
             className="lg:col-span-7 flex flex-col items-start"
           >
-            <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full border border-primary/20 bg-primary/5 text-primary text-sm font-medium mb-6 backdrop-blur-sm">
-              <Briefcase className="w-4 h-4" />
+            <div className="inline-flex items-center gap-2 px-3 py-1 sm:py-1.5 rounded-full border border-primary/20 bg-primary/5 text-primary text-xs sm:text-sm font-medium mb-4 sm:mb-6 backdrop-blur-sm">
+              <Briefcase className="w-4 h-4 shrink-0" />
               <span>{locale === 'en' ? 'AI & Automation-Powered Administration' : 'Administrasi Perkantoran, Python & Otomasi AI'}</span>
             </div>
 
-            <h1 className="text-5xl md:text-7xl lg:text-8xl font-black tracking-tight leading-[1.1] mb-6">
+            <h1 className="text-3xl sm:text-5xl md:text-7xl lg:text-8xl font-black tracking-tight leading-[1.12] mb-4 sm:mb-6 break-words">
               {t("hero.title")}<br />
               <span className="text-transparent bg-clip-text bg-gradient-to-r from-primary to-orange-400">
                 {t("hero.titleAccent")}
               </span>
             </h1>
 
-            <p className="text-lg md:text-xl text-foreground/60 max-w-2xl mb-8 leading-relaxed">
+            <p className="text-sm sm:text-base md:text-xl text-foreground/70 max-w-2xl mb-6 sm:mb-8 leading-relaxed">
               {t("hero.description")}
             </p>
 
-            <div className="flex flex-col sm:flex-row flex-wrap items-center gap-4 mb-10 w-full sm:w-auto">
+            <div className="flex flex-col sm:flex-row flex-wrap items-center gap-3 sm:gap-4 mb-8 sm:mb-10 w-full sm:w-auto">
               <Magnetic>
-                <Link href="/projects" className="w-full sm:w-auto group relative inline-flex items-center justify-center gap-2 px-8 py-4 bg-primary text-primary-foreground font-bold rounded-full overflow-hidden transition-all active:scale-95 shadow-[inset_0_-4px_0_rgba(0,0,0,0.2)] hover:shadow-[inset_0_-4px_0_rgba(0,0,0,0.4)] hover:bg-orange-600">
+                <Link href="/projects" className="w-full sm:w-auto group relative inline-flex items-center justify-center gap-2 px-6 sm:px-8 py-3.5 sm:py-4 bg-primary text-primary-foreground font-bold rounded-full overflow-hidden transition-all active:scale-95 shadow-[inset_0_-4px_0_rgba(0,0,0,0.2)] hover:shadow-[inset_0_-4px_0_rgba(0,0,0,0.4)] hover:bg-orange-600 text-sm sm:text-base">
                   <span className="relative flex items-center gap-2">
                     {t("hero.viewProject")}
                     <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
@@ -99,15 +99,15 @@ export function Banner() {
               </Magnetic>
               
               <Magnetic>
-                <Link href="/contact" className="w-full sm:w-auto group inline-flex items-center justify-center gap-2 px-8 py-4 bg-secondary/80 hover:bg-secondary border border-border text-foreground font-bold rounded-full transition-colors active:scale-95 backdrop-blur-md">
+                <Link href="/contact" className="w-full sm:w-auto group inline-flex items-center justify-center gap-2 px-6 sm:px-8 py-3.5 sm:py-4 bg-secondary/80 hover:bg-secondary border border-border text-foreground font-bold rounded-full transition-colors active:scale-95 backdrop-blur-md text-sm sm:text-base">
                   <Mail className="w-5 h-5 text-primary" />
                   <span>{t("hero.contactMe")}</span>
                 </Link>
               </Magnetic>
             </div>
 
-            <div className="flex flex-wrap gap-3 items-center w-full">
-              <span className="text-sm font-semibold text-foreground/50 uppercase tracking-widest mr-1 w-full sm:w-auto mb-1 sm:mb-0">
+            <div className="flex flex-wrap gap-2 sm:gap-3 items-center w-full">
+              <span className="text-xs sm:text-sm font-semibold text-foreground/50 uppercase tracking-widest mr-1 w-full sm:w-auto mb-1 sm:mb-0">
                 {locale === 'en' ? 'Core Competencies:' : 'Keahlian Utama:'}
               </span>
               {competencies.map((comp, idx) => (
@@ -116,9 +116,9 @@ export function Banner() {
                   animate={{ opacity: 1, y: 0 }}
                   transition={{ delay: 0.5 + (idx * 0.1) }}
                   key={comp.label} 
-                  className="flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-card border border-border/50 text-xs font-medium"
+                  className="flex items-center gap-1.5 px-2.5 sm:px-3 py-1 sm:py-1.5 rounded-lg bg-card border border-border/50 text-[11px] sm:text-xs font-medium"
                 >
-                  <comp.icon className="w-3.5 h-3.5 text-primary" />
+                  <comp.icon className="w-3.5 h-3.5 text-primary shrink-0" />
                   {locale === 'en' ? comp.labelEn : comp.label}
                 </motion.div>
               ))}
@@ -130,10 +130,10 @@ export function Banner() {
             initial={{ opacity: 0, scale: 0.95 }}
             animate={{ opacity: 1, scale: 1 }}
             transition={{ duration: 0.8, delay: 0.2, ease: "easeOut" }}
-            className="lg:col-span-5 relative flex flex-col items-center lg:items-end mt-16 lg:mt-0"
+            className="lg:col-span-5 relative flex flex-col items-center lg:items-end mt-12 lg:mt-0 w-full"
           >
             {/* Profile Image */}
-            <div className="relative z-20 w-48 h-48 md:w-60 md:h-60 rounded-full p-2 bg-gradient-to-tr from-primary to-orange-400 mb-[-3rem] mr-auto lg:mr-10 shadow-2xl shadow-primary/20 hover:scale-105 transition-transform duration-500">
+            <div className="relative z-20 w-36 h-36 sm:w-48 sm:h-48 md:w-60 md:h-60 rounded-full p-2 bg-gradient-to-tr from-primary to-orange-400 mb-[-2.5rem] sm:mb-[-3rem] mr-auto lg:mr-10 shadow-2xl shadow-primary/20 hover:scale-105 transition-transform duration-500">
               <div className="w-full h-full rounded-full overflow-hidden border-4 border-background bg-card">
                 <img
                   src="/profile.jpg"
@@ -146,7 +146,7 @@ export function Banner() {
               <motion.div 
                 animate={{ y: [0, -10, 0] }}
                 transition={{ duration: 4, repeat: Infinity, ease: "easeInOut" }}
-                className="absolute -right-4 top-1/2 px-4 py-2 rounded-2xl bg-card border border-border flex items-center gap-2 shadow-xl"
+                className="absolute -right-2 sm:-right-4 top-1/2 px-3 sm:px-4 py-1.5 sm:py-2 rounded-2xl bg-card border border-border flex items-center gap-2 shadow-xl"
               >
                 <CheckCircle2 className="w-4 h-4 text-emerald-500" />
                 <span className="text-sm font-bold">{locale === 'en' ? 'Open for Work' : 'Siap Bekerja'}</span>
@@ -166,7 +166,7 @@ export function Banner() {
                 </div>
               </div>
 
-              <div className="p-6 font-mono text-xs sm:text-sm leading-relaxed space-y-3.5">
+              <div className="p-4 sm:p-6 font-mono text-xs sm:text-sm leading-relaxed space-y-3 sm:space-y-3.5">
                 <div className="flex items-center justify-between pb-3 border-b border-white/10">
                   <span className="text-foreground/50">STATUS:</span>
                   <span className="px-2.5 py-0.5 rounded-full text-xs font-semibold bg-emerald-500/10 text-emerald-400 border border-emerald-500/20 flex items-center gap-1.5">

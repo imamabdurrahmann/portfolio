@@ -113,6 +113,8 @@ html[data-theme="light"],
 
   html {
     scroll-behavior: smooth;
+    overflow-x: hidden;
+    max-width: 100vw;
   }
 
   body {
@@ -124,6 +126,9 @@ html[data-theme="light"],
     -moz-osx-font-smoothing: grayscale;
     transition: background 0.4s ease, color 0.4s ease;
     position: relative;
+    overflow-x: hidden;
+    max-width: 100vw;
+    width: 100%;
   }
 
   /* Page transition - fade in on load */
@@ -257,9 +262,9 @@ h1, h2, h3, h4, h5, h6 {
   display: flex;
   align-items: center;
   justify-content: center;
-  width: 40px;
-  height: 40px;
-  border-radius: 0.75rem;
+  width: 38px;
+  height: 38px;
+  border-radius: 9999px;
   background: var(--secondary);
   border: 1px solid var(--border);
   cursor: pointer;
