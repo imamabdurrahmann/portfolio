@@ -9,24 +9,27 @@ import { Preloader } from "@/components/Preloader";
 import { CustomCursor } from "@/components/CustomCursor";
 
 export const metadata: Metadata = {
-  title: "Muhammad Imam Abdurrahman | Administrative Specialist",
-  description: "Portofolio Muhammad Imam Abdurrahman, profesional di bidang Administrasi, Pengolahan Data, dan Operasional Perkantoran dari Bengkulu, Indonesia.",
+  title: "Muhammad Imam Abdurrahman | AI & Automation-Powered Administrative Specialist",
+  description: "Portofolio Muhammad Imam Abdurrahman, profesional Administrasi, Pengolahan Data Otomatis (Python), Power BI, dan AI Workflow Productivity dari Bengkulu, Indonesia.",
   keywords: [
     "Staff Administrasi",
     "Office Administrator",
     "Administrasi Perkantoran",
+    "Python Office Automation",
+    "AI Productivity",
     "Data Entry Specialist",
     "Administrative Assistant",
     "Operations Support",
-    "Microsoft Excel",
+    "Microsoft Excel Lanjutan",
+    "Power BI",
     "Muhammad Imam Abdurrahman",
     "Bengkulu",
   ],
   authors: [{ name: "Muhammad Imam Abdurrahman", url: "https://imamabdurrahman.info" }],
   creator: "Muhammad Imam Abdurrahman",
   openGraph: {
-    title: "Muhammad Imam Abdurrahman | Administrative Specialist",
-    description: "Portofolio Muhammad Imam Abdurrahman, profesional di bidang Administrasi, Pengolahan Data, dan Operasional Perkantoran dari Bengkulu, Indonesia.",
+    title: "Muhammad Imam Abdurrahman | AI & Automation-Powered Administrative Specialist",
+    description: "Portofolio Muhammad Imam Abdurrahman, profesional Administrasi, Pengolahan Data Otomatis (Python), Power BI, dan AI Workflow Productivity dari Bengkulu, Indonesia.",
     url: "https://imamabdurrahman.info",
     siteName: "Portfolio",
     locale: "id_ID",
@@ -34,8 +37,8 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "Muhammad Imam Abdurrahman | Administrative Specialist",
-    description: "Portofolio Muhammad Imam Abdurrahman, profesional di bidang Administrasi, Pengolahan Data, dan Operasional Perkantoran dari Bengkulu, Indonesia.",
+    title: "Muhammad Imam Abdurrahman | AI & Automation-Powered Administrative Specialist",
+    description: "Portofolio Muhammad Imam Abdurrahman, profesional Administrasi, Pengolahan Data Otomatis (Python), Power BI, dan AI Workflow Productivity dari Bengkulu, Indonesia.",
     creator: "@imamabdurrahman",
   },
   robots: {

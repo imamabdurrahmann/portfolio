@@ -11,21 +11,27 @@ import {
   Calculator, 
   Mail, 
   Calendar, 
-  ClipboardCheck 
+  ClipboardCheck,
+  Terminal,
+  Sparkles,
+  Zap,
+  BarChart3
 } from "lucide-react";
 import { motion } from "framer-motion";
 
 const skills = [
-  { name: "Microsoft Excel", icon: <FileSpreadsheet className="w-5 h-5" /> },
-  { name: "Microsoft Word", icon: <FileText className="w-5 h-5" /> },
-  { name: "Google Workspace", icon: <Globe className="w-5 h-5" /> },
-  { name: "Data Entry & Validasi", icon: <Database className="w-5 h-5" /> },
-  { name: "Microsoft PowerPoint", icon: <Presentation className="w-5 h-5" /> },
-  { name: "Manajemen Arsip & Filing", icon: <FolderArchive className="w-5 h-5" /> },
-  { name: "Pembukuan Kas & Petty Cash", icon: <Calculator className="w-5 h-5" /> },
-  { name: "Korespondensi & Surat Resmi", icon: <Mail className="w-5 h-5" /> },
-  { name: "Manajemen Jadwal", icon: <Calendar className="w-5 h-5" /> },
-  { name: "Administrasi Operasional", icon: <ClipboardCheck className="w-5 h-5" /> },
+  { name: "Microsoft Excel Lanjutan (VLOOKUP, Pivot, DAX)", icon: <FileSpreadsheet className="w-5 h-5 text-emerald-400" /> },
+  { name: "Python for Office Automation", icon: <Terminal className="w-5 h-5 text-emerald-400" /> },
+  { name: "AI Productivity & Prompt Engineering", icon: <Sparkles className="w-5 h-5 text-amber-400" /> },
+  { name: "Otomasi Data & Skrip Rutinitas", icon: <Zap className="w-5 h-5 text-orange-400" /> },
+  { name: "Microsoft Power BI & Dashboarding", icon: <BarChart3 className="w-5 h-5 text-yellow-400" /> },
+  { name: "Pembersihan & Rekonsiliasi Data", icon: <Database className="w-5 h-5 text-blue-400" /> },
+  { name: "Microsoft Word & Korespondensi Resmi", icon: <FileText className="w-5 h-5 text-blue-300" /> },
+  { name: "Google Workspace (Sheets, Docs, Drive)", icon: <Globe className="w-5 h-5 text-emerald-300" /> },
+  { name: "Tata Kelola Arsip & Filing Digital", icon: <FolderArchive className="w-5 h-5 text-purple-400" /> },
+  { name: "Pembukuan Kas & Petty Cash", icon: <Calculator className="w-5 h-5 text-teal-400" /> },
+  { name: "Penjadwalan Roster & Timesheet", icon: <Calendar className="w-5 h-5 text-rose-400" /> },
+  { name: "Standar Operasional (SOP) & K3", icon: <ClipboardCheck className="w-5 h-5 text-emerald-400" /> },
 ];
 
 export function TechStack() {

@@ -7,14 +7,14 @@
     "hireMe": "Hubungi Saya"
   },
   "hero": {
-    "available": "Tersedia untuk Posisi Administrasi / Operasional",
+    "available": "Tersedia untuk Posisi Administrasi, Data & Otomasi Operasional",
     "title": "Spesialis Administrasi",
-    "titleAccent": "& Operasional",
-    "titleAccent2": "Dari Bengkulu, Siap Berkontribusi Nyata",
+    "titleAccent": "& Otomasi Operasional",
+    "titleAccent2": "Didukung Python, AI & Excel Lanjutan",
     "typingRole": "Saya siap bekerja sebagai {role}",
-    "description": "Profesional operasional dan administrasi berpengalaman 6+ tahun memimpin tata kelola gudang inventaris, perancangan roster shift staf, rekonsiliasi data timesheet via Excel Lanjutan, serta administrasi alur operasional bebas selisih (zero-variance).",
-    "storyTitle": "Dedikasi & Ketelitian",
-    "storyDescription": "Ketelitian dalam tata kelola dokumen dan akurasi data adalah kunci kelancaran operasional setiap organisasi. Saya terbiasa menyusun laporan yang rapi, mengelola arsip digital secara sistematis, serta memanfaatkan perangkat perkantoran modern untuk menyelesaikan tugas dengan cepat, tepat, dan teratur.",
+    "description": "Profesional administrasi dan operasional modern berpengalaman 6+ tahun memadukan ketelitian tata kelola dokumen dengan efisiensi Python Automation, AI Workflows, serta Microsoft Excel Lanjutan untuk menyelesaikan alur kerja kantor lebih cepat, terstruktur, dan bebas selisih (zero-variance).",
+    "storyTitle": "Ketelitian Manual Bertemu Otomasi Modern",
+    "storyDescription": "Ketelitian dalam tata kelola dokumen dan akurasi data adalah kunci kelancaran operasional setiap organisasi. Dengan keahlian Microsoft Office, Power BI, Python scripting, dan pemanfaatan AI praktis, saya mampu mengeliminasi tugas repetitif manual, menyusun laporan eksekutif dengan cepat, serta menjaga akurasi data hingga tingkat 100%.",
     "viewProject": "Lihat Portofolio",
     "contactMe": "Hubungi Saya",
     "project": "Portofolio",
@@ -22,8 +22,8 @@
     "techStack": "Keahlian & Tools"
   },
   "techStack": {
-    "title": "Keahlian & Kemampuan",
-    "subtitle": "Software & Keterampilan Administrasi"
+    "title": "Keahlian, Otomasi & Software",
+    "subtitle": "Keterampilan Administrasi & AI Productivity"
   },
   "experience": {
     "title": "Portofolio & Rekam Karya",

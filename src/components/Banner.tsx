@@ -1,7 +1,7 @@
 "use client";
 
 import Link from "next/link";
-import { ArrowRight, Mail, FileSpreadsheet, FileText, Database, CheckCircle2, FolderCheck, Briefcase } from "lucide-react";
+import { ArrowRight, Mail, FileSpreadsheet, FileText, Database, CheckCircle2, FolderCheck, Briefcase, Terminal, Sparkles, Zap } from "lucide-react";
 import { Magnetic } from "./Magnetic";
 import { useLocale } from "@/i18n/LocaleProvider";
 import { motion } from "framer-motion";
@@ -9,10 +9,12 @@ import { useState, useEffect } from "react";
 import { getLiveAge, AgeDetails } from "@/lib/age";
 
 const competencies = [
-  { icon: FileSpreadsheet, label: "Ms. Excel" },
-  { icon: FileText, label: "Ms. Word" },
-  { icon: Database, label: "Data Entry" },
+  { icon: FileSpreadsheet, label: "Ms. Excel Lanjutan" },
+  { icon: Terminal, label: "Python Automation" },
+  { icon: Sparkles, label: "AI Workflows" },
+  { icon: Database, label: "Data Processing" },
   { icon: FolderCheck, label: "Arsip Digital" },
+  { icon: FileText, label: "Ms. Word" },
 ];
 
 const TypewriterText = ({ text, delay = 0 }: { text: string; delay?: number }) => {
@@ -72,7 +74,7 @@ export function Banner() {
           >
             <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full border border-primary/20 bg-primary/5 text-primary text-sm font-medium mb-6 backdrop-blur-sm">
               <Briefcase className="w-4 h-4" />
-              <span>{locale === 'en' ? 'Office Administration & Operations' : 'Administrasi Perkantoran & Operasional'}</span>
+              <span>{locale === 'en' ? 'AI & Automation-Powered Administration' : 'Administrasi Perkantoran, Python & Otomasi AI'}</span>
             </div>
 
             <h1 className="text-5xl md:text-7xl lg:text-8xl font-black tracking-tight leading-[1.1] mb-6">
@@ -206,19 +208,25 @@ export function Banner() {
                     <span className="text-primary font-semibold">
                       {locale === 'en' ? 'Target Roles:' : 'Minat Posisi:'}
                     </span>
-                    <span className="text-foreground/90">Staff Administrasi / Operations Support</span>
+                    <span className="text-foreground/90">Staff Administrasi / Operations & Data Automation</span>
                   </div>
                   <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-1">
                     <span className="text-primary font-semibold">
                       {locale === 'en' ? 'Core Software:' : 'Software Utama:'}
                     </span>
-                    <span className="text-foreground/90">Ms. Excel (VLOOKUP, Pivot), Word, Workspace</span>
+                    <span className="text-foreground/90">Excel (Pivot, DAX), Python, AI Tools, Workspace</span>
+                  </div>
+                  <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-1">
+                    <span className="text-primary font-semibold">
+                      {locale === 'en' ? 'Superpower:' : 'Nilai Tambah:'}
+                    </span>
+                    <span className="text-foreground/90">Otomasi Skrip Kantor, AI Workflows, Zero-Variance</span>
                   </div>
                   <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-1">
                     <span className="text-primary font-semibold">
                       {locale === 'en' ? 'Work Ethic:' : 'Etos Kerja:'}
                     </span>
-                    <span className="text-foreground/90">Teliti, Terorganisir, Cepat Belajar</span>
+                    <span className="text-foreground/90">Teliti, Terorganisir, Cepat Belajar, Efisiensi Tinggi</span>
                   </div>
                 </div>
 
@@ -226,8 +234,8 @@ export function Banner() {
                   <span className="text-primary font-bold">&gt;</span>
                   <TypewriterText 
                     text={locale === 'en' 
-                      ? "Ready to support and optimize your office operations." 
-                      : "Siap mendukung kelancaran operasional kantor Anda."
+                      ? "Ready to automate workflows and optimize your office operations." 
+                      : "Siap mengotomasi alur kerja dan mengoptimalkan efisiensi kantor Anda."
                     } 
                     delay={800} 
                   />
