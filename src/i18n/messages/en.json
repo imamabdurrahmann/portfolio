@@ -2,6 +2,7 @@
   "nav": {
     "home": "Home",
     "projects": "Portfolio",
+    "certificates": "Certificates",
     "contact": "Contact",
     "hireMe": "Get In Touch"
   },
@@ -50,6 +51,21 @@
     "filterOperations": "Operations & Warehouse",
     "filterAdministration": "Administration & HR",
     "filterFinance": "Finance & Cashier"
+  },
+  "certificates": {
+    "title": "Certificates &",
+    "titleAccent": "Credentials",
+    "subtitle": "Official formal education qualifications, Microsoft Excel, Office, Power BI, AML/KYC Compliance, and AI workflow certifications",
+    "filterAll": "All",
+    "filterOffice": "Microsoft Office & Excel",
+    "filterData": "Power BI & Data",
+    "filterCompliance": "Compliance & AI",
+    "filterAcademic": "Degree & Language",
+    "viewDocument": "View Original Document",
+    "credentialId": "Credential",
+    "issuedBy": "Issued by",
+    "issuedDate": "Year",
+    "verified": "Officially Verified"
   },
   "contact": {
     "title": "Let's Connect",

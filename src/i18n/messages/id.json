@@ -2,6 +2,7 @@
   "nav": {
     "home": "Beranda",
     "projects": "Portofolio",
+    "certificates": "Sertifikat",
     "contact": "Kontak",
     "hireMe": "Hubungi Saya"
   },
@@ -50,6 +51,21 @@
     "filterOperations": "Operasional & Gudang",
     "filterAdministration": "Administrasi & SDM",
     "filterFinance": "Keuangan & Kasir"
+  },
+  "certificates": {
+    "title": "Sertifikasi & Kredensial",
+    "titleAccent": "Resmi",
+    "subtitle": "Kualifikasi pendidikan formal, sertifikasi kemahiran Microsoft Excel, Office, Power BI, AML/KYC Compliance, dan kecerdasan buatan (AI)",
+    "filterAll": "Semua",
+    "filterOffice": "Microsoft Office & Excel",
+    "filterData": "Power BI & Data",
+    "filterCompliance": "Kepatuhan & AI",
+    "filterAcademic": "Pendidikan & Bahasa",
+    "viewDocument": "Lihat Dokumen Asli",
+    "credentialId": "Kredensial",
+    "issuedBy": "Penerbit",
+    "issuedDate": "Tahun",
+    "verified": "Terverifikasi Resmi"
   },
   "contact": {
     "title": "Mari Terhubung",

@@ -2,20 +2,18 @@
 
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import { Menu, X } from "lucide-react";
 import { ThemeToggle } from "./ThemeToggle";
 import { LanguageToggle } from "./LanguageToggle";
 import { useLocale } from "@/i18n/LocaleProvider";
-import { useState } from "react";
 
 export function Navbar() {
   const pathname = usePathname();
   const { t } = useLocale();
-  const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
 
   const navLinks = [
     { href: "/", label: t("nav.home") },
     { href: "/projects", label: t("nav.projects") },
+    { href: "/certificates", label: t("nav.certificates") },
     { href: "/contact", label: t("nav.contact") },
   ];
 
@@ -30,7 +28,7 @@ export function Navbar() {
               <Link
                 key={link.href}
                 href={link.href}
-                className={`relative px-3 sm:px-6 py-2 rounded-full text-xs sm:text-sm font-medium transition-colors ${
+                className={`relative px-3 sm:px-5 py-2 rounded-full text-xs sm:text-sm font-medium transition-colors whitespace-nowrap ${
                   isActive
                     ? "text-primary"
                     : "text-foreground/60 hover:text-foreground"
