@@ -11,7 +11,7 @@
     "titleAccent": "& Operations",
     "titleAccent2": "From Bengkulu, Ready to Deliver Value",
     "typingRole": "I'm ready as an {role}",
-    "description": "Detail-oriented, organized, and adaptable administrative professional. Experienced in accurate data management, neat reporting with Excel & Google Workspace, and streamlining office document workflows.",
+    "description": "Operations and administrative professional with 6+ years of experience leading warehouse inventory oversight, manpower shift rostering, timesheet data reconciliation via Advanced Excel, and zero-variance operational workflows.",
     "storyTitle": "Dedication & Precision",
     "storyDescription": "Precision in document management and data accuracy are vital for smooth organizational operations. I excel at structuring clean reports, organizing digital archives systematically, and leveraging modern office tools to execute tasks quickly and accurately.",
     "viewProject": "View Portfolio",
@@ -44,12 +44,12 @@
   },
   "projects": {
     "title": "All Portfolios",
-    "titleAccent": "& Systems",
-    "subtitle": "Explore my track record in administrative data management, financial records, and productivity systems",
+    "titleAccent": "& Track Record",
+    "subtitle": "Explore my track record in warehouse operations, HR manpower systems, exam database administration, and inventory cashier control",
     "filterAll": "All",
-    "filterFinance": "Finance & Data",
-    "filterAdministration": "Administration",
-    "filterProductivity": "Productivity"
+    "filterOperations": "Operations & Warehouse",
+    "filterAdministration": "Administration & HR",
+    "filterFinance": "Finance & Cashier"
   },
   "contact": {
     "title": "Let's Connect",
@@ -71,20 +71,20 @@
   },
   "projectData": {
     "1": {
-      "title": "Financial & Cashflow Management (DompetKu)",
-      "description": "Comprehensive bookkeeping and financial recording system. Income/expense tracking, periodic budgeting, PDF report export, and visual cashflow analysis."
+      "title": "Warehouse Operations & Inventory Control Management (Omiko Hotel)",
+      "description": "Comprehensive logistics oversight of inbound/outbound flows, routine stock audits with zero-variance results, and strict enforcement of 5S and warehouse SOP standards at Omiko Hotel (6+ years experience)."
     },
     "2": {
-      "title": "Part of English (Educational & Language Platform)",
-      "description": "Self-paced English learning platform covering Grammar, Vocabulary, Idioms, and sentence structures to support business communication and professional correspondence."
+      "title": "Staff Shift Rostering & Timesheet Reconciliation (Advanced Excel)",
+      "description": "Design and execution of 24/7 staff shift schedules, digital attendance monitoring, overtime reconciliation, and monthly operational expense reporting via Advanced Excel (Pivot Tables, VLOOKUP) with 98%+ shift fulfillment."
     },
     "3": {
-      "title": "Civil Service Exam & Practice System (Try Out CPNS)",
-      "description": "Public administration and civil service test simulation platform covering TWK, TIU, and TKP with question bank data management, score tracking, and structured evaluation."
+      "title": "Civil Service Exam Database Administration & Performance Analytics",
+      "description": "Participant database management and curation of multi-tiered question banks (TWK, TIU, TKP) simulating national BKN CAT standards. Real-time test flow monitoring, timer logic, and diagnostic scoring analytics."
     },
     "4": {
-      "title": "CalcPro (Business & Financial Calculator)",
-      "description": "Versatile calculation tool for operational and financial needs: loan and interest estimation, live currency conversion, discount calculations, and quick business math."
+      "title": "Point of Sale & Real-Time Retail Inventory Control System",
+      "description": "Deployment of barcode-scanned transaction recording for real-time item movement tracking. Daily automated cash balancing, revenue recap, and inventory discrepancy elimination."
     }
   }
 }

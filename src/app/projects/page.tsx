@@ -23,7 +23,7 @@ const getCardStyles = (index: number) => {
 export default function ProjectsPage() {
   const { t } = useLocale();
   const allProjects = getProjects();
-  const [filter, setFilter] = useState<'all' | 'finance' | 'administration' | 'productivity'>('all');
+  const [filter, setFilter] = useState<'all' | 'operations' | 'administration' | 'finance'>('all');
 
   const projects = allProjects.filter(p => filter === 'all' || p.category === filter);
 
@@ -54,7 +54,7 @@ export default function ProjectsPage() {
         <div className="container mx-auto max-w-7xl">
           {/* Filters */}
           <div className="flex justify-center flex-wrap gap-3 md:gap-4 mb-12">
-            {(['all', 'finance', 'administration', 'productivity'] as const).map((f) => (
+            {(['all', 'operations', 'administration', 'finance'] as const).map((f) => (
               <button
                 key={f}
                 onClick={() => setFilter(f)}
@@ -65,9 +65,9 @@ export default function ProjectsPage() {
                 }`}
               >
                 {f === 'all' ? t('projects.filterAll') : 
-                 f === 'finance' ? t('projects.filterFinance') : 
+                 f === 'operations' ? t('projects.filterOperations') : 
                  f === 'administration' ? t('projects.filterAdministration') :
-                 t('projects.filterProductivity')}
+                 t('projects.filterFinance')}
               </button>
             ))}
           </div>
@@ -87,8 +87,8 @@ export default function ProjectsPage() {
                 >
                   {/* Background Image / Glow */}
                   {project.image ? (
-                     <div className="absolute inset-0 opacity-20 group-hover:opacity-40 transition-opacity duration-500 z-0">
-                       <img src={project.image} alt={project.title} className="w-full h-full object-cover mix-blend-overlay blur-[2px] group-hover:blur-0 transition-all duration-500" />
+                     <div className="absolute inset-0 opacity-25 group-hover:opacity-45 transition-opacity duration-500 z-0">
+                       <img src={project.image} alt={project.title} className="w-full h-full object-cover mix-blend-overlay blur-[1px] group-hover:blur-0 transition-all duration-500" />
                        <div className="absolute inset-0 bg-gradient-to-t from-background via-background/80 to-transparent"></div>
                      </div>
                   ) : (

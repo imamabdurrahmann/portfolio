@@ -11,7 +11,7 @@
     "titleAccent": "& Operasional",
     "titleAccent2": "Dari Bengkulu, Siap Berkontribusi Nyata",
     "typingRole": "Saya siap bekerja sebagai {role}",
-    "description": "Profesional administrasi yang teliti, terorganisir, dan adaptif. Menguasai pengolahan data akurat, penyusunan laporan rapi dengan Excel & Google Workspace, serta tata kelola berkas & korespondensi perkantoran.",
+    "description": "Profesional operasional dan administrasi berpengalaman 6+ tahun memimpin tata kelola gudang inventaris, perancangan roster shift staf, rekonsiliasi data timesheet via Excel Lanjutan, serta administrasi alur operasional bebas selisih (zero-variance).",
     "storyTitle": "Dedikasi & Ketelitian",
     "storyDescription": "Ketelitian dalam tata kelola dokumen dan akurasi data adalah kunci kelancaran operasional setiap organisasi. Saya terbiasa menyusun laporan yang rapi, mengelola arsip digital secara sistematis, serta memanfaatkan perangkat perkantoran modern untuk menyelesaikan tugas dengan cepat, tepat, dan teratur.",
     "viewProject": "Lihat Portofolio",
@@ -44,12 +44,12 @@
   },
   "projects": {
     "title": "Semua Portofolio",
-    "titleAccent": "& Sistem",
-    "subtitle": "Jelajahi rekam jejak portofolio pengelolaan data, sistem pencatatan, dan produktivitas yang saya kembangkan",
+    "titleAccent": "& Rekam Jejak",
+    "subtitle": "Jelajahi rekam jejak portofolio manajemen pergudangan, sistem administrasi SDM, database evaluasi, dan kontrol kasir",
     "filterAll": "Semua",
-    "filterFinance": "Keuangan & Data",
-    "filterAdministration": "Administrasi",
-    "filterProductivity": "Produktivitas"
+    "filterOperations": "Operasional & Gudang",
+    "filterAdministration": "Administrasi & SDM",
+    "filterFinance": "Keuangan & Kasir"
   },
   "contact": {
     "title": "Mari Terhubung",
@@ -71,20 +71,20 @@
   },
   "projectData": {
     "1": {
-      "title": "Catatan Keuangan & Arus Kas (DompetKu)",
-      "description": "Sistem pembukuan dan pencatatan keuangan komprehensif. Melacak pemasukan, pengeluaran, anggaran berkala, ekspor laporan ke PDF, serta analisis visual arus kas."
+      "title": "Manajemen Operasional & Kontrol Inventaris Gudang (Omiko Hotel)",
+      "description": "Supervisi penuh arus logistik inbound/outbound, stok opname berkala dengan hasil zero-variance (nol selisih), serta penegakan standar 5S dan SOP pergudangan di Omiko Hotel (6+ tahun pengalaman)."
     },
     "2": {
-      "title": "Part of English (Media Edukasi & Bahasa)",
-      "description": "Platform pembelajaran mandiri bahasa Inggris untuk meningkatkan kompetensi komunikasi profesional: Grammar, Vocabulary, Idiom, dan struktur kata untuk korespondensi resmi."
+      "title": "Sistem Roster Shift Staf & Rekonsiliasi Timesheet (Excel Lanjutan)",
+      "description": "Perancangan sistem roster kerja 24 jam untuk staf operasional, pemantauan presensi digital, rekonsiliasi lembur, dan pelaporan biaya operasional bulanan berbasis Microsoft Excel (Pivot Tables, VLOOKUP) dengan tingkat shift fulfillment 98%+."
     },
     "3": {
-      "title": "Sistem Latihan & Ujian CPNS (Try Out CPNS)",
-      "description": "Platform simulasi ujian administrasi publik dan seleksi CPNS (TWK, TIU, TKP) dengan pengolahan ratusan bank data soal, analisis skor, dan evaluasi hasil terstruktur."
+      "title": "Administrasi Database & Evaluasi Ujian CAT BKN",
+      "description": "Pengelolaan database peserta seleksi nasional dan kurasi bank data ratusan butir soal (TWK, TIU, TKP). Pengawasan stabilitas alur ujian bervolume tinggi, pemantauan waktu presisi, serta analisis statistik skor diagnostik peserta."
     },
     "4": {
-      "title": "CalcPro (Business & Financial Calculator)",
-      "description": "Alat kalkulasi operasional dan keuangan serbaguna: estimasi pinjaman dan bunga, konversi mata uang terupdate, perhitungan diskon, dan kalkulasi matematis bisnis."
+      "title": "Sistem Kasir & Pelacakan Inventaris Real-Time (POS & Retail Supply)",
+      "description": "Implementasi sistem pencatatan transaksi kasir terintegrasi barcode scanner untuk pelacakan pergerakan barang secara real-time. Rekapitulasi penjualan harian, pembukuan kas otomatis, dan pencegahan selisih barang masuk/keluar."
     }
   }
 }
