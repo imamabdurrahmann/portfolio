@@ -55,7 +55,7 @@ const contactItems = [
     icon: <MessageCircle className="h-5 w-5" />,
     title: "WhatsApp",
     value: "+62 823 7522 7802",
-    href: "https://wa.me/6282375227802?text=Halo%20Imam,%20saya%20tertarik%20dengan%20jasa%20pengembangan%20aplikasi%20Flutter",
+    href: "https://wa.me/6282375227802?text=Halo%20Imam,%20saya%20tertarik%20untuk%20membahas%20peluang%20kerja%20administrasi/operasional",
     badge: "Chat Langsung",
   },
   {
@@ -74,10 +74,10 @@ const contactItems = [
 // instead of regular contactItems
 
 const services = [
-  "Pengembangan Aplikasi Web",
-  "Custom Widget & Library",
-  "Bug Fix & Maintenance",
-  "Code Review & Consulting",
+  "Administrasi Perkantoran & Dokumen",
+  "Pengolahan Data & Microsoft Excel",
+  "Pencatatan Keuangan & Pembukuan Kas",
+  "Manajemen Arsip & Korespondensi",
 ];
 
 export function ContactClient() {
@@ -123,8 +123,7 @@ export function ContactClient() {
               Hubungi <span className="text-transparent bg-clip-text bg-gradient-to-r from-primary to-orange-400">Saya</span>
             </h1>
             <p className="mt-6 text-base md:text-lg text-foreground/60 max-w-2xl mx-auto leading-relaxed">
-              Punya project menarik atau ingin berdiskusi? Jangan ragu untuk menghubungi saya.
-              Saya biasanya merespons dalam 1x24 jam.
+              Tertarik merekrut atau ingin mendiskusikan peluang kerja posisi administrasi dan operasional? Silakan hubungi saya. Terbuka untuk penempatan penuh waktu maupun kontrak.
             </p>
           </motion.div>
         </div>
@@ -270,7 +269,7 @@ export function ContactClient() {
                     <div className="p-2 bg-secondary rounded-xl">
                       <Send className="h-4 w-4 text-primary" />
                     </div>
-                    <h3 className="font-bold text-foreground text-lg">Layanan yang Ditawarkan</h3>
+                    <h3 className="font-bold text-foreground text-lg">Bidang Keahlian & Layanan</h3>
                   </div>
                   <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                     {services.map((service, idx) => (
@@ -289,3 +288,4 @@ export function ContactClient() {
     </div>
   );
 }
+

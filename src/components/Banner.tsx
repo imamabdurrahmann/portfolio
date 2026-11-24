@@ -1,17 +1,17 @@
 "use client";
 
 import Link from "next/link";
-import { Star, Heart, ArrowRight, Mail, Terminal, Smartphone, Globe, Monitor, Code } from "lucide-react";
+import { ArrowRight, Mail, FileSpreadsheet, FileText, Database, CheckCircle2, FolderCheck, Briefcase } from "lucide-react";
 import { Magnetic } from "./Magnetic";
 import { useLocale } from "@/i18n/LocaleProvider";
 import { motion } from "framer-motion";
 import { useState, useEffect } from "react";
 
-const platforms = [
-  { icon: Smartphone, label: "Android" },
-  { icon: Globe, label: "iOS" },
-  { icon: Globe, label: "Web" },
-  { icon: Monitor, label: "Desktop" },
+const competencies = [
+  { icon: FileSpreadsheet, label: "Ms. Excel" },
+  { icon: FileText, label: "Ms. Word" },
+  { icon: Database, label: "Data Entry" },
+  { icon: FolderCheck, label: "Arsip Digital" },
 ];
 
 const TypewriterText = ({ text, delay = 0 }: { text: string; delay?: number }) => {
@@ -34,18 +34,18 @@ const TypewriterText = ({ text, delay = 0 }: { text: string; delay?: number }) =
 };
 
 export function Banner() {
-  const { t } = useLocale();
+  const { t, locale } = useLocale();
 
   return (
     <section className="hero-section relative w-full overflow-hidden flex items-center justify-center pt-32 pb-16 lg:pt-40 lg:pb-24 min-h-[95vh]">
       {/* Background Huge Text Overlay */}
       <motion.div 
         initial={{ opacity: 0, y: 50 }}
-        animate={{ opacity: 0.05, y: 0 }}
+        animate={{ opacity: 0.04, y: 0 }}
         transition={{ duration: 1.5, ease: "easeOut" }}
-        className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 text-[15vw] font-black leading-none whitespace-nowrap z-0 pointer-events-none tracking-tighter"
+        className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 text-[12vw] font-black leading-none whitespace-nowrap z-0 pointer-events-none tracking-tighter"
       >
-        FLUTTER
+        ADMINISTRATION
       </motion.div>
 
       <div className="container mx-auto px-6 max-w-7xl relative z-10">
@@ -58,15 +58,15 @@ export function Banner() {
             transition={{ duration: 0.8, ease: "easeOut" }}
             className="lg:col-span-7 flex flex-col items-start"
           >
-            <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full border border-primary/20 bg-primary/5 text-primary text-sm font-mono mb-6 backdrop-blur-sm">
-              <Code className="w-4 h-4" />
-              <span>Dart & Flutter Specialist</span>
+            <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full border border-primary/20 bg-primary/5 text-primary text-sm font-medium mb-6 backdrop-blur-sm">
+              <Briefcase className="w-4 h-4" />
+              <span>{locale === 'en' ? 'Office Administration & Operations' : 'Administrasi Perkantoran & Operasional'}</span>
             </div>
 
             <h1 className="text-5xl md:text-7xl lg:text-8xl font-black tracking-tight leading-[1.1] mb-6">
-              {t("hero.title").replace("Developer", "").replace("Dari Bengkulu, Untuk Semua Orang", "").trim()}<br />
+              {t("hero.title")}<br />
               <span className="text-transparent bg-clip-text bg-gradient-to-r from-primary to-orange-400">
-                Developer
+                {t("hero.titleAccent")}
               </span>
             </h1>
 
@@ -93,23 +93,25 @@ export function Banner() {
             </div>
 
             <div className="flex flex-wrap gap-3 items-center w-full">
-              <span className="text-sm font-semibold text-foreground/50 uppercase tracking-widest mr-1 w-full sm:w-auto mb-1 sm:mb-0">Deploy To:</span>
-              {platforms.map((platform, idx) => (
+              <span className="text-sm font-semibold text-foreground/50 uppercase tracking-widest mr-1 w-full sm:w-auto mb-1 sm:mb-0">
+                {locale === 'en' ? 'Core Competencies:' : 'Keahlian Utama:'}
+              </span>
+              {competencies.map((comp, idx) => (
                 <motion.div 
                   initial={{ opacity: 0, y: 10 }}
                   animate={{ opacity: 1, y: 0 }}
                   transition={{ delay: 0.5 + (idx * 0.1) }}
-                  key={platform.label} 
+                  key={comp.label} 
                   className="flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-card border border-border/50 text-xs font-medium"
                 >
-                  <platform.icon className="w-3.5 h-3.5 text-foreground/70" />
-                  {platform.label}
+                  <comp.icon className="w-3.5 h-3.5 text-primary" />
+                  {comp.label}
                 </motion.div>
               ))}
             </div>
           </motion.div>
 
-          {/* Right Content - Terminal & Profile */}
+          {/* Right Content - Administrative Overview & Profile */}
           <motion.div 
             initial={{ opacity: 0, scale: 0.95 }}
             animate={{ opacity: 1, scale: 1 }}
@@ -132,12 +134,12 @@ export function Banner() {
                 transition={{ duration: 4, repeat: Infinity, ease: "easeInOut" }}
                 className="absolute -right-4 top-1/2 px-4 py-2 rounded-2xl bg-card border border-border flex items-center gap-2 shadow-xl"
               >
-                <Star className="w-4 h-4 text-primary" />
-                <span className="text-sm font-bold">4+ Apps</span>
+                <CheckCircle2 className="w-4 h-4 text-emerald-500" />
+                <span className="text-sm font-bold">{locale === 'en' ? 'Open for Work' : 'Siap Bekerja'}</span>
               </motion.div>
             </div>
 
-            {/* Terminal Window */}
+            {/* Administrative Card Window */}
             <div className="w-full rounded-2xl overflow-hidden border border-border bg-[#0d1117] shadow-2xl relative z-10 md:-ml-8">
               <div className="flex items-center px-4 py-3 bg-[#161b22] border-b border-border/40">
                 <div className="flex gap-2">
@@ -145,27 +147,56 @@ export function Banner() {
                   <div className="w-3 h-3 rounded-full bg-yellow-500/80"></div>
                   <div className="w-3 h-3 rounded-full bg-green-500/80"></div>
                 </div>
-                <div className="flex-1 text-center text-xs font-mono text-foreground/40 flex items-center justify-center gap-2">
-                  <Terminal className="w-3 h-3" /> main.dart
+                <div className="flex-1 text-center text-xs font-mono text-foreground/60 flex items-center justify-center gap-2">
+                  <FileSpreadsheet className="w-3.5 h-3.5 text-emerald-400" /> ringkasan_eksekutif.xlsx
                 </div>
               </div>
-              <div className="p-6 font-mono text-xs sm:text-sm leading-loose overflow-x-auto">
-                <div className="text-blue-400">void <span className="text-yellow-300">main</span>() {'{'}</div>
-                <div className="pl-4 text-gray-300">
-                  <span className="text-purple-400">final</span> developer = <span className="text-yellow-300">Developer</span>(<br/>
-                  <span className="pl-4 text-orange-300">name:</span> <span className="text-green-400">'Imam Abdurrahman'</span>,<br/>
-                  <span className="pl-4 text-orange-300">role:</span> <span className="text-green-400">'Flutter Expert'</span>,<br/>
-                  <span className="pl-4 text-orange-300">passion:</span> <span className="text-green-400">'Clean Code'</span>,<br/>
-                  );
+
+              <div className="p-6 font-mono text-xs sm:text-sm leading-relaxed space-y-3.5">
+                <div className="flex items-center justify-between pb-3 border-b border-white/10">
+                  <span className="text-foreground/50">STATUS:</span>
+                  <span className="px-2.5 py-0.5 rounded-full text-xs font-semibold bg-emerald-500/10 text-emerald-400 border border-emerald-500/20 flex items-center gap-1.5">
+                    <span className="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-pulse"></span>
+                    {locale === 'en' ? 'Available for Full-time / Contract' : 'Tersedia Penuh Waktu / Kontrak'}
+                  </span>
                 </div>
-                <div className="pl-4 mt-2">
-                  <span className="text-yellow-300">runApp</span>(<br/>
-                  <span className="pl-4 text-blue-400">AwesomeApp</span>(developer)<br/>
-                  );
+
+                <div className="space-y-2 text-foreground/80">
+                  <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-1">
+                    <span className="text-primary font-semibold">
+                      {locale === 'en' ? 'Candidate:' : 'Kandidat:'}
+                    </span>
+                    <span className="text-foreground font-bold">Muhammad Imam Abdurrahman</span>
+                  </div>
+                  <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-1">
+                    <span className="text-primary font-semibold">
+                      {locale === 'en' ? 'Target Roles:' : 'Minat Posisi:'}
+                    </span>
+                    <span className="text-foreground/90">Staff Administrasi / Operations Support</span>
+                  </div>
+                  <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-1">
+                    <span className="text-primary font-semibold">
+                      {locale === 'en' ? 'Core Software:' : 'Software Utama:'}
+                    </span>
+                    <span className="text-foreground/90">Ms. Excel (VLOOKUP, Pivot), Word, Workspace</span>
+                  </div>
+                  <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-1">
+                    <span className="text-primary font-semibold">
+                      {locale === 'en' ? 'Work Ethic:' : 'Etos Kerja:'}
+                    </span>
+                    <span className="text-foreground/90">Teliti, Terorganisir, Cepat Belajar</span>
+                  </div>
                 </div>
-                <div>{'}'}</div>
-                <div className="mt-4 text-green-400/80 font-bold flex items-center gap-2">
-                  <span>$</span> <TypewriterText text="flutter run -d all_devices" delay={1000} />
+
+                <div className="pt-3 border-t border-white/10 flex items-center gap-2 text-emerald-400 font-semibold text-xs">
+                  <span className="text-primary font-bold">&gt;</span>
+                  <TypewriterText 
+                    text={locale === 'en' 
+                      ? "Ready to support and optimize your office operations." 
+                      : "Siap mendukung kelancaran operasional kantor Anda."
+                    } 
+                    delay={800} 
+                  />
                 </div>
               </div>
             </div>

@@ -2,8 +2,8 @@ import type { Metadata } from "next";
 import { ContactClient } from "./ContactClient";
 
 export const metadata: Metadata = {
-  title: "Contact | Flutter Developer Portfolio",
-  description: "Hubungi saya untuk project freelance atau kolaborasi",
+  title: "Contact | Muhammad Imam Abdurrahman",
+  description: "Hubungi saya untuk peluang kerja posisi Administrasi, Pengolahan Data, atau Operasional Kantor",
 };
 
 export default function ContactPage() {

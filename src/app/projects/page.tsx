@@ -2,7 +2,7 @@
 
 import { useState } from "react";
 import Link from "next/link";
-import { ArrowRight, Star, ExternalLink, Code2 } from "lucide-react";
+import { ArrowRight, Star, ExternalLink } from "lucide-react";
 import { useLocale } from "@/i18n/LocaleProvider";
 import { getProjects } from "@/lib/projects";
 import { motion } from "framer-motion";
@@ -23,7 +23,7 @@ const getCardStyles = (index: number) => {
 export default function ProjectsPage() {
   const { t } = useLocale();
   const allProjects = getProjects();
-  const [filter, setFilter] = useState<'all' | 'mobile' | 'website'>('all');
+  const [filter, setFilter] = useState<'all' | 'finance' | 'administration' | 'productivity'>('all');
 
   const projects = allProjects.filter(p => filter === 'all' || p.category === filter);
 
@@ -53,8 +53,8 @@ export default function ProjectsPage() {
       <section className="py-12 px-6">
         <div className="container mx-auto max-w-7xl">
           {/* Filters */}
-          <div className="flex justify-center gap-4 mb-12">
-            {(['all', 'mobile', 'website'] as const).map((f) => (
+          <div className="flex justify-center flex-wrap gap-3 md:gap-4 mb-12">
+            {(['all', 'finance', 'administration', 'productivity'] as const).map((f) => (
               <button
                 key={f}
                 onClick={() => setFilter(f)}
@@ -65,8 +65,9 @@ export default function ProjectsPage() {
                 }`}
               >
                 {f === 'all' ? t('projects.filterAll') : 
-                 f === 'mobile' ? t('projects.filterMobile') : 
-                 t('projects.filterWebsite')}
+                 f === 'finance' ? t('projects.filterFinance') : 
+                 f === 'administration' ? t('projects.filterAdministration') :
+                 t('projects.filterProductivity')}
               </button>
             ))}
           </div>

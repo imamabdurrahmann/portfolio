@@ -11,44 +11,37 @@ export interface Project {
   tech: string[];
   featured?: boolean;
   contactMessage?: string;
-  category: 'mobile' | 'website';
-}
-
-function generateSlug(title: string): string {
-  return title
-    .toLowerCase()
-    .replace(/[^a-z0-9]+/g, '-')
-    .replace(/^-|-$/g, '');
+  category: 'finance' | 'productivity' | 'administration';
 }
 
 export const projects: Project[] = [
   {
     id: "1",
-    slug: generateSlug("Catatan Keuangan (DompetKu)"),
-    title: "Catatan Keuangan (DompetKu)",
-    description: "Aplikasi pencatatan keuangan personal. Track income, expense, savings, dan debts dengan fitur charts, PDF export, biometric auth, dan home screen widget.",
+    slug: "catatan-keuangan-dompetku",
+    title: "Catatan Keuangan & Arus Kas (DompetKu)",
+    description: "Sistem pencatatan dan pengelolaan keuangan komprehensif. Melacak pemasukan, pengeluaran, tabungan, dan utang dengan fitur laporan PDF berkala, grafik visual, dan rekapitulasi data.",
     image: "/projects/catatan-keuangan/preview.png",
-    tech: ["Flutter", "Riverpod", "SQLite", "fl_chart", "PDF", "Biometric Auth", "GoRouter"],
+    tech: ["Pencatatan Keuangan", "Laporan PDF", "Analisis Arus Kas", "Rekapitulasi Data", "Budgeting"],
     featured: true,
-    contactMessage: "Halo Imam, saya tertarik dengan project DompetKu - Catatan Keuangan",
-    category: "mobile",
+    contactMessage: "Halo Imam, saya tertarik berdiskusi mengenai sistem pencatatan keuangan DompetKu",
+    category: "finance",
   },
   {
     id: "2",
-    slug: generateSlug("Part of English"),
-    title: "Part of English",
-    description: "Learn English Offline: Grammar, Vocabulary, Idioms, Collocations, Word Roots dengan interactive lessons, quizzes, spaced repetition, TTS, dan gamification.",
+    slug: "part-of-english",
+    title: "Part of English (Media Edukasi & Bahasa)",
+    description: "Platform pembelajaran mandiri bahasa Inggris untuk meningkatkan kompetensi komunikasi profesional: Grammar, Vocabulary, Idiom, dan struktur kata untuk korespondensi resmi.",
     image: "/projects/part-of-english/preview.png",
-    tech: ["Flutter", "Provider", "TTS", "Shared Preferences", "Google Fonts", "Lottie", "flutter_animate"],
+    tech: ["English Proficiency", "Grammar & Dokumen", "Komunikasi Bisnis", "Manajemen Kosakata"],
     featured: false,
     contactMessage: "Halo Imam, saya tertarik dengan project Part of English",
-    category: "mobile",
+    category: "productivity",
   },
   {
     id: "3",
-    slug: generateSlug("Try Outcpns"),
-    title: "Try Outcpns",
-    description: "Aplikasi Try Outcpns dengan Clean Architecture. Fitur lengkap untuk latihan soal cpns dengan progress tracking.",
+    slug: "try-outcpns",
+    title: "Sistem Latihan & Ujian CPNS (Try Out CPNS)",
+    description: "Platform simulasi ujian administrasi publik dan seleksi CPNS (TWK, TIU, TKP). Pengelolaan bank data ratusan soal terstruktur, evaluasi waktu, dan analisis skor akurat.",
     image: "/projects/tryout-cpns/preview.png",
     images: [
       "/projects/tryout-cpns/berandalightmode.jpg",
@@ -69,21 +62,21 @@ export const projects: Project[] = [
       "/projects/tryout-cpns/latihanpertopik3.jpg",
       "/projects/tryout-cpns/listratusansoalataupreviewtampilan.jpg",
     ],
-    tech: ["Flutter", "Riverpod", "Hive", "Clean Architecture", "GoRouter", "Dio"],
+    tech: ["Administrasi Publik", "Manajemen Bank Soal", "Evaluasi Kinerja", "Analisis Skor", "Time Management"],
     featured: true,
-    contactMessage: "Halo Imam, saya tertarik dengan project Try Outcpns",
-    category: "mobile",
+    contactMessage: "Halo Imam, saya tertarik dengan project Try Out CPNS",
+    category: "administration",
   },
   {
     id: "4",
-    slug: generateSlug("CalcPro"),
-    title: "CalcPro",
-    description: "Kalkulator lengkap dengan fitur Scientific, Konversi Unit, BMI, Diskon, Split Bill, Kurs Mata Uang, Pinjaman, Grafik, dan Matrix.",
+    slug: "calcpro",
+    title: "CalcPro (Business & Financial Calculator)",
+    description: "Kalkulator operasional dan bisnis lengkap: estimasi pinjaman dan cicilan, konversi mata uang, kalkulasi diskon, split bill, dan perhitungan matematis presisi.",
     image: "/projects/calcpro/preview.png",
-    tech: ["Flutter", "Provider", "fl_chart", "math_expressions", "Google Fonts"],
+    tech: ["Kalkulasi Finansial", "Simulasi Pinjaman", "Konversi Kurs", "Perhitungan Bisnis"],
     featured: false,
-    contactMessage: "Halo Imam, saya tertarik dengan project CalcPro - Kalkulator Lengkap",
-    category: "mobile",
+    contactMessage: "Halo Imam, saya tertarik dengan project CalcPro",
+    category: "finance",
   },
 ];
 

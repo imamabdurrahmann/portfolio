@@ -1,19 +1,31 @@
 "use client";
 
 import { useLocale } from "@/i18n/LocaleProvider";
-import { Code2, Database, Layers, Shield, Globe, Smartphone, Workflow } from "lucide-react";
+import { 
+  FileSpreadsheet, 
+  FileText, 
+  Database, 
+  Globe, 
+  Presentation, 
+  FolderArchive, 
+  Calculator, 
+  Mail, 
+  Calendar, 
+  ClipboardCheck 
+} from "lucide-react";
 import { motion } from "framer-motion";
-import { Magnetic } from "./Magnetic";
 
-const techStack = [
-  { name: "Flutter", icon: <Smartphone className="w-5 h-5" /> },
-  { name: "Dart", icon: <Code2 className="w-5 h-5" /> },
-  { name: "Riverpod", icon: <Layers className="w-5 h-5" /> },
-  { name: "BLoC", icon: <Workflow className="w-5 h-5" /> },
-  { name: "Firebase", icon: <Shield className="w-5 h-5" /> },
-  { name: "SQLite", icon: <Database className="w-5 h-5" /> },
-  { name: "Hive", icon: <Database className="w-5 h-5" /> },
-  { name: "Clean Arch", icon: <Globe className="w-5 h-5" /> },
+const skills = [
+  { name: "Microsoft Excel", icon: <FileSpreadsheet className="w-5 h-5" /> },
+  { name: "Microsoft Word", icon: <FileText className="w-5 h-5" /> },
+  { name: "Google Workspace", icon: <Globe className="w-5 h-5" /> },
+  { name: "Data Entry & Validasi", icon: <Database className="w-5 h-5" /> },
+  { name: "Microsoft PowerPoint", icon: <Presentation className="w-5 h-5" /> },
+  { name: "Manajemen Arsip & Filing", icon: <FolderArchive className="w-5 h-5" /> },
+  { name: "Pembukuan Kas & Petty Cash", icon: <Calculator className="w-5 h-5" /> },
+  { name: "Korespondensi & Surat Resmi", icon: <Mail className="w-5 h-5" /> },
+  { name: "Manajemen Jadwal", icon: <Calendar className="w-5 h-5" /> },
+  { name: "Administrasi Operasional", icon: <ClipboardCheck className="w-5 h-5" /> },
 ];
 
 export function TechStack() {
@@ -29,11 +41,11 @@ export function TechStack() {
         <div className="flex items-center gap-4">
           <div className="w-2 h-2 rounded-full bg-primary animate-pulse"></div>
           <span className="text-sm font-semibold uppercase tracking-[0.2em] text-primary">
-            {t("techStack.subtitle") || "ALAT YANG SAYA PAKAI"}
+            {t("techStack.subtitle") || "SOFTWARE & KETERAMPILAN ADMINISTRASI"}
           </span>
         </div>
         <h2 className="text-4xl md:text-5xl font-black mt-4">
-          {t("techStack.title") || "Tech Stack"}
+          {t("techStack.title") || "Keahlian & Kemampuan"}
         </h2>
       </div>
 
@@ -50,10 +62,10 @@ export function TechStack() {
               repeat: Infinity,
             }}
           >
-            {techStack.map((tech, index) => (
-              <div key={`${tech.name}-${index}`} className="shrink-0 mx-4 flex items-center gap-3 px-8 py-4 rounded-full bg-secondary/80 border border-border text-lg font-medium text-foreground hover:border-primary hover:text-primary transition-all hover:shadow-[0_0_20px_rgba(251,146,60,0.2)] cursor-pointer backdrop-blur-sm">
-                <span className="text-primary">{tech.icon}</span>
-                {tech.name}
+            {skills.map((skill, index) => (
+              <div key={`${skill.name}-${index}`} className="shrink-0 mx-4 flex items-center gap-3 px-8 py-4 rounded-full bg-secondary/80 border border-border text-lg font-medium text-foreground hover:border-primary hover:text-primary transition-all hover:shadow-[0_0_20px_rgba(251,146,60,0.2)] cursor-pointer backdrop-blur-sm">
+                <span className="text-primary">{skill.icon}</span>
+                {skill.name}
               </div>
             ))}
           </motion.div>

@@ -1,89 +1,90 @@
 {
   "nav": {
     "home": "Beranda",
-    "projects": "Project",
+    "projects": "Portofolio",
     "contact": "Kontak",
-    "hireMe": "Kerja bareng"
+    "hireMe": "Hubungi Saya"
   },
   "hero": {
-    "available": "Tersedia untuk Project",
-    "title": "Flutter Developer",
-    "titleAccent": "yang Menghadirkan",
-    "titleAccent2": "Dari Bengkulu, Untuk Semua Orang",
-    "typingRole": "Saya adalah {role}",
-    "description": "Saya bikin aplikasi Flutter yang solve masalah nyata — dari tracking keuangan pribadi sampai aplikasi tryout cpns yang saya bangun untuk ujian saya sendiri.",
-    "storyTitle": "Kenapa Flutter?",
-    "storyDescription": "Flutter memberi saya kekuatan untuk menulis sekali dan deploy ke mana-mana — Android, iOS, macOS, Windows, Linux, dan Web. Saat client butuh update fitur, saya push sekali dan langsung sampai ke semua platform. Tanpa tim terpisah. Tanpa kerja ganda. Cukup kode yang bersih dan efisien yang raggiungi semua orang.",
-    "viewProject": "Lihat Project",
+    "available": "Tersedia untuk Posisi Administrasi / Operasional",
+    "title": "Spesialis Administrasi",
+    "titleAccent": "& Operasional",
+    "titleAccent2": "Dari Bengkulu, Siap Berkontribusi Nyata",
+    "typingRole": "Saya siap bekerja sebagai {role}",
+    "description": "Profesional administrasi yang teliti, terorganisir, dan adaptif. Menguasai pengolahan data akurat, penyusunan laporan rapi dengan Excel & Google Workspace, serta tata kelola berkas & korespondensi perkantoran.",
+    "storyTitle": "Dedikasi & Ketelitian",
+    "storyDescription": "Ketelitian dalam tata kelola dokumen dan akurasi data adalah kunci kelancaran operasional setiap organisasi. Saya terbiasa menyusun laporan yang rapi, mengelola arsip digital secara sistematis, serta memanfaatkan perangkat perkantoran modern untuk menyelesaikan tugas dengan cepat, tepat, dan teratur.",
+    "viewProject": "Lihat Portofolio",
     "contactMe": "Hubungi Saya",
-    "project": "Project",
-    "dedication": "Sejak 2023",
-    "techStack": "Tech Stack"
+    "project": "Portofolio",
+    "dedication": "Siap Bekerja",
+    "techStack": "Keahlian & Tools"
   },
   "techStack": {
-    "title": "Tech Stack",
-    "subtitle": "Alat yang saya pakai"
+    "title": "Keahlian & Kemampuan",
+    "subtitle": "Software & Keterampilan Administrasi"
   },
   "experience": {
-    "title": "Yang pernah saya buat",
+    "title": "Portofolio & Rekam Karya",
     "contact": "Hubungi",
-    "contactMessage": "Halo Imam, saya tertarik dengan project {project}"
+    "contactMessage": "Halo Imam, saya tertarik dengan portofolio {project}"
   },
   "featured": {
-    "title": "Project Unggulan",
+    "title": "Karya Unggulan",
     "titleAccent": "Pilihan",
     "contactVia": "Hubungi via WhatsApp"
   },
   "projectCard": {
     "featured": "Unggulan",
-    "viewProject": "Lihat Project",
+    "viewProject": "Lihat Portofolio",
     "viewDetails": "Lihat detail",
     "playStore": "Play Store",
     "appStore": "App Store",
     "github": "GitHub"
   },
   "projects": {
-    "title": "Semua Project",
-    "titleAccent": "Galeri",
-    "subtitle": "Jelajahi portfolio aplikasi mobile saya",
+    "title": "Semua Portofolio",
+    "titleAccent": "& Sistem",
+    "subtitle": "Jelajahi rekam jejak portofolio pengelolaan data, sistem pencatatan, dan produktivitas yang saya kembangkan",
     "filterAll": "Semua",
-    "filterMobile": "Mobile",
-    "filterWebsite": "Website"
+    "filterFinance": "Keuangan & Data",
+    "filterAdministration": "Administrasi",
+    "filterProductivity": "Produktivitas"
   },
   "contact": {
-    "title": "Ngobrol yuk",
-    "subtitle": "Punya ide project? Atau cuma mau ngobrol soal Flutter? Silakan. Biasanya respons dalam sehari.",
+    "title": "Mari Terhubung",
+    "subtitle": "Tertarik merekrut atau mendiskusikan posisi administrasi/operasional? Silakan hubungi saya. Terbuka untuk penempatan kerja penuh waktu maupun kontrak.",
     "contactTitle": "Hubungi Saya",
-    "name": "Nama",
-    "namePlaceholder": "Nama kamu siapa?",
+    "name": "Nama Lengkap",
+    "namePlaceholder": "Nama Anda / Nama Perusahaan",
     "email": "Email",
-    "emailPlaceholder": "email@mu.com",
+    "emailPlaceholder": "email@perusahaan.com",
     "message": "Pesan",
-    "messagePlaceholder": "Mau ngomong apa?",
+    "messagePlaceholder": "Tuliskan kebutuhan lowongan atau pesan Anda...",
     "sending": "Mengirim...",
-    "send": "Kirim",
+    "send": "Kirim Pesan",
     "successTitle": "Pesan Terkirim!",
-    "successMessage": "Sip, bakal saya bales secepatnya."
+    "successMessage": "Terima kasih, saya akan membalas pesan Anda secepatnya."
   },
   "footer": {
     "copyright": "Hak cipta dilindungi."
   },
   "projectData": {
     "1": {
-      "title": "Catatan Keuangan (DompetKu)",
-      "description": "Aplikasi pencatatan keuangan yang saya bikin biar ga bingung lagi uang habis kemana. Charts, export PDF, login fingerprint, widget homescreen."
+      "title": "Catatan Keuangan & Arus Kas (DompetKu)",
+      "description": "Sistem pembukuan dan pencatatan keuangan komprehensif. Melacak pemasukan, pengeluaran, anggaran berkala, ekspor laporan ke PDF, serta analisis visual arus kas."
     },
     "2": {
-      "title": "Part of English",
-      "description": "App belajar English yang saya bikin karena saya butuh improve vocabulary. Grammar, Idioms, Collocations, spaced repetition, TTS."
+      "title": "Part of English (Media Edukasi & Bahasa)",
+      "description": "Platform pembelajaran mandiri bahasa Inggris untuk meningkatkan kompetensi komunikasi profesional: Grammar, Vocabulary, Idiom, dan struktur kata untuk korespondensi resmi."
     },
     "3": {
-      "title": "Try Outcpns",
-      "description": "App tryout cpns yang saya bikin untuk persiapan ujian saya sendiri. Clean Architecture, bisa offline, tracking progress per kategori."
+      "title": "Sistem Latihan & Ujian CPNS (Try Out CPNS)",
+      "description": "Platform simulasi ujian administrasi publik dan seleksi CPNS (TWK, TIU, TKP) dengan pengolahan ratusan bank data soal, analisis skor, dan evaluasi hasil terstruktur."
     },
     "4": {
-      "title": "CalcPro",
-      "description": "App kalkulator dengan semua yang saya butuhkan — Scientific, Konversi Unit, BMI, Split Bill, Kurs Mata Uang, Kalkulator Pinjaman."
+      "title": "CalcPro (Business & Financial Calculator)",
+      "description": "Alat kalkulasi operasional dan keuangan serbaguna: estimasi pinjaman dan bunga, konversi mata uang terupdate, perhitungan diskon, dan kalkulasi matematis bisnis."
     }
   }
 }

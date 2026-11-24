@@ -1,38 +1,38 @@
 {
   "nav": {
     "home": "Home",
-    "projects": "Projects",
+    "projects": "Portfolio",
     "contact": "Contact",
-    "hireMe": "Work with me"
+    "hireMe": "Get In Touch"
   },
   "hero": {
-    "available": "Tersedia untuk Project",
-    "title": "Flutter Developer",
-    "titleAccent": "Who Delivers",
-    "titleAccent2": "From Bengkulu, Building for Everyone",
-    "typingRole": "I'm a {role}",
-    "description": "I build Flutter apps that solve real problems — from personal finance tracking to a cpns exam app I built for my own exam prep.",
-    "storyTitle": "Kenapa Flutter?",
-    "storyDescription": "Flutter gives me the power to write once and deploy everywhere — Android, iOS, macOS, Windows, Linux, and Web. When a client needs a feature update, I push it once and it reaches all platforms instantly. No separate teams. No duplicated work. Just clean, efficient code that reaches everyone.",
-    "viewProject": "View Projects",
+    "available": "Available for Administration / Operations Roles",
+    "title": "Administrative Specialist",
+    "titleAccent": "& Operations",
+    "titleAccent2": "From Bengkulu, Ready to Deliver Value",
+    "typingRole": "I'm ready as an {role}",
+    "description": "Detail-oriented, organized, and adaptable administrative professional. Experienced in accurate data management, neat reporting with Excel & Google Workspace, and streamlining office document workflows.",
+    "storyTitle": "Dedication & Precision",
+    "storyDescription": "Precision in document management and data accuracy are vital for smooth organizational operations. I excel at structuring clean reports, organizing digital archives systematically, and leveraging modern office tools to execute tasks quickly and accurately.",
+    "viewProject": "View Portfolio",
     "contactMe": "Contact Me",
-    "project": "Projects",
-    "dedication": "Since 2023",
-    "techStack": "Tech Stack"
+    "project": "Portfolio",
+    "dedication": "Ready to Work",
+    "techStack": "Skills & Tools"
   },
   "techStack": {
-    "title": "Tech Stack",
-    "subtitle": "Tools I use"
+    "title": "Skills & Competencies",
+    "subtitle": "Software & Administrative Skills"
   },
   "experience": {
-    "title": "What I built",
-    "contact": "Hubungi",
-    "contactMessage": "Halo Imam, saya tertarik dengan project {project}"
+    "title": "Portfolio & Track Record",
+    "contact": "Contact",
+    "contactMessage": "Hi Imam, I'm interested in your {project} portfolio"
   },
   "featured": {
-    "title": "Featured Project",
+    "title": "Featured Works",
     "titleAccent": "Highlights",
-    "contactVia": "Hubungi via WhatsApp"
+    "contactVia": "Contact via WhatsApp"
   },
   "projectCard": {
     "featured": "Featured",
@@ -43,47 +43,48 @@
     "github": "GitHub"
   },
   "projects": {
-    "title": "All Projects",
-    "titleAccent": "Gallery",
-    "subtitle": "Explore my portfolio of mobile applications",
+    "title": "All Portfolios",
+    "titleAccent": "& Systems",
+    "subtitle": "Explore my track record in administrative data management, financial records, and productivity systems",
     "filterAll": "All",
-    "filterMobile": "Mobile",
-    "filterWebsite": "Website"
+    "filterFinance": "Finance & Data",
+    "filterAdministration": "Administration",
+    "filterProductivity": "Productivity"
   },
   "contact": {
-    "title": "Let's talk",
-    "subtitle": "Got a project idea? Or just wanna chat about Flutter? I'm down. Usually reply within a day.",
+    "title": "Let's Connect",
+    "subtitle": "Looking to hire or discuss an administrative or operations role? Feel free to reach out. Open for full-time and contract positions.",
     "contactTitle": "Contact Me",
-    "name": "Name",
-    "namePlaceholder": "What should I call you?",
+    "name": "Full Name",
+    "namePlaceholder": "Your name or company",
     "email": "Email",
-    "emailPlaceholder": "your@email.com",
+    "emailPlaceholder": "your@company.com",
     "message": "Message",
-    "messagePlaceholder": "What's on your mind?",
+    "messagePlaceholder": "Tell me about the role or requirements...",
     "sending": "Sending...",
-    "send": "Send it",
+    "send": "Send Message",
     "successTitle": "Message Sent!",
-    "successMessage": "Got it. I'll get back to you soon."
+    "successMessage": "Thank you, I'll get back to you as soon as possible."
   },
   "footer": {
     "copyright": "All rights reserved."
   },
   "projectData": {
     "1": {
-      "title": "Financial Notes (DompetKu)",
-      "description": "Personal finance tracking app I built to stop wondering where my money went. Charts, PDF export, fingerprint login, home screen widget."
+      "title": "Financial & Cashflow Management (DompetKu)",
+      "description": "Comprehensive bookkeeping and financial recording system. Income/expense tracking, periodic budgeting, PDF report export, and visual cashflow analysis."
     },
     "2": {
-      "title": "Part of English",
-      "description": "English learning app I made because I needed to improve my vocabulary. Grammar, Idioms, Collocations, spaced repetition, and TTS."
+      "title": "Part of English (Educational & Language Platform)",
+      "description": "Self-paced English learning platform covering Grammar, Vocabulary, Idioms, and sentence structures to support business communication and professional correspondence."
     },
     "3": {
-      "title": "Try Outcpns",
-      "description": "cpns exam practice app I built for my own test prep. Clean Architecture, works offline, progress tracking per category."
+      "title": "Civil Service Exam & Practice System (Try Out CPNS)",
+      "description": "Public administration and civil service test simulation platform covering TWK, TIU, and TKP with question bank data management, score tracking, and structured evaluation."
     },
     "4": {
-      "title": "CalcPro",
-      "description": "Calculator app with everything I needed — Scientific, Unit Conversion, BMI, Split Bill, Currency, Loan calculator."
+      "title": "CalcPro (Business & Financial Calculator)",
+      "description": "Versatile calculation tool for operational and financial needs: loan and interest estimation, live currency conversion, discount calculations, and quick business math."
     }
   }
 }

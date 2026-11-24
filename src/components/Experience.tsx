@@ -1,6 +1,6 @@
 "use client";
 
-import { ArrowRight, Code2 } from "lucide-react";
+import { ArrowRight, Briefcase } from "lucide-react";
 import Link from "next/link";
 import { useLocale } from "@/i18n/LocaleProvider";
 import { getProjects } from "@/lib/projects";
@@ -30,13 +30,13 @@ export function Experience() {
         <div className="mb-16 flex flex-col md:flex-row md:items-end justify-between gap-6">
           <div>
             <div className="flex items-center gap-3 mb-4">
-              <Code2 className="w-6 h-6 text-primary" />
+              <Briefcase className="w-6 h-6 text-primary" />
               <span className="text-sm font-semibold uppercase tracking-[0.2em] text-primary">
                 {t("experience.title")}
               </span>
             </div>
             <h2 className="text-4xl md:text-6xl font-black text-foreground tracking-tight">
-              All <span className="text-transparent bg-clip-text bg-gradient-to-r from-primary to-orange-400">Projects</span>
+              All <span className="text-transparent bg-clip-text bg-gradient-to-r from-primary to-orange-400">Portfolios</span>
               <span className="text-2xl text-foreground/30 ml-4">({projects.length})</span>
             </h2>
           </div>

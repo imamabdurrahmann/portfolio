@@ -45,7 +45,7 @@ export function Preloader() {
           <motion.div exit={{ opacity: 0, transition: { duration: 0.3 } }} className="preloader-content">
             <div className="preloader-name">IMAM</div>
             <div className="preloader-line" />
-            <div className="preloader-role">Flutter Developer</div>
+            <div className="preloader-role">Administrasi & Operasional</div>
             <div className="preloader-count">{Math.min(count, 100)}%</div>
           </motion.div>
         </motion.div>
