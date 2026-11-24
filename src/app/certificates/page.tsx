@@ -10,7 +10,7 @@ import { motion, AnimatePresence } from "framer-motion";
 export default function CertificatesPage() {
   const { t, locale } = useLocale();
   const allCertificates = getCertificates();
-  const [filter, setFilter] = useState<'all' | 'office' | 'data' | 'compliance' | 'academic'>('all');
+  const [filter, setFilter] = useState<'all' | 'office' | 'data' | 'compliance'>('all');
   const [selectedCert, setSelectedCert] = useState<Certificate | null>(null);
 
   const certificates = allCertificates.filter(c => filter === 'all' || c.category === filter);
@@ -107,7 +107,7 @@ export default function CertificatesPage() {
         <div className="container mx-auto max-w-6xl">
           {/* Filters */}
           <div className="flex justify-center flex-wrap gap-3 md:gap-4 mb-12">
-            {(['all', 'office', 'data', 'compliance', 'academic'] as const).map((f) => (
+            {(['all', 'office', 'data', 'compliance'] as const).map((f) => (
               <button
                 key={f}
                 onClick={() => setFilter(f)}
@@ -120,8 +120,7 @@ export default function CertificatesPage() {
                 {f === 'all' ? t('certificates.filterAll') : 
                  f === 'office' ? t('certificates.filterOffice') : 
                  f === 'data' ? t('certificates.filterData') : 
-                 f === 'compliance' ? t('certificates.filterCompliance') :
-                 t('certificates.filterAcademic')}
+                 t('certificates.filterCompliance')}
               </button>
             ))}
           </div>
@@ -243,8 +242,8 @@ export default function CertificatesPage() {
           </h2>
           <p className="text-foreground/60 text-base md:text-lg max-w-xl mx-auto mb-8">
             {locale === 'en'
-              ? 'All documents and academic transcripts are verified. Ready to contribute immediately.'
-              : 'Seluruh berkas ijazah, transkrip, dan sertifikat resmi tersedia untuk verifikasi rekrutmen.'
+              ? 'All documents and certificates are verified. Ready to contribute immediately.'
+              : 'Seluruh sertifikasi resmi dan dokumen kredensial terverifikasi. Siap berkontribusi secara profesional.'
             }
           </p>
           <Link

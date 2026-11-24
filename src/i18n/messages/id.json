@@ -55,12 +55,11 @@
   "certificates": {
     "title": "Sertifikasi & Kredensial",
     "titleAccent": "Resmi",
-    "subtitle": "Kualifikasi pendidikan formal, sertifikasi kemahiran Microsoft Excel, Office, Power BI, AML/KYC Compliance, dan kecerdasan buatan (AI)",
+    "subtitle": "Sertifikasi kemahiran profesional Microsoft Excel Lanjutan, Microsoft Office Suite, Power BI Business Intelligence, AML/KYC Compliance, dan AI Workflow Productivity",
     "filterAll": "Semua",
     "filterOffice": "Microsoft Office & Excel",
     "filterData": "Power BI & Data",
     "filterCompliance": "Kepatuhan & AI",
-    "filterAcademic": "Pendidikan & Bahasa",
     "viewDocument": "Lihat Dokumen Asli",
     "credentialId": "Kredensial",
     "issuedBy": "Penerbit",

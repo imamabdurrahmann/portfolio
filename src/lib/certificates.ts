@@ -6,7 +6,7 @@ export interface Certificate {
   issuer: string;
   issuerEn: string;
   year: string;
-  category: 'office' | 'data' | 'compliance' | 'academic';
+  category: 'office' | 'data' | 'compliance';
   description: string;
   descriptionEn: string;
   image: string;
@@ -106,54 +106,6 @@ export const certificates: Certificate[] = [
     credentialId: "UC-dd4a8d8c-35c6-4ff8-9580-d89fd38f9d41",
     credentialUrl: "https://ude.my/UC-dd4a8d8c-35c6-4ff8-9580-d89fd38f9d41",
     skills: ["AI Workflow Automation", "Prompt Engineering", "Efisiensi Dokumen", "Penyusunan Laporan Cepat"],
-  },
-  {
-    id: "6",
-    slug: "ijazah-s1-pendidikan-bahasa-inggris",
-    title: "Ijazah Sarjana (S1) Pendidikan Bahasa Inggris",
-    titleEn: "Bachelor of Education (S1) in English Education",
-    issuer: "Universitas Bengkulu",
-    issuerEn: "University of Bengkulu",
-    year: "2024",
-    category: "academic",
-    description: "Gelar Sarjana Pendidikan (S.Pd) dengan Indeks Prestasi Kumulatif (IPK) 3,77 dari skala 4,00 dengan predikat Sangat Memuaskan. Mempelajari komunikasi profesional, linguistik terapan, dan administrasi pendidikan.",
-    descriptionEn: "Bachelor of Education (B.Ed) degree graduated with Academic Distinction (GPA: 3.77 / 4.00). Specialized in professional communication, applied linguistics, and educational administration.",
-    image: "/certificates/ijazah-s1.jpg",
-    badge: "IPK 3,77 (Sangat Memuaskan)",
-    badgeEn: "GPA 3.77 (Academic Distinction)",
-    skills: ["Komunikasi Bahasa Inggris", "Administrasi Dokumen", "Pedagogi & Pelatihan", "Analisis Teks"],
-  },
-  {
-    id: "7",
-    slug: "toefl-itp-english-proficiency",
-    title: "Sertifikat Kemahiran Bahasa Inggris (TOEFL ITP)",
-    titleEn: "Official English Language Proficiency (TOEFL ITP)",
-    issuer: "IIEF / Educational Testing Service (ETS)",
-    issuerEn: "IIEF / Educational Testing Service (ETS)",
-    year: "2024",
-    category: "academic",
-    description: "Sertifikasi kemahiran bahasa Inggris standar internasional resmi. Memverifikasi kemampuan tingkat lanjut dalam pemahaman dokumen tertulis, tata bahasa bisnis, serta komunikasi formal perkantoran.",
-    descriptionEn: "Official international standardized English proficiency certification. Verifies advanced competency in reading comprehension, business grammar, and formal corporate correspondence.",
-    image: "/certificates/toefl-itp.jpg",
-    badge: "CEFR C1 / Working Fluency",
-    badgeEn: "CEFR C1 / Working Fluency",
-    skills: ["Business English", "Korespondensi Internasional", "Grammar & Dokumen", "Komunikasi Lintas Budaya"],
-  },
-  {
-    id: "8",
-    slug: "sertifikat-pelatihan-kompetensi-blk",
-    title: "Sertifikat Pelatihan Kompetensi Kerja — BLK Manna",
-    titleEn: "Vocational Competency Training Certificate — BLK Manna",
-    issuer: "Balai Latihan Kerja (Kementerian Ketenagakerjaan RI)",
-    issuerEn: "Vocational Training Center (Ministry of Manpower RI)",
-    year: "2023",
-    category: "compliance",
-    description: "Sertifikasi bukti kelulusan pelatihan berbasis kompetensi kerja, pemahaman kepatuhan Standar Operasional Prosedur (SOP), kedisiplinan kerja industri, serta standar Keselamatan dan Kesehatan Kerja (K3).",
-    descriptionEn: "Certified vocational training completion emphasizing workplace operational discipline, strict Standard Operating Procedure (SOP) compliance, and Occupational Health & Safety (K3) standards.",
-    image: "/certificates/sertifikat-blk.jpg",
-    badge: "Sertifikasi Resmi Kemnaker",
-    badgeEn: "Official Ministry Certification",
-    skills: ["Kepatuhan Standar K3", "Penegakan SOP", "Disiplin Kerja Lapangan", "Manajemen Prosedur"],
   },
 ];
 
