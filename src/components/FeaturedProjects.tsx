@@ -7,7 +7,7 @@ import { getFeaturedProjects } from "@/lib/projects";
 import { motion } from "framer-motion";
 import { Magnetic } from "./Magnetic";
 
-function ProjectMockup({ id }: { id: string }) {
+function ProjectMockup({ id, locale }: { id: string; locale: string }) {
   if (id === "1") {
     return (
       <div className="w-full h-full p-6 md:p-8 bg-[#0b1120] flex flex-col justify-between font-mono text-xs select-none">
@@ -19,31 +19,43 @@ function ProjectMockup({ id }: { id: string }) {
             <span className="text-slate-400 text-xs ml-2">omiko_warehouse_audit.xlsx</span>
           </div>
           <span className="px-2.5 py-1 rounded-full bg-emerald-500/10 text-emerald-400 text-[11px] font-bold border border-emerald-500/20">
-            Audit: 0% Discrepancy
+            {locale === 'en' ? 'Audit: 0% Discrepancy' : 'Audit: 0% Selisih'}
           </span>
         </div>
 
         <div className="grid grid-cols-2 gap-3 my-4">
           <div className="p-3.5 rounded-xl bg-slate-900/80 border border-slate-800">
-            <span className="text-slate-400 text-[11px] block">Stock Discrepancy</span>
+            <span className="text-slate-400 text-[11px] block">
+              {locale === 'en' ? 'Stock Discrepancy' : 'Selisih Stok Opname'}
+            </span>
             <span className="text-emerald-400 text-xl font-bold font-sans">0.00%</span>
-            <span className="text-slate-500 text-[10px] block mt-0.5">Physical vs System Match</span>
+            <span className="text-slate-500 text-[10px] block mt-0.5">
+              {locale === 'en' ? 'Physical vs System Match' : 'Kesesuaian Fisik vs Sistem'}
+            </span>
           </div>
           <div className="p-3.5 rounded-xl bg-slate-900/80 border border-slate-800">
-            <span className="text-slate-400 text-[11px] block">5S Compliance Audit</span>
+            <span className="text-slate-400 text-[11px] block">
+              {locale === 'en' ? '5S Compliance Audit' : 'Audit Standar 5S'}
+            </span>
             <span className="text-amber-400 text-xl font-bold font-sans">98.5%</span>
-            <span className="text-slate-500 text-[10px] block mt-0.5">Grade A (Standardized)</span>
+            <span className="text-slate-500 text-[10px] block mt-0.5">
+              {locale === 'en' ? 'Grade A (Standardized)' : 'Grade A (Terstandarisasi)'}
+            </span>
           </div>
         </div>
 
         <div className="space-y-2 text-[11px] text-slate-300">
           <div className="flex justify-between p-2.5 rounded-lg bg-slate-900/50 border border-slate-800/80">
-            <span>Inbound Logistics (Vendor)</span>
-            <span className="text-emerald-400 font-bold">100% Quality Checked</span>
+            <span>{locale === 'en' ? 'Inbound Logistics (Vendor)' : 'Logistik Inbound (Vendor)'}</span>
+            <span className="text-emerald-400 font-bold">
+              {locale === 'en' ? '100% Quality Checked' : '100% Lolos Uji Mutu'}
+            </span>
           </div>
           <div className="flex justify-between p-2.5 rounded-lg bg-slate-900/50 border border-slate-800/80">
-            <span>Outbound Unit Distribution</span>
-            <span className="text-primary font-bold">Allocated On-Time</span>
+            <span>{locale === 'en' ? 'Outbound Unit Distribution' : 'Distribusi Unit Outbound'}</span>
+            <span className="text-primary font-bold">
+              {locale === 'en' ? 'Allocated On-Time' : 'Teralokasi Tepat Waktu'}
+            </span>
           </div>
         </div>
       </div>
@@ -61,31 +73,41 @@ function ProjectMockup({ id }: { id: string }) {
             <span className="text-slate-400 text-xs ml-2">manpower_roster_24h.xlsx</span>
           </div>
           <span className="px-2.5 py-1 rounded-full bg-emerald-500/10 text-emerald-400 text-[11px] font-bold border border-emerald-500/20">
-            Shift Fulfillment: 98.4%
+            {locale === 'en' ? 'Shift Fulfillment: 98.4%' : 'Pemenuhan Shift: 98.4%'}
           </span>
         </div>
 
         <div className="grid grid-cols-2 gap-3 my-4">
           <div className="p-3.5 rounded-xl bg-slate-900/80 border border-slate-800">
-            <span className="text-slate-400 text-[11px] block">Shift Fulfillment</span>
+            <span className="text-slate-400 text-[11px] block">
+              {locale === 'en' ? 'Shift Fulfillment' : 'Tingkat Pemenuhan Shift'}
+            </span>
             <span className="text-emerald-400 text-xl font-bold font-sans">98.4%</span>
-            <span className="text-slate-500 text-[10px] block mt-0.5">3-Shift 24h Rotation</span>
+            <span className="text-slate-500 text-[10px] block mt-0.5">
+              {locale === 'en' ? '3-Shift 24h Rotation' : 'Rotasi 3-Shift 24 Jam'}
+            </span>
           </div>
           <div className="p-3.5 rounded-xl bg-slate-900/80 border border-slate-800">
-            <span className="text-slate-400 text-[11px] block">Overtime Reconciliation</span>
+            <span className="text-slate-400 text-[11px] block">
+              {locale === 'en' ? 'Overtime Reconciliation' : 'Rekonsiliasi Jam Lembur'}
+            </span>
             <span className="text-primary text-xl font-bold font-sans">100%</span>
-            <span className="text-slate-500 text-[10px] block mt-0.5">Zero Unbudgeted Discrepancy</span>
+            <span className="text-slate-500 text-[10px] block mt-0.5">
+              {locale === 'en' ? 'Zero Unbudgeted Discrepancy' : 'Nol Selisih Biaya Lembur'}
+            </span>
           </div>
         </div>
 
         <div className="space-y-2 text-[11px] text-slate-300">
           <div className="flex justify-between p-2.5 rounded-lg bg-slate-900/50 border border-slate-800/80">
-            <span>Timesheet Formula Engine</span>
+            <span>{locale === 'en' ? 'Timesheet Formula Engine' : 'Formula Otomasi Timesheet'}</span>
             <span className="text-emerald-400 font-bold">VLOOKUP • INDEX/MATCH</span>
           </div>
           <div className="flex justify-between p-2.5 rounded-lg bg-slate-900/50 border border-slate-800/80">
-            <span>Monthly Management Recap</span>
-            <span className="text-primary font-bold">Automated Pivot Tables</span>
+            <span>{locale === 'en' ? 'Monthly Management Recap' : 'Rekapitulasi Manajemen'}</span>
+            <span className="text-primary font-bold">
+              {locale === 'en' ? 'Automated Pivot Tables' : 'Pivot Tables Otomatis'}
+            </span>
           </div>
         </div>
       </div>
@@ -103,31 +125,45 @@ function ProjectMockup({ id }: { id: string }) {
           <span className="text-slate-400 text-xs ml-2">cat_bkn_scoring_engine.dat</span>
         </div>
         <span className="px-2.5 py-1 rounded-full bg-blue-500/10 text-blue-400 text-[11px] font-bold border border-blue-500/20">
-          BKN Benchmark Evaluated
+          {locale === 'en' ? 'BKN Benchmark Evaluated' : 'Benchmark BKN Teruji'}
         </span>
       </div>
 
       <div className="grid grid-cols-2 gap-3 my-4">
         <div className="p-3.5 rounded-xl bg-slate-900/80 border border-slate-800">
-          <span className="text-slate-400 text-[11px] block">Passing Grade Benchmark</span>
+          <span className="text-slate-400 text-[11px] block">
+            {locale === 'en' ? 'Passing Grade Benchmark' : 'Ambang Batas Nilai (Passing Grade)'}
+          </span>
           <span className="text-blue-400 text-xl font-bold font-sans">TWK • TIU • TKP</span>
-          <span className="text-slate-500 text-[10px] block mt-0.5">Official Threshold Scored</span>
+          <span className="text-slate-500 text-[10px] block mt-0.5">
+            {locale === 'en' ? 'Official Threshold Scored' : 'Penilaian Sesuai Ambang Resmi'}
+          </span>
         </div>
         <div className="p-3.5 rounded-xl bg-slate-900/80 border border-slate-800">
-          <span className="text-slate-400 text-[11px] block">Candidate Flow Stability</span>
-          <span className="text-emerald-400 text-xl font-bold font-sans">Zero Latency</span>
-          <span className="text-slate-500 text-[10px] block mt-0.5">Peak Load Synchronized</span>
+          <span className="text-slate-400 text-[11px] block">
+            {locale === 'en' ? 'Candidate Flow Stability' : 'Stabilitas Alur Peserta'}
+          </span>
+          <span className="text-emerald-400 text-xl font-bold font-sans">
+            {locale === 'en' ? 'Zero Latency' : 'Nol Latensi'}
+          </span>
+          <span className="text-slate-500 text-[10px] block mt-0.5">
+            {locale === 'en' ? 'Peak Load Synchronized' : 'Sinkronisasi Beban Puncak'}
+          </span>
         </div>
       </div>
 
       <div className="space-y-2 text-[11px] text-slate-300">
         <div className="flex justify-between p-2.5 rounded-lg bg-slate-900/50 border border-slate-800/80">
-          <span>Question Bank Validation</span>
-          <span className="text-emerald-400 font-bold">Hundreds Curated</span>
+          <span>{locale === 'en' ? 'Question Bank Validation' : 'Validasi Bank Soal'}</span>
+          <span className="text-emerald-400 font-bold">
+            {locale === 'en' ? 'Hundreds Curated' : 'Ratusan Soal Terkurasi'}
+          </span>
         </div>
         <div className="flex justify-between p-2.5 rounded-lg bg-slate-900/50 border border-slate-800/80">
-          <span>Performance Analytics</span>
-          <span className="text-primary font-bold">Diagnostic Score Chart</span>
+          <span>{locale === 'en' ? 'Performance Analytics' : 'Analisis Skor Diagnostik'}</span>
+          <span className="text-primary font-bold">
+            {locale === 'en' ? 'Diagnostic Score Chart' : 'Grafik Skor Diagnostik'}
+          </span>
         </div>
       </div>
     </div>
@@ -149,16 +185,19 @@ export function FeaturedProjects() {
             <div className="flex items-center gap-3 mb-4">
               <div className="w-2 h-2 rounded-full bg-primary animate-pulse"></div>
               <span className="text-sm font-semibold uppercase tracking-[0.2em] text-primary">
-                Selected Works
+                {locale === 'en' ? 'Selected Portfolio' : 'Portofolio Pilihan'}
               </span>
             </div>
             <h2 className="text-4xl sm:text-5xl md:text-7xl font-black text-foreground tracking-tighter break-words max-w-full">
-              Featured <span className="text-transparent bg-clip-text bg-gradient-to-r from-primary to-orange-400 inline-block">{t("featured.titleAccent")}</span>
+              {t("featured.title")}{" "}
+              <span className="text-transparent bg-clip-text bg-gradient-to-r from-primary to-orange-400 inline-block">
+                {t("featured.titleAccent")}
+              </span>
             </h2>
           </div>
           <Magnetic>
             <Link href="/projects" className="group inline-flex items-center gap-2 px-6 py-3 rounded-full border border-border bg-secondary/50 hover:bg-primary hover:border-primary hover:text-primary-foreground transition-all duration-300 backdrop-blur-sm">
-              <span className="font-semibold text-sm">View All Archive</span>
+              <span className="font-semibold text-sm">{locale === 'en' ? 'View All Portfolios' : 'Lihat Semua Portofolio'}</span>
               <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
             </Link>
           </Magnetic>
@@ -189,7 +228,7 @@ export function FeaturedProjects() {
                       transition={{ duration: 0.4, ease: "easeOut" }}
                       className="w-full h-full relative"
                     >
-                      <ProjectMockup id={project.id} />
+                      <ProjectMockup id={project.id} locale={locale} />
                     </motion.div>
 
                     {/* Badge */}
@@ -207,7 +246,7 @@ export function FeaturedProjects() {
                     
                     <div className="relative z-10 w-full">
                       <div className="flex flex-wrap gap-2 mb-6">
-                        {project.tech.slice(0, 4).map((tech) => (
+                        {(locale === 'en' && project.techEn ? project.techEn : project.tech).slice(0, 4).map((tech) => (
                           <span key={tech} className="px-3 py-1 text-xs font-mono font-medium rounded-full border border-primary/20 bg-primary/5 text-primary">
                             {tech}
                           </span>

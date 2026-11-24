@@ -80,7 +80,7 @@ export function ContactForm() {
       <div className="relative z-10">
         <div className="mb-8">
           <h3 className="text-2xl font-bold text-foreground flex items-center gap-2">
-            Contact Me
+            {t("contact.contactTitle")}
             <span className="w-2 h-2 rounded-full bg-primary animate-pulse" />
           </h3>
         </div>

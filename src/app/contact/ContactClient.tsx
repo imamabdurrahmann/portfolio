@@ -6,6 +6,7 @@ import { motion, AnimatePresence } from "framer-motion";
 import { Magnetic } from "@/components/Magnetic";
 import { LocationMap } from "@/components/LocationMap";
 import { useState, useEffect } from "react";
+import { useLocale } from "@/i18n/LocaleProvider";
 
 const LinkedinIcon = ({ className }: { className?: string }) => (
   <svg
@@ -32,55 +33,8 @@ const GithubIcon = ({ className }: { className?: string }) => (
   </svg>
 );
 
-const contactItems = [
-  {
-    icon: <LinkedinIcon className="h-5 w-5" />,
-    title: "LinkedIn",
-    value: "Muhammad Imam Abdurrahman",
-    href: "https://linkedin.com/in/muhammad-imam-abdurrahman-24108417a",
-  },
-  {
-    icon: <Mail className="h-5 w-5" />,
-    title: "Email",
-    value: "muhammadimamabdurrahman93@gmail.com",
-    href: "mailto:muhammadimamabdurrahman93@gmail.com",
-  },
-  {
-    icon: <GithubIcon className="h-5 w-5" />,
-    title: "GitHub",
-    value: "imamabdurrahmann",
-    href: "https://github.com/imamabdurrahmann",
-  },
-  {
-    icon: <MessageCircle className="h-5 w-5" />,
-    title: "WhatsApp",
-    value: "+62 823 7522 7802",
-    href: "https://wa.me/6282375227802?text=Halo%20Imam,%20saya%20tertarik%20untuk%20membahas%20peluang%20kerja%20administrasi/operasional",
-    badge: "Chat Langsung",
-  },
-  {
-    icon: (
-      <svg className="h-5 w-5" viewBox="0 0 24 24" fill="currentColor">
-        <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/>
-      </svg>
-    ),
-    title: "Instagram",
-    value: "@itsimammm",
-    href: "https://instagram.com/itsimammm",
-  },
-];
-
-// Separated Location & Time to be used in the Globe Card
-// instead of regular contactItems
-
-const services = [
-  "Administrasi Perkantoran & Dokumen",
-  "Pengolahan Data & Microsoft Excel",
-  "Pencatatan Keuangan & Pembukuan Kas",
-  "Manajemen Arsip & Korespondensi",
-];
-
 export function ContactClient() {
+  const { t, locale } = useLocale();
   const [time, setTime] = useState("");
   const [copiedItem, setCopiedItem] = useState<string | null>(null);
 
@@ -105,6 +59,53 @@ export function ContactClient() {
     setTimeout(() => setCopiedItem(null), 2000);
   };
 
+  const contactItems = [
+    {
+      icon: <LinkedinIcon className="h-5 w-5" />,
+      title: "LinkedIn",
+      value: "Muhammad Imam Abdurrahman",
+      href: "https://linkedin.com/in/muhammad-imam-abdurrahman-24108417a",
+    },
+    {
+      icon: <Mail className="h-5 w-5" />,
+      title: "Email",
+      value: "muhammadimamabdurrahman93@gmail.com",
+      href: "mailto:muhammadimamabdurrahman93@gmail.com",
+    },
+    {
+      icon: <GithubIcon className="h-5 w-5" />,
+      title: "GitHub",
+      value: "imamabdurrahmann",
+      href: "https://github.com/imamabdurrahmann",
+    },
+    {
+      icon: <MessageCircle className="h-5 w-5" />,
+      title: "WhatsApp",
+      value: "+62 823 7522 7802",
+      href: locale === 'en'
+        ? "https://wa.me/6282375227802?text=Hi%20Imam,%20I%20am%20interested%20in%20discussing%20administration/operations%20opportunities"
+        : "https://wa.me/6282375227802?text=Halo%20Imam,%20saya%20tertarik%20untuk%20membahas%20peluang%20kerja%20administrasi/operasional",
+      badge: t("contact.chatDirect"),
+    },
+    {
+      icon: (
+        <svg className="h-5 w-5" viewBox="0 0 24 24" fill="currentColor">
+          <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/>
+        </svg>
+      ),
+      title: "Instagram",
+      value: "@itsimammm",
+      href: "https://instagram.com/itsimammm",
+    },
+  ];
+
+  const services = [
+    t("contact.service1"),
+    t("contact.service2"),
+    t("contact.service3"),
+    t("contact.service4"),
+  ];
+
   return (
     <div className="min-h-screen pt-20 bg-background">
       {/* Hero */}
@@ -118,12 +119,20 @@ export function ContactClient() {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5 }}
           >
-            <span className="text-primary text-xs font-bold uppercase tracking-[0.2em]">Get In Touch</span>
+            <span className="text-primary text-xs font-bold uppercase tracking-[0.2em]">{t("contact.badge")}</span>
             <h1 className="text-5xl md:text-7xl font-black text-foreground mt-4 tracking-tighter">
-              Hubungi <span className="text-transparent bg-clip-text bg-gradient-to-r from-primary to-orange-400">Saya</span>
+              {locale === 'en' ? (
+                <>
+                  Let&apos;s <span className="text-transparent bg-clip-text bg-gradient-to-r from-primary to-orange-400">Connect</span>
+                </>
+              ) : (
+                <>
+                  Hubungi <span className="text-transparent bg-clip-text bg-gradient-to-r from-primary to-orange-400">Saya</span>
+                </>
+              )}
             </h1>
             <p className="mt-6 text-base md:text-lg text-foreground/60 max-w-2xl mx-auto leading-relaxed">
-              Tertarik merekrut atau ingin mendiskusikan peluang kerja posisi administrasi dan operasional? Silakan hubungi saya. Terbuka untuk penempatan penuh waktu maupun kontrak.
+              {t("contact.subtitle")}
             </p>
           </motion.div>
         </div>
@@ -220,10 +229,10 @@ export function ContactClient() {
                     <div className="p-2 bg-primary/20 rounded-xl">
                       <Zap className="h-5 w-5 text-primary" />
                     </div>
-                    <h3 className="text-xl font-bold text-foreground">Respons Cepat</h3>
+                    <h3 className="text-xl font-bold text-foreground">{t("contact.quickResponseTitle")}</h3>
                   </div>
                   <p className="text-sm text-foreground/70 leading-relaxed font-medium">
-                    Biasanya merespons dalam 1x24 jam. Untuk kebutuhan urgent, silakan hubungi via WhatsApp.
+                    {t("contact.quickResponseDesc")}
                   </p>
                 </div>
               </div>
@@ -244,8 +253,8 @@ export function ContactClient() {
                       <Clock className="w-4 h-4 text-primary" />
                     </div>
                     <div className="bg-card/80 backdrop-blur-md px-3 py-1.5 rounded-xl border border-border">
-                      <p className="text-xs text-foreground/60 font-semibold uppercase tracking-wider">Local Time</p>
-                      <p className="font-black text-foreground font-mono">{time || "Menghitung..."}</p>
+                      <p className="text-xs text-foreground/60 font-semibold uppercase tracking-wider">{t("contact.localTime")}</p>
+                      <p className="font-black text-foreground font-mono">{time || (locale === 'en' ? 'Calculating...' : 'Menghitung...')}</p>
                     </div>
                   </div>
                 </div>
@@ -269,7 +278,7 @@ export function ContactClient() {
                     <div className="p-2 bg-secondary rounded-xl">
                       <Send className="h-4 w-4 text-primary" />
                     </div>
-                    <h3 className="font-bold text-foreground text-lg">Bidang Keahlian & Layanan</h3>
+                    <h3 className="font-bold text-foreground text-lg">{t("contact.servicesTitle")}</h3>
                   </div>
                   <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                     {services.map((service, idx) => (
@@ -288,4 +297,3 @@ export function ContactClient() {
     </div>
   );
 }
-

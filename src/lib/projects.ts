@@ -9,6 +9,7 @@ export interface Project {
   appStore?: string;
   github?: string;
   tech: string[];
+  techEn?: string[];
   featured?: boolean;
   contactMessage?: string;
   category: 'operations' | 'administration' | 'finance';
@@ -22,6 +23,7 @@ export const projects: Project[] = [
     description: "Supervisi penuh arus logistik inbound/outbound, stok opname berkala dengan hasil zero-variance (nol selisih), serta penegakan standar 5S dan SOP pergudangan di Omiko Hotel (6+ tahun pengalaman).",
     image: "/projects/omiko-warehouse/preview.png",
     tech: ["Kontrol Inventaris", "Stok Opname", "Inbound & Outbound", "Metode 5S", "SOP Pergudangan", "Microsoft Excel"],
+    techEn: ["Inventory Control", "Stock Audit", "Inbound & Outbound", "5S Methodology", "Warehouse SOP", "Microsoft Excel"],
     featured: true,
     contactMessage: "Halo Imam, saya tertarik berdiskusi mengenai pengalaman manajemen operasional dan kontrol inventaris gudang",
     category: "operations",
@@ -33,6 +35,7 @@ export const projects: Project[] = [
     description: "Perancangan sistem roster kerja 24 jam untuk staf operasional, pemantauan presensi digital, rekonsiliasi lembur, dan pelaporan biaya operasional bulanan berbasis Microsoft Excel (Pivot Tables, VLOOKUP) dan script data automation dengan tingkat shift fulfillment 98%+.",
     image: "/projects/excel-timesheet/preview.png",
     tech: ["Microsoft Excel Lanjutan", "Python & Data Automation", "Penjadwalan Roster", "Rekonsiliasi Timesheet", "Analisis Presensi", "Manajemen SDM"],
+    techEn: ["Advanced Microsoft Excel", "Python & Data Automation", "Roster Scheduling", "Timesheet Reconciliation", "Attendance Analytics", "HR Management"],
     featured: true,
     contactMessage: "Halo Imam, saya tertarik berdiskusi mengenai sistem roster shift staf dan rekonsiliasi timesheet Excel",
     category: "administration",
@@ -51,6 +54,7 @@ export const projects: Project[] = [
       "/projects/tryout-cpns/listratusansoalataupreviewtampilan.jpg",
     ],
     tech: ["Administrasi Database", "Python Data Processing", "Standar CAT BKN", "Pengolahan Bank Soal", "Analisis Skor & Evaluasi", "Time Management"],
+    techEn: ["Database Administration", "Python Data Processing", "CAT BKN Standard", "Question Bank Management", "Score & Diagnostic Analytics", "Time Management"],
     featured: true,
     contactMessage: "Halo Imam, saya tertarik dengan project administrasi database dan sistem evaluasi CAT BKN",
     category: "administration",
@@ -62,6 +66,7 @@ export const projects: Project[] = [
     description: "Implementasi sistem pencatatan transaksi kasir terintegrasi barcode scanner untuk pelacakan pergerakan barang secara real-time. Rekapitulasi penjualan harian, pembukuan kas otomatis, dan pencegahan selisih barang masuk/keluar.",
     image: "/projects/pos-inventory/preview.png",
     tech: ["Pelacakan Stok Real-Time", "Pembukuan Kas Harian", "Barcode Tracking", "Rekonsiliasi Transaksi"],
+    techEn: ["Real-Time Stock Tracking", "Daily Cash Balancing", "Barcode Tracking", "Transaction Reconciliation"],
     featured: false,
     contactMessage: "Halo Imam, saya tertarik berdiskusi mengenai sistem kasir POS dan kontrol inventaris",
     category: "finance",

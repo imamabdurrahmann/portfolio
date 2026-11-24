@@ -141,7 +141,7 @@ function ProjectDetail({ project }: ProjectDetailProps) {
             {locale === 'en' ? 'Core Competencies & Tools' : 'Kompetensi & Tools'}
           </h2>
           <div className="flex flex-wrap gap-2">
-            {project.tech.map((tech) => (
+            {(locale === 'en' && project.techEn ? project.techEn : project.tech).map((tech) => (
               <span key={tech} className="px-3 py-1.5 text-xs font-medium rounded-lg bg-secondary text-foreground/80 border border-border">
                 {tech}
               </span>

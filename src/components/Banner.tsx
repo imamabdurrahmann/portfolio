@@ -9,12 +9,12 @@ import { useState, useEffect } from "react";
 import { getLiveAge, AgeDetails } from "@/lib/age";
 
 const competencies = [
-  { icon: FileSpreadsheet, label: "Ms. Excel Lanjutan" },
-  { icon: Terminal, label: "Python Automation" },
-  { icon: Sparkles, label: "AI Workflows" },
-  { icon: Database, label: "Data Processing" },
-  { icon: FolderCheck, label: "Arsip Digital" },
-  { icon: FileText, label: "Ms. Word" },
+  { icon: FileSpreadsheet, label: "Ms. Excel Lanjutan", labelEn: "Advanced Ms. Excel" },
+  { icon: Terminal, label: "Python Automation", labelEn: "Python Automation" },
+  { icon: Sparkles, label: "AI Workflows", labelEn: "AI Workflows" },
+  { icon: Database, label: "Pemrosesan Data", labelEn: "Data Processing" },
+  { icon: FolderCheck, label: "Arsip Digital", labelEn: "Digital Archiving" },
+  { icon: FileText, label: "Tata Kelola Dokumen", labelEn: "Document Governance" },
 ];
 
 const TypewriterText = ({ text, delay = 0 }: { text: string; delay?: number }) => {
@@ -119,7 +119,7 @@ export function Banner() {
                   className="flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-card border border-border/50 text-xs font-medium"
                 >
                   <comp.icon className="w-3.5 h-3.5 text-primary" />
-                  {comp.label}
+                  {locale === 'en' ? comp.labelEn : comp.label}
                 </motion.div>
               ))}
             </div>
@@ -208,7 +208,9 @@ export function Banner() {
                     <span className="text-primary font-semibold">
                       {locale === 'en' ? 'Target Roles:' : 'Minat Posisi:'}
                     </span>
-                    <span className="text-foreground/90">Staff Administrasi / Operations & Data Automation</span>
+                    <span className="text-foreground/90">
+                      {locale === 'en' ? 'Office Administrator / Operations & Data Automation' : 'Staf Administrasi / Otomasi Data & Operasional'}
+                    </span>
                   </div>
                   <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-1">
                     <span className="text-primary font-semibold">
@@ -220,13 +222,17 @@ export function Banner() {
                     <span className="text-primary font-semibold">
                       {locale === 'en' ? 'Superpower:' : 'Nilai Tambah:'}
                     </span>
-                    <span className="text-foreground/90">Otomasi Skrip Kantor, AI Workflows, Zero-Variance</span>
+                    <span className="text-foreground/90">
+                      {locale === 'en' ? 'Office Script Automation, AI Workflows, Zero-Variance' : 'Otomasi Skrip Kantor, AI Workflows, Zero-Variance'}
+                    </span>
                   </div>
                   <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-1">
                     <span className="text-primary font-semibold">
                       {locale === 'en' ? 'Work Ethic:' : 'Etos Kerja:'}
                     </span>
-                    <span className="text-foreground/90">Teliti, Terorganisir, Cepat Belajar, Efisiensi Tinggi</span>
+                    <span className="text-foreground/90">
+                      {locale === 'en' ? 'Meticulous, Systematic, Fast Learner, Highly Efficient' : 'Teliti, Terorganisir, Cepat Belajar, Efisiensi Tinggi'}
+                    </span>
                   </div>
                 </div>
 

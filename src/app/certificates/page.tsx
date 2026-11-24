@@ -194,7 +194,7 @@ export default function CertificatesPage() {
 
                     {/* Skill Tags */}
                     <div className="flex flex-wrap gap-2 mb-6">
-                      {cert.skills.map((skill) => (
+                      {(locale === 'en' && cert.skillsEn ? cert.skillsEn : cert.skills).map((skill) => (
                         <span
                           key={skill}
                           className="text-xs px-3 py-1 rounded-full bg-secondary text-foreground/80 font-medium border border-border"

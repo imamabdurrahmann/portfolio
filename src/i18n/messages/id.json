@@ -69,6 +69,7 @@
   "contact": {
     "title": "Mari Terhubung",
     "subtitle": "Tertarik merekrut atau mendiskusikan posisi administrasi/operasional? Silakan hubungi saya. Terbuka untuk penempatan kerja penuh waktu maupun kontrak.",
+    "badge": "Hubungi Saya",
     "contactTitle": "Hubungi Saya",
     "name": "Nama Lengkap",
     "namePlaceholder": "Nama Anda / Nama Perusahaan",
@@ -79,7 +80,16 @@
     "sending": "Mengirim...",
     "send": "Kirim Pesan",
     "successTitle": "Pesan Terkirim!",
-    "successMessage": "Terima kasih, saya akan membalas pesan Anda secepatnya."
+    "successMessage": "Terima kasih, saya akan membalas pesan Anda secepatnya.",
+    "quickResponseTitle": "Respons Cepat",
+    "quickResponseDesc": "Biasanya merespons dalam 1x24 jam. Untuk kebutuhan mendesak, silakan hubungi via WhatsApp.",
+    "servicesTitle": "Bidang Keahlian & Layanan",
+    "service1": "Administrasi Perkantoran & Dokumen",
+    "service2": "Pengolahan Data & Microsoft Excel",
+    "service3": "Otomasi Skrip Kantor (Python & AI)",
+    "service4": "Tata Kelola Arsip & Filing Digital",
+    "localTime": "Waktu Lokal",
+    "chatDirect": "Chat Langsung"
   },
   "footer": {
     "copyright": "Hak cipta dilindungi."

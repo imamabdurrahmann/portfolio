@@ -22,7 +22,7 @@ const getIconBg = (id: string) => {
 };
 
 export default function ProjectsPage() {
-  const { t } = useLocale();
+  const { t, locale } = useLocale();
   const allProjects = getProjects();
   const [filter, setFilter] = useState<'all' | 'operations' | 'administration' | 'finance'>('all');
 
@@ -97,7 +97,7 @@ export default function ProjectsPage() {
                       <div className="flex items-center gap-3">
                         {project.featured && (
                           <span className="flex items-center gap-1 px-3 py-1 rounded-full bg-primary/15 text-primary text-xs font-bold border border-primary/20">
-                            <Star className="w-3 h-3 fill-primary" /> Featured
+                            <Star className="w-3 h-3 fill-primary" /> {t("projectCard.featured")}
                           </span>
                         )}
                         <span className="text-3xl font-black text-foreground/20 font-mono group-hover:text-primary/30 transition-colors">
@@ -118,7 +118,7 @@ export default function ProjectsPage() {
 
                     {/* Tags */}
                     <div className="flex flex-wrap gap-2 mb-8">
-                      {project.tech.map((tech) => (
+                      {(locale === 'en' && project.techEn ? project.techEn : project.tech).map((tech) => (
                         <span key={tech} className="text-xs px-3 py-1.5 rounded-full bg-secondary text-foreground/80 font-medium border border-border">
                           {tech}
                         </span>

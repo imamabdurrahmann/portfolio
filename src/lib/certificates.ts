@@ -15,6 +15,7 @@ export interface Certificate {
   credentialUrl?: string;
   credentialId?: string;
   skills: string[];
+  skillsEn?: string[];
 }
 
 export const certificates: Certificate[] = [
@@ -35,6 +36,7 @@ export const certificates: Certificate[] = [
     credentialId: "UC-f273e4ec-7376-4666-a34d-9e78d3a0d93f",
     credentialUrl: "https://ude.my/UC-f273e4ec-7376-4666-a34d-9e78d3a0d93f",
     skills: ["Microsoft Excel Lanjutan", "VLOOKUP & Pivot Tables", "Pemodelan Data", "Otomasi Spreadsheet"],
+    skillsEn: ["Advanced Microsoft Excel", "VLOOKUP & Pivot Tables", "Data Modeling", "Spreadsheet Automation"],
   },
   {
     id: "2",
@@ -52,6 +54,7 @@ export const certificates: Certificate[] = [
     badgeEn: "DTA-26-04670 • Verified",
     credentialId: "DTA-26-04670",
     skills: ["Administrasi Perkantoran", "Microsoft Word", "Microsoft Excel", "Microsoft PowerPoint"],
+    skillsEn: ["Office Administration", "Microsoft Word", "Microsoft Excel", "Microsoft PowerPoint"],
   },
   {
     id: "3",
@@ -70,6 +73,7 @@ export const certificates: Certificate[] = [
     credentialId: "UC-570ab904-b9ca-49b8-ad8c-08809c810fc9",
     credentialUrl: "https://ude.my/UC-570ab904-b9ca-49b8-ad8c-08809c810fc9",
     skills: ["Business Intelligence", "Power BI Desktop", "DAX Formulas", "Executive Dashboards", "Data Modeling"],
+    skillsEn: ["Business Intelligence", "Power BI Desktop", "DAX Formulas", "Executive Dashboards", "Data Modeling"],
   },
   {
     id: "4",
@@ -88,6 +92,7 @@ export const certificates: Certificate[] = [
     credentialId: "UC-d176d46f-d831-4675-be6c-6d1281154264",
     credentialUrl: "https://ude.my/UC-d176d46f-d831-4675-be6c-6d1281154264",
     skills: ["KYC & Customer Verification", "AML Compliance", "Due Diligence", "Manajemen Risiko", "Kepatuhan Regulasi"],
+    skillsEn: ["KYC & Customer Verification", "AML Compliance", "Due Diligence", "Risk Management", "Regulatory Compliance"],
   },
   {
     id: "5",
@@ -106,6 +111,7 @@ export const certificates: Certificate[] = [
     credentialId: "UC-dd4a8d8c-35c6-4ff8-9580-d89fd38f9d41",
     credentialUrl: "https://ude.my/UC-dd4a8d8c-35c6-4ff8-9580-d89fd38f9d41",
     skills: ["AI Workflow Automation", "Prompt Engineering", "Efisiensi Dokumen", "Penyusunan Laporan Cepat"],
+    skillsEn: ["AI Workflow Automation", "Prompt Engineering", "Document Efficiency", "Rapid Report Drafting"],
   },
 ];
 
