@@ -37,8 +37,8 @@ export function getLiveAge(referenceDate?: Date): AgeDetails {
     days,
     totalDays,
     totalDaysFormatted: totalDays.toLocaleString("id-ID"),
-    formattedId: `${years} Thn ${months} Bln ${days} Hari`,
-    formattedEn: `${years} Yrs ${months} Mos ${days} Days`,
+    formattedId: `${years} Tahun ${months} Bulan ${days} Hari`,
+    formattedEn: `${years} Years ${months} Months ${days} Days`,
     dobFormattedId: "28 Des 2002",
     dobFormattedEn: "Dec 28, 2002",
   };
