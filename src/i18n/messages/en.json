@@ -12,7 +12,7 @@
     "titleAccent": "& Operations Automation",
     "titleAccent2": "Powered by Python, AI & Advanced Excel",
     "typingRole": "I'm ready as an {role}",
-    "description": "Modern administrative and operations professional with 6+ years experience combining document governance with Python Automation, AI Workflows, and Advanced Excel to execute workplace tasks faster, structured, and with zero-variance accuracy.",
+    "description": "Modern administrative and operations professional combining document governance with Python Automation, AI Workflows, and Advanced Excel to execute workplace tasks faster, structured, and with zero-variance accuracy.",
     "storyTitle": "Meticulous Governance Meets Modern Automation",
     "storyDescription": "Precision in document management and data integrity drives organizational excellence. Combining Microsoft Office, Power BI, Python scripting, and practical AI workflows, I eliminate repetitive manual chores, compile executive reports rapidly, and maintain 100% data accuracy.",
     "viewProject": "View Portfolio",
@@ -46,9 +46,9 @@
   "projects": {
     "title": "All Portfolios",
     "titleAccent": "& Track Record",
-    "subtitle": "Explore my track record in warehouse operations, HR manpower systems, exam database administration, and inventory cashier control",
+    "subtitle": "Explore my track record in manpower systems, exam database administration, and inventory cashier control",
     "filterAll": "All",
-    "filterOperations": "Operations & Warehouse",
+    "filterOperations": "Operations & Shift",
     "filterAdministration": "Administration & HR",
     "filterFinance": "Finance & Cashier"
   },
@@ -95,10 +95,6 @@
     "copyright": "All rights reserved."
   },
   "projectData": {
-    "1": {
-      "title": "Warehouse Operations & Inventory Control Management (Omiko Hotel)",
-      "description": "Comprehensive logistics oversight of inbound/outbound flows, routine stock audits with zero-variance results, and strict enforcement of 5S and warehouse SOP standards at Omiko Hotel (6+ years experience)."
-    },
     "2": {
       "title": "Staff Shift Rostering & Timesheet Reconciliation (Advanced Excel)",
       "description": "Design and execution of 24/7 staff shift schedules, digital attendance monitoring, overtime reconciliation, and monthly operational expense reporting via Advanced Excel (Pivot Tables, VLOOKUP) with 98%+ shift fulfillment."

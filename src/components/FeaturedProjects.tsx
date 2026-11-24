@@ -8,7 +8,7 @@ import { motion } from "framer-motion";
 import { Magnetic } from "./Magnetic";
 
 function ProjectMockup({ id, locale }: { id: string; locale: string }) {
-  if (id === "1") {
+  if (id === "4") {
     return (
       <div className="w-full h-full p-6 md:p-8 bg-[#0b1120] flex flex-col justify-between font-mono text-xs select-none">
         <div className="flex items-center justify-between pb-4 border-b border-white/10">
@@ -16,46 +16,42 @@ function ProjectMockup({ id, locale }: { id: string; locale: string }) {
             <div className="w-3 h-3 rounded-full bg-red-500/80"></div>
             <div className="w-3 h-3 rounded-full bg-yellow-500/80"></div>
             <div className="w-3 h-3 rounded-full bg-green-500/80"></div>
-            <span className="text-slate-400 text-xs ml-2">omiko_warehouse_audit.xlsx</span>
+            <span className="text-slate-400 text-xs ml-2">pos_cashier_balance.log</span>
           </div>
-          <span className="px-2.5 py-1 rounded-full bg-emerald-500/10 text-emerald-400 text-[11px] font-bold border border-emerald-500/20">
-            {locale === 'en' ? 'Audit: 0% Discrepancy' : 'Audit: 0% Selisih'}
+          <span className="px-2.5 py-1 rounded-full bg-amber-500/10 text-amber-400 text-[11px] font-bold border border-amber-500/20">
+            {locale === 'en' ? 'Cash Variance: 0%' : 'Selisih Kas: 0%'}
           </span>
         </div>
 
         <div className="grid grid-cols-2 gap-3 my-4">
           <div className="p-3.5 rounded-xl bg-slate-900/80 border border-slate-800">
             <span className="text-slate-400 text-[11px] block">
-              {locale === 'en' ? 'Stock Discrepancy' : 'Selisih Stok Opname'}
+              {locale === 'en' ? 'Daily Balancing' : 'Pembukuan Kas Harian'}
             </span>
-            <span className="text-emerald-400 text-xl font-bold font-sans">0.00%</span>
+            <span className="text-emerald-400 text-xl font-bold font-sans">100% Match</span>
             <span className="text-slate-500 text-[10px] block mt-0.5">
-              {locale === 'en' ? 'Physical vs System Match' : 'Kesesuaian Fisik vs Sistem'}
+              {locale === 'en' ? 'System vs Cash Balance' : 'Kesesuaian Sistem vs Kas Fisik'}
             </span>
           </div>
           <div className="p-3.5 rounded-xl bg-slate-900/80 border border-slate-800">
             <span className="text-slate-400 text-[11px] block">
-              {locale === 'en' ? '5S Compliance Audit' : 'Audit Standar 5S'}
+              {locale === 'en' ? 'Barcode Scan Velocity' : 'Kecepatan Barcode'}
             </span>
-            <span className="text-amber-400 text-xl font-bold font-sans">98.5%</span>
+            <span className="text-primary text-xl font-bold font-sans">&lt; 1.5s</span>
             <span className="text-slate-500 text-[10px] block mt-0.5">
-              {locale === 'en' ? 'Grade A (Standardized)' : 'Grade A (Terstandarisasi)'}
+              {locale === 'en' ? 'Real-Time Inventory Sync' : 'Sinkronisasi Stok Real-Time'}
             </span>
           </div>
         </div>
 
         <div className="space-y-2 text-[11px] text-slate-300">
           <div className="flex justify-between p-2.5 rounded-lg bg-slate-900/50 border border-slate-800/80">
-            <span>{locale === 'en' ? 'Inbound Logistics (Vendor)' : 'Logistik Inbound (Vendor)'}</span>
-            <span className="text-emerald-400 font-bold">
-              {locale === 'en' ? '100% Quality Checked' : '100% Lolos Uji Mutu'}
-            </span>
+            <span>{locale === 'en' ? 'Transaction Audit' : 'Audit Transaksi Kasir'}</span>
+            <span className="text-emerald-400 font-bold">100% Reconciled</span>
           </div>
           <div className="flex justify-between p-2.5 rounded-lg bg-slate-900/50 border border-slate-800/80">
-            <span>{locale === 'en' ? 'Outbound Unit Distribution' : 'Distribusi Unit Outbound'}</span>
-            <span className="text-primary font-bold">
-              {locale === 'en' ? 'Allocated On-Time' : 'Teralokasi Tepat Waktu'}
-            </span>
+            <span>{locale === 'en' ? 'Stock Movement Alert' : 'Peringatan Stok Minimum'}</span>
+            <span className="text-primary font-bold">Automated Notification</span>
           </div>
         </div>
       </div>

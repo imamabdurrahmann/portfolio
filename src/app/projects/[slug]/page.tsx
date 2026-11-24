@@ -255,52 +255,6 @@ interface FeatureCategory {
 }
 
 function getAllFeaturesByProject(slug: string, locale: string): FeatureCategory[] {
-  if (slug === "manajemen-operasional-gudang-omiko") {
-    return locale === 'en' ? [
-      {
-        category: "Inventory & Warehouse Control",
-        icon: <PackageCheck className="w-5 h-5 text-primary" />,
-        features: [
-          { title: "Routine Stock Audits", description: "Periodic physical stock counts with 0% data variance between ledger and inventory" },
-          { title: "Inbound Flow Supervision", description: "Structured receiving logs from suppliers with quality control verification" },
-          { title: "Outbound Distribution", description: "Timely allocation of daily operational supplies across hotel departments" },
-          { title: "5S Standard Implementation", description: "Established systematic workplace organization (Sort, Set in order, Shine, Standardize, Sustain)" },
-        ]
-      },
-      {
-        category: "SOP & Vendor Management",
-        icon: <Shield className="w-5 h-5 text-primary" />,
-        features: [
-          { title: "SOP Formulation", description: "Authored Standard Operating Procedures for frontline logistics and stock issuance" },
-          { title: "Vendor Coordination", description: "Liaised with 40+ local and regional suppliers for timely procurement and pricing" },
-          { title: "Asset & Card Stock Tracking", description: "Maintained accurate physical stock cards and digital spreadsheets" },
-          { title: "Workplace Safety Compliance", description: "Ensured adherence to occupational safety standards in storage facilities" },
-        ]
-      }
-    ] : [
-      {
-        category: "Kontrol Inventaris & Pergudangan",
-        icon: <PackageCheck className="w-5 h-5 text-primary" />,
-        features: [
-          { title: "Stok Opname Rutin", description: "Audit fisik berkala dengan hasil 0% selisih data antara pencatatan dan fisik barang" },
-          { title: "Supervisi Alur Inbound", description: "Pencatatan penerimaan barang dari vendor dengan pengecekan standar mutu (QC)" },
-          { title: "Distribusi Outbound", description: "Alokasi tepat waktu kebutuhan harian ke seluruh departemen operasional hotel" },
-          { title: "Penerapan Standar 5S", description: "Menjaga kerapian dan sistem tata kelola gudang dengan metode Seiri, Seiton, Seiso, Seiketsu, Shitsuke" },
-        ]
-      },
-      {
-        category: "Standarisasi SOP & Vendor",
-        icon: <Shield className="w-5 h-5 text-primary" />,
-        features: [
-          { title: "Penyusunan SOP Pergudangan", description: "Menyusun Standard Operating Procedure untuk alur barang dan keselamatan kerja" },
-          { title: "Koordinasi Multi-Vendor", description: "Menangani kerja sama dengan 40+ supplier lokal dan regional untuk kontinuitas pasokan" },
-          { title: "Pelacakan Kartu Stok & Aset", description: "Pengelolaan kartu stok fisik dan rekonsiliasi spreadsheet berkala" },
-          { title: "Kepatuhan K3 & Keamanan", description: "Memastikan lingkungan penyimpanan aman dari risiko kerusakan dan kecelakaan kerja" },
-        ]
-      }
-    ];
-  }
-
   if (slug === "penjadwalan-roster-absensi-excel") {
     return locale === 'en' ? [
       {

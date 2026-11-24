@@ -12,7 +12,7 @@
     "titleAccent": "& Otomasi Operasional",
     "titleAccent2": "Didukung Python, AI & Excel Lanjutan",
     "typingRole": "Saya siap bekerja sebagai {role}",
-    "description": "Profesional administrasi dan operasional modern berpengalaman 6+ tahun memadukan ketelitian tata kelola dokumen dengan efisiensi Python Automation, AI Workflows, serta Microsoft Excel Lanjutan untuk menyelesaikan alur kerja kantor lebih cepat, terstruktur, dan bebas selisih (zero-variance).",
+    "description": "Profesional administrasi dan operasional modern yang memadukan ketelitian tata kelola dokumen dengan efisiensi Python Automation, AI Workflows, serta Microsoft Excel Lanjutan untuk menyelesaikan alur kerja kantor lebih cepat, terstruktur, dan bebas selisih (zero-variance).",
     "storyTitle": "Ketelitian Manual Bertemu Otomasi Modern",
     "storyDescription": "Ketelitian dalam tata kelola dokumen dan akurasi data adalah kunci kelancaran operasional setiap organisasi. Dengan keahlian Microsoft Office, Power BI, Python scripting, dan pemanfaatan AI praktis, saya mampu mengeliminasi tugas repetitif manual, menyusun laporan eksekutif dengan cepat, serta menjaga akurasi data hingga tingkat 100%.",
     "viewProject": "Lihat Portofolio",
@@ -46,9 +46,9 @@
   "projects": {
     "title": "Semua Portofolio",
     "titleAccent": "& Rekam Jejak",
-    "subtitle": "Jelajahi rekam jejak portofolio manajemen pergudangan, sistem administrasi SDM, database evaluasi, dan kontrol kasir",
+    "subtitle": "Jelajahi rekam jejak portofolio sistem administrasi SDM, database evaluasi, dan kontrol kasir operasional",
     "filterAll": "Semua",
-    "filterOperations": "Operasional & Gudang",
+    "filterOperations": "Operasional & Shift",
     "filterAdministration": "Administrasi & SDM",
     "filterFinance": "Keuangan & Kasir"
   },
@@ -95,10 +95,6 @@
     "copyright": "Hak cipta dilindungi."
   },
   "projectData": {
-    "1": {
-      "title": "Manajemen Operasional & Kontrol Inventaris Gudang (Omiko Hotel)",
-      "description": "Supervisi penuh arus logistik inbound/outbound, stok opname berkala dengan hasil zero-variance (nol selisih), serta penegakan standar 5S dan SOP pergudangan di Omiko Hotel (6+ tahun pengalaman)."
-    },
     "2": {
       "title": "Sistem Roster Shift Staf & Rekonsiliasi Timesheet (Excel Lanjutan)",
       "description": "Perancangan sistem roster kerja 24 jam untuk staf operasional, pemantauan presensi digital, rekonsiliasi lembur, dan pelaporan biaya operasional bulanan berbasis Microsoft Excel (Pivot Tables, VLOOKUP) dengan tingkat shift fulfillment 98%+."

@@ -17,18 +17,6 @@ export interface Project {
 
 export const projects: Project[] = [
   {
-    id: "1",
-    slug: "manajemen-operasional-gudang-omiko",
-    title: "Manajemen Operasional & Kontrol Inventaris Gudang",
-    description: "Supervisi penuh arus logistik inbound/outbound, stok opname berkala dengan hasil zero-variance (nol selisih), serta penegakan standar 5S dan SOP pergudangan di Omiko Hotel (6+ tahun pengalaman).",
-    image: "/projects/omiko-warehouse/preview.png",
-    tech: ["Kontrol Inventaris", "Stok Opname", "Inbound & Outbound", "Metode 5S", "SOP Pergudangan", "Microsoft Excel"],
-    techEn: ["Inventory Control", "Stock Audit", "Inbound & Outbound", "5S Methodology", "Warehouse SOP", "Microsoft Excel"],
-    featured: true,
-    contactMessage: "Halo Imam, saya tertarik berdiskusi mengenai pengalaman manajemen operasional dan kontrol inventaris gudang",
-    category: "operations",
-  },
-  {
     id: "2",
     slug: "penjadwalan-roster-absensi-excel",
     title: "Sistem Roster Shift Staf & Rekonsiliasi Timesheet (Excel & Otomasi)",
@@ -38,7 +26,7 @@ export const projects: Project[] = [
     techEn: ["Advanced Microsoft Excel", "Python & Data Automation", "Roster Scheduling", "Timesheet Reconciliation", "Attendance Analytics", "HR Management"],
     featured: true,
     contactMessage: "Halo Imam, saya tertarik berdiskusi mengenai sistem roster shift staf dan rekonsiliasi timesheet Excel",
-    category: "administration",
+    category: "operations",
   },
   {
     id: "3",
@@ -67,7 +55,7 @@ export const projects: Project[] = [
     image: "/projects/pos-inventory/preview.png",
     tech: ["Pelacakan Stok Real-Time", "Pembukuan Kas Harian", "Barcode Tracking", "Rekonsiliasi Transaksi"],
     techEn: ["Real-Time Stock Tracking", "Daily Cash Balancing", "Barcode Tracking", "Transaction Reconciliation"],
-    featured: false,
+    featured: true,
     contactMessage: "Halo Imam, saya tertarik berdiskusi mengenai sistem kasir POS dan kontrol inventaris",
     category: "finance",
   },
