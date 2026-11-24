@@ -6,6 +6,7 @@ import { Magnetic } from "./Magnetic";
 import { useLocale } from "@/i18n/LocaleProvider";
 import { motion } from "framer-motion";
 import { useState, useEffect } from "react";
+import { getLiveAge, AgeDetails } from "@/lib/age";
 
 const competencies = [
   { icon: FileSpreadsheet, label: "Ms. Excel" },
@@ -35,6 +36,17 @@ const TypewriterText = ({ text, delay = 0 }: { text: string; delay?: number }) =
 
 export function Banner() {
   const { t, locale } = useLocale();
+  const [mounted, setMounted] = useState(false);
+  const [age, setAge] = useState<AgeDetails>(() => getLiveAge());
+
+  useEffect(() => {
+    setMounted(true);
+    setAge(getLiveAge());
+    const interval = setInterval(() => {
+      setAge(getLiveAge());
+    }, 60000);
+    return () => clearInterval(interval);
+  }, []);
 
   return (
     <section className="hero-section relative w-full overflow-hidden flex items-center justify-center pt-32 pb-16 lg:pt-40 lg:pb-24 min-h-[95vh]">
@@ -167,6 +179,28 @@ export function Banner() {
                       {locale === 'en' ? 'Candidate:' : 'Kandidat:'}
                     </span>
                     <span className="text-foreground font-bold">Muhammad Imam Abdurrahman</span>
+                  </div>
+                  <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-1">
+                    <span className="text-primary font-semibold flex items-center gap-1.5">
+                      <span>{locale === 'en' ? 'Age & DOB:' : 'Usia & Lahir:'}</span>
+                      <span 
+                        className="text-[9px] px-1 py-0.2 rounded bg-emerald-500/10 text-emerald-400 border border-emerald-500/20 font-mono font-bold"
+                        title={locale === 'en' ? 'Calculated automatically every single day' : 'Terhitung otomatis setiap hari'}
+                      >
+                        fx
+                      </span>
+                    </span>
+                    <div className="text-foreground/90 flex items-center gap-1.5 flex-wrap sm:justify-end">
+                      <span className="font-bold text-emerald-400">
+                        {mounted ? (locale === 'en' ? age.formattedEn : age.formattedId) : `${age.years} Tahun`}
+                      </span>
+                      <span 
+                        className="text-[10px] px-1.5 py-0.5 rounded bg-white/5 border border-white/10 text-foreground/50 font-mono"
+                        title={locale === 'en' ? 'Total days lived' : 'Total hari hidup'}
+                      >
+                        {mounted ? `${age.totalDaysFormatted} ${locale === 'en' ? 'days' : 'hari'}` : '28 Des 2002'}
+                      </span>
+                    </div>
                   </div>
                   <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-1">
                     <span className="text-primary font-semibold">
