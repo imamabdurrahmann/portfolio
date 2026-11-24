@@ -16,9 +16,9 @@ function ProjectMockup({ id, locale }: { id: string; locale: string }) {
             <div className="w-3 h-3 rounded-full bg-red-500/80"></div>
             <div className="w-3 h-3 rounded-full bg-yellow-500/80"></div>
             <div className="w-3 h-3 rounded-full bg-green-500/80"></div>
-            <span className="text-slate-400 text-xs ml-2">pos_cashier_balance.log</span>
+            <span className="text-slate-400 text-xs ml-2 truncate max-w-[120px] sm:max-w-none">pos_cashier_balance.log</span>
           </div>
-          <span className="px-2.5 py-1 rounded-full bg-amber-500/10 text-amber-400 text-[11px] font-bold border border-amber-500/20">
+          <span className="px-2.5 py-1 rounded-full bg-amber-500/10 text-amber-400 text-[11px] font-bold border border-amber-500/20 whitespace-nowrap shrink-0">
             {locale === 'en' ? 'Cash Variance: 0%' : 'Selisih Kas: 0%'}
           </span>
         </div>
@@ -66,9 +66,9 @@ function ProjectMockup({ id, locale }: { id: string; locale: string }) {
             <div className="w-3 h-3 rounded-full bg-red-500/80"></div>
             <div className="w-3 h-3 rounded-full bg-yellow-500/80"></div>
             <div className="w-3 h-3 rounded-full bg-green-500/80"></div>
-            <span className="text-slate-400 text-xs ml-2">manpower_roster_24h.xlsx</span>
+            <span className="text-slate-400 text-xs ml-2 truncate max-w-[120px] sm:max-w-none">manpower_roster_24h.xlsx</span>
           </div>
-          <span className="px-2.5 py-1 rounded-full bg-emerald-500/10 text-emerald-400 text-[11px] font-bold border border-emerald-500/20">
+          <span className="px-2.5 py-1 rounded-full bg-emerald-500/10 text-emerald-400 text-[11px] font-bold border border-emerald-500/20 whitespace-nowrap shrink-0">
             {locale === 'en' ? 'Shift Fulfillment: 98.4%' : 'Pemenuhan Shift: 98.4%'}
           </span>
         </div>
@@ -118,9 +118,9 @@ function ProjectMockup({ id, locale }: { id: string; locale: string }) {
           <div className="w-3 h-3 rounded-full bg-red-500/80"></div>
           <div className="w-3 h-3 rounded-full bg-yellow-500/80"></div>
           <div className="w-3 h-3 rounded-full bg-green-500/80"></div>
-          <span className="text-slate-400 text-xs ml-2">cat_bkn_scoring_engine.dat</span>
+          <span className="text-slate-400 text-xs ml-2 truncate max-w-[120px] sm:max-w-none">cat_bkn_scoring_engine.dat</span>
         </div>
-        <span className="px-2.5 py-1 rounded-full bg-blue-500/10 text-blue-400 text-[11px] font-bold border border-blue-500/20">
+        <span className="px-2.5 py-1 rounded-full bg-blue-500/10 text-blue-400 text-[11px] font-bold border border-blue-500/20 whitespace-nowrap shrink-0">
           {locale === 'en' ? 'BKN Benchmark Evaluated' : 'Benchmark BKN Teruji'}
         </span>
       </div>
@@ -226,12 +226,6 @@ export function FeaturedProjects() {
                     >
                       <ProjectMockup id={project.id} locale={locale} />
                     </motion.div>
-
-                    {/* Badge */}
-                    <div className="absolute top-6 right-6 px-4 py-2 rounded-full bg-black/60 backdrop-blur-md border border-white/10 text-white text-xs font-bold flex items-center gap-2">
-                      <Star className="w-3 h-3 text-primary" />
-                      {t("projectCard.featured")}
-                    </div>
                   </Link>
 
                   {/* Content Container */}
@@ -241,7 +235,18 @@ export function FeaturedProjects() {
                     </div>
                     
                     <div className="relative z-10 w-full">
-                      <div className="flex flex-wrap gap-2 mb-6">
+                      {/* Featured & Category Badges */}
+                      <div className="flex items-center gap-2 mb-3">
+                        <span className="inline-flex items-center gap-1 px-2.5 py-1 rounded-full bg-primary/10 border border-primary/25 text-primary text-xs font-bold shadow-sm">
+                          <Star className="w-3 h-3 fill-primary text-primary" />
+                          {t("projectCard.featured")}
+                        </span>
+                        <span className="px-2.5 py-1 rounded-full bg-secondary border border-border text-foreground/70 text-xs font-semibold uppercase tracking-wider">
+                          {t(`projects.filter${project.category.charAt(0).toUpperCase() + project.category.slice(1)}`)}
+                        </span>
+                      </div>
+
+                      <div className="flex flex-wrap gap-2 mb-4">
                         {(locale === 'en' && project.techEn ? project.techEn : project.tech).slice(0, 4).map((tech) => (
                           <span key={tech} className="px-3 py-1 text-xs font-mono font-medium rounded-full border border-primary/20 bg-primary/5 text-primary">
                             {tech}

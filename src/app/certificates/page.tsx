@@ -156,20 +156,23 @@ export default function CertificatesPage() {
                       </span>
                     </div>
 
-                    {/* Verified Badge */}
-                    <div className="absolute top-4 left-4 px-3 py-1.5 rounded-full bg-black/75 backdrop-blur-md border border-white/10 text-emerald-400 text-xs font-bold flex items-center gap-1.5 shadow-md">
-                      <ShieldCheck className="w-4 h-4 text-emerald-400" />
-                      {t("certificates.verified")}
-                    </div>
+                    {/* Top Badges Bar */}
+                    <div className="absolute top-3 sm:top-4 inset-x-3 sm:inset-x-4 flex flex-wrap items-center justify-between gap-1.5 sm:gap-2 z-10 pointer-events-none">
+                      {/* Verified Badge */}
+                      <div className="px-2.5 sm:px-3 py-1 rounded-full bg-black/80 backdrop-blur-md border border-white/15 text-emerald-400 text-[11px] sm:text-xs font-bold flex items-center gap-1.5 shadow-md pointer-events-auto">
+                        <ShieldCheck className="w-3.5 h-3.5 text-emerald-400 shrink-0" />
+                        <span>{t("certificates.verified")}</span>
+                      </div>
 
-                    {/* Honor Badge */}
-                    <div className="absolute top-4 right-4 px-3 py-1.5 rounded-full bg-primary/20 backdrop-blur-md border border-primary/30 text-primary text-xs font-bold shadow-md">
-                      {locale === 'en' ? cert.badgeEn : cert.badge}
+                      {/* Honor Badge */}
+                      <div className="px-2.5 sm:px-3 py-1 rounded-full bg-primary/20 backdrop-blur-md border border-primary/40 text-primary text-[11px] sm:text-xs font-bold shadow-md pointer-events-auto">
+                        <span>{locale === 'en' ? cert.badgeEn : cert.badge}</span>
+                      </div>
                     </div>
                   </div>
 
                   {/* Card Content */}
-                  <div className="p-8 md:p-10 flex flex-col flex-grow">
+                  <div className="p-5 sm:p-8 md:p-10 flex flex-col flex-grow">
                     {/* Meta info: Issuer & Year */}
                     <div className="flex flex-wrap items-center justify-between gap-2 text-xs font-medium text-foreground/50 mb-3">
                       <span className="flex items-center gap-1.5 font-semibold text-foreground/70">

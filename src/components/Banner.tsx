@@ -89,7 +89,7 @@ export function Banner() {
             </p>
 
             <div className="flex flex-col sm:flex-row flex-wrap items-center gap-3 sm:gap-4 mb-8 sm:mb-10 w-full sm:w-auto">
-              <Magnetic>
+              <Magnetic className="w-full sm:w-auto">
                 <Link href="/projects" className="w-full sm:w-auto group relative inline-flex items-center justify-center gap-2 px-6 sm:px-8 py-3.5 sm:py-4 bg-primary text-primary-foreground font-bold rounded-full overflow-hidden transition-all active:scale-95 shadow-[inset_0_-4px_0_rgba(0,0,0,0.2)] hover:shadow-[inset_0_-4px_0_rgba(0,0,0,0.4)] hover:bg-orange-600 text-sm sm:text-base">
                   <span className="relative flex items-center gap-2">
                     {t("hero.viewProject")}
@@ -98,7 +98,7 @@ export function Banner() {
                 </Link>
               </Magnetic>
               
-              <Magnetic>
+              <Magnetic className="w-full sm:w-auto">
                 <Link href="/contact" className="w-full sm:w-auto group inline-flex items-center justify-center gap-2 px-6 sm:px-8 py-3.5 sm:py-4 bg-secondary/80 hover:bg-secondary border border-border text-foreground font-bold rounded-full transition-colors active:scale-95 backdrop-blur-md text-sm sm:text-base">
                   <Mail className="w-5 h-5 text-primary" />
                   <span>{t("hero.contactMe")}</span>
@@ -133,7 +133,7 @@ export function Banner() {
             className="lg:col-span-5 relative flex flex-col items-center lg:items-end mt-12 lg:mt-0 w-full"
           >
             {/* Profile Image */}
-            <div className="relative z-20 w-36 h-36 sm:w-48 sm:h-48 md:w-60 md:h-60 rounded-full p-2 bg-gradient-to-tr from-primary to-orange-400 mb-[-2.5rem] sm:mb-[-3rem] mr-auto lg:mr-10 shadow-2xl shadow-primary/20 hover:scale-105 transition-transform duration-500">
+            <div className="relative z-20 w-36 h-36 sm:w-48 sm:h-48 md:w-60 md:h-60 rounded-full p-2 bg-gradient-to-tr from-primary to-orange-400 mb-6 sm:mb-8 lg:mb-[-3rem] mx-auto lg:mr-10 lg:ml-auto shadow-2xl shadow-primary/20 hover:scale-105 transition-transform duration-500">
               <div className="w-full h-full rounded-full overflow-hidden border-4 border-background bg-card">
                 <img
                   src="/profile.jpg"
@@ -144,12 +144,12 @@ export function Banner() {
               
               {/* Floating badge */}
               <motion.div 
-                animate={{ y: [0, -10, 0] }}
-                transition={{ duration: 4, repeat: Infinity, ease: "easeInOut" }}
-                className="absolute -right-2 sm:-right-4 top-1/2 px-3 sm:px-4 py-1.5 sm:py-2 rounded-2xl bg-card border border-border flex items-center gap-2 shadow-xl"
+                animate={{ y: [0, -6, 0] }}
+                transition={{ duration: 3, repeat: Infinity, ease: "easeInOut" }}
+                className="absolute -bottom-3 left-1/2 -translate-x-1/2 whitespace-nowrap px-3.5 py-1.5 rounded-full bg-card/95 border border-emerald-500/40 text-emerald-400 text-xs font-bold flex items-center gap-1.5 shadow-2xl backdrop-blur-md z-30"
               >
-                <CheckCircle2 className="w-4 h-4 text-emerald-500" />
-                <span className="text-sm font-bold">{locale === 'en' ? 'Open for Work' : 'Siap Bekerja'}</span>
+                <span className="w-2 h-2 rounded-full bg-emerald-400 animate-pulse"></span>
+                <span>{locale === 'en' ? 'Open for Work' : 'Siap Bekerja'}</span>
               </motion.div>
             </div>
 

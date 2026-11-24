@@ -82,7 +82,7 @@ export default function ProjectsPage() {
                   viewport={{ once: true, margin: "-50px" }}
                   transition={{ duration: 0.5, delay: index * 0.1 }}
                   key={project.id}
-                  className="group relative p-8 md:p-10 rounded-[2rem] bg-card border border-border hover:border-primary/50 transition-all duration-300 flex flex-col justify-between shadow-xl hover:shadow-2xl hover:shadow-primary/5 min-h-[420px]"
+                  className="group relative p-5 sm:p-8 md:p-10 rounded-[2rem] bg-card border border-border hover:border-primary/50 transition-all duration-300 flex flex-col justify-between shadow-xl hover:shadow-2xl hover:shadow-primary/5 min-h-[360px] md:min-h-[420px]"
                 >
                   {/* Subtle top right ambient glow */}
                   <div className="absolute top-0 right-0 w-64 h-64 bg-primary/5 rounded-full blur-3xl pointer-events-none group-hover:bg-primary/10 transition-colors duration-500" />

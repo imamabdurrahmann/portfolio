@@ -2,7 +2,13 @@
 import React, { useRef, useState } from "react";
 import { motion } from "framer-motion";
 
-export function Magnetic({ children }: { children: React.ReactElement }) {
+export function Magnetic({ 
+  children, 
+  className = "" 
+}: { 
+  children: React.ReactElement; 
+  className?: string;
+}) {
   const ref = useRef<HTMLDivElement>(null);
   const [position, setPosition] = useState({ x: 0, y: 0 });
 
@@ -19,7 +25,7 @@ export function Magnetic({ children }: { children: React.ReactElement }) {
 
   return (
     <motion.div
-      style={{ display: "inline-flex" }}
+      className={`inline-flex ${className}`}
       ref={ref}
       onMouseMove={handleMouse}
       onMouseLeave={reset}
