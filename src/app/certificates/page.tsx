@@ -53,7 +53,7 @@ export default function CertificatesPage() {
                         href={selectedCert.credentialUrl}
                         target="_blank"
                         rel="noopener noreferrer"
-                        className="text-xs px-2.5 py-1 rounded-full bg-primary/20 text-primary font-semibold hover:bg-primary hover:text-primary-foreground transition-colors flex items-center gap-1"
+                        className="text-xs px-2.5 py-1 rounded-full bg-primary text-primary-foreground font-bold hover:bg-orange-600 transition-colors flex items-center gap-1 shadow-sm"
                       >
                         <ExternalLink className="w-3 h-3" />
                         Verify
@@ -146,7 +146,7 @@ export default function CertificatesPage() {
                       alt={cert.title}
                       className="w-full h-full object-cover object-top opacity-95 group-hover/img:opacity-100 group-hover/img:scale-105 transition-all duration-500"
                     />
-                    <div className="absolute inset-0 bg-gradient-to-t from-background/90 via-transparent to-black/30" />
+                    <div className="absolute inset-0 bg-gradient-to-t from-background/90 via-transparent to-black/40 pointer-events-none" />
                     
                     {/* Hover Eye Overlay */}
                     <div className="absolute inset-0 flex items-center justify-center opacity-0 group-hover/img:opacity-100 transition-opacity bg-black/40 backdrop-blur-[2px]">
@@ -159,13 +159,14 @@ export default function CertificatesPage() {
                     {/* Top Badges Bar */}
                     <div className="absolute top-3 sm:top-4 inset-x-3 sm:inset-x-4 flex flex-wrap items-center justify-between gap-1.5 sm:gap-2 z-10 pointer-events-none">
                       {/* Verified Badge */}
-                      <div className="px-2.5 sm:px-3 py-1 rounded-full bg-black/80 backdrop-blur-md border border-white/15 text-emerald-400 text-[11px] sm:text-xs font-bold flex items-center gap-1.5 shadow-md pointer-events-auto">
+                      <div className="px-2.5 sm:px-3 py-1 rounded-full bg-black/90 backdrop-blur-md border border-emerald-500/40 text-emerald-400 text-[11px] sm:text-xs font-bold flex items-center gap-1.5 shadow-lg pointer-events-auto">
                         <ShieldCheck className="w-3.5 h-3.5 text-emerald-400 shrink-0" />
                         <span>{t("certificates.verified")}</span>
                       </div>
 
                       {/* Honor Badge */}
-                      <div className="px-2.5 sm:px-3 py-1 rounded-full bg-primary/20 backdrop-blur-md border border-primary/40 text-primary text-[11px] sm:text-xs font-bold shadow-md pointer-events-auto">
+                      <div className="px-2.5 sm:px-3 py-1 rounded-full bg-black/90 backdrop-blur-md border border-amber-500/40 text-amber-300 text-[11px] sm:text-xs font-bold flex items-center gap-1.5 shadow-lg pointer-events-auto">
+                        <Award className="w-3.5 h-3.5 text-amber-400 shrink-0" />
                         <span>{locale === 'en' ? cert.badgeEn : cert.badge}</span>
                       </div>
                     </div>
